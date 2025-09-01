@@ -22,7 +22,7 @@ bibliography: book.bib
 
 format:
   html:
-    theme: cosmo
+    theme: simplex
   pdf:
     documentclass: scrreprt
   epub:

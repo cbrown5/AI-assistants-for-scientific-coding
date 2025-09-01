@@ -4,7 +4,7 @@
     "href": "04-llm-prompting-fundamentals.html",
     "title": "4  LLM prompting fundamentals",
     "section": "",
-    "text": "4.1 Setup authorisation",
+    "text": "4.1 Setup authorisation\nGet your API key, see Section 3.4 and then Section 3.7 for connecting that to Ellmer.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
     ]
@@ -347,6 +347,76 @@
     "text": "10.3 Agent security\n\nCan run code on your computer\nBe careful what it is doing\nRead prompts before running them",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cost and security</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI assistants for Scientific Coding",
+    "section": "",
+    "text": "0.1 Summary\nIf you are doing data analysis you are probably using language models (e.g. ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.\nI will cover:\nThe content I’ll teach is suitable for anyone using computing coding (e.g. R, Python) to do data analysis.\nExamples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so participants can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "AI assistants for Scientific Coding",
+    "section": "",
+    "text": "How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).\nVibe coding and how future analysis workflows will change dramatically from today\nBest practice prompting techniques that can dramatically improve model performance for complex data analysis\nApplying language models to common environmental applications such as GLMs and multivariate statistics\nIssues including environmental impacts, copyright and ethics\nI’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.\n\n\n\n\n0.1.0.1 Who should read this book?\nThe book is for: anyone who currently uses R, from intermittent users to experienced professionals. The workshop is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots.\nImportant This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about-chris",
+    "href": "index.html#about-chris",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.2 About Chris",
+    "text": "0.2 About Chris\nI’m an Associate Professor of Fisheries Science at University of Tasmania and an Australian Research Council Future Fellow. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#citation-for-book",
+    "href": "index.html#citation-for-book",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.3 Citation for book",
+    "text": "0.3 Citation for book\nIf following the prompting advice please consider citing my accompanying article, currently in pre-print form:\nCitation: Brown & Spillias (2025). Prompting large language models for quality ecological statistics. Pre-print. https://doi.org/10.32942/X2CS80",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#software-youll-need-for-this-workshop",
+    "href": "index.html#software-youll-need-for-this-workshop",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.4 Software you’ll need for this workshop",
+    "text": "0.4 Software you’ll need for this workshop\nSave some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See the Chapter 3 for more detailed instructions.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#book-overview",
+    "href": "index.html#book-overview",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.5 Book overview",
+    "text": "0.5 Book overview\nNote the book isn’t currently complete. I’ve just posted this so workshop attendees can use the set-up instructions in Chapter 3. Here’s an earlier version of the book that is finished.\nPart 1 Generative AI for research applications\nChapters 4-5 deal with the basics of prompting LLMs, as well as some more advanced research applications such as systematic literature reviewers and automating topic research.\nPart 2 Generative AI coding assistants for scientific computation\nIn chapters 6-8 we’ll look at how you can use coding assistants to improve your scientific coding. These chapters will make use of Github Copilot, those other AI coding assistants can also be used.\nPart 3\nWe’ll discuss ethics, copyright, costs and security in chapters 9-10.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.6 Data",
+    "text": "0.6 Data\nWe’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.\n\n0.6.1 Benthic cover surveys and fish habitat\nIn this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by Hamilton et al. 2017 who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.\nIn a follow-up study Brown and Hamilton 2018 developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
