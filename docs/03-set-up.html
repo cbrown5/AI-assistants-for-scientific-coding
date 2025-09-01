@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Software you’ll need for this book and how to set it up – AI assistants for Scientific Coding</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-llm-prompting-fundamentals.html" rel="next">
+<link href="./02-introduction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-set-up.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software you’ll need for this book and how to set it up</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI assistants for Scientific Coding</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI Assistants for Scientific Coding</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-set-up.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software you’ll need for this book and how to set it up</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-llm-prompting-fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-github-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-ethics-copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-cost-security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cost and security</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link active" data-scroll-target="#r-packages"><span class="header-section-number">3.1</span> R packages</a></li>
+  <li><a href="#options-for-ai-software" id="toc-options-for-ai-software" class="nav-link" data-scroll-target="#options-for-ai-software"><span class="header-section-number">3.2</span> Options for AI software</a>
+  <ul class="collapse">
+  <li><a href="#preferred-option-for-r-users" id="toc-preferred-option-for-r-users" class="nav-link" data-scroll-target="#preferred-option-for-r-users"><span class="header-section-number">3.2.1</span> Preferred option for R users</a></li>
+  <li><a href="#option-2-for-r-users" id="toc-option-2-for-r-users" class="nav-link" data-scroll-target="#option-2-for-r-users"><span class="header-section-number">3.2.2</span> Option 2 for R users</a></li>
+  <li><a href="#python-users" id="toc-python-users" class="nav-link" data-scroll-target="#python-users"><span class="header-section-number">3.2.3</span> Python users</a></li>
+  <li><a href="#options-3" id="toc-options-3" class="nav-link" data-scroll-target="#options-3"><span class="header-section-number">3.2.4</span> Options 3 +</a></li>
+  </ul></li>
+  <li><a href="#software-options-summary" id="toc-software-options-summary" class="nav-link" data-scroll-target="#software-options-summary"><span class="header-section-number">3.3</span> Software options summary</a></li>
+  <li><a href="#sec-apikeys" id="toc-sec-apikeys" class="nav-link" data-scroll-target="#sec-apikeys"><span class="header-section-number">3.4</span> Getting an API key</a></li>
+  <li><a href="#sec-vscodesetup" id="toc-sec-vscodesetup" class="nav-link" data-scroll-target="#sec-vscodesetup"><span class="header-section-number">3.5</span> VSCode set-up for R users</a>
+  <ul class="collapse">
+  <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements"><span class="header-section-number">3.5.1</span> Software requirements</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r"><span class="header-section-number">3.5.2</span> Install R</a></li>
+  <li><a href="#r-packages-1" id="toc-r-packages-1" class="nav-link" data-scroll-target="#r-packages-1"><span class="header-section-number">3.5.3</span> R packages</a></li>
+  <li><a href="#install-vscode" id="toc-install-vscode" class="nav-link" data-scroll-target="#install-vscode"><span class="header-section-number">3.5.4</span> Install VScode</a></li>
+  <li><a href="#install-r-extension" id="toc-install-r-extension" class="nav-link" data-scroll-target="#install-r-extension"><span class="header-section-number">3.5.5</span> Install R extension</a></li>
+  <li><a href="#connect-r-and-vscode" id="toc-connect-r-and-vscode" class="nav-link" data-scroll-target="#connect-r-and-vscode"><span class="header-section-number">3.5.6</span> Connect R and VScode</a></li>
+  <li><a href="#issues-and-tips-for-vscode-with-r" id="toc-issues-and-tips-for-vscode-with-r" class="nav-link" data-scroll-target="#issues-and-tips-for-vscode-with-r"><span class="header-section-number">3.5.7</span> Issues and tips for VScode with R</a></li>
+  <li><a href="#installing-radian-optional" id="toc-installing-radian-optional" class="nav-link" data-scroll-target="#installing-radian-optional"><span class="header-section-number">3.5.8</span> Installing radian (optional)</a></li>
+  </ul></li>
+  <li><a href="#sec-githubcopilot" id="toc-sec-githubcopilot" class="nav-link" data-scroll-target="#sec-githubcopilot"><span class="header-section-number">3.6</span> Github Copilot set-up</a></li>
+  <li><a href="#sec-ellmer" id="toc-sec-ellmer" class="nav-link" data-scroll-target="#sec-ellmer"><span class="header-section-number">3.7</span> Ellmer set-up</a></li>
+  <li><a href="#sec-gander" id="toc-sec-gander" class="nav-link" data-scroll-target="#sec-gander"><span class="header-section-number">3.8</span> Gander: Rstudio friendly alternative to copilot</a></li>
+  <li><a href="#sec-otheroptions" id="toc-sec-otheroptions" class="nav-link" data-scroll-target="#sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VSCode extensions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-setup" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Software you’ll need for this book and how to set it up</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>There’s lots of options for AI coding assistant software. What you use will depend on:</p>
+<ul>
+<li>Whether you are using R or Python</li>
+<li>Your level of coding experience</li>
+<li>Your IT capabilities for setting up software</li>
+<li>What you budget for AI is</li>
+</ul>
+<p>Below I’ve provided instructions for some of the options. These certainly aren’t comprehensive.</p>
+<p>I recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that’s relevant to your set-up needs.</p>
+<section id="r-packages" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">3.1</span> R packages</h2>
+<p>If you are using R then we will make use of: <code>install.packages(c("vegan", "ellmer","tidyverse")</code>. For Python users you can follow along most examples without these, this isn’t an R training course, its an course on using AI to assist with coding.</p>
+</section>
+<section id="options-for-ai-software" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="options-for-ai-software"><span class="header-section-number">3.2</span> Options for AI software</h2>
+<section id="preferred-option-for-r-users" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="preferred-option-for-r-users"><span class="header-section-number">3.2.1</span> Preferred option for R users</h3>
+<p>What I will be using, and what I prefer you to use is:</p>
+<ul>
+<li>The R program from the VS Code Integrated Development Environment (IDE)</li>
+<li>Github Copilot</li>
+<li>R Ellmer package, for which you’ll need an API key to one of the LLM providers</li>
+</ul>
+<p>The challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down!</p>
+<p>If you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>) (required for ellmer), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a>), VS code setup (<a href="#sec-vscodesetup" class="quarto-xref"><span>Section 3.5</span></a>) and ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>).</p>
+</section>
+<section id="option-2-for-r-users" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="option-2-for-r-users"><span class="header-section-number">3.2.2</span> Option 2 for R users</h3>
+<p>Use Rstudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a>) and ‘Gander: Rstudio friendly alternative to copilot’ (<a href="#sec-gander" class="quarto-xref"><span>Section 3.8</span></a>)</p>
+</section>
+<section id="python-users" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="python-users"><span class="header-section-number">3.2.3</span> Python users</h3>
+<p>I’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.</p>
+<p>You will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for <a href="https://code.visualstudio.com/docs/python/python-tutorial">Python set-up</a>.</p>
+<p>Then follow the instructions for ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>).</p>
+<p>I also recommend you get an API key with OpenRouter (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>).</p>
+<p>You don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.</p>
+</section>
+<section id="options-3" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="options-3"><span class="header-section-number">3.2.4</span> Options 3 +</h3>
+<p>There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See <a href="#sec-otheroptions" class="quarto-xref"><span>Section 3.9</span></a>.</p>
+<p>As a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.</p>
+</section>
+</section>
+<section id="software-options-summary" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="software-options-summary"><span class="header-section-number">3.3</span> Software options summary</h2>
+<p>Here are some of the software options I’ve looked at. Or if you’ve picked your option from the above list, just jump ahead to the required sections.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 63%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Best for</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VScode with Github Copilot</td>
+<td>Coders of all abilities who have a fixed budget or just want to try IDE integration</td>
+<td>- Subscription based<br>- Capable free tier<br>- Editor integration (auto-complete style)<br>- Agent mode<br>- Multiple LLMs available<br>- Easy to use</td>
+<td>- VSCode can be hard to set-up for R users<br>- Less flexibility and customization than other agents<br>- The Github Copilot Agent is less automated than other agent software<br>- Limited choice of LLMs (unless you BYO API key)</td>
+</tr>
+<tr class="even">
+<td>Ellmer R package</td>
+<td>R users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers.</td>
+<td>- Works anywhere R works<br>- Unlimited flexibility<br>- BYO API key, can interact with any LLM<br>- Automate API calls to LLMs</td>
+<td>- Only a basic prompt interface provided (you need to write it)</td>
+</tr>
+<tr class="odd">
+<td>Gander R package</td>
+<td>Moderately experienced R users who don’t want to leave RStudio.</td>
+<td>- Works with Rstudio<br>- Can see ‘inside of’ R objects, so knows your variable names<br>- Can customize how it works to optimize performance and cost<br>- BYO API key, can interact with any LLM</td>
+<td>- Requires some experience with the R program<br>- Not as deeply integrated with Rstudio as Github Copilot is with VScode (doesn’t have as many features as copilot)</td>
+</tr>
+<tr class="even">
+<td>Aider</td>
+<td>Experienced python programmers</td>
+<td>- Python based AI agent<br>- Interact with the agent via Python code<br>- Highly flexible, can use as an everyday coding assistant or to create bespoke agents<br>- Can edit files as well as run in agent mode</td>
+<td>- Not a straightforward prompt interface<br>- Requires Python coding experience</td>
+</tr>
+<tr class="odd">
+<td>VSCode with Roo Code</td>
+<td>Experienced programmers who want to fully automate coding workflows</td>
+<td>- Fully automated agents<br>- Multiple modes for different behaviours, e.g.&nbsp;architect versus code<br>- Orchestrate mode that can delegate to sub-agents and complete very complex tasks<br>- BYO API key<br>- System messages fully customizable for advanced scientific applications of agents<br>- One of the best performing and most popular agents</td>
+<td>- VSCode can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing ‘as you type’ like copilot<br>- Not suitable for novice programmers</td>
+</tr>
+<tr class="even">
+<td>VSCode with Cline</td>
+<td>Same as Roo Code. The user base for Cline is slightly larger.</td>
+<td>- Fully automated agents<br>- Multiple modes for different behaviours<br>- BYO API key<br>- System messages customizable<br>- Large user base</td>
+<td>- Less options for customizing the system prompt compared to Roo Code<br>- Not suitable for novice programmers</td>
+</tr>
+<tr class="odd">
+<td>Positron with Roo Code or Cline</td>
+<td>R users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.</td>
+<td>- Possibly a bit easier to set-up R than with VScode<br>- Pros and cons are same as VScode with Roo Code or Cline</td>
+<td>- New software<br>- Limited features and support</td>
+</tr>
+</tbody>
+</table>
+<p>There are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Claude code, Cursor and Windsurf. I haven’t tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio.</p>
+</section>
+<section id="sec-apikeys" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-apikeys"><span class="header-section-number">3.4</span> Getting an API key</h2>
+<p>An API key is like a password that allows the AI assistant (e.g.&nbsp;roo code) to send your prompt to a large language model. Your key should be kept private. Usually you’ll have to buy some credits. These allow you to send prompts to the LLM. You’ll be paying per prompt.</p>
+<p>Now you need to choose your large language model provider. I’m currently using OpenRouter and Anthropic, which have a diversity of models for generating text, code and reading images. Do some web searching to find out the latest info on providers and models.</p>
+<p>You choose depends on what you want to do and your budget. Some providers offer a free tier. You’ll need to web search for the latest info on this.</p>
+<p>For this workshop I <strong>strongly recommend you get an OpenRouter API key</strong>. This will give you the most flexibility to try different models and to find models that have free options.</p>
+<p>Once you’ve chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.</p>
+<p>The one caveat is that OpenRouter may not have access the the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key.</p>
+<p><strong>Important</strong> the sign-up for getting an API key is often through a different webpage to the sign-up you may be using for subscription based AI tools (e.g.&nbsp;Claude Code or ChatGPT). Here are a couple of key links:</p>
+<ul>
+<li><a href="https://accounts.openrouter.ai/sign-up">Sign-up here to get an API key for OpenRouter to access LLMs from 100s of providers</a></li>
+<li><a href="https://console.anthropic.com/login">Sign-up here to get an API key for Anthropic’s LLMs</a></li>
+<li><a href="https://auth.openai.com/log-in">Sign-up here to get an API key for OpenAI’s LLMs</a></li>
+</ul>
+</section>
+<section id="sec-vscodesetup" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-vscodesetup"><span class="header-section-number">3.5</span> VSCode set-up for R users</h2>
+<p>VScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.</p>
+<p>Most of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I’ll explain how to set-up VSCode (a popular IDE) so you can use Cline.</p>
+<section id="software-requirements" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="software-requirements"><span class="header-section-number">3.5.1</span> Software requirements</h3>
+<p>To set up VScode for R and Cline, you’ll need:</p>
+<ul>
+<li>R programming language</li>
+<li>VScode text editor</li>
+<li>R extension for VScode</li>
+<li>Cline AI assistant extension for VScode</li>
+</ul>
+<p>Note that if you computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you.</p>
+</section>
+<section id="install-r" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="install-r"><span class="header-section-number">3.5.2</span> Install R</h3>
+<ol type="1">
+<li>Go to the official R project website: https://www.r-project.org/</li>
+<li>Click the “download R” link in the Getting Started section</li>
+<li>Choose a CRAN mirror close to your location</li>
+<li>Download the appropriate R installer for your operating system</li>
+<li>Run the installer and follow the prompts to complete installation</li>
+</ol>
+</section>
+<section id="r-packages-1" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="r-packages-1"><span class="header-section-number">3.5.3</span> R packages</h3>
+<ol type="1">
+<li>Open R or RStudio</li>
+<li>Install language server <code>install.packages("languageserver")</code></li>
+<li>Install httpgd <code>install.packages("httpgd")</code> (this helps improve plots in VScode). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd</li>
+</ol>
+</section>
+<section id="install-vscode" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="install-vscode"><span class="header-section-number">3.5.4</span> Install VScode</h3>
+<ol type="1">
+<li>Go to the official VScode website: https://code.visualstudio.com/</li>
+<li>Click the big blue “Download” button</li>
+<li>Download the appropriate VScode installer for your operating system</li>
+<li>Run the installer and follow the prompts</li>
+<li>Launch VScode once installation is complete</li>
+</ol>
+</section>
+<section id="install-r-extension" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="install-r-extension"><span class="header-section-number">3.5.5</span> Install R extension</h3>
+<ol type="1">
+<li>Open VScode</li>
+<li>Open the Extensions view in VScode (click the boxes on left hand side)</li>
+<li>Search for “R” in the extensions marketplace</li>
+<li>Select the “R” extension published by REditorSupport</li>
+<li>Click the “Install” button</li>
+<li>Restart VScode after installation if prompted</li>
+</ol>
+<p><a href="https://code.visualstudio.com/docs/languages/r">More info on vscode and R here</a></p>
+</section>
+<section id="connect-r-and-vscode" class="level3" data-number="3.5.6">
+<h3 data-number="3.5.6" class="anchored" data-anchor-id="connect-r-and-vscode"><span class="header-section-number">3.5.6</span> Connect R and VScode</h3>
+<ol type="1">
+<li>Open a new terminal in VScode (Terminal &gt; New Terminal)</li>
+<li>Check that R is installed by running: <code>R --version</code></li>
+<li>Type <code>R</code> to open the R console in the terminal</li>
+<li>Now open any R script in VS code (File &gt; Open)</li>
+<li>Run some R code to check that VS code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.</li>
+</ol>
+<p>If R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. You can find the path by opening a terminal and typing <code>which R</code> (on mac) or in a windows terminal <code>where R</code>.</p>
+<p>While you have the extension settings open search for ‘httgp’ and make sure <code>Plot: Use Httpgd</code> is enabled.</p>
+</section>
+<section id="issues-and-tips-for-vscode-with-r" class="level3" data-number="3.5.7">
+<h3 data-number="3.5.7" class="anchored" data-anchor-id="issues-and-tips-for-vscode-with-r"><span class="header-section-number">3.5.7</span> Issues and tips for VScode with R</h3>
+<p>This is just a list of issues I’ve had and how I’ve solved them.</p>
+<p><em>Plotting</em> If your R plots look weird (like tiny font), make sure httpgp is enabled. Go back to steps above and see how to do that.</p>
+<p><em>Viewing data</em> There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do <code>View(dat)</code> in R you get a nice table. Some also allow editing.</p>
+<p><em>Getting help to install software</em> My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software.</p>
+<p><em>R markdown</em> There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VScode. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. <a href="https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d">There is some helpful instructions here</a></p>
+<p><em>R terminal crashes</em> If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to on avail.</p>
+<p><em>Shortcut keys</em> (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code.</p>
+</section>
+<section id="installing-radian-optional" class="level3" data-number="3.5.8">
+<h3 data-number="3.5.8" class="anchored" data-anchor-id="installing-radian-optional"><span class="header-section-number">3.5.8</span> Installing radian (optional)</h3>
+<p>Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.</p>
+<p>To set this up, install radian (you need python to do this). More <a href="https://github.com/randy3k/radian?tab=readme-ov-file">instructions here</a>.</p>
+<p>Then go to the terminal and find the path where radian is installed (e.g.&nbsp;<code>which radian</code> on mac or <code>where radian</code> on windows).</p>
+<p>Now open your settings in VScode (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.</p>
+</section>
+</section>
+<section id="sec-githubcopilot" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-githubcopilot"><span class="header-section-number">3.6</span> Github Copilot set-up</h2>
+<p>Once you have VSCode just <a href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code">follow the simple steps here</a>. Note if you already have a Github account make sure you have your login information handy.</p>
+</section>
+<section id="sec-ellmer" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-ellmer"><span class="header-section-number">3.7</span> Ellmer set-up</h2>
+<p>First, you need to get an API key from the provider, see step above on ‘Getting an API key’.</p>
+<p>Then, you need to add the key to your .Renviron file:</p>
+<p><code>usethis::edit_r_environ()</code></p>
+<p>Then type in your key like this:</p>
+<p>OPENROUTER_API_KEY=“xxxxxx”</p>
+<p>If you are using open AI it would be like this:</p>
+<p>OPENAI_API_KEY=“xxxxxx”</p>
+<p>i.e.&nbsp;use the appropriate name for the provider you are using.</p>
+<p>Then restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).</p>
+</section>
+<section id="sec-gander" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-gander"><span class="header-section-number">3.8</span> Gander: Rstudio friendly alternative to copilot</h2>
+<p><a href="https://simonpcouch.github.io/gander/articles/gander.html">Gander lets you select code in Rstudio and edit it directly through calls to an LLM</a>.</p>
+<p>Follow the steps to set-up Ellmer first.</p>
+<p>Then you can <code>install.packages(gander)</code></p>
+<p>Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: <code>usethis::edit_r_profile()</code></p>
+<p>Now set the option for your LLM, e.g.&nbsp;</p>
+<p><code>options(.gander_chat = ellmer::chat_anthropic())</code> or <code>options(.gander_chat = ellmer::chat_openai())</code></p>
+<p>Now add a keyboard short-cut to use Gander. Go to the ‘Tools’ menu at the top, click ‘Add-ins’, ‘Browse Add-ins’, then click the ‘Keyboard shortcuts’ button. Find the row for Gander (probably at the bottom), click in the second column for ‘Shortcut’ and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click ‘Cancel’ once you’ve set the shortcut key (‘Cancel’ as we don’t want to run Gander right now).</p>
+<p>If for some reason the shortcut key won’t you can also <code>gander::gander_addin()</code> at anytime from R.</p>
+<p>Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like ‘make this code more fun’) and hit enter to test it does something.</p>
+<p>I recommend reading the gander reference as there are ways you can <a href="https://simonpcouch.github.io/gander/articles/gander.html">customize it to know your data but also save on tokens</a>.</p>
+</section>
+<section id="sec-otheroptions" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VSCode extensions</h2>
+<p>e.g.&nbsp;if you want to try Roo Code or Cline.</p>
+<ol type="1">
+<li>Open the Extensions view in VScode (Ctrl+Shift+X)</li>
+<li>Search for the genAI assistant of your choice. I’m use Roo Code currently. Cline is another popular choice.</li>
+<li>Select the extension</li>
+<li>Click the “Install” button</li>
+<li>The extension icon (e.g.&nbsp;a Roo if using Roo Code) should appear in the VScode sidebar (left side).</li>
+</ol>
+<p>You’ll have to navigate the extensions menus to input your API key. It won’t work without an API key that gives you access to an LLM. e.g.&nbsp;for Roo Code:</p>
+<ol type="1">
+<li>Click on the extension icon (e.g.&nbsp;a roo for roo code or robot for cline) on the left hand side</li>
+<li>Click the cog (if the settings don’t open automatically)</li>
+<li>Select your API provider and cut and paste the API key into the box.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-introduction.html" class="pagination-link" aria-label="Introduction to LLMs for R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-llm-prompting-fundamentals.html" class="pagination-link" aria-label="LLM prompting fundamentals">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

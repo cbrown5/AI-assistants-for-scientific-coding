@@ -1,0 +1,244 @@
+# Software you'll need for this book and how to set it up {#sec-setup}
+
+There's lots of options for AI coding assistant software. What you use will depend on:
+
+- Whether you are using R or Python
+- Your level of coding experience
+- Your IT capabilities for setting up software 
+- What you budget for AI is
+
+Below I've provided instructions for some of the options. These certainly aren't comprehensive. 
+
+I recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that's relevant to your set-up needs. 
+
+## R packages 
+
+If you are using R then we will make use of: `install.packages(c("vegan", "ellmer","tidyverse")`. For Python users you can follow along most examples without these, this isn't an R training course, its an course on using AI to assist with coding. 
+
+## Options for AI software
+
+### Preferred option for R users
+
+What I will be using, and what I prefer you to use is: 
+
+- The R program from the VS Code Integrated Development Environment (IDE)
+- Github Copilot
+- R Ellmer package, for which you'll need an API key to one of the LLM providers
+
+The challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down! 
+
+If you chose this option you will need to follow instructions in this chapter for 'Getting an API key' (@sec-apikeys) (required for ellmer), 'Ellmer set-up' (@sec-ellmer),  VS code setup (@sec-vscodesetup) and 'Github Copilot set-up'  (@sec-githubcopilot).
+
+### Option 2 for R users 
+
+Use Rstudio with R. You will need `ellmer` and `gander` packages. See instructions below for 'Getting an API key' (@sec-apikeys), 'Ellmer set-up' (@sec-ellmer) and 'Gander: Rstudio friendly alternative to copilot' (@sec-gander)
+
+### Python users 
+
+I'm not a Python programmer, however, all the principles I'll teach also apply to Python. You can easily follow on with the examples in Python. 
+
+You will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for [Python set-up](https://code.visualstudio.com/docs/python/python-tutorial). 
+
+Then follow the instructions for 'Github Copilot set-up' (@sec-githubcopilot). 
+
+I also recommend you get an API key with OpenRouter (@sec-apikeys). 
+
+You don't need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages. 
+
+### Options 3 + 
+
+There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See @sec-otheroptions. 
+
+As a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have. 
+
+## Software options summary
+
+Here are some of the software options I've looked at. Or if you've picked your option from the above list, just jump ahead to the required sections. 
+
+| Option                   | Best for                                                                 | Pros                                                                                                                                                                                                                                                                                                                                                                   | Cons                                                                                                         |
+|--------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| VScode with Github Copilot | Coders of all abilities who have a fixed budget or just want to try IDE integration | - Subscription based<br>- Capable free tier<br>- Editor integration (auto-complete style)<br>- Agent mode<br>- Multiple LLMs available<br>- Easy to use                                                                                                                                    | - VSCode can be hard to set-up for R users<br>- Less flexibility and customization than other agents<br>- The Github Copilot Agent is less automated than other agent software<br>- Limited choice of LLMs (unless you BYO API key) |
+| Ellmer R package         | R users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers. | - Works anywhere R works<br>- Unlimited flexibility<br>- BYO API key, can interact with any LLM<br>- Automate API calls to LLMs                                                                                                                    | - Only a basic prompt interface provided (you need to write it)                                              |
+| Gander R package         | Moderately experienced R users who don't want to leave RStudio.          | - Works with Rstudio<br>- Can see 'inside of' R objects, so knows your variable names<br>- Can customize how it works to optimize performance and cost<br>- BYO API key, can interact with any LLM                                                  | - Requires some experience with the R program<br>- Not as deeply integrated with Rstudio as Github Copilot is with VScode (doesn't have as many features as copilot) |
+| Aider                    | Experienced python programmers                                           | - Python based AI agent<br>- Interact with the agent via Python code<br>- Highly flexible, can use as an everyday coding assistant or to create bespoke agents<br>- Can edit files as well as run in agent mode                                     | - Not a straightforward prompt interface<br>- Requires Python coding experience                              |
+| VSCode with Roo Code     | Experienced programmers who want to fully automate coding workflows      | - Fully automated agents<br>- Multiple modes for different behaviours, e.g. architect versus code<br>- Orchestrate mode that can delegate to sub-agents and complete very complex tasks<br>- BYO API key<br>- System messages fully customizable for advanced scientific applications of agents<br>- One of the best performing and most popular agents | - VSCode can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing 'as you type' like copilot<br>- Not suitable for novice programmers |
+| VSCode with Cline         | Same as Roo Code. The user base for Cline is slightly larger. | - Fully automated agents<br>- Multiple modes for different behaviours<br>- BYO API key<br>- System messages customizable<br>- Large user base | - Less options for customizing the system prompt compared to Roo Code<br>- Not suitable for novice programmers |
+| Positron with Roo Code or Cline | R users who don't want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio. | - Possibly a bit easier to set-up R than with VScode<br>- Pros and cons are same as VScode with Roo Code or Cline | - New software<br>- Limited features and support |
+
+There are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Claude code, Cursor and Windsurf. I haven't tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio. 
+
+## Getting an API key  {#sec-apikeys}
+
+An API key is like a password that allows the AI assistant (e.g. roo code) to send your prompt to a large language model. Your key should be kept private. Usually you'll have to buy some credits. These allow  you to send prompts to the LLM. You'll be paying per prompt. 
+
+Now you need to choose your large language model provider. I'm currently using OpenRouter and Anthropic, which have a diversity of models for generating text, code and reading images. Do some web searching to find out the latest info on providers and models.
+
+You choose depends on what you want to do and your budget. Some providers offer a free tier. You'll need to web search for the latest info on this. 
+
+For this workshop I **strongly recommend you get an OpenRouter API key**. This will give you the most flexibility to try different models and to find models that have free options. 
+
+Once you've chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model. 
+
+The one caveat is that OpenRouter may not have access the the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key. 
+
+**Important** the sign-up for getting an API key is often through a different webpage to the sign-up you may be using for subscription based AI tools (e.g. Claude Code or ChatGPT). Here are a couple of key links:
+
+- [Sign-up here to get an API key for OpenRouter to access LLMs from 100s of providers](https://accounts.openrouter.ai/sign-up) 
+- [Sign-up here to get an API key for Anthropic's LLMs](https://console.anthropic.com/login)
+- [Sign-up here to get an API key for OpenAI's LLMs](https://auth.openai.com/log-in)
+
+## VSCode set-up for R users {#sec-vscodesetup}
+
+VScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code. 
+
+Most of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I'll explain how to set-up VSCode (a popular IDE) so you can use Cline. 
+
+### Software requirements
+
+To set up VScode for R and Cline, you'll need:
+
+- R programming language 
+- VScode text editor
+- R extension for VScode
+- Cline AI assistant extension for VScode
+
+Note that if you computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you. 
+
+### Install R
+
+1. Go to the official R project website: https://www.r-project.org/
+2. Click the "download R" link in the Getting Started section
+3. Choose a CRAN mirror close to your location 
+4. Download the appropriate R installer for your operating system
+5. Run the installer and follow the prompts to complete installation
+
+### R packages
+
+1. Open R or RStudio 
+2. Install language server `install.packages("languageserver")`
+3. Install httpgd `install.packages("httpgd")` (this helps improve plots in VScode). NOTE that httpgd seems to often be removed from CRAN, then come back again, I'm not sure why... If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd
+
+### Install VScode
+
+1. Go to the official VScode website: https://code.visualstudio.com/
+2. Click the big blue "Download" button
+3. Download the appropriate VScode installer for your operating system 
+4. Run the installer and follow the prompts
+5. Launch VScode once installation is complete
+
+### Install R extension
+
+1. Open VScode 
+2. Open the Extensions view in VScode (click the boxes on left hand side)
+3. Search for "R" in the extensions marketplace
+4. Select the "R" extension published by REditorSupport
+5. Click the "Install" button
+6. Restart VScode after installation if prompted
+
+[More info on vscode and R here](https://code.visualstudio.com/docs/languages/r)
+
+### Connect R and VScode
+
+1. Open a new terminal in VScode (Terminal > New Terminal)
+2. Check that R is installed by running: `R --version`
+3. Type `R` to open the R console in the terminal
+4. Now open any R script in VS code (File > Open)
+5. Run some R code to check that VS code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.
+
+If R is not found then open extensions (left hand side, boxes icon), filter by 'enabled' then click the R extension.
+Now click the cog icon in the R extension and select 'settings' from the dropdown. 
+Search for 'rpath'. Check that it has the correct path to R on your computer. 
+You can find the path by opening a terminal and typing `which R` (on mac) or in a  windows terminal `where R`.
+
+While you have the extension settings open search for 'httgp' and make sure  `Plot: Use Httpgd` is enabled. 
+
+### Issues and tips for VScode with R
+
+This is just a list of issues I've had and how I've solved them. 
+
+*Plotting* If your R plots look weird (like tiny font), make sure httpgp is enabled. Go back to steps above and see how to do that. 
+
+*Viewing data* There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do `View(dat)` in R you get a nice table. Some also allow editing. 
+
+*Getting help to install software* My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software. 
+
+*R markdown* There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VScode. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. [There is some helpful instructions here](https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d)
+
+*R terminal crashes* If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying 'PTY HOST'. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to on avail. 
+
+*Shortcut keys* (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code. 
+
+### Installing radian (optional)
+
+Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc... and allows multi-line editing in the terminal.
+
+To set this up, install radian (you need python to do this). More [instructions here](https://github.com/randy3k/radian?tab=readme-ov-file).
+
+Then go to the terminal and find the path where radian is installed (e.g. `which radian` on mac or `where radian` on windows). 
+
+Now open your settings in VScode (cmd-,) and search for 'rterm' (stands for 'R Terminal', don't change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting 'R: Bracketed Paste' and make sure it is enabled.
+
+## Github Copilot set-up  {#sec-githubcopilot}
+
+Once you have VSCode just [follow the simple steps here](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code). Note if you already have a Github account make sure you have your login information handy. 
+
+## Ellmer set-up  {#sec-ellmer}
+
+First, you need to get an API key from the provider, see step above on 'Getting an API key'. 
+
+Then, you need to add the key to your .Renviron file:
+
+`usethis::edit_r_environ()`
+
+Then type in your key like this:
+
+OPENROUTER_API_KEY="xxxxxx"
+
+If you are using open AI it would be like this: 
+
+OPENAI_API_KEY="xxxxxx"
+
+i.e. use the appropriate name for the provider you are using. 
+
+Then restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).
+
+## Gander: Rstudio friendly alternative to copilot  {#sec-gander}
+
+[Gander lets you select code in Rstudio and edit it directly through calls to an LLM](https://simonpcouch.github.io/gander/articles/gander.html). 
+
+Follow the steps to set-up Ellmer first. 
+
+Then you can `install.packages(gander)`
+
+Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: 
+`usethis::edit_r_profile()`
+
+Now set the option for your LLM, e.g. 
+
+`options(.gander_chat = ellmer::chat_anthropic())`
+or 
+`options(.gander_chat = ellmer::chat_openai())`
+
+Now add a keyboard short-cut to use Gander. Go to the 'Tools' menu at the top, click 'Add-ins', 'Browse Add-ins', then click the 'Keyboard shortcuts' button. Find the row for Gander (probably at the bottom), click in the second column for 'Shortcut' and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click 'Cancel' once you've set the shortcut key ('Cancel' as we don't want to run Gander right now). 
+
+If for some reason the shortcut key won't you can also `gander::gander_addin()` at anytime from R. 
+
+Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like 'make this code more fun') and hit enter to test it does something. 
+
+I recommend reading the gander reference as there are ways you can [customize it to know your data but also save on tokens](https://simonpcouch.github.io/gander/articles/gander.html). 
+
+## Installing other gen AI VSCode extensions  {#sec-otheroptions}
+
+e.g. if you want to try Roo Code or Cline. 
+
+1. Open the Extensions view in VScode (Ctrl+Shift+X)
+2. Search for the genAI assistant of your choice. I'm use Roo Code currently. Cline is another popular choice. 
+3. Select the extension
+4. Click the "Install" button
+5. The extension icon (e.g. a Roo if using Roo Code) should appear in the VScode sidebar (left side). 
+
+You'll have to navigate the extensions menus to input your API key. It won't work without an API key that gives you access to an LLM. e.g. for Roo Code: 
+
+1. Click on the extension icon (e.g. a roo for roo code or robot for cline) on the left hand side 
+2. Click the cog (if the settings don't open automatically)
+3. Select your API provider and cut and paste the API key into the box.

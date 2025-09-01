@@ -1,0 +1,352 @@
+[
+  {
+    "objectID": "04-llm-prompting-fundamentals.html",
+    "href": "04-llm-prompting-fundamentals.html",
+    "title": "4  LLM prompting fundamentals",
+    "section": "",
+    "text": "4.1 Setup authorisation",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
+    ]
+  },
+  {
+    "objectID": "04-llm-prompting-fundamentals.html#understanding-how-llms-work",
+    "href": "04-llm-prompting-fundamentals.html#understanding-how-llms-work",
+    "title": "4  LLM prompting fundamentals",
+    "section": "4.2 Understanding how LLMs work",
+    "text": "4.2 Understanding how LLMs work\nLarge Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we’ll use the ellmer package to demonstrate some fundamental concepts.\nBy using ellmer to access a LLM through the API we get as close to the raw LLM as we are able. Later on we will use ‘coding assistants’ (e.g. copilot) which put another layer of software between you and the LLM.\nFirst, let’s set up our environment and create a connection to an LLM.\n\nlibrary(ellmer)\n\n# Initialize a chat with Claude\nchat &lt;- chat_openrouter(\n  system_prompt = \"\",\n  model = \"anthropic/claude-3.5-haiku\",\n  api_args = list(max_tokens = 50)\n)\nchat$chat(\"Ecologists like to eat \")\n\nNotice that the model doesn’t do what we intend, which is complete the sentence. LLMs have a built in Let’s use the ‘system prompt’ to provide it with strong directions.\n\nTip: The system prompt sets the overall context for a chat. It is meant to be a stronger directive than the user prompt. In most chat interfaces (e.g. copilot) you are interacting with the user prompt. The provider has provided the system prompt, here’s the system prompt for the chat interface version of anthropic (Claude)\n\n\nchat &lt;- chat_openrouter(\n  system_prompt = \"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides\",\n  model = \"anthropic/claude-3.5-haiku\",\n#   model = \"anthropic/claude-3.7-sonnet\",\n  api_args = list(max_tokens = 50)\n)\nchat$chat(\"Ecologists like to eat \")\n\n\nTip: It is generally more effective to tell the LLM what to do rather than what not to do (just like people!).\n\n\n4.2.1 Temperature effects\nThe “temperature” parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.\nLet’s compare responses with different temperatures:\n\n# Create chats with different temperature settings\nchat_temp &lt;- chat_openrouter(\n          system_prompt = \"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides\",\n        model = \"anthropic/claude-3.5-haiku\",\n        api_args = list(max_tokens = 50, temperature = 0)\n    )\n\nchat_temp$chat(\"Marine ecologists like to eat \")\n\nchat_temp &lt;- chat_openrouter(\n          system_prompt = \"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides\",\n        model = \"anthropic/claude-3.5-haiku\",\n        api_args = list(max_tokens = 50, temperature = 2)\n    )\n\nchat_temp$chat(\"Marine ecologists like to eat \")\n\nAt low temperatures, you’ll notice the model consistently produces similar “safe” completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.\n\n\n4.2.2 Comparing model complexity\nDifferent models have different capabilities based on their size, training data, and architecture.\nFor example anthropic/claude-3.5-haiku has many fewer parameters than anthropic/claude-3.7-sonnet. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15\nFor the kind of simple tasks we are doing here, both give similar results. We will compare models later in the workshop when we use github copilot.\n\n\n4.2.3 Understanding context windows\nLLMs have a limited “context window” - the amount of text they can consider when generating a response. This affects their ability to maintain coherence over long conversations. For most LLMs this is about 100-200K tokens, which includes input and output. However, Google’s models have up to 1 million tokens.\nWe’ll come back to the context window when we explore more advanced tools with longer prompts. These simple prompts don’t come close to using up the context window.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
+    ]
+  },
+  {
+    "objectID": "04-llm-prompting-fundamentals.html#improving-your-prompts",
+    "href": "04-llm-prompting-fundamentals.html#improving-your-prompts",
+    "title": "4  LLM prompting fundamentals",
+    "section": "4.3 Improving your prompts",
+    "text": "4.3 Improving your prompts\nTODO Insert some examples comparing with and without these approaches\n\n4.3.1 Being specific\n\n\n4.3.2 Giving context\nShowing data etc…\n\n\n4.3.3 Giving examples",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
+    ]
+  },
+  {
+    "objectID": "04-llm-prompting-fundamentals.html#diy-stats-bot",
+    "href": "04-llm-prompting-fundamentals.html#diy-stats-bot",
+    "title": "4  LLM prompting fundamentals",
+    "section": "4.4 DIY stats bot",
+    "text": "4.4 DIY stats bot\nLet’s put together what we’ve learnt so far and built our own chatbot. I’ve provided you with a detailed system prompt that implements a chat bot that specialises in helping with statistics. First, we read the bot markdown file from github, then we can use it in our chat session.\n\nstats_bot &lt;- readr::read_file(url(\"https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md\"))\n\nchat_stats &lt;- chat_openrouter(\n          system_prompt = stats_bot,\n        model = \"anthropic/claude-3.7-sonnet\",\n        api_args = list(max_tokens = 5000)\n    )\n\nellmer has a few different options for interacting with chat bots. We’ve seen the ‘chat’ option. We can also have a live_console() or live_browser() (requires installing shinychat) chat. Let’s use one of those options. With live_browser() you’ll also see the browser automatically formats any markdown in the chat.\n\nlive_browser(chat_stats)\n# live_console(chat_stats)\n\nHere are some suggested questions to start, but feel free to try your own. “Who are you?” “Use stats mode to provide me with some suggestions for how I could make a predictive model of a variable y, where I have a large number of potential explanatory variables.”\n\nTip: How many of you started using “DIY-stats-bot-system.md” without first reading it? Did you find the easter egg in my prompt? For security you should ALWAYS read prompts before you start running them through LLM chats. We’ll see later that LLMs can be given ‘tools’ which allow them to run code on your computer. Its easy to see how a malicious prompt could mis-use these tools. We’ll cover security later.\n\n\n4.4.1 Improving the stats bot\nMake a local copy of the stats bot system prompt and try editing it. Try different commands within it and see how your chat bot responds (you’ll have to open a new chat object each time).\nHere’s some ideas.\n\nTry making a chat bot that is a verhment Bayesian that abhors frequentist statistics.\n\nYou could provide it with more mode-specific instructions. For instance, try to get the chatbot to suggest appropriate figures for verifying statistical models.\nTry different temperatures.\nAdd your own easter egg.\n\n\nTip: Adjectives, CAPITALS, *markdown* formatting can all help create emphasis so that your model more closely follows your commands. I used ‘abhors’ and ‘verhment’ above on purpose.\n\n\n\n4.4.2 Tools\nTools like Copilot Agent mode then go a step further and send the results of step 5 back to the LLM, which then interprets the results and the loop continues (sometimes with and sometimes without direct user approval).\nIf you want to go further with making your own tools, then I suggest you check out ellmer package. It supports tool creation in a structured way. For instance, I made a tool that allows an LLM to download and save ocean data to your computer.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
+    ]
+  },
+  {
+    "objectID": "04-llm-prompting-fundamentals.html#reflection-on-prompting-fundamentals",
+    "href": "04-llm-prompting-fundamentals.html#reflection-on-prompting-fundamentals",
+    "title": "4  LLM prompting fundamentals",
+    "section": "4.5 Reflection on prompting fundamentals",
+    "text": "4.5 Reflection on prompting fundamentals\nTo recap, the basic workflow an agent follows is:\n\nSet-up a system prompt with detailed instructions for how the LLM should format responses\nUser asks a question that is sent to the LLM\nLLM responds and sends response back to user\nSoftware on user’s computer attempts to parse and act on the response according to pre-determined rules\nUser’s computers enacts the commands in the response and provides results to user\n\nThe key things I hoped you learnt from this lesson are:\n\nBasic LLM jargon, including tokens, temperature, API access and different LLM models.\nSome different prompt strategies, including role prompting, emphasis, chain of thought and one-shot.\nThe fundamentals of tool use and agents.\n\nNow you understand the basics, let’s get into Github Copilot.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>LLM prompting fundamentals</span>"
+    ]
+  },
+  {
+    "objectID": "02-introduction.html",
+    "href": "02-introduction.html",
+    "title": "2  Introduction to LLMs for R",
+    "section": "",
+    "text": "Time: 9-10am\nIn this presentation I’ll cover how LLMs work, best practices prompt engineering, software, applications for R users and ethics.\nThis chapter provides an overview of:\n\nHow Large Language Models (LLMs) function and their capabilities\nBest practices for prompt engineering when working with R\nSoftware options available for R users to interact with LLMs (coding assistants)\nPractical applications of LLMs for R programming and data analysis\nEthical considerations when using LLMs for scientific work\n\nWe’ll explore how LLMs can enhance your R workflow, from code generation to data analysis assistance, while maintaining scientific rigor and reproducibility.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction to LLMs for R</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html",
+    "href": "03-set-up.html",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "",
+    "text": "3.1 R packages\nIf you are using R then we will make use of: install.packages(c(\"vegan\", \"ellmer\",\"tidyverse\"). For Python users you can follow along most examples without these, this isn’t an R training course, its an course on using AI to assist with coding.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#options-for-ai-software",
+    "href": "03-set-up.html#options-for-ai-software",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.2 Options for AI software",
+    "text": "3.2 Options for AI software\n\n3.2.1 Preferred option for R users\nWhat I will be using, and what I prefer you to use is:\n\nThe R program from the VS Code Integrated Development Environment (IDE)\nGithub Copilot\nR Ellmer package, for which you’ll need an API key to one of the LLM providers\n\nThe challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down!\nIf you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (Section 3.4) (required for ellmer), ‘Ellmer set-up’ (Section 3.7), VS code setup (Section 3.5) and ‘Github Copilot set-up’ (Section 3.6).\n\n\n3.2.2 Option 2 for R users\nUse Rstudio with R. You will need ellmer and gander packages. See instructions below for ‘Getting an API key’ (Section 3.4), ‘Ellmer set-up’ (Section 3.7) and ‘Gander: Rstudio friendly alternative to copilot’ (Section 3.8)\n\n\n3.2.3 Python users\nI’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.\nYou will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for Python set-up.\nThen follow the instructions for ‘Github Copilot set-up’ (Section 3.6).\nI also recommend you get an API key with OpenRouter (Section 3.4).\nYou don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.\n\n\n3.2.4 Options 3 +\nThere are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See Section 3.9.\nAs a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#software-options-summary",
+    "href": "03-set-up.html#software-options-summary",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.3 Software options summary",
+    "text": "3.3 Software options summary\nHere are some of the software options I’ve looked at. Or if you’ve picked your option from the above list, just jump ahead to the required sections.\n\n\n\n\n\n\n\n\n\nOption\nBest for\nPros\nCons\n\n\n\n\nVScode with Github Copilot\nCoders of all abilities who have a fixed budget or just want to try IDE integration\n- Subscription based- Capable free tier- Editor integration (auto-complete style)- Agent mode- Multiple LLMs available- Easy to use\n- VSCode can be hard to set-up for R users- Less flexibility and customization than other agents- The Github Copilot Agent is less automated than other agent software- Limited choice of LLMs (unless you BYO API key)\n\n\nEllmer R package\nR users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers.\n- Works anywhere R works- Unlimited flexibility- BYO API key, can interact with any LLM- Automate API calls to LLMs\n- Only a basic prompt interface provided (you need to write it)\n\n\nGander R package\nModerately experienced R users who don’t want to leave RStudio.\n- Works with Rstudio- Can see ‘inside of’ R objects, so knows your variable names- Can customize how it works to optimize performance and cost- BYO API key, can interact with any LLM\n- Requires some experience with the R program- Not as deeply integrated with Rstudio as Github Copilot is with VScode (doesn’t have as many features as copilot)\n\n\nAider\nExperienced python programmers\n- Python based AI agent- Interact with the agent via Python code- Highly flexible, can use as an everyday coding assistant or to create bespoke agents- Can edit files as well as run in agent mode\n- Not a straightforward prompt interface- Requires Python coding experience\n\n\nVSCode with Roo Code\nExperienced programmers who want to fully automate coding workflows\n- Fully automated agents- Multiple modes for different behaviours, e.g. architect versus code- Orchestrate mode that can delegate to sub-agents and complete very complex tasks- BYO API key- System messages fully customizable for advanced scientific applications of agents- One of the best performing and most popular agents\n- VSCode can be hard to set-up for R users- Can get more expensive- Does not do inline code editing ‘as you type’ like copilot- Not suitable for novice programmers\n\n\nVSCode with Cline\nSame as Roo Code. The user base for Cline is slightly larger.\n- Fully automated agents- Multiple modes for different behaviours- BYO API key- System messages customizable- Large user base\n- Less options for customizing the system prompt compared to Roo Code- Not suitable for novice programmers\n\n\nPositron with Roo Code or Cline\nR users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.\n- Possibly a bit easier to set-up R than with VScode- Pros and cons are same as VScode with Roo Code or Cline\n- New software- Limited features and support\n\n\n\nThere are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Claude code, Cursor and Windsurf. I haven’t tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-apikeys",
+    "href": "03-set-up.html#sec-apikeys",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.4 Getting an API key",
+    "text": "3.4 Getting an API key\nAn API key is like a password that allows the AI assistant (e.g. roo code) to send your prompt to a large language model. Your key should be kept private. Usually you’ll have to buy some credits. These allow you to send prompts to the LLM. You’ll be paying per prompt.\nNow you need to choose your large language model provider. I’m currently using OpenRouter and Anthropic, which have a diversity of models for generating text, code and reading images. Do some web searching to find out the latest info on providers and models.\nYou choose depends on what you want to do and your budget. Some providers offer a free tier. You’ll need to web search for the latest info on this.\nFor this workshop I strongly recommend you get an OpenRouter API key. This will give you the most flexibility to try different models and to find models that have free options.\nOnce you’ve chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.\nThe one caveat is that OpenRouter may not have access the the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key.\nImportant the sign-up for getting an API key is often through a different webpage to the sign-up you may be using for subscription based AI tools (e.g. Claude Code or ChatGPT). Here are a couple of key links:\n\nSign-up here to get an API key for OpenRouter to access LLMs from 100s of providers\nSign-up here to get an API key for Anthropic’s LLMs\nSign-up here to get an API key for OpenAI’s LLMs",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-vscodesetup",
+    "href": "03-set-up.html#sec-vscodesetup",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.5 VSCode set-up for R users",
+    "text": "3.5 VSCode set-up for R users\nVScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.\nMost of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I’ll explain how to set-up VSCode (a popular IDE) so you can use Cline.\n\n3.5.1 Software requirements\nTo set up VScode for R and Cline, you’ll need:\n\nR programming language\nVScode text editor\nR extension for VScode\nCline AI assistant extension for VScode\n\nNote that if you computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you.\n\n\n3.5.2 Install R\n\nGo to the official R project website: https://www.r-project.org/\nClick the “download R” link in the Getting Started section\nChoose a CRAN mirror close to your location\nDownload the appropriate R installer for your operating system\nRun the installer and follow the prompts to complete installation\n\n\n\n3.5.3 R packages\n\nOpen R or RStudio\nInstall language server install.packages(\"languageserver\")\nInstall httpgd install.packages(\"httpgd\") (this helps improve plots in VScode). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd\n\n\n\n3.5.4 Install VScode\n\nGo to the official VScode website: https://code.visualstudio.com/\nClick the big blue “Download” button\nDownload the appropriate VScode installer for your operating system\nRun the installer and follow the prompts\nLaunch VScode once installation is complete\n\n\n\n3.5.5 Install R extension\n\nOpen VScode\nOpen the Extensions view in VScode (click the boxes on left hand side)\nSearch for “R” in the extensions marketplace\nSelect the “R” extension published by REditorSupport\nClick the “Install” button\nRestart VScode after installation if prompted\n\nMore info on vscode and R here\n\n\n3.5.6 Connect R and VScode\n\nOpen a new terminal in VScode (Terminal &gt; New Terminal)\nCheck that R is installed by running: R --version\nType R to open the R console in the terminal\nNow open any R script in VS code (File &gt; Open)\nRun some R code to check that VS code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.\n\nIf R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. You can find the path by opening a terminal and typing which R (on mac) or in a windows terminal where R.\nWhile you have the extension settings open search for ‘httgp’ and make sure Plot: Use Httpgd is enabled.\n\n\n3.5.7 Issues and tips for VScode with R\nThis is just a list of issues I’ve had and how I’ve solved them.\nPlotting If your R plots look weird (like tiny font), make sure httpgp is enabled. Go back to steps above and see how to do that.\nViewing data There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do View(dat) in R you get a nice table. Some also allow editing.\nGetting help to install software My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software.\nR markdown There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VScode. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. There is some helpful instructions here\nR terminal crashes If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to on avail.\nShortcut keys (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code.\n\n\n3.5.8 Installing radian (optional)\nRadian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.\nTo set this up, install radian (you need python to do this). More instructions here.\nThen go to the terminal and find the path where radian is installed (e.g. which radian on mac or where radian on windows).\nNow open your settings in VScode (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-githubcopilot",
+    "href": "03-set-up.html#sec-githubcopilot",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.6 Github Copilot set-up",
+    "text": "3.6 Github Copilot set-up\nOnce you have VSCode just follow the simple steps here. Note if you already have a Github account make sure you have your login information handy.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-ellmer",
+    "href": "03-set-up.html#sec-ellmer",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.7 Ellmer set-up",
+    "text": "3.7 Ellmer set-up\nFirst, you need to get an API key from the provider, see step above on ‘Getting an API key’.\nThen, you need to add the key to your .Renviron file:\nusethis::edit_r_environ()\nThen type in your key like this:\nOPENROUTER_API_KEY=“xxxxxx”\nIf you are using open AI it would be like this:\nOPENAI_API_KEY=“xxxxxx”\ni.e. use the appropriate name for the provider you are using.\nThen restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-gander",
+    "href": "03-set-up.html#sec-gander",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.8 Gander: Rstudio friendly alternative to copilot",
+    "text": "3.8 Gander: Rstudio friendly alternative to copilot\nGander lets you select code in Rstudio and edit it directly through calls to an LLM.\nFollow the steps to set-up Ellmer first.\nThen you can install.packages(gander)\nNow, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: usethis::edit_r_profile()\nNow set the option for your LLM, e.g. \noptions(.gander_chat = ellmer::chat_anthropic()) or options(.gander_chat = ellmer::chat_openai())\nNow add a keyboard short-cut to use Gander. Go to the ‘Tools’ menu at the top, click ‘Add-ins’, ‘Browse Add-ins’, then click the ‘Keyboard shortcuts’ button. Find the row for Gander (probably at the bottom), click in the second column for ‘Shortcut’ and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click ‘Cancel’ once you’ve set the shortcut key (‘Cancel’ as we don’t want to run Gander right now).\nIf for some reason the shortcut key won’t you can also gander::gander_addin() at anytime from R.\nNow to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like ‘make this code more fun’) and hit enter to test it does something.\nI recommend reading the gander reference as there are ways you can customize it to know your data but also save on tokens.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "03-set-up.html#sec-otheroptions",
+    "href": "03-set-up.html#sec-otheroptions",
+    "title": "3  Software you’ll need for this book and how to set it up",
+    "section": "3.9 Installing other gen AI VSCode extensions",
+    "text": "3.9 Installing other gen AI VSCode extensions\ne.g. if you want to try Roo Code or Cline.\n\nOpen the Extensions view in VScode (Ctrl+Shift+X)\nSearch for the genAI assistant of your choice. I’m use Roo Code currently. Cline is another popular choice.\nSelect the extension\nClick the “Install” button\nThe extension icon (e.g. a Roo if using Roo Code) should appear in the VScode sidebar (left side).\n\nYou’ll have to navigate the extensions menus to input your API key. It won’t work without an API key that gives you access to an LLM. e.g. for Roo Code:\n\nClick on the extension icon (e.g. a roo for roo code or robot for cline) on the left hand side\nClick the cog (if the settings don’t open automatically)\nSelect your API provider and cut and paste the API key into the box.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Software you'll need for this book and how to set it up</span>"
+    ]
+  },
+  {
+    "objectID": "05-research-applications-LLMs.html",
+    "href": "05-research-applications-LLMs.html",
+    "title": "5  Research applications of LLMs",
+    "section": "",
+    "text": "5.1 Automating literature reviews",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research applications of LLMs</span>"
+    ]
+  },
+  {
+    "objectID": "05-research-applications-LLMs.html#deep-research",
+    "href": "05-research-applications-LLMs.html#deep-research",
+    "title": "5  Research applications of LLMs",
+    "section": "5.2 Deep research",
+    "text": "5.2 Deep research",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research applications of LLMs</span>"
+    ]
+  },
+  {
+    "objectID": "05-research-applications-LLMs.html#image-analysis",
+    "href": "05-research-applications-LLMs.html#image-analysis",
+    "title": "5  Research applications of LLMs",
+    "section": "5.3 Image analysis",
+    "text": "5.3 Image analysis",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Research applications of LLMs</span>"
+    ]
+  },
+  {
+    "objectID": "06-github-copilot.html",
+    "href": "06-github-copilot.html",
+    "title": "6  Github copilot for R",
+    "section": "",
+    "text": "Time: 11:30-12:00pm\nI’ll show you how you can most effectively use github copilot to plan, code and write up your data analysis and modelling.\nSoftware requirements: VScode with R and github copilot license + extension for copilot.\nGithub Copilot calls itself an ‘AI programming assistant’ or an ‘AI pair programmer’. I’ll refer to it as an ‘LLM coding assistant’ or just ‘Assistant’.\nAssistants add a layer of software between you and the LLM. The software is doing some hidden interpretation of what you want to do, as well as trying to save costs. For instance, for most assistants we often don’t get to control (or even see) the system message, the temperature or the number of output tokens. The assistant is also guessing context to include in the prompt, so it can automatically give the LLM more context. At the same time it is managing the LLM’s context window and trying to save on costs.\nThere is no generic name for this type of software (the field is moving to fast to have standardized names). So I’ll refer to them Assistants. In this bucket I’ll also put chatGPT, Claude, Roo Code, Cline and others. Note that Github Copilot (which I’ll call copilot for short) is different to the ‘Copilot’ assistant that is on the web and in the Teams app.\nThis software is also called ‘chatbots’, however, I prefer assistants as the tasks they can do are much broader than just chatting.\n\nTip: You’ll get the most of out Github Copilot if you use Visual Studio Code as your development environment (rather than RStudio). Setting up VScode with R can be a bit fiddly, check out my my installation instructions if you have trouble. Web searching advice is also a good idea if you are stuck. Its worth the effort.\n\nCopilot It is developing rapidly, so it is quite likely that when you read this there will be changes and new features.\nIn this section I’ll focus on showing the main ways you can use copilot. Just be aware the implementation may change in future.\nWe’ll look at:\n\nOverview VScode for those that are new to this software\nBest practices for setting up your project directory\nInline code editing\nAsk mode\nEdit mode\nAgent mode",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Github copilot for R</span>"
+    ]
+  },
+  {
+    "objectID": "07-specification-sheets.html",
+    "href": "07-specification-sheets.html",
+    "title": "7  Best practices project setup",
+    "section": "",
+    "text": "7.1 Project organization\nIts helpful to set-up your projects in an organized and modularised way. In my experience most R users write most of their analysis in one long script. Don’t do this. It will be hard for ‘future you’ to navigate. If its hard for a human to navigate, it will also be hard for the assistant. Here’s how I set-up my projects.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Best practices project setup</span>"
+    ]
+  },
+  {
+    "objectID": "07-specification-sheets.html#project-organization",
+    "href": "07-specification-sheets.html#project-organization",
+    "title": "7  Best practices project setup",
+    "section": "",
+    "text": "7.1.1 General guidance\n\nCreate a new folder for each new project.\nOptional but recommended: Initiliaze a git repo in that folder (I use github desktop).\nSet-up folders and files in an organized way\nIdeally put the data in this folder also. However, large datasets or sensitive data can be kept in other folders.\nKeep scripts short and modularized (e.g one for data analysis, one for modelling).\n\nOnce you have your folder you can make it an Rstudio project (if using Rstudio) or just use ‘open folder’ in vscode. If want to link multiple folders in then use VScode workspaces.\nIf you are not using git (version control), then I recommend you learn. LLM code editing tools can cause you to lose older versions. So best to back them up with proper use of git.\n\n\n7.1.2 Project directory structure example\nHere’s an example of a project directory structure. You don’t have to use this strucutre. the important thing is to be organized.\nmy-project/\n├── README.md \n├── .gitignore\n├── Scripts/ # R code\n│   ├── 01_data-prep.R\n│   ├── 02_data-analysis.R\n│   └── 03_plots.R\n├── Shared/       \n│   ├── Outputs/\n│   │   ├── Figures/\n│   │   ├── data-prep/\n│   │   └── model-objects/\n│   ├── Data/\n│   └── Manuscripts/   \n└── Private/",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Best practices project setup</span>"
+    ]
+  },
+  {
+    "objectID": "07-specification-sheets.html#the-readme.md-file",
+    "href": "07-specification-sheets.html#the-readme.md-file",
+    "title": "7  Best practices project setup",
+    "section": "7.2 The README.md file",
+    "text": "7.2 The README.md file\nThe README.md is the memory for the project. If you use github it will also be the landing page for your repo, which is handy.\nRemember you are writing this for you and the LLMs. So think of it like a prompt.\nHere’s an example of some of the information you might want to include in your readme.\n# PROJECT TITLE\n\n## Summary\n\n## Aims\n\n## Data methodology\n\n## Analysis methodology\n\n## Tech context\n- We will use the R program\n- tidyverse packages for data manipulation\n- ggplot2 for data visualization\n\nKeep your scripts short and modular to facilitate debugging. Don't complete all of the steps below in one script. Finish scripts where it makes sense and save intermediate datasets. \n\n## Steps\nAs you go tick of the steps below. \n\n[ ] Wrangle data\n[ ] Fit regression\n[ ] Plot verification\n[ ] ... \n\n## Data \n\nInclude meta-data here and file paths. \n\n## Directory structure \n\nmy-project/\n├── README.md \n├── .gitignore\n├── Scripts/ # R code\n│   ├── 01_data-prep.R\n│   ├── 02_data-analysis.R\n│   └── 03_plots.R\n├── Shared/       \n│   ├── Outputs/\n│   │   ├── Figures/\n│   │   ├── data-prep/\n│   │   └── model-objects/\n│   ├── Data/\n│   └── Manuscripts/   \n└── Private/",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Best practices project setup</span>"
+    ]
+  },
+  {
+    "objectID": "07-specification-sheets.html#example-data",
+    "href": "07-specification-sheets.html#example-data",
+    "title": "7  Best practices project setup",
+    "section": "7.3 Example data",
+    "text": "7.3 Example data\nFor the next few chapters we’ll work with some ecological data on benthic marine habitats and fish.\n\n7.3.1 Case-study: Bumphead parrotfish, ‘Topa’ in Solomon Islands\nBumphead parrotfish (Bolbometopon muricatum) are an enignmatic tropical fish species. Adults of these species are characterized by a large bump on their forehead that males use to display and fight during breeding. Sex determination for this species is unknown, but it is likely that an individual has the potential to develop into either a male or female at maturity.\nAdults travel in schools and consume algae by biting off chunks of coral and in the process they literally poo out clean sand. Because of their large size, schooling habit and late age at maturity they are susceptible to overfishing, and many populations are in decline.\nTheir lifecycle is characterized by migration from lagoonal reef as juveniles (see image below) to reef flat and exposed reef habitats as adults. Early stage juveniles are carnivorous and feed on zooplankton, and then transform into herbivores at a young age.\n\nImage: Lifecycle of bumphead parrotfish. Image by E. Stump and sourced from Hamilton et al. 2017.\nUntil the mid 2010s the habitat for settling postlarvae and juveniles was a mystery. However, the pattern of migrating from inshore to offshore over their known lifecycle suggests that the earliest benthic lifestages (‘recruits’) stages may occur on nearshore reef habitats.\nNearshore reef habitats are susceptible to degradation from poor water quality, raising concerns that this species may also be in decline because of pollution. But the gap in data from the earliest lifestages hinders further exploration of this issue.\nIn this course we’ll be analyzing the first survey that revealed the habitat preferences of early juveniles stages of bumphead parrotfish. These data were analyzed by Hamilton et al. 2017 and Brown and Hamilton 2018.\nIn the 2010s Rick Hamilton (The Nature Conservancy) lead a series of surveys in the nearshore reef habitats of Kia province, Solomon Islands. The aim was to look for the recruitment habitat for juvenile bumphead parrotfish. These surveys were motivated by concern from local communities in Kia that topa (the local name for bumpheads) are in decline.\nIn the surveys, divers swam standardized transects and searched for juvenile bumphead in nearshore habitats, often along the edge of mangroves. All together they surveyed 49 sites across Kia.\nThese surveys were made all the more challenging by the occurrence of crocodiles in mangrove habitat in the region. So these data are incredibly valuable.\nLogging in the Kia region has caused water quality issues that may impact nearshore coral habitats. During logging, logs are transported from the land onto barges at ‘log ponds’. A log pond is an area of mangroves that is bulldozed to enable transfer of logs to barges. As you can imagine, logponds are very muddy. This damage creates significant sediment runoff which can smother and kill coral habitats.\nRick and the team surveyed reefs near logponds and in areas that had no logging. They only ever found bumphead recruits hiding in branching coral species.\nIn this course we will first ask if the occurrence of bumphead recruits is related to the cover of branching coral species. We will then develop a statistical model to analyse the relationship between pollution from logponds and bumphead recruits, and use this model to predict pollution impacts to bumpheads across the Kia region.\nThe data and code for the original analyses are available at my github site. In this course we will use simplified versions of the original data. We’re grateful to Rick Hamilton for providing the data for this course.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Best practices project setup</span>"
+    ]
+  },
+  {
+    "objectID": "08-advanced-llm-agents.html",
+    "href": "08-advanced-llm-agents.html",
+    "title": "8  Advanced LLM agents",
+    "section": "",
+    "text": "Time: 3:00-3:30pm\nSoftware requirements: VScode with R, Roo code, API license.\nWe’ll take a quick look at Roo Code and its customization options.\nRoo code is more complex and expensive to use than copilot, but allows significant amounts of customization to make bespoke agents that can help with the scientific process.\nI’ll use an example with the Benthic Data analysis (benthic-readme.md).\nTalk through:\n\nAPI access\nModel options\nCustomizing system message\nContext window management\nCost\nVision capabilities",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Advanced LLM agents</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html",
+    "href": "09-ethics-copyright.html",
+    "title": "9  Ethics and copyright",
+    "section": "",
+    "text": "9.1 Impacts on learning\nDoes AI make our brains lazy? One study found less engagement and deep thinking for students who had access to chatGPT for writing an essay compared to students who just had web searches or had no internet connectivity.\nI think the upshot is using it deliberatley and being careful not to replace your own creativity.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#sustainability",
+    "href": "09-ethics-copyright.html#sustainability",
+    "title": "9  Ethics and copyright",
+    "section": "9.2 Sustainability",
+    "text": "9.2 Sustainability\nTraining LLMs costs millions of dollars, much of this cost is energy use. Further, the data centres for training and running LLMs need water for cooling. Asking a finished LLM questions uses much less energy, but cumulatively across the globe it adds up to a lot. Here are a few informative statistics I found online:\nFrom Forbes:\n\n“ChatGPT’s daily power usage is nearly equal to 180,000 U.S. households, each using about twenty-nine kilowatts.”\nMicrosoft emissions have risen 30% since 2020 due to data centers\nAI prompts use 10x more energy than a traditional google search\n\nTo put it in context I did some calculations on my personal usage. I estimate the prompting I do through copilot each year will cost about 2.32 kg of C02 and about 1000 litres of water. (this is lower bound, as I also using LLMs for other tasks).\nTo put that in context, flying the 1.5 hours from Halifax to Montreal is about 172kg of emissions, driving 15 minutes is about 3 kg. So I’m using approximately 10 less than a short flight, or the same as driving to work once. 1000L is equivalent to taking about 22 5-minute showers.\nOf course, the carbon cost is global, whereas the water cost is localised (Probably to US data centres, so by using this resource I’m really just making the water problem worse for Americans. )\nSo its not a huge increase in my personal energy use. But cumulatively across the globe it is a lot.\nMore generally, humanities energy use is growing exponential. Despite renewables and so on, ultimately our planet won’t be able to sustain this energy drawdown. LLMs are part of that trend of growing energy use. At some point we need to start using less energy, or the biosphere will become depleted and return to a ‘moon like rock’ in one study’s words.\nHere’s my personal belief.\nIf we’re smart humanity will use this technology to find ways to make our use of the planet more sustainable and ultimately save water and energy. Just like we should have been using fossil fuels to develop a transition to lasting sustainanle energy use. So you can guess how likely that is to happen…\nIts the reason I’m teaching this course. I don’t personally think that LLMs make our lives better, or humanity more sustainable. They just raise the bar on the rate of progress.\nYou can bet industries are using this technology to improve their productivity (= greater environmental impacts). I believe as environmental scientists we need to try to keep up. Ultimately we need progress on local to planetary sustainability (environmental scientists) to outpace the development of the industries that are environmentally unsustainable.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#model-biases",
+    "href": "09-ethics-copyright.html#model-biases",
+    "title": "9  Ethics and copyright",
+    "section": "9.3 Model biases",
+    "text": "9.3 Model biases\nThis is a big one. I recommend everyone read this perspective on the ‘Illusion of Understanding’\nIts important that we don’t become too reliant on AI for our work. That’s why I’m teaching and promoting thoughtful use.\nSome key points:\n\nWe need to maintain and grow research fields that aren’t convenient to do with AI, not just grow the stuff that’s easy with AI\nWe need to push ourselves as individuals to not ‘be lazy’ and rely on AI too much. There is still great value in human learning. This requires mental energy, for instance, you will know something better if you write it yourself rather than write it with AI.\nWe need to be aware of biases in the content AI generates\n\nFor statistics these biases are likely to be a preference for well-known methods developed by Western science. So you should still read the literature broadly and avoid using AI, or prompt it in different ways, if you truly want to create novel statitistics (as opposed to using it to do statistics on a study that is otherwise novel data etc…)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#rising-inequality",
+    "href": "09-ethics-copyright.html#rising-inequality",
+    "title": "9  Ethics and copyright",
+    "section": "9.4 Rising inequality",
+    "text": "9.4 Rising inequality\nAI development is currently concentrated in the USA and profits for LLM use go to American companies. (USA is itself a country with massive inequality issues!). So the extent to LLMs replaces labour will redirect income and taxes from jobs in countries to American companies.\nIt is likely that the current low cost of LLM use will not continue. Companies are running at a loss in order to gain market share. So be careful how dependent you become on the LLMs and what that budget is replacing in your research budgets.\nI personally beleive that our own countries should be developing our own LLM products and resources. Even if they are not ‘industry leading’ they can still be highly effective for specific tasks. There are open-source models available that can fill this role.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#copyright",
+    "href": "09-ethics-copyright.html#copyright",
+    "title": "9  Ethics and copyright",
+    "section": "9.5 Copyright",
+    "text": "9.5 Copyright\nMany LLMs have been trained on pirated books. The extent to which this is recognized by law is still in court.\nFor me personally its frustrating that I spent years developing a statistics blog (which was open-access, but I appreciated attribution), but now that information has been mined by LLMs. Thus AI companies are profiting from our collective knowledge.\nIt is an even worse situation for authors who’s livelihoods and careers depend on their copyrighted works.\nCopilot does in theory block itself from writing code that might be copyrighted. However, the efficacy of this system is unclear (it seems to just be a command in the system prompt). So be careful. Here are some recommendations for individuals\n\nIn general you own works you create with an LLM.\nThis also means you have the liability for any works you create (not normally an issue in environmental sciences).\ne.g. you couldn’t blame the LLM if you had to retract a paper due to incorrect statistics.\nYou should acknolwedge LLM use in academic publications, and what you used it for.\nAlways look for original sources references, e.g. don’t ‘cite’ the LLM for use of a GLM, use a textbook or reputable source (Zuur’s books are good for this!)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#managing-data-privacy",
+    "href": "09-ethics-copyright.html#managing-data-privacy",
+    "title": "9  Ethics and copyright",
+    "section": "9.6 Managing data privacy",
+    "text": "9.6 Managing data privacy\nAny prompt you send to an LLM provider is going to the server of an AI company (e.g. Google). So its important to be mindful of what information you are including in your prompts.\nThe data you send (including text data) will be covered by the privacy policy of the LLM provider. Some services claim to keep your data private (e.g. the Copilot subscription my University has). Public services will tend to retain the right to use any data you enter as prompts.\nThis means if you put your best research ideas into chatGPT, its possible that it will repeat them later to another user who asks similar questions. So be mindful of what you are writing.\nBefore using an LLM to help with data analysis, be sure you understand the IP and ethical considerations involved with that data. For instance, if you have human survey data you may not be allowed to send that to a foreign server, or reveal any information to an LLM.\nIn that case you have three options.\n\n9.6.0.1 Option 1: Locally hosted LLM\nUse a locally hosted LLM. We won’t cover setting these up in this workshop. Locally hosted LLMs run on your computer. They can be suitable for simpler tasks and if you have a reasonably powerful GPU. Downsides are they do not have the performance of the industry leading LLMs and response times can be slower.\n\n\n9.6.0.2 Option 2: Keep data seperate from code development.\nUse the LLM to help generate code to analyse the data, but do not give the LLM the data or the results. I would recommend keeping the data in a different directory altogether (ie not your project directory), so that LLM agents don’t inadvertently access the raw data. You also want to be sure that the LLM isn’t returning results of data analysis to itself (and therefore you reveal private information to the LLM).\nIt can be helpful to generate some simulated data to use for code development, so there is no risk of violating privacy.\n\n\n9.6.0.3 Option 3: Ignore sensitive folders\nSome LLM agents can be directed to ignore specific folders. e.g. You could add a command to ignore a folder to copilot custom instructions, Roo Code has a .rooignore file for this.\nHowever, remember prompts are not 100% precise (unlike real code), so there’s still the chance the LLM will go in those folders. So be careful, if its really sensitive keep it elsewhere on your computer, and always check its actions before you approve them.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "09-ethics-copyright.html#supplement-calculations-of-personal-environmental-impact-from-using-llms",
+    "href": "09-ethics-copyright.html#supplement-calculations-of-personal-environmental-impact-from-using-llms",
+    "title": "9  Ethics and copyright",
+    "section": "9.7 Supplement: Calculations of personal environmental impact from using LLMs",
+    "text": "9.7 Supplement: Calculations of personal environmental impact from using LLMs\nA ChatGPT request uses 2.9 watt-hour. So say that’s similar cost for coding applicatoins (probably more due to the additional context we are loading with every prompt). Then looking at my chat history I had 14 conversations in the last week (not counting in-line editing). Average was 3x requests per conversation, so in a year that equals: 2.9 * 14 * 3 * 52 = 6.33 kW-hours In USA energy cost on Average is 367 grams C02 per kW-hour. (https://www.eia.gov/tools/faqs/faq.php?id=74&t=11) So my conservative estimated yearly usage for coding: 6.33 x 367 = 2.32 kg C02 For comparison flying the 1.5 hours from Halifax to Montreal is about 172kg of emissions. So my personal annual emissions for coding are perhaps about 10x than a short plane flight. Water is used for cooling in data centres: “A single ChatGPT conversation uses about fifty centilitres of water, equivalent to one plastic bottle.” Based on calculations above, this equates to about 1000L per year. That’s equivalent to about 22 x 5-minute showers.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ethics and copyright</span>"
+    ]
+  },
+  {
+    "objectID": "10-cost-security.html",
+    "href": "10-cost-security.html",
+    "title": "10  Cost and security",
+    "section": "",
+    "text": "10.1 Cost considerations\nAI companies are running at a loss and its quite likely that costs will go up in future. The aim right now is to get us all dependent on the technology, so that we have to keep paying in future (another reason I think its improtant our own countries develop these capaibilites, and that we also need to strive to be capable to work in AI free ways as well. )",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cost and security</span>"
+    ]
+  },
+  {
+    "objectID": "10-cost-security.html#cost-considerations",
+    "href": "10-cost-security.html#cost-considerations",
+    "title": "10  Cost and security",
+    "section": "",
+    "text": "PIs need to consider cost and impact on research budget\ne.g. Copilot subscription free for students\nTools like Roo Code can be more expensive (pay per use as using API).\nStill less than a person (currently)\ne.g. processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)\nStrategies for optimizing token usage\nBalancing cost with capability requirements",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cost and security</span>"
+    ]
+  },
+  {
+    "objectID": "10-cost-security.html#api-security",
+    "href": "10-cost-security.html#api-security",
+    "title": "10  Cost and security",
+    "section": "10.2 API security",
+    "text": "10.2 API security\n\nManaging API keys and credentials\nSanitizing inputs to remove sensitive information\nLocal vs. cloud-based LLM solutions\nAuditing and monitoring LLM interactions",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cost and security</span>"
+    ]
+  },
+  {
+    "objectID": "10-cost-security.html#agent-security",
+    "href": "10-cost-security.html#agent-security",
+    "title": "10  Cost and security",
+    "section": "10.3 Agent security",
+    "text": "10.3 Agent security\n\nCan run code on your computer\nBe careful what it is doing\nRead prompts before running them",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cost and security</span>"
+    ]
+  }
+]

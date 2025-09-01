@@ -1,0 +1,184 @@
+# LLM prompting fundamentals
+
+*Start of practical material*
+
+We'll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you'll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you're not getting the results you expect.
+
+**Software requirements:** VScode with R or Rstudio, [ellmer package](https://ellmer.tidyverse.org/), API license.
+
+## Setup authorisation
+
+Get your API key, see @sec-apikeys and then @sec-ellmer for connecting that to Ellmer. 
+
+## Understanding how LLMs work
+
+Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we'll use the `ellmer` package to demonstrate some fundamental concepts. 
+
+By using `ellmer` to access a LLM through the API we get as close to the raw LLM as we are able. Later on we will use 'coding assistants' (e.g. copilot) which put another layer of software between you and the LLM. 
+
+First, let's set up our environment and create a connection to an LLM. 
+
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+```{r eval=FALSE}
+library(ellmer)
+
+# Initialize a chat with Claude
+chat <- chat_openrouter(
+  system_prompt = "",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+
+```
+
+Notice that the model doesn't do what we intend, which is complete the sentence. LLMs have a built in Let's use the 'system prompt' to provide it with strong directions. 
+
+::: {.tip}
+**Tip:** The system prompt sets the overall context for a chat. It is meant to be a stronger directive than the user prompt. In most chat interfaces (e.g. copilot) you are interacting with the user prompt. The provider has provided the system prompt, [here's the system prompt for the chat interface version of anthropic (Claude)](https://www.reddit.com/r/ClaudeAI/comments/1ixapi4/here_is_claude_sonnet_37_full_system_prompt/)
+:::
+
+```{r setup-ellmer, eval=FALSE}
+chat <- chat_openrouter(
+  system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
+  model = "anthropic/claude-3.5-haiku",
+#   model = "anthropic/claude-3.7-sonnet",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+
+```
+
+::: {.tip}
+**Tip:** It is generally more effective to tell the LLM **what to do** rather than **what not to do** (just like people!). 
+:::
+
+### Temperature effects
+
+The "temperature" parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.
+
+Let's compare responses with different temperatures:
+
+```{r temperature-comparison, eval=FALSE}
+# Create chats with different temperature settings
+chat_temp <- chat_openrouter(
+          system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
+        model = "anthropic/claude-3.5-haiku",
+        api_args = list(max_tokens = 50, temperature = 0)
+    )
+
+chat_temp$chat("Marine ecologists like to eat ")
+
+chat_temp <- chat_openrouter(
+          system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
+        model = "anthropic/claude-3.5-haiku",
+        api_args = list(max_tokens = 50, temperature = 2)
+    )
+
+chat_temp$chat("Marine ecologists like to eat ")
+
+```
+
+At low temperatures, you'll notice the model consistently produces similar "safe" completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.
+
+### Comparing model complexity
+
+Different models have different capabilities based on their size, training data, and architecture. 
+
+For example `anthropic/claude-3.5-haiku` has many fewer parameters than `anthropic/claude-3.7-sonnet`. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15
+
+For the kind of simple tasks we are doing here, both give similar results. We will compare models later in the workshop when we use github copilot. 
+
+### Understanding context windows
+
+LLMs have a limited "context window" - the amount of text they can consider when generating a response. This affects their ability to maintain coherence over long conversations. For most LLMs this is about 100-200K tokens, which includes input and output. However, Google's models have up to 1 million tokens. 
+
+We'll come back to the context window when we explore more advanced tools with longer prompts. These simple prompts don't come close to using up the context window. 
+
+## Improving your prompts
+
+TODO Insert some examples comparing with and without these approaches
+
+### Being specific
+
+### Giving context
+
+Showing data etc... 
+
+### Giving examples 
+
+## DIY stats bot 
+
+Let's put together what we've learnt so far and built our own chatbot. I've provided you with a detailed system prompt that implements a chat bot that specialises in helping with statistics. First, we read the bot markdown file from github, then we can use it in our chat session. 
+
+```{r, eval=FALSE}
+
+stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md"))
+
+chat_stats <- chat_openrouter(
+          system_prompt = stats_bot,
+        model = "anthropic/claude-3.7-sonnet",
+        api_args = list(max_tokens = 5000)
+    )
+
+```
+
+`ellmer` has a few different options for interacting with chat bots. We've seen the 'chat' option. We can also have a `live_console()` or `live_browser()` (requires installing `shinychat`) chat. Let's use one of those options. With `live_browser()` you'll also see the browser automatically formats any markdown in the chat. 
+
+```{r, eval=FALSE}
+live_browser(chat_stats)
+# live_console(chat_stats)
+```
+
+Here are some suggested questions to start, but feel free to try your own. 
+"Who are you?"
+"Use stats mode to provide me with some suggestions for how I could make a predictive model of a variable y, where I have a large number of potential explanatory variables. "
+
+
+::: {.tip}
+**Tip:** How many of you started using "DIY-stats-bot-system.md" without first reading it? Did you find the easter egg in my prompt? For security you should ALWAYS read prompts before you start running them through LLM chats. We'll see later that LLMs can be given 'tools' which allow them to run code on your computer. Its easy to see how a malicious prompt could mis-use these tools. We'll cover security later. 
+:::
+
+### Improving the stats bot
+
+Make a local copy of the stats bot system prompt and try editing it. Try different commands within it and see how your chat bot responds (you'll have to open a new chat object each time). 
+
+Here's some ideas. 
+
+- Try making a chat bot that is a verhment Bayesian that abhors frequentist statistics.   
+- You could provide it with more mode-specific instructions. For instance, try to get the chatbot to suggest appropriate figures for verifying statistical models. 
+- Try different temperatures. 
+- Add your own easter egg. 
+
+::: {.tip}
+**Tip:** Adjectives, CAPITALS, `*markdown*` formatting can all help create emphasis so that your model more closely follows your commands. I used 'abhors' and 'verhment' above on purpose. 
+:::
+
+
+
+### Tools
+
+Tools like Copilot Agent mode then go a step further and send the results of step 5 back to the LLM, which then interprets the results and the loop continues (sometimes with and sometimes without direct user approval). 
+
+If you want to go further with making your own tools, then I suggest you check out `ellmer` package. It supports tool creation in a structured way. For instance, I made a tool that allows an [LLM to download and save ocean data to your computer](https://ellmer.tidyverse.org/articles/tool-calling.html).  
+
+## Reflection on prompting fundamentals 
+
+To recap, the basic workflow an agent follows is: 
+
+1. Set-up a system prompt with detailed instructions for how the LLM should format responses
+2. User asks a question that is sent to the LLM
+3. LLM responds and sends response back to user
+4. Software on user's computer attempts to parse and act on the response according to pre-determined rules
+5. User's computers enacts the commands in the response and provides results to user
+
+The key things I hoped you learnt from this lesson are: 
+
+- Basic LLM jargon, including tokens, temperature, API access and different LLM models. 
+- Some different prompt strategies, including role prompting, emphasis, chain of thought and one-shot. 
+- The fundamentals of tool use and agents. 
+
+Now you understand the basics, let's get into Github Copilot. 

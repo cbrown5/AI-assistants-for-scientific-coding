@@ -1,0 +1,20 @@
+# Advanced LLM agents
+
+**Time:** 3:00-3:30pm
+
+**Software requirements:** VScode with R, Roo code, API license.
+
+We'll take a quick look at [Roo Code](https://docs.roocode.com/) and its customization options. 
+
+Roo code is more complex and expensive to use than copilot, but allows significant amounts of customization to make bespoke agents that can help with the scientific process. 
+
+I'll use an example with the Benthic Data analysis (benthic-readme.md). 
+
+Talk through:
+
+- API access
+- Model options
+- Customizing system message
+- Context window management
+- Cost
+- Vision capabilities

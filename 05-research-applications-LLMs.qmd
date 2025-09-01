@@ -1,0 +1,8 @@
+# Research applications of LLMs
+
+## Automating literature reviews
+
+## Deep research
+
+## Image analysis 
+
