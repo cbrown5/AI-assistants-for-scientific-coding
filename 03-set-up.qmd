@@ -31,7 +31,9 @@ If you chose this option you will need to follow instructions in this chapter fo
 
 ### Option 2 for R users 
 
-Use Rstudio with R. You will need `ellmer` and `gander` packages. See instructions below for 'Getting an API key' (@sec-apikeys), 'Ellmer set-up' (@sec-ellmer) and 'Gander: Rstudio friendly alternative to copilot' (@sec-gander)
+Use Rstudio with R. You will need `ellmer` and `gander` packages. See instructions below for 'Getting an API key' (@sec-apikeys), 'Ellmer set-up' (@sec-ellmer) and 'Gander: Rstudio friendly alternative to copilot' (@sec-gander). 
+
+Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (@sec-githubcopilot) then in Rstudio go to 'Tools' -> 'Global Options' -> 'Copilot' and enable it (follow instructions for entering password to setup). 
 
 ### Python users 
 

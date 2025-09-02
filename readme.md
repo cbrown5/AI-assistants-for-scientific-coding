@@ -2,6 +2,7 @@
 
 TODO
 
-Bring over relevant notes from R-llm-workshop
+Make a quiz to do at end
 
-Create detailed-setup page
+Work on fundamentals, add some examples where user can experiment with differnet prompt styles. 
+
