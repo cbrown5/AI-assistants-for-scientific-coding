@@ -256,39 +256,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><em>Start of practical material</em></p>
 <p>We’ll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you’ll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you’re not getting the results you expect.</p>
-<p><strong>Software requirements:</strong> VScode with R or Rstudio, <a href="https://ellmer.tidyverse.org/">ellmer package</a>, API license.</p>
+<p><strong>Software requirements:</strong> VScode with R or Rstudio. API key, ideally to openrouter. R (best with ellmer) or Python.</p>
 <section id="setup-authorisation" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="setup-authorisation"><span class="header-section-number">4.1</span> Setup authorisation</h2>
 <p>Get your API key, see <a href="03-set-up.html#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a> and then <a href="03-set-up.html#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a> for connecting that to Ellmer.</p>
 </section>
 <section id="understanding-how-llms-work" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="understanding-how-llms-work"><span class="header-section-number">4.2</span> Understanding how LLMs work</h2>
-<p>Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we’ll use the <code>ellmer</code> package to demonstrate some fundamental concepts.</p>
-<p>By using <code>ellmer</code> to access a LLM through the API we get as close to the raw LLM as we are able. Later on we will use ‘coding assistants’ (e.g.&nbsp;copilot) which put another layer of software between you and the LLM.</p>
+<p>Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we’ll call an API directly through computer code.</p>
+<p>By accessing the API in this way we get as close to the raw LLM as we are able. Later on we will use ‘coding assistants’ (e.g.&nbsp;copilot) which put another layer of software between you and the LLM.</p>
 <p>First, let’s set up our environment and create a connection to an LLM.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a chat with Claude</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">""</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Ecologists like to eat "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="{webr}"><code>library(ellmer)
+
+# Initialize a chat with Claude
+chat &lt;- chat_openrouter(
+  system_prompt = "",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+</code></pre>
+</div>
+<div class="cell">
+<pre class="{pyodide}"><code>library(ellmer)
+
+# Initialize a chat with Claude
+chat &lt;- chat_openrouter(
+  system_prompt = "",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+</code></pre>
 </div>
 <p>Notice that the model doesn’t do what we intend, which is complete the sentence. LLMs have a built in Let’s use the ‘system prompt’ to provide it with strong directions.</p>
 <div class="tip">
 <p><strong>Tip:</strong> The system prompt sets the overall context for a chat. It is meant to be a stronger directive than the user prompt. In most chat interfaces (e.g.&nbsp;copilot) you are interacting with the user prompt. The provider has provided the system prompt, <a href="https://www.reddit.com/r/ClaudeAI/comments/1ixapi4/here_is_claude_sonnet_37_full_system_prompt/">here’s the system prompt for the chat interface version of anthropic (Claude)</a></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   model = "anthropic/claude-3.7-sonnet",</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Ecologists like to eat "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   model = "anthropic/claude-3.7-sonnet",</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Ecologists like to eat "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="tip">
 <p><strong>Tip:</strong> It is generally more effective to tell the LLM <strong>what to do</strong> rather than <strong>what not to do</strong> (just like people!).</p>
@@ -298,22 +311,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The “temperature” parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.</p>
 <p>Let’s compare responses with different temperatures:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create chats with different temperature settings</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>chat_temp <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>, <span class="at">temperature =</span> <span class="dv">0</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>chat_temp<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Marine ecologists like to eat "</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>chat_temp <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>, <span class="at">temperature =</span> <span class="dv">2</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>chat_temp<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Marine ecologists like to eat "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create chats with different temperature settings</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chat_temp <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>, <span class="at">temperature =</span> <span class="dv">0</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>chat_temp<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Marine ecologists like to eat "</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>chat_temp <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>, <span class="at">temperature =</span> <span class="dv">2</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>chat_temp<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Marine ecologists like to eat "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>At low temperatures, you’ll notice the model consistently produces similar “safe” completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.</p>
 </section>
@@ -347,18 +360,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.4" class="anchored" data-anchor-id="diy-stats-bot"><span class="header-section-number">4.4</span> DIY stats bot</h2>
 <p>Let’s put together what we’ve learnt so far and built our own chatbot. I’ve provided you with a detailed system prompt that implements a chat bot that specialises in helping with statistics. First, we read the bot markdown file from github, then we can use it in our chat session.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stats_bot <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_file</span>(<span class="fu">url</span>(<span class="st">"https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md"</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>chat_stats <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> stats_bot,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.7-sonnet"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">5000</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stats_bot <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_file</span>(<span class="fu">url</span>(<span class="st">"https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md"</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>chat_stats <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">system_prompt =</span> stats_bot,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">model =</span> <span class="st">"anthropic/claude-3.7-sonnet"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">5000</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>ellmer</code> has a few different options for interacting with chat bots. We’ve seen the ‘chat’ option. We can also have a <code>live_console()</code> or <code>live_browser()</code> (requires installing <code>shinychat</code>) chat. Let’s use one of those options. With <code>live_browser()</code> you’ll also see the browser automatically formats any markdown in the chat.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">live_browser</span>(chat_stats)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># live_console(chat_stats)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">live_browser</span>(chat_stats)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># live_console(chat_stats)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here are some suggested questions to start, but feel free to try your own. “Who are you?” “Use stats mode to provide me with some suggestions for how I could make a predictive model of a variable y, where I have a large number of potential explanatory variables.”</p>
 <div class="tip">

@@ -1,10 +1,11 @@
+
 # LLM prompting fundamentals
 
 *Start of practical material*
 
 We'll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you'll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you're not getting the results you expect.
 
-**Software requirements:** VScode with R or Rstudio, [ellmer package](https://ellmer.tidyverse.org/), API license.
+**Software requirements:** VScode with R or Rstudio. API key, ideally to openrouter. R (best with ellmer) or Python.
 
 ## Setup authorisation
 
@@ -12,9 +13,9 @@ Get your API key, see @sec-apikeys and then @sec-ellmer for connecting that to E
 
 ## Understanding how LLMs work
 
-Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we'll use the `ellmer` package to demonstrate some fundamental concepts. 
+Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we'll call an API directly through computer code. 
 
-By using `ellmer` to access a LLM through the API we get as close to the raw LLM as we are able. Later on we will use 'coding assistants' (e.g. copilot) which put another layer of software between you and the LLM. 
+By accessing the API in this way we get as close to the raw LLM as we are able. Later on we will use 'coding assistants' (e.g. copilot) which put another layer of software between you and the LLM. 
 
 First, let's set up our environment and create a connection to an LLM. 
 
@@ -22,7 +23,7 @@ First, let's set up our environment and create a connection to an LLM.
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-```{r eval=FALSE}
+```{r}
 library(ellmer)
 
 # Initialize a chat with Claude
