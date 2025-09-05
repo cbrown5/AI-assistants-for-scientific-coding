@@ -46,5 +46,20 @@
   },
   "09-ethics-copyright.qmd": {
     "09-ethics-copyright.html": "c56a72f4"
+  },
+  "07-ai-powered-analysis-workflows.qmd": {
+    "07-ai-powered-analysis-workflows.html": "82913dab"
+  },
+  "08-specification-sheets.qmd": {
+    "08-specification-sheets.html": "25830a89"
+  },
+  "09-advanced-llm-agents.qmd": {
+    "09-advanced-llm-agents.html": "eff87513"
+  },
+  "10-ethics-copyright.qmd": {
+    "10-ethics-copyright.html": "db6a6952"
+  },
+  "11-cost-security.qmd": {
+    "11-cost-security.html": "d9fedd91"
   }
 }

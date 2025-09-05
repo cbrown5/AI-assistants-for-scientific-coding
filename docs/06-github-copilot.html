@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,17 +64,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-specification-sheets.html" rel="next">
+<link href="./07-ai-powered-analysis-workflows.html" rel="next">
 <link href="./05-research-applications-LLMs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -144,26 +178,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./08-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-ethics-copyright.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
+  <a href="./09-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-cost-security.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cost and security</span></span></a>
+  <a href="./10-ethics-copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-cost-security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cost and security</span></span></a>
   </div>
 </li>
     </ul>
@@ -171,8 +211,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#inline-code-editing" id="toc-inline-code-editing" class="nav-link active" data-scroll-target="#inline-code-editing"><span class="header-section-number">6.1</span> Inline code editing</a>
+  <ul class="collapse">
+  <li><a href="#code-completion" id="toc-code-completion" class="nav-link" data-scroll-target="#code-completion"><span class="header-section-number">6.1.1</span> 1. Code completion</a></li>
+  <li><a href="#using-comments" id="toc-using-comments" class="nav-link" data-scroll-target="#using-comments"><span class="header-section-number">6.1.2</span> 2. Using comments</a></li>
+  <li><a href="#code-completion-settings" id="toc-code-completion-settings" class="nav-link" data-scroll-target="#code-completion-settings"><span class="header-section-number">6.1.3</span> 3. Code completion settings</a></li>
+  <li><a href="#inline-code-generation" id="toc-inline-code-generation" class="nav-link" data-scroll-target="#inline-code-generation"><span class="header-section-number">6.1.4</span> 4. Inline code generation</a></li>
+  </ul></li>
+  <li><a href="#planning-your-analysis-with-ask-mode" id="toc-planning-your-analysis-with-ask-mode" class="nav-link" data-scroll-target="#planning-your-analysis-with-ask-mode"><span class="header-section-number">6.2</span> Planning your analysis with Ask mode</a>
+  <ul class="collapse">
+  <li><a href="#stages-of-analysis" id="toc-stages-of-analysis" class="nav-link" data-scroll-target="#stages-of-analysis"><span class="header-section-number">6.2.1</span> Stages of analysis</a></li>
+  <li><a href="#ask-mode" id="toc-ask-mode" class="nav-link" data-scroll-target="#ask-mode"><span class="header-section-number">6.2.2</span> Ask mode</a></li>
+  <li><a href="#the-jagged-frontier-of-llm-progress" id="toc-the-jagged-frontier-of-llm-progress" class="nav-link" data-scroll-target="#the-jagged-frontier-of-llm-progress"><span class="header-section-number">6.2.3</span> The jagged frontier of LLM progress</a></li>
+  <li><a href="#how-to-prompt-for-better-statistical-advice" id="toc-how-to-prompt-for-better-statistical-advice" class="nav-link" data-scroll-target="#how-to-prompt-for-better-statistical-advice"><span class="header-section-number">6.2.4</span> How to prompt for better statistical advice</a></li>
+  <li><a href="#planning-implementation" id="toc-planning-implementation" class="nav-link" data-scroll-target="#planning-implementation"><span class="header-section-number">6.2.5</span> Planning implementation</a></li>
+  </ul></li>
+  <li><a href="#creating-your-code-with-edit-mode" id="toc-creating-your-code-with-edit-mode" class="nav-link" data-scroll-target="#creating-your-code-with-edit-mode"><span class="header-section-number">6.3</span> Creating your code with Edit mode</a>
+  <ul class="collapse">
+  <li><a href="#adding-a-plan-to-the-readme" id="toc-adding-a-plan-to-the-readme" class="nav-link" data-scroll-target="#adding-a-plan-to-the-readme"><span class="header-section-number">6.3.1</span> Adding a plan to the readme</a></li>
+  <li><a href="#workflows-and-tips-for-edit-mode" id="toc-workflows-and-tips-for-edit-mode" class="nav-link" data-scroll-target="#workflows-and-tips-for-edit-mode"><span class="header-section-number">6.3.2</span> Workflows and tips for edit mode</a></li>
+  </ul></li>
+  <li><a href="#automated-workflows-with-agent-mode" id="toc-automated-workflows-with-agent-mode" class="nav-link" data-scroll-target="#automated-workflows-with-agent-mode"><span class="header-section-number">6.4</span> Automated workflows with Agent mode</a>
+  <ul class="collapse">
+  <li><a href="#exploring-agent-mode" id="toc-exploring-agent-mode" class="nav-link" data-scroll-target="#exploring-agent-mode"><span class="header-section-number">6.4.1</span> Exploring agent mode</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.4.2</span> Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -217,8 +287,390 @@ ul.task-list li input[type="checkbox"] {
 <li>Edit mode</li>
 <li>Agent mode</li>
 </ul>
+<section id="inline-code-editing" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="inline-code-editing"><span class="header-section-number">6.1</span> Inline code editing</h2>
+<p>This chapter explores techniques for using GitHub Copilot’s inline code editing capabilities to enhance your R programming workflow.</p>
+<section id="code-completion" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="code-completion"><span class="header-section-number">6.1.1</span> 1. Code completion</h3>
+<p>This is only option supported in Rstudio (last time I checked).</p>
+<p>Assuming you have github copilot set-up you just need to start a new R script (remember to keep it organized and give it a useful name) and start typing. You’ll see suggested code completions appear in grey. Hit <code>tab</code> to complete them.</p>
+<p>Let’s read in the benthic site data and fish counts:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">url</span>(<span class="st">"https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/fish-coral-cover-sites.csv"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now try create a ggplot of <code>secchi</code> (a measure of water clarity, higher values mean clearer water) and <code>pres.topa</code> (count of topa, the bumphead parrotfish). Start typing <code>gg</code> and see what happens.</p>
+<p>You should a recommendation for a ggplot. But it won’t know the variable names.</p>
+<div class="tip">
+<p><strong>Tip:</strong> Sometimes GC gets stuck in a loop and keeps recommending the same line. To break it out of the loop try typing something new.</p>
+</div>
+</section>
+<section id="using-comments" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="using-comments"><span class="header-section-number">6.1.2</span> 2. Using comments</h3>
+<p>The code completion is using your script and all open scripts in VScode to predict your next line of code. It won’t know the variable names unless you’ve provided that. One way is to include them in the readme.md file and have that open, another is to use comments in the active script (which tends to work more reliably), e.g.</p>
+<pre><code># Make a point plot of secchi against pres.topa
+gg...</code></pre>
+<p>Should get you the write ggplot. Using variable names in your prompts is more precise and will help the LLM guess the right names.</p>
+<p>You could also try putting key variable names in comments at the top of your script.</p>
+<p>Another way to use autocomplete is not to write R at all, just to write comments and fix the R code. Try templating a series of plots like:</p>
+<pre><code># Make a point plot of secchi against pres.topa with a stat_smooth
+
+# Plot logged (two categories) and pres.topa as a boxplot
+
+# Plot CB_cover (branching coral cover) against secchi</code></pre>
+<p>Now go back through and click under each line to get the suggestions.</p>
+<p>This strategy is great in data wrangling workflows. As a simple example try make this grouped summary using comments only:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(logged) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_topa =</span> <span class="fu">mean</span>(pres.topa), </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean_CB =</span> <span class="fu">mean</span>(CB_cover))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To make this I might write this series of comments:</p>
+<pre><code>    #group dat by logged 
+    #summarize pres.topa and CB_cover</code></pre>
+<p>If the variable names are documented above you can ofter be lazier and less precise with variable names here.</p>
+</section>
+<section id="code-completion-settings" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="code-completion-settings"><span class="header-section-number">6.1.3</span> 3. Code completion settings</h3>
+<p>Click the octocat in the bottom right corner of VScode to fine-tune the settings. You can enable/disable code completions (sometimes they are annoying e.g.&nbsp;when writing a workshop!).</p>
+<p>You can also enable ‘next edit suggestions’. These are useful if editing an exisiting file. e.g.&nbsp;if you misspelt ‘sechi’ then updated it in one place, it will suggest updates through the script. Hit tab to move through these.</p>
+<p>The box will also tell you if indexing is available. Indexing allows AI to search your code faster.</p>
+</section>
+<section id="inline-code-generation" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="inline-code-generation"><span class="header-section-number">6.1.4</span> 4. Inline code generation</h3>
+<p>In VScode you can also access an inline chat box with cmd/cntrl-i. This chat can chat as well as edit code.</p>
+<p>You can click anywhere and active this. I find it most useful though to select a section of code and then hit cmd/cntrl-i.</p>
+<p>This is most useful to - Add new code - Explain code - Fix bugs - Add tests</p>
+<p>Try select some of your code (e.g.&nbsp;a ggplot) and ask it to explain what the code does.</p>
+<p>Now try select one of your plots and ask for some style changes (e.g.&nbsp;theme, colours, axes label sizes etc…).</p>
+<p>Now add a bug into one of your plots. See if the inline chatbox can fix the bug.</p>
+<section id="prompt-shortcuts" class="level4" data-number="6.1.4.1">
+<h4 data-number="6.1.4.1" class="anchored" data-anchor-id="prompt-shortcuts"><span class="header-section-number">6.1.4.1</span> Prompt shortcuts</h4>
+<p>Use the <code>/</code> to bring up a list of prompt shortcuts. The most useful in R are <code>/explain</code>, <code>/fix</code>, <code>/tests</code>. Try select some code then use these to see what happens.</p>
+</section>
+</section>
+</section>
+<section id="planning-your-analysis-with-ask-mode" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="planning-your-analysis-with-ask-mode"><span class="header-section-number">6.2</span> Planning your analysis with Ask mode</h2>
+<section id="stages-of-analysis" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="stages-of-analysis"><span class="header-section-number">6.2.1</span> Stages of analysis</h3>
+<p>There are overall decisions you need to make when developing your analysis:</p>
+<ol type="1">
+<li>What types of statistics to use.</li>
+<li>How to implement those statistics in R code.</li>
+</ol>
+<p>Its worthwhile separting these two decisions, as they are different issues. One is a science question, the other is a programming question.</p>
+<p>When using Assistants its also worthwhile using different chat sessions to try and find answers.</p>
+</section>
+<section id="ask-mode" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="ask-mode"><span class="header-section-number">6.2.2</span> Ask mode</h3>
+<p>Ask mode helps you plan analysis and implementation, using context from your project.</p>
+<p>In VScode click the ‘octocat’ symbol that should be at the top towards the right. This will open the chat window.</p>
+<p>The chat panel will appear down the bottom of this new sidebar. Confirm that the chatbot is currently set to ‘Ask’ mode.</p>
+<p>Your current file will automatically be included as context for the prompt. You can drag and drop any other files here as well.</p>
+<p>Start by asking the chatbot for guidance on a statistical analysis. We are interested in how the abundance of Topa relates to coral cover. For instance you could ask:</p>
+<pre><code>How can I test the relationship between pres.topa and CB_cover?</code></pre>
+<p>Evaluate the quality of its response and we will discuss.</p>
+</section>
+<section id="the-jagged-frontier-of-llm-progress" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="the-jagged-frontier-of-llm-progress"><span class="header-section-number">6.2.3</span> The jagged frontier of LLM progress</h3>
+<p>LLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.</p>
+<p>Since then AI companies have been optimising their training and development for coding and logic.</p>
+<p>There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Current models get about <a href="https://www.swebench.com/">50% resolution on this benchmark</a>.</p>
+<p>Their progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) <a href="https://epoch.ai/frontiermath/the-benchmark">are saturated as LLMs are scoring close to 100% on these tests.</a>. So newer tests of unsolved maths problems are being developed.</p>
+<p>However, others are finding that the ability of <a href="https://garymarcus.substack.com/p/reports-of-llms-mastering-math-have">LLMs on math and logic are overstated</a>, perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be ‘industry leaders’ and grab market share with impressive results on benchmarks.</p>
+<p>Either way, it does seem that the current areas of progress are programming, math and logic.</p>
+<p>Evaluations on statistics and the R software are less common.</p>
+<p>The limited evaluations of LLMs on their ability to identify the correct statistical procedure are less impressive than other benchmarks. <a href="https://arxiv.org/abs/2406.07815">An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model</a>, found accuracy at suggesting the correct statistical test of between 8% and 90%.</p>
+<p>In general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer.</p>
+<p>The results also indicate the improvements that can be gained through better prompts (i.e.&nbsp;doubling in accuracy for GPT 4).</p>
+<p>The lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.</p>
+<p>For us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.</p>
+</section>
+<section id="how-to-prompt-for-better-statistical-advice" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="how-to-prompt-for-better-statistical-advice"><span class="header-section-number">6.2.4</span> How to prompt for better statistical advice</h3>
+<p>The limited number of evaluations of LLMs for statistics have found the biggest improvements for prompts that:</p>
+<ul>
+<li>Include domain knowledge in the prompt</li>
+<li>Include data or summary data in the prompt</li>
+<li>Combine domain knowledge with CoT (but CoT on its own doesn’t help)</li>
+</ul>
+<p>In addition, larger and more up-to-date models tend to be better. e.g.&nbsp;try Claude 4.0 over GPT-mini.</p>
+<section id="what-llms-dont-do-that-real-statisticians-do" class="level4" data-number="6.2.4.1">
+<h4 data-number="6.2.4.1" class="anchored" data-anchor-id="what-llms-dont-do-that-real-statisticians-do"><span class="header-section-number">6.2.4.1</span> What LLMs don’t do that real statisticians do…</h4>
+<p>If you consult a human statistician they’ll usually ask you lots of questions. LLMs, in contrast, will tend to just give you an answer, whether or not they have enough context.</p>
+<p>Say you asked me the same question you had in your LLM prompt like “how do see if fish are related to coral”. There’s no way I’d jump in with an answer with so little information. But the LLM will.</p>
+<p>So be aware of this shortcoming and come to prompting pre-prepared with the context it will need to give you a better answer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06-github-copilot_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figure 1</strong> Comparison of how an experienced human statistical consultant would structure a conversation compared to a typical prompt chain with an AI assistant (figure 1). The human consultant will usually ask more questions than provide answers at the start of a conversation, then switch to providing more answers once they understand the context of the study. An AI assistant will tend to be constant in the number of questions it asks, unless explictly prompted to ask questions rather than provide answers. This means it provides answers without first gathering appropriate context.</p>
+</section>
+<section id="guidelines-for-prompting-for-statistical-advice" class="level4" data-number="6.2.4.2">
+<h4 data-number="6.2.4.2" class="anchored" data-anchor-id="guidelines-for-prompting-for-statistical-advice"><span class="header-section-number">6.2.4.2</span> Guidelines for prompting for statistical advice</h4>
+<p><strong>Attach domain knowledge</strong> Try to find quality written advice from recognized researchers to include in your prompts.</p>
+<p><strong>Always provide context on the data</strong> For instance, the model will give better advice for the prompt above if we tell it that <code>pres.topa</code> is integer counts (it will probably then recommend poisson GLM straight away). Likewise, if your replicates are different sites, tell that to the model so it has the opportunity to recommend approaches that are appropriate for spatial analysis.</p>
+<p><strong>Attach data to your prompts</strong> You can attach the whole dataset if its in plain text (e.g.&nbsp;csv). Or write a <code>summary()</code> and/or <code>head()</code> to file and attach that.</p>
+<p><strong>Combine the above approaches with Chain of Thought</strong> Just add ‘use Chain of Thought reasoning’ to your prompt. Its that easy.</p>
+<p><strong>Double-up on chain of thought with self evaluation</strong> After the initial suggest try prompts like “are you sure?”, “Take a deep breath, count to ten and think deeply”, “Evaluate the quality of the options on a 1-5 scale”.</p>
+<div class="tip">
+<p><strong>Tip:</strong> Make a library of reference material for your prompting. If you see vignettes, blogs, or supplemental sections of papers that explain an analysis well, save them as text files to use in prompts.</p>
+</div>
+</section>
+<section id="improving-our-initial-prompt-by-attaching-data" class="level4" data-number="6.2.4.3">
+<h4 data-number="6.2.4.3" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-data"><span class="header-section-number">6.2.4.3</span> Improving our initial prompt by attaching data</h4>
+<p>Recall our initial prompt was:</p>
+<pre><code>How can I statistically test the relationship between pres.topa and CB_cover?</code></pre>
+<p>Try some of the strategies above (make a new prompt by clicking the + button) and compare the quality of advice.</p>
+<p>For instance, you can save a data summary like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="fu">head</span>(dat), <span class="st">"resources/head-site-level-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then drag and drop it into the ask window and add something like:</p>
+<pre><code>How can I statistically test the relationship between pres.topa and CB_cover? Here are the first 6 rows of data</code></pre>
+</section>
+<section id="improving-our-initial-prompt-by-attaching-domain-knowledge" class="level4" data-number="6.2.4.4">
+<h4 data-number="6.2.4.4" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-domain-knowledge"><span class="header-section-number">6.2.4.4</span> Improving our initial prompt by attaching domain knowledge</h4>
+<p>You can further improve the response by attaching a trusted resource. e.g.&nbsp;<a href="https://environmentalcomputing.net/statistics/glms/glm-2/">save this webpage on count models for ecology</a> to your computer. Then you can attach the html file. That turned out to be a bit slow to compute (file too large?). Would be better if we had in plain text (e.g.&nbsp;copy and paste the text to a file, or use an extraction tool to extract text from the html).</p>
+<p>If you installed the websearch tool (which will likely become default in future) then you could add a prompt like this:</p>
+<pre><code>How can I statistically test the relationship between pres.topa and CB_cover? Here are the first 6 rows of data. pres.topa is my response and it is count data. Use @websearch to find robust recommendations for ecologists to analyse count data before proceeding with your recomemndations. </code></pre>
+<p>That worked well for me. I then followed up with:</p>
+<pre><code>Great. Evaluate the robustness of each suggestoin on a 1-10 scale</code></pre>
+<p>And it gave me a nice summary suggesting to try overdispersion models first (which is a good suggestion).</p>
+<p>The absolute best practice would be to give the assistant all the context for your study and observational design. Let’s see how doing that can work in our favour when planning implementation.</p>
+</section>
+</section>
+<section id="planning-implementation" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="planning-implementation"><span class="header-section-number">6.2.5</span> Planning implementation</h3>
+<p>The other main way to use Ask mode is for help in implementing an analysis. Many of our workflows are complex and involve multiple data wrangling steps.</p>
+<p>To get the best out of GC I recommend creating a detailed README.md file with project context. Let’s try that and use it to plan our project.</p>
+<p>Save the <a href="https://github.com/cbrown5/R-llm-workshop/tree/main/resources/benthic-analysis">README.md that his here to a local file</a>. (Remember that we are going to be using this as a prompt, so read it first).</p>
+<p>Now you can attach it (or open it then click new chat). Given all the context you’ve provided you can just write something simple like:</p>
+<pre><code>Help me plan R code to implement this analysis. </code></pre>
+<p>Or</p>
+<pre><code>Help me plan the workflow and scripts to implement this analysis</code></pre>
+<p>I did this. It suggested both code (that looked approximatley correct) and the directory structure, sticking to my guideline in the readme about being modular.</p>
+<p>You should iterative with Ask mode to if there are any refinements you want.</p>
+<p>Let’s move onto edit mode to see how to put this plan to action.</p>
+</section>
+</section>
+<section id="creating-your-code-with-edit-mode" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="creating-your-code-with-edit-mode"><span class="header-section-number">6.3</span> Creating your code with Edit mode</h2>
+<p>Edit mode will edit files for you. The best way to learn how is to just see it in action.</p>
+<p>Open the Chat panel and click the ‘Ask’ button, then select ‘Edit’.</p>
+<section id="adding-a-plan-to-the-readme" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="adding-a-plan-to-the-readme"><span class="header-section-number">6.3.1</span> Adding a plan to the readme</h3>
+<p>Open the README.md. Then type this prompt:</p>
+<pre><code>Help me plan the implementation of this project. Add the plan to the ## Steps section</code></pre>
+<p>Click ‘Keep’ if you like what it did. Or you can suggest improvements. Alternatively, accept it for now and then edit it afterwards.</p>
+<div class="tip">
+<p><strong>Tip:</strong> Sometimes you can’t go back once copilot has made edits to a file. So its good practice to use git and commmit changes before and after editing.</p>
+</div>
+<section id="working-through-your-plan" class="level4" data-number="6.3.1.1">
+<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="working-through-your-plan"><span class="header-section-number">6.3.1.1</span> Working through your plan</h4>
+<p>Once you’re happy with the plan, you can get copilot to implement it. You can continue the current chat, or start a new chat to do this (depending on the length of the task).</p>
+<p>Now step through, asking copilot to create each file as you.</p>
+<p>At this point everyone’s answers will diverge, as there is an element of randomness to the LLM’s responses. We will compare as a class to see if everyone gets to a similar analysis and answer.</p>
+<div class="tip">
+<p><strong>Tip:</strong> We are using the readme.md is copilot’s memory. This means the assitant always has the context it needs across different chat sessions (where it would otherwise forget). So its important to keep the readme updated. Its also useful to help you remember if you come back to the project some months or years later.</p>
+</div>
+</section>
+<section id="why-so-much-code" class="level4" data-number="6.3.1.2">
+<h4 data-number="6.3.1.2" class="anchored" data-anchor-id="why-so-much-code"><span class="header-section-number">6.3.1.2</span> Why so much code?</h4>
+<p>Copilot is designed as a programming assistant. We don’t know its system message, but given the main market for this software is professional programmers, we can guess it has a strong emphasis on programming robust code.</p>
+<p>You might notice that copilot tend to ‘over-engineer’ your R scripts. For instance, it has a tendancy to make an <code>if</code> statement to check if each new package needs installing, before loading it.</p>
+<p>If you don’t like this style you can add a statement to the readme asking it to keep implementation simple.</p>
+</section>
+</section>
+<section id="workflows-and-tips-for-edit-mode" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="workflows-and-tips-for-edit-mode"><span class="header-section-number">6.3.2</span> Workflows and tips for edit mode</h3>
+<p>Remember its an assistant, its not doing the project for you. So you need to make sure it stays on track. Left unattended (if you just accept, accept, accept without reading) it can go down rabbit holes. Sometimes it creates superfluous analyses or even incorret statistics.</p>
+<p>So here’s how I recommend you use it:</p>
+<ul>
+<li>Use git for version control so you can go back in to older versions.</li>
+<li>Read the suggested edits before accepting</li>
+<li>Keep the readme.md updated and keep attaching it to your prompts. This will help keep it focused on the tasks that matter</li>
+<li>Use a two-step approach to identifying the statistical tests first, then implementing them as R code second. If you conflate these tasks you risk letting copilot guide the stats and getting it wrong.</li>
+<li>You can use it to help implement multiple different types of statistical tests for experimenting. If you do this, I just suggest you still use a two-step approach: plan a list of stats options first, then get copilot to implement them so you can compare results.</li>
+</ul>
+<p>NEVER edit the file while copilot is working! To edit files it uses string matching to locate the position to insert the edits. If you change the file it may not find the correct place to insert the new code.</p>
+<div class="tip">
+<p><strong>Tip:</strong> LLMs will tend to suggest the most obvious statistical analyses. If you want to innovate creative new types of analyses you need to work a bit harder. One way to do this is to mix up your prompts to try and get cross-disciplinary pollination. For instance, you could ask it: “Suggest methods I could use for this analysis, taking inspiriation from different disciplines such as medicine, psychology and climate research”.</p>
+</div>
+<section id="suggested-workflow-for-new-analyses" class="level4" data-number="6.3.2.1">
+<h4 data-number="6.3.2.1" class="anchored" data-anchor-id="suggested-workflow-for-new-analyses"><span class="header-section-number">6.3.2.1</span> Suggested workflow for new analyses</h4>
+<p>Here’s a workflow I’ve found works well if I’m doing an analysis that is new to means</p>
+<ol type="1">
+<li><p>Read the literature to identify the appropriate analysis for the research question and data.</p></li>
+<li><p>Once I’ve narrowed down the options I look for useful domain knowledge: vignettes, manuals or blogs that have suitable R examples.</p></li>
+<li><p>Start a new folder, setting up the directory and readme as descriped in this workshop.</p></li>
+<li><p>Use copilot to implement the analysis, attaching data summaries and the domain knowledge to get the best prompts.</p></li>
+</ol>
+</section>
+<section id="suggested-workflow-for-analyses-i-know-well" class="level4" data-number="6.3.2.2">
+<h4 data-number="6.3.2.2" class="anchored" data-anchor-id="suggested-workflow-for-analyses-i-know-well"><span class="header-section-number">6.3.2.2</span> Suggested workflow for analyses I know well</h4>
+<p>Much the same as above, just less planning and you don’t need to search the literature because you know what you want to do. If you save useful domain knowledge when you see it you will also have the documents on hand to support the assistant.</p>
+</section>
+</section>
+</section>
+<section id="automated-workflows-with-agent-mode" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="automated-workflows-with-agent-mode"><span class="header-section-number">6.4</span> Automated workflows with Agent mode</h2>
+<p>Agents are LLMs that have tools that allow them to work autonomously. In effect they review the results of tool use (such as writing code and running code), then respond to those results.</p>
+<p>In Copilot’s chat window you can set it to ‘Agent’ mode to enable these features.</p>
+<p>After each tool use copilot will ask you to confirm the changes and the next action. At that point you can review its changes, make edits, or continue chatting to suggest refinements.</p>
+<p><img src="https://code.visualstudio.com/assets/blogs/2025/02/24/diagram.png" class="img-fluid"></p>
+<p>Agent mode has access to the terminal, so it will be using the terminal application to run scripts it creates. We’ll demonstrate in class so you can understand what its doing.</p>
+<p><strong>Image:</strong> Agent mode from https://code.visualstudio.com</p>
+<p>You can also just accept every suggestion without reading it, also called ‘vibe coding’. However, I don’t recommend doing that, especially when you are starting out. You need to get a feel of how much direction it needs and problems it might create. Without human intervention the algorithms have a tendency to go off task:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gridExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06-github-copilot_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Have a readme with clear steps that you attach as a prompt is also helpful for Agent mode. It helps it stay on topic.</p>
+<p>Agent mode also allows installation of additional tools, which we’ll explore later.</p>
+<section id="exploring-agent-mode" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="exploring-agent-mode"><span class="header-section-number">6.4.1</span> Exploring agent mode</h3>
+<p>Let’s explore Agent mode’s features through some analysis.</p>
+<section id="motivating-example-bayesian-time-series-analysis" class="level4" data-number="6.4.1.1">
+<h4 data-number="6.4.1.1" class="anchored" data-anchor-id="motivating-example-bayesian-time-series-analysis"><span class="header-section-number">6.4.1.1</span> Motivating example Bayesian time-series analysis</h4>
+<p>We’ll develop time-series models to forecast rock lobster (<em>Jasus edwardsii</em>) abundance from annual diver surveys. I’ve provided you with summary data. If you want to use this data in your research it is freely available and the original should be downloaded from <a href="https://portal.aodn.org.au/">the AODN portal</a>.</p>
+<p>We’ll use the <a href="https://www.r-inla.org/">INLA package</a> for our time-series models. We’ll fit it for the first part of the data, then we’ll forecast to the last part. In this way we can test the model’s predictions against data that is independent of model fitting (validation).</p>
+<p><a href="https://www.biorxiv.org/content/10.1101/2025.01.23.634630v1.abstract">The example is based on my study where I asked how accurately we can forecast species abundance change in dynamic environment</a>. In a rapidly changing environment the models we fit to historical data may no longer make accurate predictions to future, novel, environments. So our current models may overstate the future predictability of ecosystems.</p>
+<p>In short, the environments we want to predict to in the future have no analogue in contemporary data. This may make accurate prediction more challenging.</p>
+<p>To explore this idea I developed a new way of validating time-series. I deliberately designed validations that forced the model fitting to be to older data and the forecasting and accuracy evaluation to be on contemporary data. As such, if the environment has changed the parameters the model has learned from the historical data will no longer be relevant in the contemporary environment.</p>
+<p>We found the new method gave much more pessimistic estimates of model accuracy for species that undergo rapid changes. Whereas for species that have resisted environmental change the new method gave comparable results to traditional methods of validation.</p>
+<p>In today’s workshop we’ll look at the first step, which is how to fit a model and make forecasts.</p>
+<p>We chose Bayesian models with INLA because have several advantages over alternatives:</p>
+<ol type="1">
+<li><p>Allow for complex heirarchical models in a familiar GLMM framework - we have structuring by time and sites to consider</p></li>
+<li><p>Are computationally fast to run - convenient if you are re-running the model to do cross validation.</p></li>
+<li><p>Automatically handles gaps in time-series - Our data has a gap in 2003 when funding for monitoring wasn’t available</p></li>
+<li><p>Straightforward to model non-normal data - we are using counts.</p></li>
+</ol>
+<p>We’ll use INLA to fit auto-regressive order 1 (AR1) models to rock lobster abundance, with a negative binomial distribution. We’ll also use INLA to make forecasts.</p>
+<p>Another nice thing about INLA for us is that it has an unusual way of implementing predictions. This tends to trip-up copilot, so we’ll see how to overcome that challenge and get copilot to write correct code.</p>
+</section>
+<section id="set-up-your-project" class="level4" data-number="6.4.1.2">
+<h4 data-number="6.4.1.2" class="anchored" data-anchor-id="set-up-your-project"><span class="header-section-number">6.4.1.2</span> Set-up your project</h4>
+<p>Set-up a new project, including creating a readme following the structure we used before.</p>
+<p>Here’s the link to the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.5
+✔ lubridate 1.9.3     ✔ stringr   1.5.1
+✔ purrr     1.0.2     ✔ tibble    3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ gridExtra::combine() masks dplyr::combine()
+✖ dplyr::filter()      masks stats::filter()
+✖ dplyr::lag()         masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="fu">url</span>(<span class="st">"https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/ATRC-RLS-jasus-edwardsii-maria-island.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1844 Columns: 9
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): species_name, site_code, protection_status, site
+dbl (5): survey_id, total, latitude, longitude, year
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p><a href="https://github.com/cbrown5/R-llm-workshop/tree/main/resources/forecasting-with-inla">You can see the readme.md I used to get started here</a>. I encourage you to write your own to get a feel for how it works and develop your own style.</p>
+</section>
+<section id="prompts-i-used" class="level4" data-number="6.4.1.3">
+<h4 data-number="6.4.1.3" class="anchored" data-anchor-id="prompts-i-used"><span class="header-section-number">6.4.1.3</span> Prompts I used</h4>
+<p>Once I had the folder and readme set-up here’s the series of prompts I used. I encourage you to explore making your own. I used Claude 4.0 as the model option. I’ve found that GPT occaisonally makes errors with tool use or stuffs up text matching when editing files (meaning it inserts text in the wrong place).</p>
+<p>I started a new chat session between each of these prompts. This helps manage the context window. I’m relying on updating the readme.md so Copilot has memory (and I get it to update that).</p>
+<pre><code>Start by documenting the directory structure in the readme.md</code></pre>
+<pre><code>I'd be most pleased if you can undertake to perform steps 1-2. Document the data variables in the readme when you are done. </code></pre>
+<div class="tip">
+<p><strong>Tip:</strong> There’s no ‘optimal’ prompt, only better prompts. Sometimes the best way to write is the way you are most comfortable writing. You’ll get more out of your brain that way and copilot will end up performing the same.</p>
+</div>
+<pre><code>Ahoy you salty sea dog, we've scrubbed down steps 1 and 2, time for you to raise the sail on step 3!</code></pre>
+<p>(Ok so that last prompt definitely doesn’t follow the guidelines of being super clear, but I was bored and it seemed to work ok)</p>
+<p>It wrote some nice code for step 3, but had some problems with model convergence. At this point I intervened manually and edited the model myself. I didn’t really want it deciding the model structure for me, as I knew what I wanted (below is the model I used FYI). That fixed it and I got it to document the changes then started a new chat.</p>
+<p>Note that the Agent changed the default fitting algorithm, which I wasn’t pleased with. So always important to check the details.</p>
+<pre><code>simple_model_formula &lt;- total_lobsters ~ 1 + 
+  protection_status +
+  f(site_numeric, model = "iid") +
+  f(year, model = "ar1", hyper = ar1_prior)
+
+ar1_model &lt;- inla(
+  formula = simple_model_formula,
+  data = train_data,
+  family = "nbinomial",  # Use negative binomial for count data
+  control.predictor = list(compute = TRUE),
+  control.compute = list(
+    dic = TRUE, 
+    waic = TRUE,
+    cpo = FALSE,  # Disable CPO to help convergence
+    config = FALSE
+  ),
+  verbose = FALSE
+)</code></pre>
+<p>After fixing the model and updated the readme, here’s the next step:</p>
+<pre><code>Alright cobber, take you best shot at step 4</code></pre>
+<p>That worked, which actually I was expecting it not to work based on prior experience. <a href="https://www.r-inla.org/faq#h.821k2r53fvx3">INLA does predictions as part of model fitting, so you can’t <code>predict(model1)</code> like you can with other packages.</a>. I’ve found that often trips up copilot when it tries to predict directly from the model object. It might be that Claude 4.0 (only came out as I was writing this) now ‘knows’ not to make that mistake.</p>
+<p>I tried again with Claude 3.5 (older version) to see if I could fool that one. However, it avoided the problem by writing a custom fitting function (which would need careful checking).</p>
+<p>Anyway, the lesson was meant to be to show you how to solve these types of problems by attaching domain knowledge like the FAQ linked above.</p>
+<p>Copilot agent did have some problems running Rscript on my computer (used to source R files from terminal). So I added this line to the readme to help it: When using Rscript from terminal be sure to put the script in ““, e.g.&nbsp;<code>Rscript "Scripts/script1.R"</code></p>
+<pre><code>Just step 5 left to go, make me some nice plots using the types of colours that Wes Anderson would choose</code></pre>
+</section>
+<section id="writing-up-the-project" class="level4" data-number="6.4.1.4">
+<h4 data-number="6.4.1.4" class="anchored" data-anchor-id="writing-up-the-project"><span class="header-section-number">6.4.1.4</span> Writing up the project?</h4>
+<p>You can keep going from here if you like and get agent mode to write up the results it found as an Rmd file. It will use the tables it generates to (hopefully) make accurate interpretations. Pretty soon Copilot will also have vision capabilities (currently available in preview mode as of 2025-05-27). This means it will be able to interpret the figures it creates as well. We’ll see that in action when we look at Roo Code in a bit.</p>
+<p>If you do that, as always, don’t take anything for granted. Make sure you check everything and understand the results yourself.</p>
+</section>
+<section id="custom-intstructions" class="level4" data-number="6.4.1.5">
+<h4 data-number="6.4.1.5" class="anchored" data-anchor-id="custom-intstructions"><span class="header-section-number">6.4.1.5</span> Custom intstructions</h4>
+<p>For heavy agent use you may want to set-up custom instructions. These apply to all prompts in a project. e.g.&nbsp;you could set preference for ggplot2, or tell it how to use Rscript to avoid terminal errors <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot">See here for instructions</a>.</p>
+</section>
+</section>
+<section id="summary" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.4.2</span> Summary</h3>
+<p>Agent mode can really accelerate your workflow development. But there are some risks. It can also go off track or write excessive amounts of code (over-engineering). Best practices for using Agent mode include:</p>
+<ul>
+<li>Separate science questions (what stats) from implementation stats (what code)</li>
+<li>Understand the stats you want to do, don’t just rely on copilot to get it right</li>
+<li>Checking what it does at is does it, so you can keep it on track</li>
+<li>Giving strong guidelines e.g.&nbsp;through a project readme file.</li>
+<li>Keeping the readme updated to guide copilot</li>
+<li>Report AI use and how it was used in your publications</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -648,8 +1100,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-specification-sheets.html" class="pagination-link" aria-label="Best practices project setup">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-ai-powered-analysis-workflows.html" class="pagination-link" aria-label="AI powered analysis workflows">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

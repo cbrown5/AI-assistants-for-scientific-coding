@@ -1,4 +1,3 @@
-
 # LLM prompting fundamentals
 
 *Start of practical material*
@@ -11,18 +10,24 @@ We'll cover LLM prompting theory through practical examples. This section will g
 
 Get your API key, see @sec-apikeys and then @sec-ellmer for connecting that to Ellmer. 
 
+If you are using Python, save your API key in a .env file in your project directory, like this: 
+`OPENROUTER_API_KEY=my-key-here 
+
 ## Understanding how LLMs work
 
 Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we'll call an API directly through computer code. 
 
 By accessing the API in this way we get as close to the raw LLM as we are able. Later on we will use 'coding assistants' (e.g. copilot) which put another layer of software between you and the LLM. 
 
-First, let's set up our environment and create a connection to an LLM. 
+Try to get it to complete a sentence: 
 
 ```{r eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+::: {.panel-tabset group="language"}
+
+### R - Ellmer
 ```{r}
 library(ellmer)
 
@@ -33,25 +38,157 @@ chat <- chat_openrouter(
   api_args = list(max_tokens = 50)
 )
 chat$chat("Ecologists like to eat ")
-
 ```
 
-Notice that the model doesn't do what we intend, which is complete the sentence. LLMs have a built in Let's use the 'system prompt' to provide it with strong directions. 
+### R
+```{r}
+library(jsonlite)
+library(httr)
+openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
+response <- POST(
+    url = "https://openrouter.ai/api/v1/chat/completions",
+    add_headers(
+      "Content-Type" = "application/json",
+      "Authorization" = paste("Bearer", openrouter_api_key)
+    ),
+    body = toJSON(list(
+      model = "anthropic/claude-3.5-haiku",
+      messages = list(
+        list(
+          role = "system",
+          content = "You are a helpful assistant."
+        ),  
+        list(
+          role = "user",
+          content = "Ecologists like to eat "
+        )
+      )
+    ), auto_unbox = TRUE),
+    encode = "raw"
+  )
+r3 <- fromJSON(content(response, "text"))
+r3$choices$message$content
+```
+
+### Python
+```{python}
+import requests
+import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
+model = "anthropic/claude-3.5-haiku"
+message = "Ecologists like to eat "
+
+response = requests.post(
+  url="https://openrouter.ai/api/v1/chat/completions",
+  headers={
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+  },
+  data=json.dumps({
+    "model": model,
+    "messages": [
+      {
+        "role": "user",
+        "content": message,
+      }
+    ]
+  })
+)
+data = response.json()
+content = data['choices'][0]['message']['content']
+```
+:::
+
+Notice that the model doesn't do what we intend, which is complete the sentence. LLMs have a built in command to be an assistant. Let's use the 'system prompt' to provide it with strong directions. 
 
 ::: {.tip}
 **Tip:** The system prompt sets the overall context for a chat. It is meant to be a stronger directive than the user prompt. In most chat interfaces (e.g. copilot) you are interacting with the user prompt. The provider has provided the system prompt, [here's the system prompt for the chat interface version of anthropic (Claude)](https://www.reddit.com/r/ClaudeAI/comments/1ixapi4/here_is_claude_sonnet_37_full_system_prompt/)
 :::
 
-```{r setup-ellmer, eval=FALSE}
+
+::: {.panel-tabset group="language"}
+
+### R - Ellmer
+```{r}
 chat <- chat_openrouter(
   system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
   model = "anthropic/claude-3.5-haiku",
-#   model = "anthropic/claude-3.7-sonnet",
   api_args = list(max_tokens = 50)
 )
 chat$chat("Ecologists like to eat ")
-
 ```
+
+### R
+```{r}
+library(jsonlite)
+library(httr)
+openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
+response <- POST(
+    url = "https://openrouter.ai/api/v1/chat/completions",
+    add_headers(
+      "Content-Type" = "application/json",
+      "Authorization" = paste("Bearer", openrouter_api_key)
+    ),
+    body = toJSON(list(
+      model = "anthropic/claude-3.5-haiku",
+      messages = list(
+        list(
+          role = "system",
+          content = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"
+        ),  
+        list(
+          role = "user",
+          content = "Ecologists like to eat "
+        )
+      )
+    ), auto_unbox = TRUE),
+    encode = "raw"
+  )
+r3 <- fromJSON(content(response, "text"))
+r3$choices$message$content
+```
+
+### Python
+```{python}
+import requests
+import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
+model = "anthropic/claude-3.5-haiku"
+message = "Ecologists like to eat "
+system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"
+
+response = requests.post(
+  url="https://openrouter.ai/api/v1/chat/completions",
+  headers={
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+  },
+  data=json.dumps({
+    "model": model,
+    "messages": [
+      {
+        "role": "system",
+        "content": system_prompt,
+      },
+      {
+        "role": "user",
+        "content": message,
+      }
+    ]
+  })
+)
+data = response.json()
+content = data['choices'][0]['message']['content']
+```
+:::
 
 ::: {.tip}
 **Tip:** It is generally more effective to tell the LLM **what to do** rather than **what not to do** (just like people!). 
@@ -89,7 +226,7 @@ At low temperatures, you'll notice the model consistently produces similar "safe
 
 Different models have different capabilities based on their size, training data, and architecture. 
 
-For example `anthropic/claude-3.5-haiku` has many fewer parameters than `anthropic/claude-3.7-sonnet`. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15
+For example `anthropic/claude-3.5-haiku` has many fewer parameters than `anthropic/claude-sonnet-4`. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15
 
 For the kind of simple tasks we are doing here, both give similar results. We will compare models later in the workshop when we use github copilot. 
 
@@ -115,29 +252,89 @@ Showing data etc...
 
 Let's put together what we've learnt so far and built our own chatbot. I've provided you with a detailed system prompt that implements a chat bot that specialises in helping with statistics. First, we read the bot markdown file from github, then we can use it in our chat session. 
 
-```{r, eval=FALSE}
+::: {.panel-tabset group="language"}
 
+### R - Ellmer
+```{r}
 stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md"))
 
 chat_stats <- chat_openrouter(
-          system_prompt = stats_bot,
-        model = "anthropic/claude-3.7-sonnet",
-        api_args = list(max_tokens = 5000)
-    )
-
+  system_prompt = stats_bot,
+  model = "anthropic/claude-sonnet-4",
+  api_args = list(max_tokens = 5000)
+)
 ```
 
-`ellmer` has a few different options for interacting with chat bots. We've seen the 'chat' option. We can also have a `live_console()` or `live_browser()` (requires installing `shinychat`) chat. Let's use one of those options. With `live_browser()` you'll also see the browser automatically formats any markdown in the chat. 
-
-```{r, eval=FALSE}
-live_browser(chat_stats)
-# live_console(chat_stats)
+### R
+```{r}
+library(jsonlite)
+library(httr)
+openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
+stats_bot <- readLines("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md")
+response <- POST(
+    url = "https://openrouter.ai/api/v1/chat/completions",
+    add_headers(
+      "Content-Type" = "application/json",
+      "Authorization" = paste("Bearer", openrouter_api_key)
+    ),
+    body = toJSON(list(
+      model = "anthropic/claude-sonnet-4",
+      messages = list(
+        list(
+          role = "system",
+          content = paste(stats_bot, collapse="\n")
+        ),
+        list(
+          role = "user",
+          content = "Who are you?"
+        )
+      ),
+      max_tokens = 5000
+    ), auto_unbox = TRUE),
+    encode = "raw"
+  )
+r3 <- fromJSON(content(response, "text"))
+r3$choices$message$content
 ```
 
-Here are some suggested questions to start, but feel free to try your own. 
-"Who are you?"
-"Use stats mode to provide me with some suggestions for how I could make a predictive model of a variable y, where I have a large number of potential explanatory variables. "
+### Python
+```{python}
+import requests
+import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+api_key = os.getenv("OPENROUTER_API_KEY")
+model = "anthropic/claude-sonnet-4"
+import requests
+stats_bot = requests.get("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md").text
+
+response = requests.post(
+  url="https://openrouter.ai/api/v1/chat/completions",
+  headers={
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+  },
+  data=json.dumps({
+    "model": model,
+    "messages": [
+      {
+        "role": "system",
+        "content": stats_bot,
+      },
+      {
+        "role": "user",
+        "content": "Who are you?",
+      }
+    ],
+    "max_tokens": 5000
+  })
+)
+data = response.json()
+content = data['choices'][0]['message']['content']
+```
+:::
 
 ::: {.tip}
 **Tip:** How many of you started using "DIY-stats-bot-system.md" without first reading it? Did you find the easter egg in my prompt? For security you should ALWAYS read prompts before you start running them through LLM chats. We'll see later that LLMs can be given 'tools' which allow them to run code on your computer. Its easy to see how a malicious prompt could mis-use these tools. We'll cover security later. 
@@ -182,4 +379,4 @@ The key things I hoped you learnt from this lesson are:
 - Some different prompt strategies, including role prompting, emphasis, chain of thought and one-shot. 
 - The fundamentals of tool use and agents. 
 
-Now you understand the basics, let's get into Github Copilot. 
+Now you understand the basics, let's get into Github Copilot.

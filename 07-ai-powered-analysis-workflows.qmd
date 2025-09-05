@@ -1,0 +1,5 @@
+# AI powered analysis workflows 
+
+This section about advice for workflows
+
+![](resources/figure2-brown-spillias.png)
