@@ -12,9 +12,20 @@ Make my own prompt pattern repo
 Incldue pattern for creating r tutorials from docs
 Think in probablities about code, not exacts
 
+Add function for chat bot for python users
 
-Add code for temperature in chpt 4
-Check python and httr code runs in chpt 4
+## Improving your prompts
+
+TODO Insert some examples comparing with and without these approaches
+
+### Being specific
+
+### Giving context
+
+Showing data etc... 
+
+### Giving examples 
+
 Make a quiz to do at end to get student feedback
 
 Work on fundamentals, add some examples where user can experiment with differnet prompt styles. 

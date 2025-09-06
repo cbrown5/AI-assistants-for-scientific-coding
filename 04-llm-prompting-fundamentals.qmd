@@ -201,11 +201,13 @@ content = data['choices'][0]['message']['content']
 **Tip:** It is generally more effective to tell the LLM **what to do** rather than **what not to do** (just like people!). 
 :::
 
-### Temperature effects
+### Controlling randomness of the responess
 
 The "temperature" parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.
 
-Let's compare responses with different temperatures:
+Even at 0 there is still a small amount of randomness. We can also try to make a response more deterministic with the 'top_k' parameter. Top K forces the model to choose among a smaller set of tokens, setting it to 1 will give the most predictable results
+
+Let's compare responses with different temperatures and top K settings:
 
 ::: {.panel-tabset group="language"}
 
@@ -216,25 +218,134 @@ Let's compare responses with different temperatures:
 chat_temp <- chat_openrouter(
           system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
         model = "anthropic/claude-3.5-haiku",
-        api_args = list(max_tokens = 50, temperature = 0)
-    )
-
-chat_temp$chat("Marine ecologists like to eat ")
-
-chat_temp <- chat_openrouter(
-          system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
-        model = "anthropic/claude-3.5-haiku",
-        api_args = list(max_tokens = 50, temperature = 2)
+        api_args = list(max_tokens = 50, temperature = 0, top_k = 1)
     )
 
 chat_temp$chat("Marine ecologists like to eat ")
 
 ```
 
+### R
+```{r}
+library(jsonlite)
+library(httr)
+openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
+response <- POST(
+    url = "https://openrouter.ai/api/v1/chat/completions",
+    add_headers(
+      "Content-Type" = "application/json",
+      "Authorization" = paste("Bearer", openrouter_api_key)
+    ),
+    body = toJSON(list(
+      model = "anthropic/claude-3.5-haiku",
+      messages = list(
+        list(
+          role = "system",
+          content = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"
+        ),  
+        list(
+          role = "user",
+          content = "Marine ecologists like to eat "
+        )
+      ),
+      max_tokens = 50,
+      temperature = 0,
+      top_k = 1
+    ), auto_unbox = TRUE),
+    encode = "raw"
+  )
+r3 <- fromJSON(content(response, "text"))
+r3$choices$message$content
+```
 
+### Python
+```{python}
+import requests
+import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
+model = "anthropic/claude-3.5-haiku"
+message = "Marine ecologists like to eat "
+system_prompt = "Complete the sentences the user providers you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"
+
+response = requests.post(
+  url="https://openrouter.ai/api/v1/chat/completions",
+  headers={
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+  },
+  data=json.dumps({
+    "model": model,
+    "messages": [
+      {
+        "role": "system",
+        "content": system_prompt,
+      },
+      {
+        "role": "user",
+        "content": message,
+      }
+    ],
+    "max_tokens": 50,
+    "temperature": 0,
+    "top_k": 1
+  })
+)
+data = response.json()
+content = data['choices'][0]['message']['content']
+content
+```
 :::
 
-At low temperatures, you'll notice the model consistently produces similar "safe" completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.
+Now try again but set the temperature parameter higher, say to 2 and remove the top_k line, or set it to a high number like 1000
+
+At low temperatures and top K values, you'll notice the model consistently produces similar "safe" completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.
+
+::: {.tip}
+There are quite a few different parameters you can play with to control how an LLM responds. The [names and meanings of these are all documented in the Openrouter docs](https://openrouter.ai/docs/api-reference/parameters). 
+:::
+
+### Navigating Openrouter
+
+I created a lot of the code for this tutorial by browsing the Openrouter page to see what is possible. 
+
+There are two key pages. 
+
+The [Models](https://openrouter.ai/models) page lists all the models available. If you have some idea of what you want you can filter this list. Click the page icon to copy the string for the model id. You can use this to replace the string in ` model = "anthropic/claude-3.5-haiku"` if you want to use a different model. 
+
+Click the model's name to get more information about it. 
+
+A single model may be available through multiple providers (servers), these will also be listed here. Openrouter automatically picks the provider for you. Their docs tell you how to fix the provider if you want to default to a specific choice (e.g. if you are concerned about some providers for data security of ethical reasons, more on this later). 
+
+Click a provider then the drop-down arrow to see what parameter choices are available for this model (note not all providers support all parameters for a model). 
+
+The [second important page is the docs page](https://openrouter.ai/docs/quickstart). This has all the information on using the openrouter API. There are lost of code examples, usually in Python. You can use an AI assistant to translate these to R if you are using R. 
+
+For example, there is a long list of parameters that various LLMs support. If you want to try any of these just add them using the same syntax as we did for the temperature parameter. Note that not all LLMs support all parameters. To find out what parameters a model supports go to the model's provider page and [expand a specific provider to see a list of Supported Parameters](https://openrouter.ai/docs/api-reference/parameters). 
+
+#### API errors.
+
+Sometimes you won't get a response instead you'll get an HTTP error. After you send your response you may get an answer something like `Error: 402`. 
+
+[All the error codes are listed here](https://openrouter.ai/docs/api-reference/errors). Some common errors codes: 
+
+**400**
+There's an error in your code. 
+
+**401** 
+API key is invalid (did you copy and paste it correctly? Does it need "" around it?)
+
+**402** 
+A 402 means you've run out of API credits and need to put more money on your openrouter account against that API key. 
+
+**408** 
+Time out error, your request might be too big for the speed of your internet connection. 
+
+**429** 
+Wow you are really a power user! You've been rate limited, meaning you're calling the LLM too much, too quickly. Just wait a bit and try again (or add pauses in your code to slow it down if you are doing automated repeat requests). 
 
 ### Comparing model complexity
 
@@ -242,25 +353,15 @@ Different models have different capabilities based on their size, training data,
 
 For example `anthropic/claude-3.5-haiku` has many fewer parameters than `anthropic/claude-sonnet-4`. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15
 
-For the kind of simple tasks we are doing here, both give similar results. We will compare models later in the workshop when we use github copilot. 
+Task for you: use the [Openrouter models page](https://openrouter.ai/models) to find a different model to try. 
+
+Hint try some of the Chinese models like Kimi instead of the American models.
 
 ### Understanding context windows
 
-LLMs have a limited "context window" - the amount of text they can consider when generating a response. This affects their ability to maintain coherence over long conversations. For most LLMs this is about 100-200K tokens, which includes input and output. However, Google's models have up to 1 million tokens. 
+LLMs have a limited "context window" - the amount of text they can consider when generating a response. This affects their ability to maintain coherence over long conversations. For most LLMs this is about 100-200K tokens, which includes input and output. However, Google's models have up to 1 million + tokens. 
 
 We'll come back to the context window when we explore more advanced tools with longer prompts. These simple prompts don't come close to using up the context window. 
-
-## Improving your prompts
-
-TODO Insert some examples comparing with and without these approaches
-
-### Being specific
-
-### Giving context
-
-Showing data etc... 
-
-### Giving examples 
 
 ## DIY stats bot 
 
@@ -284,7 +385,7 @@ chat_stats <- chat_openrouter(
 library(jsonlite)
 library(httr)
 openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
-stats_bot <- readLines("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md")
+stats_bot <- readLines("https://raw.githubusercontent.com/cbrown5/AI-assistants-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md")
 response <- POST(
     url = "https://openrouter.ai/api/v1/chat/completions",
     add_headers(
