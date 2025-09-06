@@ -27,3 +27,4 @@ AI companies are running at a loss and its quite likely that costs will go up in
 - Be careful what it is doing
 - Read prompts before running them 
 
+Computer enginners, thinking probabilistically 

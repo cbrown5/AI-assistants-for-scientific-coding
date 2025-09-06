@@ -12,6 +12,7 @@ This chapter provides an overview of:
 - Practical applications of LLMs for R programming and data analysis
 - Ethical considerations when using LLMs for scientific work
 
+
 We'll explore how LLMs can enhance your R workflow, from code generation to data analysis assistance, while maintaining scientific rigor and reproducibility.
 
 [Slides for presentation (on a google drive)](https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&ouid=107596646496267980935&rtpof=true&sd=true)

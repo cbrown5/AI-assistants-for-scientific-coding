@@ -5,8 +5,13 @@ TODO
 'Paper in a prompt' need to work on references, get it to put them as bibtex in references.bib, will need to explain how. 
 Use orchestrate mode. 
 Add a 'ding'. 
+
 Change all examples to the benthic analysis one
 Move some stuff from gitcopilot section over to the workflows chapter
+Make my own prompt pattern repo
+Incldue pattern for creating r tutorials from docs
+Think in probablities about code, not exacts
+
 
 Add code for temperature in chpt 4
 Check python and httr code runs in chpt 4

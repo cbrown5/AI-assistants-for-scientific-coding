@@ -33,7 +33,7 @@ library(ellmer)
 
 # Initialize a chat with Claude
 chat <- chat_openrouter(
-  system_prompt = "",
+  system_prompt = "You are a helpful assistant.",
   model = "anthropic/claude-3.5-haiku",
   api_args = list(max_tokens = 50)
 )
@@ -92,6 +92,10 @@ response = requests.post(
     "model": model,
     "messages": [
       {
+        "role": "system",
+        "content": "You are a helpful assistant.",
+      },
+      {
         "role": "user",
         "content": message,
       }
@@ -100,6 +104,7 @@ response = requests.post(
 )
 data = response.json()
 content = data['choices'][0]['message']['content']
+content
 ```
 :::
 
@@ -144,7 +149,8 @@ response <- POST(
           role = "user",
           content = "Ecologists like to eat "
         )
-      )
+      ),
+      max_tokens = 50
     ), auto_unbox = TRUE),
     encode = "raw"
   )
@@ -181,7 +187,8 @@ response = requests.post(
       {
         "role": "user",
         "content": message,
-      }
+      },
+    "max_tokens": 50
     ]
   })
 )
@@ -199,6 +206,10 @@ content = data['choices'][0]['message']['content']
 The "temperature" parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.
 
 Let's compare responses with different temperatures:
+
+::: {.panel-tabset group="language"}
+
+### R - Ellmer 
 
 ```{r temperature-comparison, eval=FALSE}
 # Create chats with different temperature settings
@@ -219,6 +230,9 @@ chat_temp <- chat_openrouter(
 chat_temp$chat("Marine ecologists like to eat ")
 
 ```
+
+
+:::
 
 At low temperatures, you'll notice the model consistently produces similar "safe" completions that focus on the most probable next tokens. As temperature increases, the responses become more varied and potentially more creative, but possibly less coherent.
 
