@@ -4,7 +4,7 @@
 
 I'll show you how you can most effectively use github copilot to plan, code and write up your data analysis and modelling.
 
-**Software requirements:** VScode with R and github copilot license + extension for VScode (comes built in to VScode).
+**Software requirements:** VScode with R or Python and github copilot license + extension for VScode (comes built in to VScode).
 
 Github Copilot calls itself an 'AI programming assistant' or an 'AI pair programmer'. I'll refer to it as an 'LLM coding assistant' or just 'Assistant'.
 
@@ -31,13 +31,21 @@ We'll look at:
 - Edit mode
 - Agent mode 
 
+## What to do if you are not using R with VScode
+
+If you are using Python in VScode, then just use the same dataset I have below, but write in a .py script. Copilot can help you if you get stuck with anything. 
+
+If you are using R in Rstudio. You can enable copilot with inline completions from Rstudio (if you have github copilot account). See @sec-setup Option 2 for how to do that. 
+
+Once we get to the Inline Code Generation section you can use gander as described in @sec-setup. 
+
 ## Inline code editing
 
 This chapter explores techniques for using GitHub Copilot's inline code editing capabilities to enhance your R programming workflow. 
 
 ### 1. Code completion
 
-This is only option supported in Rstudio (last time I checked). 
+This is the only option supported in Rstudio (last time I checked). 
 
 Assuming you have github copilot set-up you just need to start a new R script (remember to keep it organized and give it a useful name) and start typing. You'll see suggested code completions appear in grey. Hit `tab` to complete them. 
 
@@ -47,11 +55,13 @@ Let's read in the benthic site data and fish counts:
 library(tidyverse)
 library(readr)
 
-dat <- read_csv(url("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/fish-coral-cover-sites.csv"))
+dat <- read_csv(url("https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"))
 
 head(dat)
 summary(dat)
 ```
+
+More [details on this data are available here](https://github.com/cbrown5/example-ecological-data/blob/main/data/benthic-reefs-and-fish/readme.md). 
 
 Now try create a ggplot of `secchi` (a measure of water clarity, higher values mean clearer water) and `pres.topa` (count of topa, the bumphead parrotfish). Start typing `gg` and see what happens. 
 
@@ -83,6 +93,10 @@ Another way to use autocomplete is not to write R at all, just to write comments
 
 # Plot CB_cover (branching coral cover) against secchi
 ```
+
+::: {.tip}
+**Tip:** Remember one way to improve prompts is to be more specific. So using the correct variable names helps.  
+:::
 
 Now go back through and click under each line to get the suggestions. 
 
@@ -134,22 +148,9 @@ Now add a bug into one of your plots. See if the inline chatbox can fix the bug.
 
 Use the `/` to bring up a list of prompt shortcuts. The most useful in R are `/explain`, `/fix`, `/tests`. Try select some code then use these to see what happens. 
 
-## Planning your analysis with Ask mode
+## Ask mode
 
-### Stages of analysis 
-
-There are overall decisions you need to make when developing your analysis:
-
-1. What types of statistics to use. 
-2. How to implement those statistics in R code. 
-
-Its worthwhile separting these two decisions, as they are different issues. One is a science question, the other is a programming question. 
-
-When using Assistants its also worthwhile using different chat sessions to try and find answers. 
-
-### Ask mode 
-
-Ask mode helps you plan analysis and implementation, using context from your project. 
+Ask mode is a chatbot that has access to context from your active project. It is great to help you plan analysis and implementation, using context from your project. It is also handy to help explain code. 
 
 In VScode click the 'octocat' symbol that should be at the top towards the right. This will open the chat window. 
 
@@ -165,10 +166,7 @@ How can I test the relationship between pres.topa and CB_cover?
 
 Evaluate the quality of its response and we will discuss. 
 
-
-
-
-#### Improving our initial prompt by attaching data
+### Improving our initial prompt by attaching data
 
 Recall our initial prompt was: 
 
@@ -190,15 +188,19 @@ Then drag and drop it into the ask window and add something like:
 How can I statistically test the relationship between pres.topa and CB_cover? Here are the first 6 rows of data
 ```
 
-#### Improving our initial prompt by attaching domain knowledge
+### Improving our initial prompt by attaching domain knowledge
 
-You can further improve the response by attaching a trusted resource. e.g. [save this webpage on count models for ecology](https://environmentalcomputing.net/statistics/glms/glm-2/) to your computer. Then you can  attach the html file. That turned out to be a bit slow to compute (file too large?). Would be better if we had in plain text (e.g. copy and paste the text to a file, or use an extraction tool to extract text from the html).
+You can further improve the response by attaching a trusted resource. e.g. [save this webpage on count models for ecology](https://environmentalcomputing.net/statistics/glms/glm-2/) to your computer. Then you can  attach the html file. 
 
-If you installed the websearch tool (which will likely become default in future) then you could add a prompt like this:
+However, html files are full of code as well as the text we want. It can be more efficient for the LLM if you convert the html to markdown. Here's a handy browser operated tool that will convert an arbitrary webpage to markdown:
 
-```
-How can I statistically test the relationship between pres.topa and CB_cover? Here are the first 6 rows of data. pres.topa is my response and it is count data. Use @websearch to find robust recommendations for ecologists to analyse count data before proceeding with your recomemndations. 
-```
+https://tools.simonwillison.net/jina-reader
+
+Just paste in the url above (https://environmentalcomputing.net/statistics/glms/glm-2/) to get a markdown version. Copy that to a local file in your project and attach it to ask mode. 
+
+Be sure to check the markdown to make sure its safe and doesn't contain malicious instructions. 
+
+Another option is to use a websearch tool. You can install one with github copilot. However, I'm not recommending this at this point, due to cyber-security concerns, we'll disucss this further later on. 
 
 That worked well for me. I then followed up with:
 
@@ -212,7 +214,7 @@ The absolute best practice would be to give the assistant all the context for yo
 
 ### Planning implementation 
 
-The other main way to use Ask mode is for help in implementing an analysis. Many of our workflows are complex and involve multiple data wrangling steps. 
+Another way to use Ask mode is for help in implementing an analysis. Many of our workflows are complex and involve multiple data wrangling steps. 
 
 To get the best out of GC I recommend creating a detailed README.md file with project context. Let's try that and use it to plan our project. 
 
@@ -235,37 +237,39 @@ You should iterative with Ask mode to if there are any refinements you want.
 
 Let's move onto edit mode to see how to put this plan to action. 
 
-## Creating your code with Edit mode
+## Edit mode: Creating code from text
 
 Edit mode will edit files for you. The best way to learn how is to just see it in action. 
 
 Open the Chat panel and click the 'Ask' button, then select 'Edit'. 
 
-### Adding a plan to the readme
-
-Open the README.md. Then type this prompt: 
+Now go back to your R file with the plots in it. In edit mode suggest a new plot such as: 
 
 ```
-Help me plan the implementation of this project. Add the plan to the ## Steps section
+Create a pairs plot for all continuous variables 
 ```
-
-Click 'Keep' if you like what it did. Or you can suggest improvements. Alternatively, accept it for now and then edit it afterwards. 
 
 ::: {.tip}
 **Tip:** Sometimes you can't go back once copilot has made edits to a file. So its good practice to use git and commmit changes before and after editing. 
 :::
 
-#### Working through your plan 
+Try creating some other plots or analyses using edit mode. 
 
-Once you're happy with the plan, you can get copilot to implement it. You can continue the current chat, or start a new chat to do this (depending on the length of the task). 
+### Adding documentation with edit mode 
 
-Now step through, asking copilot to create each file as you. 
+Edit mode can write text as well as code. It can be handy to use for documentation for instance. 
 
-At this point everyone's answers will diverge, as there is an element of randomness to the LLM's responses. We will compare as a class to see if everyone gets to a similar analysis and answer. 
+Open the README.md. Then type this prompt: 
 
-::: {.tip}
-**Tip:** We are using the readme.md is copilot's memory. This means the assitant always has the context it needs across different chat sessions (where it would otherwise forget). So its important to keep the readme updated. Its also useful to help you remember if you come back to the project some months or years later. 
-:::
+```
+Document what this script does in the readme. 
+```
+
+Drag and drop your script into the chat window as well. 
+
+Click 'Keep' if you like what it did. Or you can suggest improvements. Alternatively, accept it for now and then edit it afterwards. 
+
+Another way to use edit mode is for translation. Try getting it to translate part of your code into another programming language, or part of your text into another language (Spanish and French are the best options at the moment). 
 
 #### Why so much code? 
 
@@ -283,33 +287,9 @@ So here's how I recommend you use it:
 
 - Use git for version control so you can go back in to older versions. 
 - Read the suggested edits before accepting
-- Keep the readme.md updated and keep attaching it to your prompts. This will help keep it focused on the tasks that matter
-- Use a two-step approach to identifying the statistical tests first, then implementing them as R code second. If you conflate these tasks you risk letting copilot guide the stats and getting it wrong. 
-- You can use it to help implement multiple different types of statistical tests for experimenting. If you do this, I just suggest you still use a two-step approach: plan a list of stats options first, then get copilot to implement them so you can compare results. 
+- NEVER edit the file while copilot is working! To edit files it uses string matching to locate the position to insert the edits. If you change the file it may not find the correct place to insert the new code. 
 
-NEVER edit the file while copilot is working! To edit files it uses string matching to locate the position to insert the edits. If you change the file it may not find the correct place to insert the new code. 
-
-::: {.tip}
-**Tip:** LLMs will tend to suggest the most obvious statistical analyses. If you want to innovate creative new types of analyses you need to work a bit harder. One way to do this is to mix up your prompts to try and get cross-disciplinary pollination. For instance, you could ask it: "Suggest methods I could use for this analysis, taking inspiriation from different disciplines such as medicine, psychology and climate research".
-:::
-
-#### Suggested workflow for new analyses
-
-Here's a workflow I've found works well if I'm doing an analysis that is new to means
-
-1. Read the literature to identify the appropriate analysis for the research question and data. 
-
-2. Once I've narrowed down the options I look for useful domain knowledge: vignettes, manuals or blogs that have suitable R examples. 
-
-3. Start a new folder, setting up the directory and readme as descriped in this workshop. 
-
-4. Use copilot to implement the analysis, attaching data summaries and the domain knowledge to get the best prompts. 
-
-#### Suggested workflow for analyses I know well
-
-Much the same as above, just less planning and you don't need to search the literature because you know what you want to do. If you save useful domain knowledge when you see it you will also have the documents on hand to support the assistant. 
-
-## Automated workflows with Agent mode
+## Agent mode: Automated workflows
 
 Agents are LLMs that have tools that allow them to work autonomously. In effect they review the results of tool use (such as writing code and running code), then respond to those results. 
 
@@ -319,195 +299,54 @@ After each tool use copilot will ask you to confirm the changes and the next act
 
 ![](https://code.visualstudio.com/assets/blogs/2025/02/24/diagram.png)
 
-Agent mode has access to the terminal, so it will be using the terminal application to run scripts it creates. We'll demonstrate in class so you can understand what its doing. 
-
 **Image:** Agent mode from https://code.visualstudio.com
 
-You can also just accept every suggestion without reading it, also called 'vibe coding'. However, I don't recommend doing that, especially when you are starting out. You need to get a feel of how much direction it needs and problems it might create. Without human intervention the algorithms have a tendency to go off task: 
+Agent mode has access to the terminal, so it will be using the terminal application to run scripts it creates. We'll demonstrate in class so you can understand what its doing. 
 
-```{r eval = TRUE, echo=FALSE}
-library(ggplot2)
-library(grid)
-library(gridExtra)
-
-# Create data for the workflows, now flowing vertically
-workflow1 <- data.frame(
-    x = rep(1, 100),
-    y = seq(0, 10, length.out = 100)
-)
-
-# Add checkin points
-checkins <- data.frame(
-    x = rep(1, 5),
-    y = seq(1, 9, by = 2)
-)
-
-# Create divergent workflow
-workflow2 <- data.frame(
-    x = 1 + 0.2 * (seq(0, 10, length.out = 100) - 3)^2 / 10,
-    y = seq(0, 10, length.out = 100)
-)
-workflow2$x[1:31] <- 1
-
-# Create the plot
-p <- ggplot() +
-    # Draw workflows
-    geom_path(data = workflow1, aes(x = x, y = y), 
-                        color = "blue", size = 1, arrow = arrow(length = unit(0.3, "cm"))) +
-    geom_path(data = workflow2, aes(x = x, y = y), 
-                        color = "red", size = 1,  arrow = arrow(length = unit(0.3, "cm"))) +
-    # Add checkin points
-    geom_point(data = checkins, aes(x = x, y = y), 
-                         color = "blue", size = 3) +
-    # Add start and end points (now at top and bottom)
-    annotate("text", x = 1, y = -0.3, label = "A (Start)", size = 8) +
-    annotate("text", x = 1, y = 11, label = "B (Goal)", size = 8) +
-    
-    # Add labels
-    annotate("text", x = 0.7, y = 5, label = "Workflow with checkins", color = "blue", size = 7, angle = 90) +
-    annotate("text", x = 2.5, y = 7, label = "Divergent workflow\n(no checkins)", color = "red", size = 7) +
-    
-    # Theme adjustments
-    theme_minimal() +
-    theme(
-        axis.title = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        panel.grid = element_blank()
-    ) +
-    ylim(-0.5, 11) +
-    xlim(0.5, 3.5)
-
-p
-```
-
-Have a readme with clear steps that you attach as a prompt is also helpful for Agent mode. It helps it stay on topic. 
-
-Agent mode also allows installation of additional tools, which we'll explore later. 
 
 ### Exploring agent mode 
 
 Let's explore Agent mode's features through some analysis. 
 
-#### Motivating example Bayesian time-series analysis 
+Switch the Modes to agent mode. Make sure you have the [readme file](https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md) in your project directory. This has all the context our agent will need. 
 
-We'll develop time-series models to forecast rock lobster (*Jasus edwardsii*) abundance from annual diver surveys. I've provided you with summary data. If you want to use this data in your research it is freely available and the original should be downloaded from [the AODN portal](https://portal.aodn.org.au/). 
+It will help if you have the readme file open when you run the agent, so open that file now (then it will refer to that file first). 
 
-We'll use the [INLA package](https://www.r-inla.org/) for our time-series models. We'll fit it for the first part of the data, then we'll forecast to the last part. In this way we can test the model's predictions against data that is independent of model fitting (validation). 
-
-[The example is based on my study where I asked how accurately we can forecast species abundance change in dynamic environment](https://www.biorxiv.org/content/10.1101/2025.01.23.634630v1.abstract). In a rapidly changing environment the models we fit to historical data may no longer make accurate predictions to future, novel, environments. So our current models may overstate the future predictability of ecosystems. 
-
-In short, the environments we want to predict to in the future have no analogue in contemporary data. This may make accurate prediction more challenging. 
-
-To explore this idea I developed a new way of validating time-series. I deliberately designed validations that forced the model fitting to be to older data and the forecasting and accuracy evaluation to be on contemporary data. As such, if the environment has changed the parameters the model has learned from the historical data will no longer be relevant in the contemporary environment. 
-
-We found the new method gave much more pessimistic estimates of model accuracy for species that undergo rapid changes. Whereas for species that have resisted environmental change the new method gave comparable results to traditional methods of validation. 
-
-In today's workshop we'll look at the first step, which is how to fit a model and make forecasts. 
-
-We chose Bayesian models with INLA because have several advantages over alternatives:
-
-1.  Allow for complex heirarchical models in a familiar GLMM framework - we have structuring by time and sites to consider
-
-2.  Are computationally fast to run - convenient if you are re-running the model to do cross validation. 
-
-3. Automatically handles gaps in time-series - Our data has a gap in 2003 when funding for monitoring wasn't available
-
-4. Straightforward to model non-normal data - we are using counts. 
-
-We'll use INLA to fit auto-regressive order 1 (AR1) models to rock lobster abundance, with a negative binomial distribution. We'll also use INLA to make forecasts.
-
-Another nice thing about INLA for us is that it has an unusual way of implementing predictions. This tends to trip-up copilot, so we'll see how to overcome that challenge and get copilot to write correct code. 
-
-#### Set-up your project
-
-Set-up a new project, including creating a readme following the structure we used before. 
-
-Here's the link to the data:
-
-```{r}
-library(tidyverse)
-dat <- readr::read_csv(url("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/ATRC-RLS-jasus-edwardsii-maria-island.csv"))
-```
-
-[You can see the readme.md I used to get started here](https://github.com/cbrown5/R-llm-workshop/tree/main/resources/forecasting-with-inla). I encourage you to write your own to get a feel for how it works and develop your own style. 
-
-#### Prompts I used
-
-Once I had the folder and readme set-up here's the series of prompts I used. I encourage you to explore making your own. 
-I used Claude 4.0 as the model option. I've found that GPT occaisonally makes errors with tool use or stuffs up text matching when editing files (meaning it inserts text in the wrong place). 
-
-I started a new chat session between each of these prompts. This helps manage the context window. I'm relying on updating the readme.md so Copilot has memory (and I get it to update that). 
+Now prompt agent mode with something like: 
 
 ```
-Start by documenting the directory structure in the readme.md
+I want to do a regression of pres.topa on cb_cover. Create all the scripts I need to do this, as well as run the scripts to make plots of the predicted relationship between the variables
 ```
 
-```
-I'd be most pleased if you can undertake to perform steps 1-2. Document the data variables in the readme when you are done. 
-```
+Then follow along with the conversation, adjusting or correcting it as need be. 
+
+See how it goes and we can discuss in class. It will be interesting to compare results as they will all be different. 
 
 ::: {.tip}
 **Tip:** There's no 'optimal' prompt, only better prompts. Sometimes the best way to write is the way you are most comfortable writing. You'll get more out of your brain that way and copilot will end up performing the same. 
 :::
 
+Here's an alternative way to phrase that prompt: 
+
 ```
-Ahoy you salty sea dog, we've scrubbed down steps 1 and 2, time for you to raise the sail on step 3!
+Arrr matey, I be wantin' to run a regression of pres.topa on cb_cover. Hoist all the scripts I need for this voyage, and chart the plots of the predicted relationship between these variables!
 ```
 
 (Ok so that last prompt definitely doesn't follow the guidelines of being super clear, but I was bored and it seemed to work ok)
 
-It wrote some nice code for step 3, but had some problems with model convergence. At this point I intervened manually and edited the model myself. I didn't really want it deciding the model structure for me, as I knew what I wanted (below is the model I used FYI). That fixed it and I got it to document the changes then started a new chat. 
+### Writing up the project?
 
-Note that the Agent changed the default fitting algorithm, which I wasn't pleased with. So always important to check the details. 
-
-```
-simple_model_formula <- total_lobsters ~ 1 + 
-  protection_status +
-  f(site_numeric, model = "iid") +
-  f(year, model = "ar1", hyper = ar1_prior)
-
-ar1_model <- inla(
-  formula = simple_model_formula,
-  data = train_data,
-  family = "nbinomial",  # Use negative binomial for count data
-  control.predictor = list(compute = TRUE),
-  control.compute = list(
-    dic = TRUE, 
-    waic = TRUE,
-    cpo = FALSE,  # Disable CPO to help convergence
-    config = FALSE
-  ),
-  verbose = FALSE
-)
-```
-
-After fixing the model and updated the readme, here's the next step: 
-
-```
-Alright cobber, take you best shot at step 4
-```
-
-That worked, which actually I was expecting it not to work based on prior experience. [INLA does predictions as part of model fitting, so you can't `predict(model1)` like you can with other packages.](https://www.r-inla.org/faq#h.821k2r53fvx3). I've found that often trips up copilot when it tries to predict directly from the model object. It might be that Claude 4.0 (only came out as I was writing this) now 'knows' not to make that mistake. 
-
-I tried again with Claude 3.5 (older version) to see if I could fool that one. However, it avoided the problem by writing a custom fitting function (which would need careful checking). 
-
-Anyway, the lesson was meant to be to show you how to solve these types of problems by attaching domain knowledge like the FAQ linked above. 
-
-Copilot agent did have some problems running Rscript on my computer (used to source R files from terminal). So I added this line to the readme to help it: When using Rscript from terminal be sure to put the script in "", e.g. `Rscript "Scripts/script1.R"`
-
-```
-Just step 5 left to go, make me some nice plots using the types of colours that Wes Anderson would choose
-```
-#### Writing up the project?
-
-You can keep going from here if you like and get agent mode to write up the results it found as an Rmd file. It will use the tables it generates to (hopefully) make accurate interpretations. Pretty soon Copilot will also have vision capabilities (currently available in preview mode as of 2025-05-27). This means it will be able to interpret the figures it creates as well. We'll see that in action when we look at Roo Code in a bit. 
+You can keep going from here if you like and get agent mode to write up the results it found as an Rmd file. It will use the tables it generates to (hopefully) make accurate interpretations. Copilot Pro also has vision capabilities. This means it will be able to interpret the figures it creates as well. We'll see that in action when we look at Roo Code in a bit. 
 
 If you do that, as always, don't take anything for granted. Make sure you check everything and understand the results yourself. 
 
-#### Custom intstructions
+### Agent mode errors 
 
-For heavy agent use you may want to set-up custom instructions. These apply to all prompts in a project. e.g. you could set preference for ggplot2, or tell it how to use Rscript to avoid terminal errors [See here for instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot). 
+Agent mode will try to debug its errors, but can get stuck in a loop sometimes. 
+
+One common error is that it will try to run `Rscript` from the terminal in order to run full R scripts. But not everyone's computer is set-up with an `Rscript` command. To do this you will need to web search how to put `Rscript` on your PATH (which means it can be found from the terminal). How you do this depends on your computer. 
+
+This is an advanced IT set-up feature that I won't cover here, but for one tip see the custom instructions section below. 
 
 ### Summary
 
@@ -519,3 +358,55 @@ Agent mode can really accelerate your workflow development. But there are some r
 - Giving strong guidelines e.g. through a project readme file. 
 - Keeping the readme updated to guide copilot
 - Report AI use and how it was used in your publications
+
+## LLM choice 
+
+Github copilot let's you choose different LLMs. What you can see will depend on what type of plan you have. Some LLMs have a limited number of 'Premium Requests' per month (again depending on your account tier) (e.g. at time of writing Pro accounts got 300 premium requests per month.)
+
+Click the Model choice menu to see what's available (bottom of chat window, probably says 'GPT-4.1' right now). 
+
+The `0x` means you get unlimited requests, whereas a `1x` means it will use one full premium request. 
+
+Different models have different performances for different tasks. 
+
+In general there isn't a lot of formal evaluations of R coding or statistics yet. Whereas, there are many available for Python. 
+
+The two most commonly used LLMs for data science are Claude Sonnet series (currently 4.0 available) and GPT 4.X series (currently 4.1 available). 
+
+In general I've found the Claude Sonnet models are the best for R code and most reliable for tool use (e.g. Edit or Agent mode). 
+
+GPT 4.1 is also pretty good, but in my experience there is a higher rate of errors. For instance, in Edit and Agent mode reasonably often it will delete text or code you wanted to keep (so keep an eye on what its doing). GPT 4.1 also tends to be a bit 'lazier' than Sonnet 4.0 in that it will tend to explain what to do, rather than explaning and implementing the suggestion. 
+
+Play around with the same prompt, but different models, so you can compare performance. 
+
+### Bring Your Own API Key (BYOK)
+
+You can add your own API key to github copilot. This lets you access other models on a pay per use basis. To add an API key click the model menu then select 'Manage models' and follow instructions. 
+
+You will also need an OpenAI API key if you want to use vision, that is, attach images as context. 
+
+## Customizing Github Copilot mode and instructions
+
+There's a lot of customization options in copilot now. To see some of these, open the chat window and click the cog symbol. Then pick one of the options below
+
+### Custom modes 
+
+After the cog click 'Modes', then a pop-up will appear at the top of your VScode window. Click the plus to create a new mode. Follow the prompts. Try paste in our text from the [stats bot from before](https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md). 
+
+Once that is saved in the .github directory (so only local to this project) you can click the Modes selector (bottom left of chat window, might say 'Ask', 'Edit' or 'Agent') and choose your new mode. Try having a conversation with it. 
+
+You can also give custom modes access to tools, so they can edit or act like agents. If you're an advanced user you might want to play around with these options to make modes for different tasks (like data exploration). 
+
+
+### Custom intstructions
+
+For heavy Agent users you may want to set-up custom instructions. These are just instructions attached to every prompt you run in this project. To create these press the cog button again, click 'Instructions' and follow the steps to create a new instruction as we did above for the modes. 
+
+Some ideas: you could set preference for ggplot2 or a specific coding style. 
+
+You can also add instructions to tell the agent how to use Rscript to avoid terminal errors [See here for instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot). One way around Rscript related errors is to find the path to the Rscript executable on your computer (e.g. Rscript.exe on windows) and then create a custom instruction that says something like:
+
+```
+To use Rscript to run R scripts give the full path like this: 
+"C:/Program Files/R/bin/Rscript.exe" "my_script.R"
+```

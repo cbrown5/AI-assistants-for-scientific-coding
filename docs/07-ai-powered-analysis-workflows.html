@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -177,8 +178,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#break-your-problems-into-parts" id="toc-break-your-problems-into-parts" class="nav-link active" data-scroll-target="#break-your-problems-into-parts"><span class="header-section-number">7.1</span> Break your problems into parts</a></li>
+  <li><a href="#general-prompting-advice" id="toc-general-prompting-advice" class="nav-link" data-scroll-target="#general-prompting-advice"><span class="header-section-number">7.2</span> General prompting advice</a>
+  <ul class="collapse">
+  <li><a href="#be-clear-and-specific" id="toc-be-clear-and-specific" class="nav-link" data-scroll-target="#be-clear-and-specific"><span class="header-section-number">7.2.1</span> Be clear and specific</a></li>
+  <li><a href="#give-lots-of-details" id="toc-give-lots-of-details" class="nav-link" data-scroll-target="#give-lots-of-details"><span class="header-section-number">7.2.2</span> Give lots of details</a></li>
+  <li><a href="#put-everything-up-front-rather-than-engaging-in-conversation" id="toc-put-everything-up-front-rather-than-engaging-in-conversation" class="nav-link" data-scroll-target="#put-everything-up-front-rather-than-engaging-in-conversation"><span class="header-section-number">7.2.3</span> Put everything up front, rather than engaging in conversation</a></li>
+  </ul></li>
+  <li><a href="#stages-of-analysis" id="toc-stages-of-analysis" class="nav-link" data-scroll-target="#stages-of-analysis"><span class="header-section-number">7.3</span> Stages of analysis</a></li>
+  <li><a href="#select-statistical-analysis" id="toc-select-statistical-analysis" class="nav-link" data-scroll-target="#select-statistical-analysis"><span class="header-section-number">7.4</span> Select statistical analysis</a>
+  <ul class="collapse">
+  <li><a href="#web-search" id="toc-web-search" class="nav-link" data-scroll-target="#web-search"><span class="header-section-number">7.4.1</span> Web search</a></li>
+  </ul></li>
+  <li><a href="#plan-implementation-and-project-structure" id="toc-plan-implementation-and-project-structure" class="nav-link" data-scroll-target="#plan-implementation-and-project-structure"><span class="header-section-number">7.5</span> Plan implementation and project structure</a></li>
+  <li><a href="#writing-the-code" id="toc-writing-the-code" class="nav-link" data-scroll-target="#writing-the-code"><span class="header-section-number">7.6</span> Writing the code</a></li>
+  <li><a href="#iterating" id="toc-iterating" class="nav-link" data-scroll-target="#iterating"><span class="header-section-number">7.7</span> Iterating</a>
+  <ul class="collapse">
+  <li><a href="#stages-of-analysis-1" id="toc-stages-of-analysis-1" class="nav-link" data-scroll-target="#stages-of-analysis-1"><span class="header-section-number">7.7.1</span> Stages of analysis</a></li>
+  <li><a href="#how-to-prompt-for-better-statistical-advice" id="toc-how-to-prompt-for-better-statistical-advice" class="nav-link" data-scroll-target="#how-to-prompt-for-better-statistical-advice"><span class="header-section-number">7.7.2</span> How to prompt for better statistical advice</a></li>
+  <li><a href="#with-web-tools" id="toc-with-web-tools" class="nav-link" data-scroll-target="#with-web-tools"><span class="header-section-number">7.7.3</span> With web tools</a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">7.8</span> </a></li>
+  <li><a href="#agents" id="toc-agents" class="nav-link" data-scroll-target="#agents"><span class="header-section-number">7.9</span> Agents</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -202,10 +230,161 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This section about advice for workflows</p>
+<p>Now you are familiar with some of the software options, let’s look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines.</p>
 <p><img src="resources/figure2-brown-spillias.png" class="img-fluid"></p>
+<section id="break-your-problems-into-parts" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="break-your-problems-into-parts"><span class="header-section-number">7.1</span> Break your problems into parts</h2>
+<blockquote class="blockquote">
+<p>Take all your problems and rip ’em apart<br>
+Carry them off in a shopping cart<br>
+Another thing you should’ve known from the start<br>
+The problems in hand are lighter than at heart…<br>
+And another thing you have to know in this world<br>
+Cut up your hair, straighten your curls<br>
+Well, your problems hide in your curls</p>
+</blockquote>
+<p>Little Acorns by The White Stripes</p>
+</section>
+<section id="general-prompting-advice" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="general-prompting-advice"><span class="header-section-number">7.2</span> General prompting advice</h2>
+<section id="be-clear-and-specific" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="be-clear-and-specific"><span class="header-section-number">7.2.1</span> Be clear and specific</h3>
+</section>
+<section id="give-lots-of-details" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="give-lots-of-details"><span class="header-section-number">7.2.2</span> Give lots of details</h3>
+</section>
+<section id="put-everything-up-front-rather-than-engaging-in-conversation" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="put-everything-up-front-rather-than-engaging-in-conversation"><span class="header-section-number">7.2.3</span> Put everything up front, rather than engaging in conversation</h3>
+</section>
+</section>
+<section id="stages-of-analysis" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="stages-of-analysis"><span class="header-section-number">7.3</span> Stages of analysis</h2>
+</section>
+<section id="select-statistical-analysis" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="select-statistical-analysis"><span class="header-section-number">7.4</span> Select statistical analysis</h2>
+<section id="web-search" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="web-search"><span class="header-section-number">7.4.1</span> Web search</h3>
+</section>
+</section>
+<section id="plan-implementation-and-project-structure" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="plan-implementation-and-project-structure"><span class="header-section-number">7.5</span> Plan implementation and project structure</h2>
+</section>
+<section id="writing-the-code" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="writing-the-code"><span class="header-section-number">7.6</span> Writing the code</h2>
+</section>
+<section id="iterating" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="iterating"><span class="header-section-number">7.7</span> Iterating</h2>
+<section id="stages-of-analysis-1" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="stages-of-analysis-1"><span class="header-section-number">7.7.1</span> Stages of analysis</h3>
+<p>There are overall decisions you need to make when developing your analysis:</p>
+<ol type="1">
+<li>What types of statistics to use.</li>
+<li>How to implement those statistics in R code.</li>
+</ol>
+<p>Its worthwhile separting these two decisions, as they are different issues. One is a science question, the other is a programming question.</p>
+<p>When using Assistants its also worthwhile using different chat sessions to try and find answers.</p>
+<section id="suggested-workflow-for-new-analyses" class="level4" data-number="7.7.1.1">
+<h4 data-number="7.7.1.1" class="anchored" data-anchor-id="suggested-workflow-for-new-analyses"><span class="header-section-number">7.7.1.1</span> Suggested workflow for new analyses</h4>
+<p>Here’s a workflow I’ve found works well if I’m doing an analysis that is new to means</p>
+<ol type="1">
+<li><p>Read the literature to identify the appropriate analysis for the research question and data.</p></li>
+<li><p>Once I’ve narrowed down the options I look for useful domain knowledge: vignettes, manuals or blogs that have suitable R examples.</p></li>
+<li><p>Start a new folder, setting up the directory and readme as descriped in this workshop.</p></li>
+<li><p>Use copilot to implement the analysis, attaching data summaries and the domain knowledge to get the best prompts.</p></li>
+</ol>
+</section>
+<section id="suggested-workflow-for-analyses-i-know-well" class="level4" data-number="7.7.1.2">
+<h4 data-number="7.7.1.2" class="anchored" data-anchor-id="suggested-workflow-for-analyses-i-know-well"><span class="header-section-number">7.7.1.2</span> Suggested workflow for analyses I know well</h4>
+<p>Much the same as above, just less planning and you don’t need to search the literature because you know what you want to do. If you save useful domain knowledge when you see it you will also have the documents on hand to support the assistant.</p>
+</section>
+</section>
+<section id="how-to-prompt-for-better-statistical-advice" class="level3" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="how-to-prompt-for-better-statistical-advice"><span class="header-section-number">7.7.2</span> How to prompt for better statistical advice</h3>
+<p>The limited number of evaluations of LLMs for statistics have found the biggest improvements for prompts that:</p>
+<ul>
+<li>Include domain knowledge in the prompt</li>
+<li>Include data or summary data in the prompt</li>
+<li>Combine domain knowledge with CoT (but CoT on its own doesn’t help)</li>
+</ul>
+<p>In addition, larger and more up-to-date models tend to be better. e.g.&nbsp;try Claude 4.0 over GPT-mini.</p>
+<div class="tip">
+<p><strong>Tip:</strong> LLMs will tend to suggest the most obvious statistical analyses. If you want to innovate creative new types of analyses you need to work a bit harder. One way to do this is to mix up your prompts to try and get cross-disciplinary pollination. For instance, you could ask it: “Suggest methods I could use for this analysis, taking inspiriation from different disciplines such as medicine, psychology and climate research”.</p>
+</div>
+<section id="what-llms-dont-do-that-real-statisticians-do" class="level4" data-number="7.7.2.1">
+<h4 data-number="7.7.2.1" class="anchored" data-anchor-id="what-llms-dont-do-that-real-statisticians-do"><span class="header-section-number">7.7.2.1</span> What LLMs don’t do that real statisticians do…</h4>
+<p>If you consult a human statistician they’ll usually ask you lots of questions. LLMs, in contrast, will tend to just give you an answer, whether or not they have enough context.</p>
+<p>Say you asked me the same question you had in your LLM prompt like “how do see if fish are related to coral”. There’s no way I’d jump in with an answer with so little information. But the LLM will.</p>
+<p>So be aware of this shortcoming and come to prompting pre-prepared with the context it will need to give you a better answer.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-ai-powered-analysis-workflows_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figure 1 From Brown and Spillias in review</strong> Comparison of how an experienced human statistical consultant would structure a conversation compared to a typical prompt chain with an AI assistant (figure 1). The human consultant will usually ask more questions than provide answers at the start of a conversation, then switch to providing more answers once they understand the context of the study. An AI assistant will tend to be constant in the number of questions it asks, unless explictly prompted to ask questions rather than provide answers. This means it provides answers without first gathering appropriate context.</p>
+</section>
+<section id="guidelines-for-prompting-for-statistical-advice" class="level4" data-number="7.7.2.2">
+<h4 data-number="7.7.2.2" class="anchored" data-anchor-id="guidelines-for-prompting-for-statistical-advice"><span class="header-section-number">7.7.2.2</span> Guidelines for prompting for statistical advice</h4>
+<p><strong>Attach domain knowledge</strong> Try to find quality written advice from recognized researchers to include in your prompts.</p>
+<p><strong>Always provide context on the data</strong> For instance, the model will give better advice for the prompt above if we tell it that <code>pres.topa</code> is integer counts (it will probably then recommend poisson GLM straight away). Likewise, if your replicates are different sites, tell that to the model so it has the opportunity to recommend approaches that are appropriate for spatial analysis.</p>
+<p><strong>Attach data to your prompts</strong> You can attach the whole dataset if its in plain text (e.g.&nbsp;csv). Or write a <code>summary()</code> and/or <code>head()</code> to file and attach that.</p>
+<p><strong>Combine the above approaches with Chain of Thought</strong> Just add ‘use Chain of Thought reasoning’ to your prompt. Its that easy.</p>
+<p><strong>Double-up on chain of thought with self evaluation</strong> After the initial suggest try prompts like “are you sure?”, “Take a deep breath, count to ten and think deeply”, “Evaluate the quality of the options on a 1-5 scale”.</p>
+<div class="tip">
+<p><strong>Tip:</strong> Make a library of reference material for your prompting. If you see vignettes, blogs, or supplemental sections of papers that explain an analysis well, save them as text files to use in prompts.</p>
+</div>
+</section>
+</section>
+<section id="with-web-tools" class="level3" data-number="7.7.3">
+<h3 data-number="7.7.3" class="anchored" data-anchor-id="with-web-tools"><span class="header-section-number">7.7.3</span> With web tools</h3>
+</section>
+</section>
+<section id="section" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="section"><span class="header-section-number">7.8</span> </h2>
+<section id="working-through-your-plan" class="level4" data-number="7.8.0.1">
+<h4 data-number="7.8.0.1" class="anchored" data-anchor-id="working-through-your-plan"><span class="header-section-number">7.8.0.1</span> Working through your plan</h4>
+<p>Once you’re happy with the plan, you can get copilot to implement it. You can continue the current chat, or start a new chat to do this (depending on the length of the task).</p>
+<p>Now step through, asking copilot to create each file as you.</p>
+<p>At this point everyone’s answers will diverge, as there is an element of randomness to the LLM’s responses. We will compare as a class to see if everyone gets to a similar analysis and answer.</p>
+<div class="tip">
+<p><strong>Tip:</strong> We are using the readme.md is copilot’s memory. This means the assitant always has the context it needs across different chat sessions (where it would otherwise forget). So its important to keep the readme updated. Its also useful to help you remember if you come back to the project some months or years later.</p>
+</div>
+<ul>
+<li>Keep the readme.md updated and keep attaching it to your prompts. This will help keep it focused on the tasks that matter</li>
+<li>Use a two-step approach to identifying the statistical tests first, then implementing them as R code second. If you conflate these tasks you risk letting copilot guide the stats and getting it wrong.</li>
+<li>You can use it to help implement multiple different types of statistical tests for experimenting. If you do this, I just suggest you still use a two-step approach: plan a list of stats options first, then get copilot to implement them so you can compare results.</li>
+</ul>
+</section>
+</section>
+<section id="agents" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="agents"><span class="header-section-number">7.9</span> Agents</h2>
+<p>You can also just accept every suggestion without reading it, also called ‘vibe coding’. However, I don’t recommend doing that, especially when you are starting out. You need to get a feel of how much direction it needs and problems it might create. Without human intervention the algorithms have a tendency to go off task:</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'gridExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    combine</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-ai-powered-analysis-workflows_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Have a readme with clear steps that you attach as a prompt is also helpful for Agent mode. It helps it stay on topic.</p>
+<p>Agent mode also allows installation of additional tools, which we’ll explore later.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -24,6 +24,7 @@ bibliography: book.bib
 format:
   html:
     theme: simplex
+    css: style.css
   pdf:
     documentclass: scrreprt
   epub:

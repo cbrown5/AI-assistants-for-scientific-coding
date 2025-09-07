@@ -14,6 +14,7 @@ Think in probablities about code, not exacts
 
 Add function for chat bot for python users
 
+```
 ## Improving your prompts
 
 TODO Insert some examples comparing with and without these approaches
@@ -25,13 +26,20 @@ TODO Insert some examples comparing with and without these approaches
 Showing data etc... 
 
 ### Giving examples 
+```
+
+Make a brief copilot overview section. 
+
+Then come back to a sections on my workflows and optimal prompt stuctures
+
+add something about multi-turn conversation being sub-optimal. 
+
+Upload revised presentation. Revise with section on prompting. 
 
 Make a quiz to do at end to get student feedback
 
 Work on fundamentals, add some examples where user can experiment with differnet prompt styles. 
 
-Add prompt injection example
-Tas vs qld coffee
 web search example
 
 ## Lethal trifecta for 
@@ -44,3 +52,29 @@ You want to be sure your agents can't do these three things at once. Remember se
 
 ### Avoiding the lethal trifecta 
 
+## Teaching plan
+
+Set-up and run an agent 'paper in a prompt. 
+Initial seminar
+Overview of VSCode
+
+How to get chatbots to work. Go over ellmer etc... with class. Make this pretty quick as we want just want everyone to have a chatbot. Do a hands up to see who has what software working. 
+
+Then look at copilot with class (just introduction to its different features )
+
+Then look at stats workflows
+- asking problem solving. Include diy stats bot again. Compare multi-turn etc...
+- Implementation advice
+- Actual coding 
+
+Spec sheets 
+
+Now come back to complete chapter 4 and look at temperature etc.... 
+
+Chapter 5 on advanced applications if time. 
+
+Agents
+
+Ethics 
+
+Security 

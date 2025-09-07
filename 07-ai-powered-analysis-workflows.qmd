@@ -1,38 +1,73 @@
 # AI powered analysis workflows 
 
-This section about advice for workflows
+Now you are familiar with some of the software options, let's look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines. 
 
 ![](resources/figure2-brown-spillias.png)
 
-## Designing an analysis
+## Break your problems into parts 
 
-### Desinging an analysis with chatbots 
+> Take all your problems and rip 'em apart  
+> Carry them off in a shopping cart  
+> Another thing you should've known from the start  
+> The problems in hand are lighter than at heart...  
+> And another thing you have to know in this world  
+> Cut up your hair, straighten your curls  
+> Well, your problems hide in your curls
 
-#### The jagged frontier of LLM progress
+*Little Acorns by The White Stripes* 
 
-LLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages. 
 
-Since then AI companies have been optimising their training and development for coding and logic. 
 
-There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Current models get about [50% resolution on this benchmark](https://www.swebench.com/). 
 
-Their progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) [are saturated as LLMs are scoring close to 100% on these tests.](https://epoch.ai/frontiermath/the-benchmark). So newer tests of unsolved maths problems are being developed. 
+## General prompting advice 
 
-However, others are finding that the ability of [LLMs on math and logic are overstated](https://garymarcus.substack.com/p/reports-of-llms-mastering-math-have), perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be 'industry leaders' and grab market share with impressive results on benchmarks. 
+### Be clear and specific
 
-Either way, it does seem that the current areas of progress are programming, math and logic. 
+### Give lots of details 
 
-Evaluations on statistics and the R software are less common. 
+### Put everything up front, rather than engaging in conversation 
 
-The limited evaluations of LLMs on their ability to identify the correct statistical procedure are less impressive than other benchmarks. [An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model](https://arxiv.org/abs/2406.07815), found accuracy at suggesting the correct statistical test of between 8% and 90%. 
+## Stages of analysis
 
-In general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer. 
+## Select statistical analysis 
 
-The results also indicate the improvements that can be gained through better prompts (i.e. doubling in accuracy for GPT 4). 
+### Web search
 
-The lesson is two-fold. Just because LLMs excel at some tasks doesn't mean they will excel at others. Second, good prompting strategies pay off. 
+## Plan implementation and project structure 
 
-For us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do. 
+## Writing the code
+
+## Iterating 
+
+
+
+### Stages of analysis 
+
+There are overall decisions you need to make when developing your analysis:
+
+1. What types of statistics to use. 
+2. How to implement those statistics in R code. 
+
+Its worthwhile separting these two decisions, as they are different issues. One is a science question, the other is a programming question. 
+
+When using Assistants its also worthwhile using different chat sessions to try and find answers. 
+
+
+#### Suggested workflow for new analyses
+
+Here's a workflow I've found works well if I'm doing an analysis that is new to means
+
+1. Read the literature to identify the appropriate analysis for the research question and data. 
+
+2. Once I've narrowed down the options I look for useful domain knowledge: vignettes, manuals or blogs that have suitable R examples. 
+
+3. Start a new folder, setting up the directory and readme as descriped in this workshop. 
+
+4. Use copilot to implement the analysis, attaching data summaries and the domain knowledge to get the best prompts. 
+
+#### Suggested workflow for analyses I know well
+
+Much the same as above, just less planning and you don't need to search the literature because you know what you want to do. If you save useful domain knowledge when you see it you will also have the documents on hand to support the assistant. 
 
 ### How to prompt for better statistical advice
 
@@ -43,6 +78,10 @@ The limited number of evaluations of LLMs for statistics have found the biggest 
 - Combine domain knowledge with CoT (but CoT on its own doesn't help)
 
 In addition, larger and more up-to-date models tend to be better. e.g. try Claude 4.0 over GPT-mini.  
+
+::: {.tip}
+**Tip:** LLMs will tend to suggest the most obvious statistical analyses. If you want to innovate creative new types of analyses you need to work a bit harder. One way to do this is to mix up your prompts to try and get cross-disciplinary pollination. For instance, you could ask it: "Suggest methods I could use for this analysis, taking inspiriation from different disciplines such as medicine, psychology and climate research".
+:::
 
 #### What LLMs don't do that real statisticians do... 
 
@@ -119,3 +158,97 @@ ggplot(df, aes(x = time, y = number, color = type, group = type)) +
 ### With web tools
 
 ## 
+
+
+
+#### Working through your plan 
+
+Once you're happy with the plan, you can get copilot to implement it. You can continue the current chat, or start a new chat to do this (depending on the length of the task). 
+
+Now step through, asking copilot to create each file as you. 
+
+At this point everyone's answers will diverge, as there is an element of randomness to the LLM's responses. We will compare as a class to see if everyone gets to a similar analysis and answer. 
+
+::: {.tip}
+**Tip:** We are using the readme.md is copilot's memory. This means the assitant always has the context it needs across different chat sessions (where it would otherwise forget). So its important to keep the readme updated. Its also useful to help you remember if you come back to the project some months or years later. 
+:::
+
+
+- Keep the readme.md updated and keep attaching it to your prompts. This will help keep it focused on the tasks that matter
+- Use a two-step approach to identifying the statistical tests first, then implementing them as R code second. If you conflate these tasks you risk letting copilot guide the stats and getting it wrong. 
+- You can use it to help implement multiple different types of statistical tests for experimenting. If you do this, I just suggest you still use a two-step approach: plan a list of stats options first, then get copilot to implement them so you can compare results. 
+
+
+## Agents 
+
+
+
+You can also just accept every suggestion without reading it, also called 'vibe coding'. However, I don't recommend doing that, especially when you are starting out. You need to get a feel of how much direction it needs and problems it might create. Without human intervention the algorithms have a tendency to go off task: 
+
+```{r eval = TRUE, echo=FALSE}
+library(ggplot2)
+library(grid)
+library(gridExtra)
+
+# Create data for the workflows, now flowing vertically
+workflow1 <- data.frame(
+    x = rep(1, 100),
+    y = seq(0, 10, length.out = 100)
+)
+
+# Add checkin points
+checkins <- data.frame(
+    x = rep(1, 5),
+    y = seq(1, 9, by = 2)
+)
+
+# Create divergent workflow
+workflow2 <- data.frame(
+    x = 1 + 0.2 * (seq(0, 10, length.out = 100) - 3)^2 / 10,
+    y = seq(0, 10, length.out = 100)
+)
+workflow2$x[1:31] <- 1
+
+# Create the plot
+p <- ggplot() +
+    # Draw workflows
+    geom_path(data = workflow1, aes(x = x, y = y), 
+                        color = "blue", size = 1, arrow = arrow(length = unit(0.3, "cm"))) +
+    geom_path(data = workflow2, aes(x = x, y = y), 
+                        color = "red", size = 1,  arrow = arrow(length = unit(0.3, "cm"))) +
+    # Add checkin points
+    geom_point(data = checkins, aes(x = x, y = y), 
+                         color = "blue", size = 3) +
+    # Add start and end points (now at top and bottom)
+    annotate("text", x = 1, y = -0.3, label = "A (Start)", size = 8) +
+    annotate("text", x = 1, y = 11, label = "B (Goal)", size = 8) +
+    
+    # Add labels
+    annotate("text", x = 0.7, y = 5, label = "Workflow with checkins", color = "blue", size = 7, angle = 90) +
+    annotate("text", x = 2.5, y = 7, label = "Divergent workflow\n(no checkins)", color = "red", size = 7) +
+    
+    # Theme adjustments
+    theme_minimal() +
+    theme(
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank()
+    ) +
+    ylim(-0.5, 11) +
+    xlim(0.5, 3.5)
+
+p
+```
+
+Have a readme with clear steps that you attach as a prompt is also helpful for Agent mode. It helps it stay on topic. 
+
+Agent mode also allows installation of additional tools, which we'll explore later. 
+
+## AI in the creative scientific process
+
+Ecological modelling is a creative art with rules. The rules are the scientific method, the medium is math, logic and code. 
+
+Iterating, getting ideas.
+
+Add it as a tool inyour belt, not a replacement. Talking to clleagues, reading, sitting on a board looking at the ocean, having showers etc... are all stil important. 

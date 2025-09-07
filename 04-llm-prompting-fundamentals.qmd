@@ -371,13 +371,16 @@ Let's put together what we've learnt so far and built our own chatbot. I've prov
 
 ### R - Ellmer
 ```{r}
-stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md"))
+stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md"))
 
 chat_stats <- chat_openrouter(
   system_prompt = stats_bot,
   model = "anthropic/claude-sonnet-4",
   api_args = list(max_tokens = 5000)
 )
+
+chat$chat("Who are you?")
+
 ```
 
 ### R
@@ -385,7 +388,7 @@ chat_stats <- chat_openrouter(
 library(jsonlite)
 library(httr)
 openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
-stats_bot <- readLines("https://raw.githubusercontent.com/cbrown5/AI-assistants-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md")
+stats_bot <- readLines("https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md")
 response <- POST(
     url = "https://openrouter.ai/api/v1/chat/completions",
     add_headers(
@@ -423,7 +426,7 @@ load_dotenv()
 api_key = os.getenv("OPENROUTER_API_KEY")
 model = "anthropic/claude-sonnet-4"
 import requests
-stats_bot = requests.get("https://raw.githubusercontent.com/cbrown5/R-llm-workshop/refs/heads/main/resources/DIY-stats-bot-system.md").text
+stats_bot = requests.get("https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md").text
 
 response = requests.post(
   url="https://openrouter.ai/api/v1/chat/completions",
@@ -451,13 +454,54 @@ content = data['choices'][0]['message']['content']
 ```
 :::
 
+Try asking it some different statistical questions and note how it responds. 
+
 ::: {.tip}
 **Tip:** How many of you started using "DIY-stats-bot-system.md" without first reading it? Did you find the easter egg in my prompt? For security you should ALWAYS read prompts before you start running them through LLM chats. We'll see later that LLMs can be given 'tools' which allow them to run code on your computer. Its easy to see how a malicious prompt could mis-use these tools. We'll cover security later. 
 :::
 
+### Multi-turn conversation
+
+You might want to have a conversation with your chat bot to help you problem solve. This is easy with Ellmer and a bit fiddly with python or base R. I'm only going to cover Ellmer here. 
+
+::: {.panel-tabset group="language"}
+
+### R - Ellmer
+
+```{r}
+stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md"))
+
+chat_stats <- chat_openrouter(
+  system_prompt = stats_bot,
+  model = "anthropic/claude-sonnet-4",
+  api_args = list(max_tokens = 5000)
+)
+
+live_console(chat_stats)
+# live_browser(chat_stats)
+```
+
+`live_console` let's you chat in the terminal. `live_browser` opens up a browser window that is hosted locally on your computer. It feels the most like chatGPT. 
+
+### R 
+
+I suggest using ellmer for multi-turn conversations. If Ellmer doesn't work, don't worry we'll do more on this with github copilot in a moment. 
+
+### Python 
+
+There are some packages available to help with multi-turn conversation. For example the [chat-cli](https://deepwiki.com/potofo/openrouter-chat-cli/1-overview). These take some time to set-up so we won't go over them here, read the docs for more information. 
+
+:::
+
+::: {.tip}
+**Tip:** LLMs performance is better if you put everything in an initial single questions, rather than a multi-turn conversation. [Responses to a problem split into multiple questions are less accurate than responses to problem that is put up front in the initial prompt](https://arxiv.org/abs/2505.06120). This rule applies across many domains from logic to coding. I like to think of it as mansplaining, the LLMs have (sub-concioulsy?) been designed to prefer being mansplained over having a conversation. We'll look more at this later. 
+:::
+
 ### Improving the stats bot
 
-Make a local copy of the stats bot system prompt and try editing it. Try different commands within it and see how your chat bot responds (you'll have to open a new chat object each time). 
+Make a local copy of the stats bot system prompt and try editing it. You can use your coding skills to write the stats bot to file, or just go here and copy the text: [https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md](https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md). 
+
+Try different commands within it and see how your chat bot responds (you'll have to open a new chat object each time). 
 
 Here's some ideas. 
 
@@ -469,7 +513,6 @@ Here's some ideas.
 ::: {.tip}
 **Tip:** Adjectives, CAPITALS, `*markdown*` formatting can all help create emphasis so that your model more closely follows your commands. I used 'abhors' and 'verhment' above on purpose. 
 :::
-
 
 
 ### Tools
@@ -488,10 +531,6 @@ To recap, the basic workflow an agent follows is:
 4. Software on user's computer attempts to parse and act on the response according to pre-determined rules
 5. User's computers enacts the commands in the response and provides results to user
 
-The key things I hoped you learnt from this lesson are: 
-
-- Basic LLM jargon, including tokens, temperature, API access and different LLM models. 
-- Some different prompt strategies, including role prompting, emphasis, chain of thought and one-shot. 
-- The fundamentals of tool use and agents. 
+The key things I hoped you learnt from this lesson are: Basic LLM jargon, including tokens, temperature, API access and different LLM models. 
 
 Now you understand the basics, let's get into Github Copilot.

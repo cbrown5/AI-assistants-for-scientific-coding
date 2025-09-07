@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -177,8 +178,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-jagged-frontier-of-llm-progress" id="toc-the-jagged-frontier-of-llm-progress" class="nav-link active" data-scroll-target="#the-jagged-frontier-of-llm-progress"><span class="header-section-number">2.1</span> The jagged frontier of LLM progress</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -213,8 +220,24 @@ ul.task-list li input[type="checkbox"] {
 <li>Ethical considerations when using LLMs for scientific work</li>
 </ul>
 <p>We’ll explore how LLMs can enhance your R workflow, from code generation to data analysis assistance, while maintaining scientific rigor and reproducibility.</p>
+<p><a href="https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&amp;ouid=107596646496267980935&amp;rtpof=true&amp;sd=true">Slides for presentation (on a google drive)</a></p>
+<section id="the-jagged-frontier-of-llm-progress" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-jagged-frontier-of-llm-progress"><span class="header-section-number">2.1</span> The jagged frontier of LLM progress</h2>
+<p>LLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.</p>
+<p>Since then AI companies have been optimising their training and development for coding and logic.</p>
+<p>There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Current models get about <a href="https://www.swebench.com/">50% resolution on this benchmark</a>.</p>
+<p>Their progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) <a href="https://epoch.ai/frontiermath/the-benchmark">are saturated as LLMs are scoring close to 100% on these tests.</a>. So newer tests of unsolved maths problems are being developed.</p>
+<p>However, others are finding that the ability of <a href="https://garymarcus.substack.com/p/reports-of-llms-mastering-math-have">LLMs on math and logic are overstated</a>, perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be ‘industry leaders’ and grab market share with impressive results on benchmarks.</p>
+<p>Either way, it does seem that the current areas of progress are programming, math and logic.</p>
+<p>Evaluations on statistics and the R software are less common.</p>
+<p>The limited evaluations of LLMs on their ability to identify the correct statistical procedure are less impressive than other benchmarks. <a href="https://arxiv.org/abs/2406.07815">An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model</a>, found accuracy at suggesting the correct statistical test of between 8% and 90%.</p>
+<p>In general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer.</p>
+<p>The results also indicate the improvements that can be gained through better prompts (i.e.&nbsp;doubling in accuracy for GPT 4).</p>
+<p>The lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.</p>
+<p>For us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
