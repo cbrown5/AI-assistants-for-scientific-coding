@@ -198,6 +198,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cost-considerations" id="toc-cost-considerations" class="nav-link active" data-scroll-target="#cost-considerations"><span class="header-section-number">12.1</span> Cost considerations</a></li>
   <li><a href="#api-security" id="toc-api-security" class="nav-link" data-scroll-target="#api-security"><span class="header-section-number">12.2</span> API security</a></li>
   <li><a href="#agent-security" id="toc-agent-security" class="nav-link" data-scroll-target="#agent-security"><span class="header-section-number">12.3</span> Agent security</a></li>
+  <li><a href="#lethal-trifecta-for-prompt-injection-attacks" id="toc-lethal-trifecta-for-prompt-injection-attacks" class="nav-link" data-scroll-target="#lethal-trifecta-for-prompt-injection-attacks"><span class="header-section-number">12.4</span> Lethal trifecta for prompt injection attacks</a></li>
   </ul>
 </nav>
     </div>
@@ -254,6 +255,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Read prompts before running them</li>
 </ul>
 <p>Computer enginners, thinking probabilistically</p>
+</section>
+<section id="lethal-trifecta-for-prompt-injection-attacks" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="lethal-trifecta-for-prompt-injection-attacks"><span class="header-section-number">12.4</span> Lethal trifecta for prompt injection attacks</h2>
+<p>The <a href="https://simonwillison.net/2025/Aug/9/bay-area-ai/">Lethal Trifecta for prompt injection attacks</a> (coined by Simon Williamson) is access to private data, ability to communicate externally and exposure to untrusted content.</p>
+<p>What can happen is that if your agent can read untrusted sources, those sources may contain malicious prompts. These prompts could convince the agent to do things like send or post your personal data to the hacker or create malicious code that runs on your computer.</p>
+<p>You want to be sure your agents can’t do these three things at once. Remember sensitive data includes your name, username, phone number, email, API keys as well as sensitive research data.</p>
 
 
 </section>

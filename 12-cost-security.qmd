@@ -30,3 +30,11 @@ AI companies are running at a loss and its quite likely that costs will go up in
 - Read prompts before running them 
 
 Computer enginners, thinking probabilistically 
+
+## Lethal trifecta for prompt injection attacks
+
+The [Lethal Trifecta for prompt injection attacks](https://simonwillison.net/2025/Aug/9/bay-area-ai/) (coined by Simon Williamson) is access to private data, ability to communicate externally and exposure to untrusted content. 
+
+What can happen is that if your agent can read untrusted sources, those sources may contain malicious prompts. These prompts could convince the agent to do things like send or post your personal data to the hacker or create malicious code that runs on your computer. 
+
+You want to be sure your agents can't do these three things at once. Remember sensitive data includes your name, username, phone number, email, API keys as well as sensitive research data. 

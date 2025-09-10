@@ -149,8 +149,17 @@ Note that if you computer is controlled centrally by an IT department, you may n
 
 If R is not found then open extensions (left hand side, boxes icon), filter by 'enabled' then click the R extension.
 Now click the cog icon in the R extension and select 'settings' from the dropdown. 
-Search for 'rpath'. Check that it has the correct path to R on your computer. 
+Search for 'rpath'. Check that it has the correct path to R on your computer. Also update 'rterm' with the same path. 
 You can find the path by opening a terminal and typing `which R` (on mac) or in a  windows terminal `where R`.
+
+One way to fine out where R is installed on your computer is to open Rstudio, go to 'Tools' -> 'General' then under the field 'R version' it will have the path to your R version that may look like this: 'C:\Users\myname\AppData\Progams\R\R-4.5.0'
+
+Copy that path from Rstudio. Then go back to the VScode settings and paste it into the 'rpath' and 'rterm' settings. You will also need to add the `R.exe` on the end like this:
+'C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe'
+
+Now open an R script and run it (e.g. press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If its not working you'll get an error pop-up. Go back and check the steps above. 
+
+If you copied it on windows you may also need to reverse the slashes, like I have above. 
 
 While you have the extension settings open search for 'httgp' and make sure  `Plot: Use Httpgd` is enabled. 
 
