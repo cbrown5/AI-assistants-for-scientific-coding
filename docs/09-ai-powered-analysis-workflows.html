@@ -219,6 +219,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Code for fish and benthic analysis</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -275,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Now you are familiar with some of the software options, let’s look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines.</p>
-<p>For the examples here we’ll use the benthic survey data, so make sure you’ve set up a project and have that data loaded, as in <a href="06-github-copilot.html" class="quarto-xref"><span>Chapter 6</span></a> or below:</p>
+<p>For the examples here we’ll use the benthic survey data, so make sure you’ve set up a project and have that data loaded, as in <a href="#sec-githubcopilot-chapter" class="quarto-xref"><span class="quarto-unresolved-ref">sec-githubcopilot-chapter</span></a> or below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -368,7 +374,7 @@ Note
 </section>
 <section id="web-search" class="level3" data-number="9.3.4">
 <h3 data-number="9.3.4" class="anchored" data-anchor-id="web-search"><span class="header-section-number">9.3.4</span> Web search</h3>
-<p>AI web search tools can help you create customized tutorials for your stats problem. You can then attach these as context when discussing your project with the assistant. See the <span class="quarto-unresolved-ref">?sec-deepresearch</span> for how to use API calls to do this. Many AI web platforms also have web search features, including chatGPT and copilot. Google is in the process of adding this option to its search engine.</p>
+<p>AI web search tools can help you create customized tutorials for your stats problem. You can then attach these as context when discussing your project with the assistant. See the <a href="#sec-deepresearch" class="quarto-xref"><span class="quarto-unresolved-ref">sec-deepresearch</span></a> for how to use API calls to do this. Many AI web platforms also have web search features, including chatGPT and copilot. Google is in the process of adding this option to its search engine.</p>
 <p>You’ll get the best results if reasoning/thinking modes are enabled. As these are more energy expensive to run they are often only available for paid subscriptions. Make sure you read the reasoning information as well, as its important to understand if the answer is of high quality or not.</p>
 <p>Remember that web search AI doesn’t like long prompts, so keep your prompts short and specific.</p>
 <p>Here’s a prompt you can try in chatGPT or Copilot (e.g.&nbsp;in Teams):</p>
@@ -402,19 +408,15 @@ Note
 <section id="directory-structure" class="level3" data-number="9.4.1">
 <h3 data-number="9.4.1" class="anchored" data-anchor-id="directory-structure"><span class="header-section-number">9.4.1</span> Directory structure</h3>
 <p>There’s no single way to organize your project, the main thing is to be organized. I keep a folder on my computer with a template. Inside that folder I have these files and directories:</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>`<code>glm-test-case/ ├──  readme.md           # This readme file with project documentation ├──  .gitignore           # Standard gitignore for R projects ├──  LICENSE ├── data/                    # Data files and intermediate datasets ├── initial-prompt.md       # Initial project prompt and requirements ├── outputs/                # Generated output files │   └── plots/              # Diagnostic plots and visualization outputs (PNG files) └── scripts/                # R scripts for data analysis and modeling</code></p>
-</div>
-</div>
+<pre><code>glm-test-case/
+├──  readme.md           # This readme file with project documentation
+├──  .gitignore           # Standard gitignore for R projects
+├──  LICENSE
+├── data/                    # Data files and intermediate datasets
+├── initial-prompt.md       # Initial project prompt and requirements
+├── outputs/                # Generated output files
+│   └── plots/              # Diagnostic plots and visualization outputs (PNG files)
+└── scripts/                # R scripts for data analysis and modeling</code></pre>
 <p>You might want to add more nesting if it’s a complex project, such as project with both spatial and non-spatial databases.</p>
 </section>
 <section id="readme-file-for-the-assistant-and-you" class="level3" data-number="9.4.2">

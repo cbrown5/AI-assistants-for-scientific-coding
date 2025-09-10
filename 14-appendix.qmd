@@ -1,0 +1,68 @@
+# Code for fish and benthic analysis
+
+## Read in the data from an online source
+
+```{r eval=FALSE}
+library(readr)
+
+# URLs for datasets
+benthic_cover_url <- "https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/benthic_cover.csv"
+benthic_variables_url <- "https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/benthic_variables.csv"
+fish_coral_cover_sites_url <- "https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"
+
+# Local file paths
+benthic_cover_path <- "data/benthic_cover.csv"
+benthic_variables_path <- "data/benthic_variables.csv"
+fish_coral_cover_sites_path <- "data/fish-coral-cover-sites.csv"
+
+# Download and save datasets
+benthic_cover <- read_csv(benthic_cover_url)
+write_csv(benthic_cover, benthic_cover_path)
+
+benthic_variables <- read_csv(benthic_variables_url)
+write_csv(benthic_variables, benthic_variables_path)
+
+fish_coral_cover_sites <- read_csv(fish_coral_cover_sites_url)
+write_csv(fish_coral_cover_sites, fish_coral_cover_sites_path)
+
+```
+
+## Convert the benthic data to a wide format data frame
+
+```{r eval=FALSE}
+# Load required libraries
+library(tidyverse)
+
+# Load benthic cover data
+benthic <- read_csv("data/benthic_cover.csv")
+
+# Calculate proportional cover per transect
+benthic <- benthic %>%
+	mutate(prop_cover = cover / n.pts)
+
+# Average proportional cover by site and habitat type
+benthic_site <- benthic %>%
+	group_by(site, code) %>%
+	summarise(mean_prop_cover = mean(prop_cover, na.rm = TRUE), .groups = "drop")
+
+# Pivot to wide format: one row per site, columns for each habitat type
+benthic_wide <- benthic_site %>%
+	pivot_wider(names_from = code, values_from = mean_prop_cover)
+
+# View result
+print(head(benthic_wide))
+readr::write_csv(benthic_wide, file = "data/benthic_wide.csv")
+
+```
+
+## Join the benthic and fish datasets
+
+```{r eval=FALSE}
+library(tidyverse)
+library(readr)
+fish <- read_csv("data/fish-coral-cover-sites.csv")
+benthic_wide <- read_csv("data/benthic_wide.csv")
+
+dat <- left_join(fish, benthic_wide, by = "site")
+
+```

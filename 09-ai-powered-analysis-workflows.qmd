@@ -133,6 +133,7 @@ So my next step is to plan what you do, before you do it. This means thinking ab
 
 There's no single way to organize your project, the main thing is to be organized. I keep a folder on my computer with a template. Inside that folder I have these files and directories: 
 
+
 ```
 glm-test-case/
 ├──  readme.md           # This readme file with project documentation
@@ -144,6 +145,7 @@ glm-test-case/
 │   └── plots/              # Diagnostic plots and visualization outputs (PNG files)
 └── scripts/                # R scripts for data analysis and modeling
 ```
+
 
 You might want to add more nesting if it's a complex project, such as project with both spatial and non-spatial databases. 
 

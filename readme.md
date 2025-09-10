@@ -14,27 +14,27 @@ Initial seminar
 
 Overview of VSCode and copilot with class (just introduction to its different features )
 
-Chatbots in ellmer 
+Chatbots in ellmer (Chapter 4 Prompting fundamentals)
 
-Prompting basics using ellmer, vscode or just web browser (chapter 8)
+Prompting basics - using ellmer, vscode or just web browser (chapter 8)
 - Get them to try specific vs vague prompt and score the answers. 
 - Do example of 'Break your problem down into smaller parts' with class. Get them to use two different models, two different prompt strategies. 
 
-PU TO HERE
-
-Then look at stats workflows (chapter 8)
+Then look at stats workflows (chapter 9)
 - asking problem solving. Include diy stats bot again. Compare multi-turn etc...
 - Implementation advice
 - Actual coding 
 
-Spec sheets 
+Then options: 
 
-Now come back to complete chapter 4 and look at temperature etc.... 
+Agents (chapters 7 and 10)
 
-Chapter 5 on advanced applications if time. 
+More with ellmer (chapter 5)
 
-Agents
+Costs
 
-Ethics 
+Security
 
-Security 
+Ethics and copyright
+
+Discussion about what it means for science 
