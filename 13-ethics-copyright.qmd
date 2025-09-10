@@ -9,6 +9,11 @@ There's several fundamental ethical issues we should discuss related to the deve
 
 I've developed a [little quiz to help you think about your personal ethics.](https://docs.google.com/forms/d/e/1FAIpQLSeK7KInwDKSgCEKYSj5xFVeT4gGIxr4cCDCRqYl29i6n_-eOA/viewform) 
 
+## Who's responsible for mistakes?
+
+You are. 
+
+When to vibe code, when not to vibe code. 
 
 ## Impacts on learning 
 
@@ -112,6 +117,11 @@ It can be helpful to generate some simulated data to use for code development, s
 Some LLM agents can be directed to ignore specific folders. e.g. You could add a command to ignore a folder to [copilot custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), Roo Code has a `.rooignore` file for this. 
 
 However, remember prompts are not 100% precise (unlike real code), so there's still the chance the LLM will go in those folders. So be careful, if its really sensitive keep it elsewhere on your computer, and always check its actions before you approve them. 
+
+#### Option 4: Service with no data retention policy 
+
+Openrouter has a 'no data retention' option you can click in the profile, it will filter providers to those with NDR rules. 
+
 
 ## Supplement: Calculations of personal environmental impact from using LLMs
 

@@ -2,7 +2,7 @@
 
 ## Automating literature reviews
 
-## Deep research
+## Deep research {#sec-deepresearch}
 
 Run through how to get code off of github
 https://github.com/cbrown5/web-search-ai

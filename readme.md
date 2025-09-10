@@ -2,12 +2,20 @@
 
 TODO
 
+Need to test prompts in chpt 8
+
+Add code that shows how to attach a file to an ellmer request... 
+
+Think of better examples for chapt 8 - break problem down... 
+
+Add an example where I collect data from the class on model performance.
+
 'Paper in a prompt' need to work on references, get it to put them as bibtex in references.bib, will need to explain how. 
 Use orchestrate mode. 
 Add a 'ding'. 
 
+
 Change all examples to the benthic analysis one
-Move some stuff from gitcopilot section over to the workflows chapter
 Make my own prompt pattern repo
 Incldue pattern for creating r tutorials from docs
 Think in probablities about code, not exacts
@@ -27,8 +35,6 @@ Showing data etc...
 
 ### Giving examples 
 ```
-
-Make a brief copilot overview section. 
 
 Then come back to a sections on my workflows and optimal prompt stuctures
 
@@ -54,18 +60,19 @@ You want to be sure your agents can't do these three things at once. Remember se
 
 ## Teaching plan
 
+
 Set-up and run an agent 'paper in a prompt. 
 Initial seminar
-Overview of VSCode
 
-How to get chatbots to work. Go over ellmer etc... with class. Make this pretty quick as we want just want everyone to have a chatbot. Do a hands up to see who has what software working. 
+Overview of VSCode and copilot with class (just introduction to its different features )
 
-Then look at copilot with class (just introduction to its different features )
+Chatbots in ellmer 
 
-Then look at stats workflows
+Then look at stats workflows (chapter 8)
 - asking problem solving. Include diy stats bot again. Compare multi-turn etc...
 - Implementation advice
 - Actual coding 
+- Run some experiments with class, get half to do one thing, half to do something different. e.g. get them to try specific vs vague prompt and score the answers. 
 
 Spec sheets 
 

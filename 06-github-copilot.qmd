@@ -1,4 +1,4 @@
-# Github copilot for R
+# Github copilot for R {#sec-githubcopilot-chapter}
 
 **Time:** 11:30-12:00pm
 
@@ -384,6 +384,41 @@ Play around with the same prompt, but different models, so you can compare perfo
 You can add your own API key to github copilot. This lets you access other models on a pay per use basis. To add an API key click the model menu then select 'Manage models' and follow instructions. 
 
 You will also need an OpenAI API key if you want to use vision, that is, attach images as context. 
+
+## Tools and MCP
+
+Advanced users may want to install Model Context Protocol Servers or tools. These are accessible via the cog in the chat window. 
+
+I won't cover tools and MCP in detail in this course. But these give Github Copilot additional abilites, such as web searching, or access to specific online databases or reference manuals (e.g. for code styles). 
+
+There are some security concerns to consider if using tools, see later chapters on this topic. 
+
+## Other options 
+
+Github Copilot is a complex software and I recommend browsing the docs for a comprehensive guide. But there are a few other key features. 
+
+All of these are found by clicking the octocat on the bottom right of your VScode window. 
+
+### Indexing 
+
+First, it will automatically index the scripts and documents in your active directory. This means a version is created that the AI agent can quickly search. This speeds up recommendations and makes them more accurate. 
+
+However, indexing may also be a data privacy concern. While your index shouldn't be shared with anyone else, it does mean that as soon as you open VSCode github copilot is reading some of the files (hard to tell exactly what) to create its index in the cloud. 
+
+To turn this off click the octocat and find the option for indexing to disable it. 
+
+### Configure code completions 
+
+You can enable/disable code completions for a certain file type or all file types. Sometimes they get in the way or are distracting, like when you are writing qmd documents. 
+
+### Next edit suggestions 
+
+This option is turned off by default. If turned on it will suggest changes anywhere in your document, rather than just at the cursor. For instance, if you update a variable name at the top, it will find and suggest updating all instances of that variable name. You use tab to scroll through the different 'next edit' suggestions when it makes those. 
+
+### Premium requests bar
+
+This menu is also where you find how many premium requests you've used in this month. 
+
 
 ## Customizing Github Copilot mode and instructions
 

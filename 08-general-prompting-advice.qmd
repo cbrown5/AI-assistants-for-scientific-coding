@@ -1,0 +1,147 @@
+# General principles for effective use of LLMs and AI assistants
+
+> Take all your problems and rip 'em apart  
+> Carry them off in a shopping cart  
+> Another thing you should've known from the start  
+> The problems in hand are lighter than at heart...  
+> And another thing you have to know in this world  
+> Cut up your hair, straighten your curls  
+> Well, your problems hide in your curls
+
+*Little Acorns by The White Stripes* 
+
+If you have a curly problem you need to break it into small parts. And let's be honest, most real data analysis problems are curly problems. 
+
+**Breaking your problems into small parts** is my number one piece of advice for any interaction you have  with LLMs and AI assistants. 
+
+Number two **is being clear and specific**. Let's look at how these apply in the context of data analysis 
+
+## Break your problem down into smaller parts
+
+What statistical problems might I run into if I want to build a statistical model that predicts fish abundance from coral cover? 
+
+There's many examples available of how LLMs can reason effectively if they are encouraged to work through a problem step-by-step, whereas they guess (some would say hallucinate) the answer if just asked the question straight up. 
+
+Here's a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but [when fish are in high densities the algorithms can overcount the number of fish](TODO add ref). 
+
+Let's see if the LLM can figure out the logic of adjusting for the overcounting bias. 
+
+Straight-up question: 
+
+::: {.callout-note}
+I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
+:::
+
+
+The correct reasoning is: `2.5*5.5 = 13.75` predicted fish. Then we adjust for the overcounting bias: `13.75^(1/1.1) = 10.83` which is the true number. 
+
+Options for breaking it down into parts
+
+::: {.callout-note}
+Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
+:::
+
+::: {.callout-note}
+I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
+ Use chain-of-thought reasoning to answer
+:::
+
+::: {.callout-note}
+Think like the White Stripes in their song Little Acorns to solve this problem: Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
+:::
+
+If you have an option for a 'thinking' or 'reasoning' model available, try the first prompt again, but use a reasoning model. These use a different computation process that does more reasoning. 
+
+I tested this with Sonnet and GPT 4.1 models in copilot ask mode. Without the step-by-step instruction  they sometimes got it write and sometimes got it wrong. Often the wrong answers were because they applied the bias in the wrong direction (ie `13.75^1.1`). With a thinking model it got it correct more often. 
+
+## Be clear, specific and give lots of details
+
+There's a trade-off between spending mental energy on writing a prompt and writing a prompt that gets you an accurate answer from the LLM. In general our brains are trying to minimize the amount of writing we do, so we don't write enough or write clearly enough to get good performance out of the LLM. 
+
+Some commentators have noted that the over-use of the term 'hallucination'. You often find if you ask the same question again, but with clearer language and more details you'll get an accurate answer. So is an inaccurate answer really a hallucination (making something up) or is it just the LLM answering based on  insufficient information? 
+
+Let's look at a couple of examples. 
+
+Clear your script of any plotting code and variable names (if using VScode) and try getting a GC to create a plot of two variables in our dataframe. Try this prompt, you can add it as a comment to use inline code completions, just ask it in 'ask mode' (or equivalent) or bring up the inline chat window (cmd/cntrl-i)
+
+::: {.callout-note}
+Plot branching coral cover against distance to logponds. 
+:::
+
+Did the code work without human intervention? Without the context the AI won't know the variable names. A better prompt would reference the variable names:
+
+::: {.callout-note}
+Plot cb_cover against dist_to_logging_km 
+:::
+
+or even better
+
+::: {.callout-note}
+Make a geom_point with cb_cover on the y-axis and dist_to_logging_km on the x-axis
+::: 
+
+Now let's try a more complex example. If we wan't to get advice on models for analyzing how the number of fish relates to coral cover we could ask: 
+
+::: {.callout-note}
+How could I test the relationship between coral cover and fish? 
+:::
+
+(If trying this in Ask mode make sure you have no data or scripts attached, which may add the extra context it needs).
+
+Sometimes if you do the above the LLM won't even realize you are asking for a statistical 'test' and may give you an answer for computer programming tests. 
+
+Slight better:
+
+::: {.callout-note}
+How could I test if there is a statistically significant relationship between coral cover and fish? 
+:::
+
+But our data are count data, so the statistically best-practice answer would be a response that specifically accounts for the fact that fish are abundance counts. 
+
+Even better would be to be specific about the data types:
+
+::: {.callout-note}
+How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site? 
+::: 
+
+Try each of these a few times and tally up how often you get a good recommendation for each prompt style. Make sure you start a new chat window each time.  I would consider a good recommendation one that appropriately models the count data, e.g. a poisson or negative binomial GLM. Coral cover is the predictor variable so we don't need to do any special transforms on that (sometimes the LLMs will recommend you transform it also). 
+
+Note that if you are using a chat interface, rather than API calls, your interface may have a 'memory' which means each new prompt is not independent of previous prompts. Check the documents for your software to be sure and turn off memory if possible. If using VSCode you can open a new window from the 'File' menu and then open the GC chat directly without opening a project folder (so it has no context). 
+
+We could make this prompt even better if we prompt to consider issues that may arise:
+
+::: {.callout-note}
+How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site? Reason step-by-step and identify any statistical issues that may arise with this analysis. 
+:::
+
+## Put everything up front, rather than engaging in conversation 
+
+LLMs perform better if you explain to them in detail what you want straight-up, rather than trying to engage in conversation. Tests show that answers are less accurate if you present the same question over multiple turns versus giving all the information up front. 
+
+The problem with multi-turn conversation is what's called 'context poisoning'. If the LLM doesn't have all the information it will still try to answer and it may answer wrongly (what some people inaccurately call hallucinations). Once that incorrect answer is in the context window (chat thread) it is hard to get the LLM to forget it. The best thing to do is start the chat thread over again and write a clearer prompt to start with. 
+
+Try the above example again, but break it into parts and get the LLM to answer each part before progressing. 
+
+
+::: {.callout-note}
+1. How could I test if there is a statistically significant relationship between coral cover and juvenile fish. 
+2. Fish abundance is my response variable. 
+3. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. 
+4. Coral cover was measured as percent cover at each site
+::: 
+
+Compare the final answers to the answer you got when you put all of that in one initial single prompt. Note any instances of context poisoning. 
+
+The problem gets worse in bigger projects, because as you fill up more of the context window small problems can be harder to detect and eliminate from your context window. For example, an incorrect line of code in a superseded script make make it into copilot's index may repeatedly haunt you until you get rid of it and the index is updated. 
+
+And that's another reason to use git to manage versions, rather than keeping multiple versions of the same script hanging around (haunting?) your project directory. 
+
+Its ok to engage the assistant in conversation and use it as a problem solving partner if you're not sure of how to do something. But you should be aiming to come up with a plan. Once you have the plan, then write a really good clear prompt to get the final advice. 
+
+## Overall advice: Over-explain what you want and say it all up front
+
+Overall the above steps amount to: Over-explaining what you want and saying it all up front. This probably means more effort on your behalf than you were hoping. 
+
+You can prompt an agent with a command like 'Create an academic paper about fish and coral using this data', but the answer won't be very good and will be full of inaccuracies. 
+
+If you were to write (optionally with AI assistance) detailed instructions on your project's aims, the details of the data collection and the analysis you want to do, you could get a long way towards an accurate first draft of an academic paper. We'll look at the idea of expanding prompts into specification sheets later on. 

@@ -13,16 +13,20 @@ book:
     - 04-llm-prompting-fundamentals.qmd
     - 05-research-applications-LLMs.qmd
     - 06-github-copilot.qmd
-    - 07-ai-powered-analysis-workflows.qmd
-    - 08-specification-sheets.qmd
-    - 09-advanced-llm-agents.qmd
-    - 10-ethics-copyright.qmd
-    - 11-cost-security.qmd
+    - 07-advanced-llm-agents.qmd
+    - 08-general-prompting-advice.qmd
+    - 09-ai-powered-analysis-workflows.qmd
+    - 10-specification-sheets.qmd
+    - 11-writing-documents.qmd
+    - 12-cost-security.qmd
+    - 13-ethics-copyright.qmd
+    
 
 bibliography: book.bib
 
 format:
   html:
+    code-overflow: wrap
     theme: simplex
     css: style.css
   pdf:

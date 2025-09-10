@@ -61,5 +61,26 @@
   },
   "11-cost-security.qmd": {
     "11-cost-security.html": "d9fedd91"
+  },
+  "11-writing-documents.qmd": {
+    "11-writing-documents.html": "0f81b73e"
+  },
+  "07-advanced-llm-agents.qmd": {
+    "07-advanced-llm-agents.html": "48edb07a"
+  },
+  "08-general-prompting-advice.qmd": {
+    "08-general-prompting-advice.html": "b9ff01dd"
+  },
+  "09-ai-powered-analysis-workflows.qmd": {
+    "09-ai-powered-analysis-workflows.html": "2abb18f5"
+  },
+  "10-specification-sheets.qmd": {
+    "10-specification-sheets.html": "105fec4c"
+  },
+  "12-cost-security.qmd": {
+    "12-cost-security.html": "d5f3987d"
+  },
+  "13-ethics-copyright.qmd": {
+    "13-ethics-copyright.html": "40e95c52"
   }
 }

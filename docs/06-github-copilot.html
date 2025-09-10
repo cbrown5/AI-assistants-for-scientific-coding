@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-ai-powered-analysis-workflows.html" rel="next">
+<link href="./07-advanced-llm-agents.html" rel="next">
 <link href="./05-research-applications-LLMs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -179,32 +179,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
+  <a href="./07-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+  <a href="./08-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./09-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-ethics-copyright.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
+  <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-cost-security.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cost and security</span></span></a>
+  <a href="./11-writing-documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Writing documents with Quarto and AI assistants</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-cost-security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Cost and security</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-ethics-copyright.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Ethics and copyright</span></span></a>
   </div>
 </li>
     </ul>
@@ -243,9 +255,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#agent-mode-errors" id="toc-agent-mode-errors" class="nav-link" data-scroll-target="#agent-mode-errors"><span class="header-section-number">6.5.3</span> Agent mode errors</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.5.4</span> Summary</a></li>
   </ul></li>
-  <li><a href="#customizing-github-copilot-mode-and-instructions" id="toc-customizing-github-copilot-mode-and-instructions" class="nav-link" data-scroll-target="#customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.6</span> Customizing Github Copilot mode and instructions</a>
+  <li><a href="#llm-choice" id="toc-llm-choice" class="nav-link" data-scroll-target="#llm-choice"><span class="header-section-number">6.6</span> LLM choice</a>
   <ul class="collapse">
-  <li><a href="#custom-modes" id="toc-custom-modes" class="nav-link" data-scroll-target="#custom-modes"><span class="header-section-number">6.6.1</span> Custom modes</a></li>
+  <li><a href="#bring-your-own-api-key-byok" id="toc-bring-your-own-api-key-byok" class="nav-link" data-scroll-target="#bring-your-own-api-key-byok"><span class="header-section-number">6.6.1</span> Bring Your Own API Key (BYOK)</a></li>
+  </ul></li>
+  <li><a href="#tools-and-mcp" id="toc-tools-and-mcp" class="nav-link" data-scroll-target="#tools-and-mcp"><span class="header-section-number">6.7</span> Tools and MCP</a></li>
+  <li><a href="#other-options" id="toc-other-options" class="nav-link" data-scroll-target="#other-options"><span class="header-section-number">6.8</span> Other options</a>
+  <ul class="collapse">
+  <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">6.8.1</span> Indexing</a></li>
+  <li><a href="#configure-code-completions" id="toc-configure-code-completions" class="nav-link" data-scroll-target="#configure-code-completions"><span class="header-section-number">6.8.2</span> Configure code completions</a></li>
+  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">6.8.3</span> Next edit suggestions</a></li>
+  <li><a href="#premium-requests-bar" id="toc-premium-requests-bar" class="nav-link" data-scroll-target="#premium-requests-bar"><span class="header-section-number">6.8.4</span> Premium requests bar</a></li>
+  </ul></li>
+  <li><a href="#customizing-github-copilot-mode-and-instructions" id="toc-customizing-github-copilot-mode-and-instructions" class="nav-link" data-scroll-target="#customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.9</span> Customizing Github Copilot mode and instructions</a>
+  <ul class="collapse">
+  <li><a href="#custom-modes" id="toc-custom-modes" class="nav-link" data-scroll-target="#custom-modes"><span class="header-section-number">6.9.1</span> Custom modes</a></li>
+  <li><a href="#custom-intstructions" id="toc-custom-intstructions" class="nav-link" data-scroll-target="#custom-intstructions"><span class="header-section-number">6.9.2</span> Custom intstructions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></h1>
+<h1 class="title"><span id="sec-githubcopilot-chapter" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></h1>
 </div>
 
 
@@ -504,16 +529,63 @@ gg...</code></pre>
 </ul>
 </section>
 </section>
-<section id="customizing-github-copilot-mode-and-instructions" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.6</span> Customizing Github Copilot mode and instructions</h2>
+<section id="llm-choice" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="llm-choice"><span class="header-section-number">6.6</span> LLM choice</h2>
+<p>Github copilot let’s you choose different LLMs. What you can see will depend on what type of plan you have. Some LLMs have a limited number of ‘Premium Requests’ per month (again depending on your account tier) (e.g.&nbsp;at time of writing Pro accounts got 300 premium requests per month.)</p>
+<p>Click the Model choice menu to see what’s available (bottom of chat window, probably says ‘GPT-4.1’ right now).</p>
+<p>The <code>0x</code> means you get unlimited requests, whereas a <code>1x</code> means it will use one full premium request.</p>
+<p>Different models have different performances for different tasks.</p>
+<p>In general there isn’t a lot of formal evaluations of R coding or statistics yet. Whereas, there are many available for Python.</p>
+<p>The two most commonly used LLMs for data science are Claude Sonnet series (currently 4.0 available) and GPT 4.X series (currently 4.1 available).</p>
+<p>In general I’ve found the Claude Sonnet models are the best for R code and most reliable for tool use (e.g.&nbsp;Edit or Agent mode).</p>
+<p>GPT 4.1 is also pretty good, but in my experience there is a higher rate of errors. For instance, in Edit and Agent mode reasonably often it will delete text or code you wanted to keep (so keep an eye on what its doing). GPT 4.1 also tends to be a bit ‘lazier’ than Sonnet 4.0 in that it will tend to explain what to do, rather than explaning and implementing the suggestion.</p>
+<p>Play around with the same prompt, but different models, so you can compare performance.</p>
+<section id="bring-your-own-api-key-byok" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="bring-your-own-api-key-byok"><span class="header-section-number">6.6.1</span> Bring Your Own API Key (BYOK)</h3>
+<p>You can add your own API key to github copilot. This lets you access other models on a pay per use basis. To add an API key click the model menu then select ‘Manage models’ and follow instructions.</p>
+<p>You will also need an OpenAI API key if you want to use vision, that is, attach images as context.</p>
+</section>
+</section>
+<section id="tools-and-mcp" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="tools-and-mcp"><span class="header-section-number">6.7</span> Tools and MCP</h2>
+<p>Advanced users may want to install Model Context Protocol Servers or tools. These are accessible via the cog in the chat window.</p>
+<p>I won’t cover tools and MCP in detail in this course. But these give Github Copilot additional abilites, such as web searching, or access to specific online databases or reference manuals (e.g.&nbsp;for code styles).</p>
+<p>There are some security concerns to consider if using tools, see later chapters on this topic.</p>
+</section>
+<section id="other-options" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="other-options"><span class="header-section-number">6.8</span> Other options</h2>
+<p>Github Copilot is a complex software and I recommend browsing the docs for a comprehensive guide. But there are a few other key features.</p>
+<p>All of these are found by clicking the octocat on the bottom right of your VScode window.</p>
+<section id="indexing" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="indexing"><span class="header-section-number">6.8.1</span> Indexing</h3>
+<p>First, it will automatically index the scripts and documents in your active directory. This means a version is created that the AI agent can quickly search. This speeds up recommendations and makes them more accurate.</p>
+<p>However, indexing may also be a data privacy concern. While your index shouldn’t be shared with anyone else, it does mean that as soon as you open VSCode github copilot is reading some of the files (hard to tell exactly what) to create its index in the cloud.</p>
+<p>To turn this off click the octocat and find the option for indexing to disable it.</p>
+</section>
+<section id="configure-code-completions" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="configure-code-completions"><span class="header-section-number">6.8.2</span> Configure code completions</h3>
+<p>You can enable/disable code completions for a certain file type or all file types. Sometimes they get in the way or are distracting, like when you are writing qmd documents.</p>
+</section>
+<section id="next-edit-suggestions" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">6.8.3</span> Next edit suggestions</h3>
+<p>This option is turned off by default. If turned on it will suggest changes anywhere in your document, rather than just at the cursor. For instance, if you update a variable name at the top, it will find and suggest updating all instances of that variable name. You use tab to scroll through the different ‘next edit’ suggestions when it makes those.</p>
+</section>
+<section id="premium-requests-bar" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="premium-requests-bar"><span class="header-section-number">6.8.4</span> Premium requests bar</h3>
+<p>This menu is also where you find how many premium requests you’ve used in this month.</p>
+</section>
+</section>
+<section id="customizing-github-copilot-mode-and-instructions" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.9</span> Customizing Github Copilot mode and instructions</h2>
 <p>There’s a lot of customization options in copilot now. To see some of these, open the chat window and click the cog symbol. Then pick one of the options below</p>
-<section id="custom-modes" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="custom-modes"><span class="header-section-number">6.6.1</span> Custom modes</h3>
+<section id="custom-modes" class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="custom-modes"><span class="header-section-number">6.9.1</span> Custom modes</h3>
 <p>After the cog click ‘Modes’, then a pop-up will appear at the top of your VScode window. Click the plus to create a new mode. Follow the prompts. Try paste in our text from the <a href="https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md">stats bot from before</a>.</p>
 <p>Once that is saved in the .github directory (so only local to this project) you can click the Modes selector (bottom left of chat window, might say ‘Ask’, ‘Edit’ or ‘Agent’) and choose your new mode. Try having a conversation with it.</p>
 <p>You can also give custom modes access to tools, so they can edit or act like agents. If you’re an advanced user you might want to play around with these options to make modes for different tasks (like data exploration).</p>
-<section id="custom-intstructions" class="level4" data-number="6.6.1.1">
-<h4 data-number="6.6.1.1" class="anchored" data-anchor-id="custom-intstructions"><span class="header-section-number">6.6.1.1</span> Custom intstructions</h4>
+</section>
+<section id="custom-intstructions" class="level3" data-number="6.9.2">
+<h3 data-number="6.9.2" class="anchored" data-anchor-id="custom-intstructions"><span class="header-section-number">6.9.2</span> Custom intstructions</h3>
 <p>For heavy Agent users you may want to set-up custom instructions. These are just instructions attached to every prompt you run in this project. To create these press the cog button again, click ‘Instructions’ and follow the steps to create a new instruction as we did above for the modes.</p>
 <p>Some ideas: you could set preference for ggplot2 or a specific coding style.</p>
 <p>You can also add instructions to tell the agent how to use Rscript to avoid terminal errors <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot">See here for instructions</a>. One way around Rscript related errors is to find the path to the Rscript executable on your computer (e.g.&nbsp;Rscript.exe on windows) and then create a custom instruction that says something like:</p>
@@ -521,7 +593,6 @@ gg...</code></pre>
 "C:/Program Files/R/bin/Rscript.exe" "my_script.R"</code></pre>
 
 
-</section>
 </section>
 </section>
 
@@ -953,8 +1024,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-ai-powered-analysis-workflows.html" class="pagination-link" aria-label="AI powered analysis workflows">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-advanced-llm-agents.html" class="pagination-link" aria-label="Advanced LLM agents">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
