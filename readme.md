@@ -1,11 +1,8 @@
 # AI Assistants for Scientific Coding
 
+## Code for the book 
 
-TODO 
-
-'Paper in a prompt' need to work on references, get it to put them as bibtex in references.bib, will need to explain how. 
-Use orchestrate mode. 
-Add a 'ding'. 
+[View the book, rendered with Quarto pages](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
 
 ## Teaching plan
 

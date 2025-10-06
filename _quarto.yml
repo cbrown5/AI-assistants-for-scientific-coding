@@ -5,7 +5,7 @@ project:
 book:
   title: "AI assistants for Scientific Coding"
   author: "Chris Brown"
-  date: "30/08/2025"
+  date: "2025-08-30"
   chapters:
     - index.qmd
     - 02-introduction.qmd
