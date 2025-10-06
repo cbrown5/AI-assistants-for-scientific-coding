@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Now you are familiar with some of the software options, let’s look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines.</p>
-<p>For the examples here we’ll use the benthic survey data, so make sure you’ve set up a project and have that data loaded, as in <a href="#sec-githubcopilot-chapter" class="quarto-xref"><span class="quarto-unresolved-ref">sec-githubcopilot-chapter</span></a> or below:</p>
+<p>For the examples here we’ll use the benthic survey data, so make sure you’ve set up a project and have that data loaded:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -294,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="recommended-data-analysis-workflow" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="recommended-data-analysis-workflow"><span class="header-section-number">9.1</span> Recommended data analysis workflow</h2>
 <p>LLM prompting is most effectively designed if you have a good idea of your goal and the workflow or process that needs to be followed to achieve that goal.</p>
-<p>For data analysis I suggest thinking about four stages:</p>
+<p>Remember the basic advice was to break problems into smaller parts. So for data analysis I suggest thinking about different stages in your workflow. Here’s one suggestion:</p>
 <ol type="1">
 <li><strong>Select statistical approach</strong>: Determining appropriate statistical methods for research questions</li>
 <li><strong>Plan implementation</strong>: Designing the analytical workflow and code structure</li>
@@ -327,13 +327,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="giving-context"><span class="header-section-number">9.3.1</span> Giving context</h3>
 <p>As we saw above its a good idea to give the assistant context on your data, data collection methodology and aims. I recommend writing a markdown document with all of this information in it. Here’s an <a href="link TODO">example for the analysis of my benthic project</a>. The markdown is easy to attach to any request you make to an assistant, or copy and paste into web forms.</p>
 <p>You can of course use the assistant to create the markdown. Try this in agent mode:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -348,13 +348,13 @@ Note
 <p>Attaching data works a lot like giving context. The LLM can see what the data looks like and can often guess variable types from the data field names or data values.</p>
 <p>Large datasets can be hard to attach, because they fill up the context window. GC agent mode will automatically shorten large data frames if you attach them.</p>
 <p>Or ask the agent to write a script to create a data summary. For instance try this in agent mode:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -374,17 +374,17 @@ Note
 </section>
 <section id="web-search" class="level3" data-number="9.3.4">
 <h3 data-number="9.3.4" class="anchored" data-anchor-id="web-search"><span class="header-section-number">9.3.4</span> Web search</h3>
-<p>AI web search tools can help you create customized tutorials for your stats problem. You can then attach these as context when discussing your project with the assistant. See the <a href="#sec-deepresearch" class="quarto-xref"><span class="quarto-unresolved-ref">sec-deepresearch</span></a> for how to use API calls to do this. Many AI web platforms also have web search features, including chatGPT and copilot. Google is in the process of adding this option to its search engine.</p>
+<p>AI web search tools can help you create customized tutorials for your stats problem. You can then attach these as context when discussing your project with the assistant. See the <a href="05-research-applications-LLMs.html#sec-deepresearch" class="quarto-xref"><span>Section 5.3</span></a> for how to use API calls to do this. Many AI web platforms also have web search features, including chatGPT and copilot. Google is in the process of adding this option to its search engine.</p>
 <p>You’ll get the best results if reasoning/thinking modes are enabled. As these are more energy expensive to run they are often only available for paid subscriptions. Make sure you read the reasoning information as well, as its important to understand if the answer is of high quality or not.</p>
 <p>Remember that web search AI doesn’t like long prompts, so keep your prompts short and specific.</p>
 <p>Here’s a prompt you can try in chatGPT or Copilot (e.g.&nbsp;in Teams):</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -430,17 +430,17 @@ Note
 <li>Code style</li>
 </ul>
 <p>Here’s an example from one of my readme files that has the above elements.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Instructions for the agent
+Prompt
 </div>
 </div>
-<section id="instructions-for-the-agent-1" class="level2 callout-body-container callout-body" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="instructions-for-the-agent-1"><span class="header-section-number">9.5</span> Instructions for the agent</h2>
+<section id="instructions-for-the-agent" class="level2 callout-body-container callout-body" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="instructions-for-the-agent"><span class="header-section-number">9.5</span> Instructions for the agent</h2>
 <p>The agent will produce a report that answers the above questions. The report will include a description of the data, the methods used for analysis, and the results of the analysis. The code will be written as R scripts.</p>
 <p>Each script should be modular and save intermediate results as datafiles and figures. The final report must be written in Rmarkdown format. The figures will be imported using markdown syntax, e.g.&nbsp;<code>![](outputs/plots/figure1.png)</code>. Don’t use R code for figures in the markdown report. Summary tables should be imported from .csv files and created using the <code>knitr::kable()</code> function in Rmarkdown. The report must include the following sections:</p>
 <ul>
@@ -496,13 +496,13 @@ Instructions for the agent
 </div>
 <p>Have a go at writing your own readme file, then using an assistant to complete the analysis. You will also want to include <a href="https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/readme.md">meta-data</a> and project aims. You can pick your own project aims, but one example might be a project that aims to test if fish abundance depends on coral cover.</p>
 <p>Once you have your readme, you can attach it (or open it then click new chat). Given all the context you’ve provided you can just write something simple like:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -510,13 +510,13 @@ Note
 </div>
 </div>
 <p>Or</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -996,8 +996,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10-specification-sheets.html" class="pagination-link" aria-label="Best practices project setup">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10-specification-sheets.html" class="pagination-link" aria-label="Best practice project setup">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-# Best practices project setup
+# Best practice project setup
 
 This chapter focuses on establishing a project structure and workflow that can get the most out of your LLM assistants.  
 
@@ -9,7 +9,7 @@ Its helpful to set-up your projects in an organized and modularised way. In my e
 ### General guidance
 
 - Create a new folder for each new project. 
-- Optional but recommended: Initiliaze a git repo in that folder (I use github desktop). 
+- Optional but recommended: Initiliaze a git repo in that folder (I use the 'Source Control' extension to VS Code). 
 - Set-up folders and files in an organized way
 - Ideally put the data in this folder also. However, large datasets or sensitive data can be kept in other folders. 
 - Keep scripts short and modularized (e.g one for data analysis, one for modelling). 
@@ -20,7 +20,7 @@ If you are not using git (version control), then I recommend you learn. LLM code
 
 ### Project directory structure example 
 
-Here's an example of a project directory structure. You don't have to use this strucutre. the important thing is to be organized. 
+Here's an example of a project directory structure. You don't have to use this structure, there are no hard rules about prompting LLMs and ultimately this will be a very long prompt. the important thing is to be organized. 
 
 ```
 my-project/

@@ -259,6 +259,7 @@ ul.task-list li input[type="checkbox"] {
 <li>What you budget for AI is</li>
 </ul>
 <p>Below I’ve provided instructions for some of the options. These certainly aren’t comprehensive.</p>
+<p>There are a multitude of other R package options beyond what I cover below, which are covered in <a href="https://luisdva.github.io/llmsr-book/index.html">Large Language Model Tools for R</a> by Luis D. Verde Arregoitia (in English and Spanish).</p>
 <p>I recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that’s relevant to your set-up needs.</p>
 <section id="r-packages" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">3.1</span> R packages</h2>
@@ -275,24 +276,24 @@ ul.task-list li input[type="checkbox"] {
 <li>R Ellmer package, for which you’ll need an API key to one of the LLM providers</li>
 </ul>
 <p>The challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down!</p>
-<p>If you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span class="quarto-unresolved-ref">sec-apikeys</span></a>) (required for ellmer), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ellmer</span></a>), VS code setup (<a href="#sec-vscodesetup" class="quarto-xref"><span class="quarto-unresolved-ref">sec-vscodesetup</span></a>) and ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span class="quarto-unresolved-ref">sec-githubcopilot</span></a>).</p>
+<p>If you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>) (required for ellmer), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a>), VS code setup (<a href="#sec-vscodesetup" class="quarto-xref"><span>Section 3.5</span></a>) and ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>).</p>
 </section>
 <section id="option-2-for-r-users" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="option-2-for-r-users"><span class="header-section-number">3.2.2</span> Option 2 for R users</h3>
-<p>Use Rstudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span class="quarto-unresolved-ref">sec-apikeys</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ellmer</span></a>) and ‘Gander: Rstudio friendly alternative to copilot’ (<a href="#sec-gander" class="quarto-xref"><span class="quarto-unresolved-ref">sec-gander</span></a>).</p>
-<p>Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (<a href="#sec-githubcopilot" class="quarto-xref"><span class="quarto-unresolved-ref">sec-githubcopilot</span></a>) then in Rstudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).</p>
+<p>Use Rstudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a>) and ‘Gander: Rstudio friendly alternative to copilot’ (<a href="#sec-gander" class="quarto-xref"><span>Section 3.8</span></a>).</p>
+<p>Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>) then in Rstudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).</p>
 </section>
 <section id="python-users" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="python-users"><span class="header-section-number">3.2.3</span> Python users</h3>
 <p>I’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.</p>
 <p>You will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for <a href="https://code.visualstudio.com/docs/python/python-tutorial">Python set-up</a>.</p>
-<p>Then follow the instructions for ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span class="quarto-unresolved-ref">sec-githubcopilot</span></a>).</p>
-<p>I also recommend you get an API key with OpenRouter (<a href="#sec-apikeys" class="quarto-xref"><span class="quarto-unresolved-ref">sec-apikeys</span></a>).</p>
+<p>Then follow the instructions for ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>).</p>
+<p>I also recommend you get an API key with OpenRouter (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>).</p>
 <p>You don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.</p>
 </section>
 <section id="options-3" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="options-3"><span class="header-section-number">3.2.4</span> Options 3 +</h3>
-<p>There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See <a href="#sec-otheroptions" class="quarto-xref"><span class="quarto-unresolved-ref">sec-otheroptions</span></a>.</p>
+<p>There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See <a href="#sec-otheroptions" class="quarto-xref"><span>Section 3.9</span></a>.</p>
 <p>As a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.</p>
 </section>
 </section>

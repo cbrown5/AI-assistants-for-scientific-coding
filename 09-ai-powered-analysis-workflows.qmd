@@ -2,7 +2,7 @@
 
 Now you are familiar with some of the software options, let's look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines. 
 
-For the examples here we'll use the benthic survey data, so make sure you've set up a project and have that data loaded, as in @sec-githubcopilot-chapter or below: 
+For the examples here we'll use the benthic survey data, so make sure you've set up a project and have that data loaded: 
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -19,7 +19,7 @@ summary(dat)
 
 LLM prompting is most effectively designed if you have a good idea of your goal and the workflow or process that needs to be followed to achieve that goal. 
 
-For data analysis I suggest thinking about four stages: 
+Remember the basic advice was to break problems into smaller parts. So for data analysis I suggest thinking about different stages in your workflow. Here's one suggestion: 
 
 1. **Select statistical approach**: Determining appropriate statistical methods for research questions
 2. **Plan implementation**: Designing the analytical workflow and code structure
@@ -60,7 +60,7 @@ As we saw above its a good idea to give the assistant context on your data, data
 
 You can of course use the assistant to create the markdown. Try this in agent mode:
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Write a summary of the meta-data for this database in a new markdown file [attach the csv database]
 ::: 
 
@@ -77,7 +77,7 @@ Large datasets can be hard to attach, because they fill up the context window. G
 
 Or ask the agent to write a script to create a data summary. For instance try this in agent mode:  
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Write a script that creates smaller version of the benthic data that has only the first six rows of data
 ::: 
 
@@ -107,7 +107,7 @@ Remember that web search AI doesn't like long prompts, so keep your prompts shor
 
 Here's a prompt you can try in chatGPT or Copilot (e.g. in Teams):
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Research the peer-reviewed academic literature to find the most robust methods for analysing ecological count data. 
 :::
 
@@ -162,8 +162,7 @@ It is helpful to be specific about:
 
 Here's an example from one of my readme files that has the above elements. 
 
-::: {.callout-note}
-## Instructions for the agent
+::: {.callout-note title="Prompt"}
 
 ## Instructions for the agent
 
@@ -225,13 +224,13 @@ Have a go at writing your own readme file, then using an assistant to complete t
 
 Once you have your readme, you can attach it (or open it then click new chat). Given all the context you've provided you can just write something simple like: 
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Help me plan R code to implement this analysis. 
 :::
 
 Or
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Help me plan the workflow and scripts to implement this analysis
 ::: 
 

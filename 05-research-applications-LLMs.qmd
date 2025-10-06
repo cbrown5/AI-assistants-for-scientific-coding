@@ -1,11 +1,203 @@
 # Research applications of LLMs
 
 ## Automating literature reviews
+Now let's see if we can use `ellmer` to clean up some text from a pdf and summarize it. `ellmer` has some handy functions for processing pdfs to text, so they can then be fed into prompts.  
+
+I'm going to attempt to summarize my [recent paper on turtle fishing](https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.13056). 
+
+```{r eval=FALSE}
+x <- content_pdf_url("https://conbio.onlinelibrary.wiley.com/doi/epdf/10.1111/conl.13056")
+```
+
+This fails with a 403 error. This means the server is blocking the request, it probably guesses (correctly) that I'm calling the pdf programmatically: it thinks I'm a bot (which this tutorial kind of is creating). 
+
+We can also try with a file on our hard drive, we just have to manually  download the pdf. 
+
+```{r eval=FALSE}
+mypdf <- content_pdf_file("pdf-examples/Brown_etal2024 national scale turtle mortality.pdf")
+```
+
+That works, now let's use it within a chat. First set-up our chat: 
+
+```{r eval=FALSE}
+chat <- chat_anthropic(
+  system_prompt = "You are a research assistant who specializes in extracting structured data from scientific papers.",
+  model = "claude-3-5-haiku-20241022", 
+  max_tokens = 1000
+)
+
+```
+
+Now, we can use ellmer's functions for specifying structured data. Many LLMs can be used 
+to generate data in the JSON format (they were specifically trained with that in mind).
+
+`ellmer` handles the conversion from JSON to R objects that are easier for us R users to understand.
+
+You use the `type_object` then `type_number`, `type_string` etc.. to specify the 
+types of data. [Read more in the ellmer package vignettes](https://ellmer.tidyverse.org/articles/structured-data.html)
+
+```{r eval=FALSE}
+paper_stats <- type_object(
+  sample_size = type_number("Sample size of the study"),
+  year_of_study = type_number("Year data was collected"),
+  method = type_string("Summary of statistical method, one paragraph max")
+)
+
+```
+
+Finally, we send the request for a summary to the provider: 
+
+```{r eval=FALSE}
+turtle_study <- chat$extract_data(mypdf, type = paper_stats)
+```
+
+The `turtle_study` object will contain the structured data from the pdf. I *think*
+(the ellmer documentation is a bit sparse on implementation details) ellmer is converting 
+a JSON that comes from the LLM to a friendly R list. 
+
+```{r eval=FALSE}
+class(turtle_study)
+#list
+```
+
+And: 
+
+```
+turtle_study$sample_size
+#11935
+turtle_study$year_of_study
+#2018
+turtle_study$method
+#The study estimated national-scale turtle catches for two fisheries in the Solomon Islands 
+#- a small-scale reef fishery and a tuna longline fishery - using community surveys and 
+#electronic monitoring. The researchers used nonparametric bootstrapping to scale up 
+#catch data and calculate national-level estimates with confidence intervals.
+
+```
+
+It works, but like any structured lit review you need to be careful what questions you ask.
+Even more so with an LLM as you are not reading the paper and understanding the context. 
+
+In this case the sample size its given us is the estimated number of turtles caught. This was a model output, not a sample size. In fact this paper has several methods with different sample sizes. So some work would be needed to fine-tune the prompt, especially if you are batch processing many papers.
+
+You should also experiment with models, I used Claude haiku because its cheap, but Claude sonnet would probably be more accurate. 
+
+## Batch processing prompts
+
+Let's try this with a batch of papers (here I'll just use two). For this example I'll just use
+two abstracts, which I've obtained as plain text. The first is from [another study on turtle catch
+in Madagascar](https://zslpublications.onlinelibrary.wiley.com/doi/10.1111/j.1469-1795.2010.00413.x).
+ The second is from my study above. 
+
+What we'll do is create a function that reads in the text, then passes it to the LLM, using
+the request for structured data from above. 
+
+```{r eval=FALSE}
+# Function to process abstracts with ellmer
+process_abstract <- function(file_path, chat) {
+  # Read in the text file
+  abstract_text <- readLines(file_path, warn = FALSE)
+  
+  # Extract data from the abstract
+  result <- chat$extract_data(abstract_text, type = paper_stats)
+  
+  return(result)
+}
+```
+
+Now set-up our chat and data request
+
+```{r eval=FALSE}
+# Create chat object if not already created
+chat <- chat_anthropic(
+      system_prompt = "You are a research assistant who specializes in extracting structured data from scientific papers.",
+      model = "claude-3-5-haiku-20241022", 
+      max_tokens = 1000
+)
+```
+
+
+There's a risk that the LLM will hallucinate data if it can't find an answer. To try to prevent this we can set an option , required = FALSE. Then the LLM should return 'NULL' if it can't find the data.
+
+```{r eval=FALSE}
+# Define the structured data format
+paper_stats <- type_object(
+    sample_size = type_number("Number of surveys conducted to estimate turtle catch", required = FALSE),
+    turtles_caught = type_number("Estimate for number of turtles caught", required = FALSE),
+    year_of_study = type_number("Year data was collected", required = FALSE),
+    region = type_string("Country or geographic region of the study", required = FALSE)
+  )
+```
+
+Now we can batch process the abstracts and get the structured data
+
+```{r eval=FALSE}
+
+abstract_files <- list.files(path = "pdf-examples", pattern = "\\.txt$", full.names = TRUE)
+results <- lapply(abstract_files, function(file) process_abstract(file, chat))
+names(results) <- basename(abstract_files)
+
+# Display results
+print(results)
+```
+
+In my first take without the required = FALSE I got some fake results. It hallucinated that the Humber study was conducted in 2023 (it was published in 2010!) and that there were 2 villages surveyed in my study. The problem was that you can't get that data from the abstracts. So the model is hallucinating a response. 
+
+Unfortunately, with required = FALSE it still hallucinated answers. I then tried Claude Sonnet (a more powerful reasoning model) and it correctly put NULL for my study's sample size, but still got the year wrong for the Humber study. 
+
+I think this could work, but some work on the prompts would be needed. 
+
+### Reflections 
+
+#### Cost uncertainty
+
+This should be cheap. It cost &lt;1c to make this post with all the testing. So in theory you could do 100s of methods sections for &lt;100USD. However, if you are testing back and forwards a lot or using full papers the cost could add up. It will be hard to estimate this until people get more experience.
+
+#### Obtaining the papers and dealing with unstructued text in PDFs or HTML
+
+A big challenge will be getting the text into a format that the LLM can use. Then there are issues like obtaining the text. Downloading pdfs is time consuming and data intensive. Trying to read text data from webpages can also be hard, due to paywalls and rate limits (you might get blocked for making reqeat requests).
+
+For instance, [in a past study we did where we did simple ‘bag of words analysis'](https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12344?casa_token=LVnFzoFBBU8AAAAA%3AcsyopYDWDBRZN7y2JL7eHYxzqayxu2GvKB-7gdEYkdeZSi5p5o1oXTwj49FqwBJz-IpPS6wxJ_SX0h2f) we either downloaded the pdfs manually, or set timers to delay web hits and avoid getting blocked.
+
+HTML format would be ideal, because the tags mean the sections of the paper, and the figures already semi-structured.
+
+The ellmer pdf utility function seems to work ok for getting text from pdfs. I'm guessing it could be improved though, e.g. to remove wastefull (=$) text like page headers. 
+
+Some other handy tools I use are from AI researcher Simon Willison, who made a [PDF reader that runs in your browser](https://tools.simonwillison.net/jina-reader) and [Jina reader](https://tools.simonwillison.net/jina-reader) for extracting plain text from URLs. Both of these run in your browser, so no data is uploaded to any servers. 
+
+#### Prompting
+
+Need to experiment with this to get it right. It might also be good to repeat prompt the same text to triangulate accurate results.
+
+#### Validation
+
+You'll definitely want to manually check the output and report accuracy statistics in your study. So maybe your review has 1000 papers, you'll want to manually check 100 of them to see how accurate the LLM was.
+
+#### You'll still need to read a lot of papers to write a good lit review
+
+A lit review is more than the systematic data. I still believe you need to read a lot of papers in order to understand the literature and make a useful synthesis. If you just use AI you're vulnerable to the [‘illusion of understanding'](https://www.nature.com/articles/s41586-024-07146-0).
+
+### Conclusion
+
+This tool will be best for well defined tasks and consistently written papers. For instance, an ideal use case would be reviewing 500 ocean acidification papers that all used similar experimental designs and terminology. You'll then be able to get consistent answers to prompts about sample size etc…
+
+Another good use case would be to extract model types from species distribution model papers.
+
+Harder tasks will be where the papers are from diverse disciplines, or use inconsistent terminology, or methods. My study was a good example of that, there were about 5 different sample sizes reported. So in this example we'd need first to think clearly about what sample size you wanted to extract before writing the prompt.
+
 
 ## Deep research {#sec-deepresearch}
 
-Run through how to get code off of github
-https://github.com/cbrown5/web-search-ai
+As of writing ellmer gives you incomplete input parameters and responses if you are using Open Router's API. One gap is that it doesn't properly handle requests and responses to web search enabled LLMs. That's a shame, because Open Router lets you access and experiment with a broad range of web search LLMs. 
+
+So what I've done here is written my own R functions that make requests to Open Router and properly handle the request and response. First, you'll need to get my functions off of github: 
+[https://github.com/cbrown5/web-search-ai](https://github.com/cbrown5/web-search-ai). Then you can try the web search models. 
+
+My functions make the call to Open Router (you will need to have saved your API key as an environment variable). They then return save the results as qmd, Rmd or markdown. What happens with a web search request is that you get back the response (that ellmer seems to handle ok), but you also get back 'annotations' which are the URLs, and the reasoning (if using a reasoning model). ellmer didn't give you annotations or reasoning at time of writing. 
+
+Annotations are obviously essential, because you need to know the sources. The reasoning is also good to read because it explains how the LLM decided to do the web search. 
+
+Word of warning, these web searches use a lot of tokens, because the model will be reasoning through a lot of information. 
 
 ```{r, eval=FALSE}
 
@@ -18,28 +210,12 @@ openrouter_api_key <- Sys.getenv("OPENROUTER_API_KEY")
 
 # Example of standard web search query
 
-if (FALSE) {
 user_message <- "What types of biases occur in fisheries stock models?"
 
 system_message <- "You are a helpful AI assistant. 
         Rules: 
         1 Include the DOI in your report of any paper you reference.   
         2. Produce reports that are less than 10000 words."
-
-}
-
-# Example of generating an R tutorial 
-
-if (TRUE){
-
-user_message <- "How can I relate multiple ecological response variables for benthic cover to an environmental gradient in the R program?"
-
-system_message <- "You are a helpful AI agent who creates statistical analysis tutorials in R. 
-        Rules: 
-        1. Include text and examples of code in your responses. 
-        2. Produce reports that are less than 10000 words."
-}
-
 
 response <- call_openrouter_api(
   openrouter_api_key,
@@ -53,9 +229,31 @@ response <- call_openrouter_api(
 # Example usage:
 save_response_as_qmd(response, "results/results.qmd")
 
+```
+
+Now you can open that `qmd` file (or just call it .md for markdown) and read it, or render it to get an html/pdf/word doc. 
+
+Another warning, the `save_response_as_qmd` makes the links clickable. Be careful and inspect before clicking, these are links that are provided by an LLM, you can't vouch for their safety. 
+
+### Making an R tutorial
+
+You can make really nice R tutorials using web search LLMs, like: 
+
+```
+user_message <- "How can I relate multiple ecological response variables for benthic cover to an environmental gradient in the R program?"
+
+system_message <- "You are a helpful AI agent who creates statistical analysis tutorials in R. 
+        Rules: 
+        1. Include text and examples of code in your responses. 
+        2. Produce reports that are less than 10000 words."
 
 
 ```
 
-## Image analysis 
+### Other search models 
 
+Open Router lets you append `:online` to the end of the model string as a shortcut to getting a websearch. Here are some other options at time of writing:
+
+`model = "perplexity/sonar"` for quick and cheap searches. 
+
+`model = "gpt-5:online"` to use one of OpenAI's search enabled models.  

@@ -4,13 +4,13 @@ This chapter addresses important practical considerations when using LLMs for R 
 
 ## Cost considerations
 
-- PIs need to consider cost and impact on research budget
+- Managers and lab heads need to consider cost and impact on research budget
 - e.g. Copilot subscription free for students
 - Tools like Roo Code can be more expensive (pay per use as using API). 
-- Still less than a person (currently)
-- e.g. processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)
-- Strategies for optimizing token usage
-- Balancing cost with capability requirements
+- Still, many of the tasks they can do are less than a hiring a person to do that (though they definitely need expert human oversight)
+- e.g. I estimated that processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)
+- There are strategies you can use for optimizing token usage if you really want to optimize costs
+- You will need to balance cost with capabilities. Cheaper models are often less proficent. 
 
 AI companies are running at a loss and its quite likely that costs will go up in future. The aim right now is to get us all dependent on the technology, so that we have to keep paying in future (another reason I think its improtant our own countries develop these capaibilites, and that we also need to strive to be capable to work in AI free ways as well. )
 
@@ -22,16 +22,21 @@ AI companies are running at a loss and its quite likely that costs will go up in
 - Auditing and monitoring LLM interactions
 
 
-
 ## Agent security 
 
 - Can run code on your computer
 - Be careful what it is doing
 - Read prompts before running them 
 
-Computer enginners, thinking probabilistically 
+Note that malicious people can hide text in webpages and pdfs and other content you might be uploading as context, e.g. using white font or tiny font. The LLM will still see this text and may act on it. 
 
 ## Lethal trifecta for prompt injection attacks
+
+Never allow the agent to do all these three things at the same time:  
+
+1. Read unverified material from the web (even if its material you downloaded earlier)
+2. Have access to sensitive data (which includes your personal data, API keys and your research data)
+3. Upload information to the web (which includes creating webpages or pushing commits to github)
 
 The [Lethal Trifecta for prompt injection attacks](https://simonwillison.net/2025/Aug/9/bay-area-ai/) (coined by Simon Williamson) is access to private data, ability to communicate externally and exposure to untrusted content. 
 

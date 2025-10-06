@@ -36,11 +36,11 @@ If following the prompting advice please consider citing my accompanying article
 
 ## Software you'll need for this workshop
 
-Save some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See the @sec-setup for more detailed instructions. 
+Save some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See the Chapter 3 on for more detailed instructions. 
 
 ## Book overview 
 
-Note the book isn't currently complete. I've just posted this so workshop attendees can use the set-up instructions in @sec-setup. [Here's an earlier version of the book that is finished.](https://www.seascapemodels.org/R-llm-workshop/index.html) 
+Note the book is still under construction. Most sections are complete, but a few sections just have bullet points that I refer to when teaching the workshop. Its also a fast moving space, so the content needs constant updating. 
 
 **Part 1** Generative AI for research applications 
 

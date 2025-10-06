@@ -1,16 +1,15 @@
 # LLM prompting fundamentals
 
-*Start of practical material*
-
 We'll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you'll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you're not getting the results you expect.
 
 **Software requirements:** VScode with R or Rstudio. API key, ideally to openrouter. R (best with ellmer) or Python.
 
 ## Setup authorisation
 
-Get your API key, see @sec-apikeys and then @sec-ellmer for connecting that to Ellmer. 
+Get your API key, see Chapter 3 sections on apikeys and ellmer for connecting that to Ellmer. 
 
 If you are using Python, save your API key in a .env file in your project directory, like this: 
+
 `OPENROUTER_API_KEY=my-key-here 
 
 ## Understanding how LLMs work

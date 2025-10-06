@@ -9,6 +9,8 @@ There's lots of options for AI coding assistant software. What you use will depe
 
 Below I've provided instructions for some of the options. These certainly aren't comprehensive. 
 
+There are a multitude of other R package options beyond what I cover below, which are covered in [Large Language Model Tools for R](https://luisdva.github.io/llmsr-book/index.html) by Luis D. Verde Arregoitia (in English and Spanish). 
+
 I recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that's relevant to your set-up needs. 
 
 ## R packages 

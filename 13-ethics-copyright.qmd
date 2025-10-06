@@ -11,9 +11,9 @@ I've developed a [little quiz to help you think about your personal ethics.](htt
 
 ## Who's responsible for mistakes?
 
-You are. 
+You are. You own the content you create with generative AI and you are also responsible for it. 
 
-When to vibe code, when not to vibe code. 
+'Vibe coding' - coding without looking at the code can be useful. Its great for prototyping project ideas or make simple low risk applications. Its less useful in serious science applications (like research you might publish) because its hard to verify whether its accurate. Ultimately you will be accountable for flawed research you create with an AI Agent. 
 
 ## Impacts on learning 
 

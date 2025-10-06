@@ -28,7 +28,7 @@ Let's see if the LLM can figure out the logic of adjusting for the overcounting 
 
 Straight-up question: 
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
 :::
 
@@ -37,16 +37,16 @@ The correct reasoning is: `2.5*5.5 = 13.75` predicted fish. Then we adjust for t
 
 Options for breaking it down into parts
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
 :::
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
  Use chain-of-thought reasoning to answer
 :::
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Think like the White Stripes in their song Little Acorns to solve this problem: Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
 :::
 
@@ -64,25 +64,25 @@ Let's look at a couple of examples.
 
 Clear your script of any plotting code and variable names (if using VScode) and try getting a GC to create a plot of two variables in our dataframe. Try this prompt, you can add it as a comment to use inline code completions, just ask it in 'ask mode' (or equivalent) or bring up the inline chat window (cmd/cntrl-i)
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Plot branching coral cover against distance to logponds. 
 :::
 
 Did the code work without human intervention? Without the context the AI won't know the variable names. A better prompt would reference the variable names:
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Plot cb_cover against dist_to_logging_km 
 :::
 
 or even better
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 Make a geom_point with cb_cover on the y-axis and dist_to_logging_km on the x-axis
 ::: 
 
 Now let's try a more complex example. If we wan't to get advice on models for analyzing how the number of fish relates to coral cover we could ask: 
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 How could I test the relationship between coral cover and fish? 
 :::
 
@@ -92,7 +92,7 @@ Sometimes if you do the above the LLM won't even realize you are asking for a st
 
 Slight better:
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 How could I test if there is a statistically significant relationship between coral cover and fish? 
 :::
 
@@ -100,7 +100,7 @@ But our data are count data, so the statistically best-practice answer would be 
 
 Even better would be to be specific about the data types:
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site? 
 ::: 
 
@@ -110,7 +110,7 @@ Note that if you are using a chat interface, rather than API calls, your interfa
 
 We could make this prompt even better if we prompt to consider issues that may arise:
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site? Reason step-by-step and identify any statistical issues that may arise with this analysis. 
 :::
 
@@ -123,7 +123,7 @@ The problem with multi-turn conversation is what's called 'context poisoning'. I
 Try the above example again, but break it into parts and get the LLM to answer each part before progressing. 
 
 
-::: {.callout-note}
+::: {.callout-note title="Prompt"}
 1. How could I test if there is a statistically significant relationship between coral cover and juvenile fish. 
 2. Fish abundance is my response variable. 
 3. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. 

@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -250,13 +250,13 @@ Well, your problems hide in your curls</p>
 <p>Here’s a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but <a href="TODO add ref">when fish are in high densities the algorithms can overcount the number of fish</a>.</p>
 <p>Let’s see if the LLM can figure out the logic of adjusting for the overcounting bias.</p>
 <p>Straight-up question:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -265,39 +265,39 @@ Note
 </div>
 <p>The correct reasoning is: <code>2.5*5.5 = 13.75</code> predicted fish. Then we adjust for the overcounting bias: <code>13.75^(1/1.1) = 10.83</code> which is the true number.</p>
 <p>Options for breaking it down into parts</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%?</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? Use chain-of-thought reasoning to answer</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -313,13 +313,13 @@ Note
 <p>Some commentators have noted that the over-use of the term ‘hallucination’. You often find if you ask the same question again, but with clearer language and more details you’ll get an accurate answer. So is an inaccurate answer really a hallucination (making something up) or is it just the LLM answering based on insufficient information?</p>
 <p>Let’s look at a couple of examples.</p>
 <p>Clear your script of any plotting code and variable names (if using VScode) and try getting a GC to create a plot of two variables in our dataframe. Try this prompt, you can add it as a comment to use inline code completions, just ask it in ‘ask mode’ (or equivalent) or bring up the inline chat window (cmd/cntrl-i)</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -327,13 +327,13 @@ Note
 </div>
 </div>
 <p>Did the code work without human intervention? Without the context the AI won’t know the variable names. A better prompt would reference the variable names:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -341,13 +341,13 @@ Note
 </div>
 </div>
 <p>or even better</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -355,13 +355,13 @@ Note
 </div>
 </div>
 <p>Now let’s try a more complex example. If we wan’t to get advice on models for analyzing how the number of fish relates to coral cover we could ask:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -371,13 +371,13 @@ Note
 <p>(If trying this in Ask mode make sure you have no data or scripts attached, which may add the extra context it needs).</p>
 <p>Sometimes if you do the above the LLM won’t even realize you are asking for a statistical ‘test’ and may give you an answer for computer programming tests.</p>
 <p>Slight better:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -386,13 +386,13 @@ Note
 </div>
 <p>But our data are count data, so the statistically best-practice answer would be a response that specifically accounts for the fact that fish are abundance counts.</p>
 <p>Even better would be to be specific about the data types:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -402,13 +402,13 @@ Note
 <p>Try each of these a few times and tally up how often you get a good recommendation for each prompt style. Make sure you start a new chat window each time. I would consider a good recommendation one that appropriately models the count data, e.g.&nbsp;a poisson or negative binomial GLM. Coral cover is the predictor variable so we don’t need to do any special transforms on that (sometimes the LLMs will recommend you transform it also).</p>
 <p>Note that if you are using a chat interface, rather than API calls, your interface may have a ‘memory’ which means each new prompt is not independent of previous prompts. Check the documents for your software to be sure and turn off memory if possible. If using VSCode you can open a new window from the ‘File’ menu and then open the GC chat directly without opening a project folder (so it has no context).</p>
 <p>We could make this prompt even better if we prompt to consider issues that may arise:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -421,13 +421,13 @@ Note
 <p>LLMs perform better if you explain to them in detail what you want straight-up, rather than trying to engage in conversation. Tests show that answers are less accurate if you present the same question over multiple turns versus giving all the information up front.</p>
 <p>The problem with multi-turn conversation is what’s called ‘context poisoning’. If the LLM doesn’t have all the information it will still try to answer and it may answer wrongly (what some people inaccurately call hallucinations). Once that incorrect answer is in the context window (chat thread) it is hard to get the LLM to forget it. The best thing to do is start the chat thread over again and write a clearer prompt to start with.</p>
 <p>Try the above example again, but break it into parts and get the LLM to answer each part before progressing.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">

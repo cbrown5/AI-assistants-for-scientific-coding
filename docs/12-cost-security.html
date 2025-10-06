@@ -164,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practices project setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -234,13 +234,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="cost-considerations" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="cost-considerations"><span class="header-section-number">12.1</span> Cost considerations</h2>
 <ul>
-<li>PIs need to consider cost and impact on research budget</li>
+<li>Managers and lab heads need to consider cost and impact on research budget</li>
 <li>e.g.&nbsp;Copilot subscription free for students</li>
 <li>Tools like Roo Code can be more expensive (pay per use as using API).</li>
-<li>Still less than a person (currently)</li>
-<li>e.g.&nbsp;processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)</li>
-<li>Strategies for optimizing token usage</li>
-<li>Balancing cost with capability requirements</li>
+<li>Still, many of the tasks they can do are less than a hiring a person to do that (though they definitely need expert human oversight)</li>
+<li>e.g.&nbsp;I estimated that processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)</li>
+<li>There are strategies you can use for optimizing token usage if you really want to optimize costs</li>
+<li>You will need to balance cost with capabilities. Cheaper models are often less proficent.</li>
 </ul>
 <p>AI companies are running at a loss and its quite likely that costs will go up in future. The aim right now is to get us all dependent on the technology, so that we have to keep paying in future (another reason I think its improtant our own countries develop these capaibilites, and that we also need to strive to be capable to work in AI free ways as well. )</p>
 </section>
@@ -260,10 +260,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Be careful what it is doing</li>
 <li>Read prompts before running them</li>
 </ul>
-<p>Computer enginners, thinking probabilistically</p>
+<p>Note that malicious people can hide text in webpages and pdfs and other content you might be uploading as context, e.g.&nbsp;using white font or tiny font. The LLM will still see this text and may act on it.</p>
 </section>
 <section id="lethal-trifecta-for-prompt-injection-attacks" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="lethal-trifecta-for-prompt-injection-attacks"><span class="header-section-number">12.4</span> Lethal trifecta for prompt injection attacks</h2>
+<p>Never allow the agent to do all these three things at the same time:</p>
+<ol type="1">
+<li>Read unverified material from the web (even if its material you downloaded earlier)</li>
+<li>Have access to sensitive data (which includes your personal data, API keys and your research data)</li>
+<li>Upload information to the web (which includes creating webpages or pushing commits to github)</li>
+</ol>
 <p>The <a href="https://simonwillison.net/2025/Aug/9/bay-area-ai/">Lethal Trifecta for prompt injection attacks</a> (coined by Simon Williamson) is access to private data, ability to communicate externally and exposure to untrusted content.</p>
 <p>What can happen is that if your agent can read untrusted sources, those sources may contain malicious prompts. These prompts could convince the agent to do things like send or post your personal data to the hacker or create malicious code that runs on your computer.</p>
 <p>You want to be sure your agents can’t do these three things at once. Remember sensitive data includes your name, username, phone number, email, API keys as well as sensitive research data.</p>
