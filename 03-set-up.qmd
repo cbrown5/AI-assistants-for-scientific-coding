@@ -37,6 +37,24 @@ Use Rstudio with R. You will need `ellmer` and `gander` packages. See instructio
 
 Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (@sec-githubcopilot) then in Rstudio go to 'Tools' -> 'Global Options' -> 'Copilot' and enable it (follow instructions for entering password to setup). 
 
+### Positron assistant
+
+[Positron](https://positron.posit.co/) is a new IDE from Posit (the creators of RStudio) that is designed for data science. It includes a built-in [AI assistant](https://positron.posit.co/assistant.html) that can help you with coding tasks.
+
+Positron's assistant provides similar functionality to GitHub Copilot, including:
+
+- Code completion and suggestions
+- Natural language to code generation
+- Code explanation and documentation
+
+To use Positron with its AI assistant:
+
+1. Download and install Positron from https://positron.posit.co/
+2. Follow the instructions in the [Positron assistant documentation](https://positron.posit.co/assistant.html) to set up the AI assistant
+3. You'll need to configure your AI provider (such as OpenAI, Anthropic, or others)
+
+Positron is particularly well-suited for R users who want IDE integration without the complexity of setting up VSCode, as it's built specifically for data science workflows.
+
 ### Python users 
 
 I'm not a Python programmer, however, all the principles I'll teach also apply to Python. You can easily follow on with the examples in Python. 
