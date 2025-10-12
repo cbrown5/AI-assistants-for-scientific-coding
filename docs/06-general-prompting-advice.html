@@ -267,7 +267,7 @@ Well, your problems hide in your curls</p>
 <h2 data-number="6.1" class="anchored" data-anchor-id="break-your-problem-down-into-smaller-parts"><span class="header-section-number">6.1</span> Break your problem down into smaller parts</h2>
 <p>What statistical problems might I run into if I want to build a statistical model that predicts fish abundance from coral cover?</p>
 <p>There’s many examples available of how LLMs can reason effectively if they are encouraged to work through a problem step-by-step, whereas they guess (some would say hallucinate) the answer if just asked the question straight up.</p>
-<p>There are many structured prompting strategies that work by splitting a problem into smaller parts <span class="citation" data-cites="chen_unleashing_2025">(<a href="#ref-chen_unleashing_2025" role="doc-biblioref"><strong>chen_unleashing_2025?</strong></a>)</span>. We won’t cover these here, they are most beneficial if you are writing code that talks to LLMs programmatically, to iteratively solve a problem (<a href="./08-advanced-llm-agents.html">more on that later</a>). But we can learn from the principle general principle of breaking a problem into parts.</p>
+<p>There are many structured prompting strategies that work by splitting a problem into smaller parts <span class="citation" data-cites="chen_unleashing_2025">(<a href="#ref-chen_unleashing_2025" role="doc-biblioref">Chen et al. 2025</a>)</span>. We won’t cover these here, they are most beneficial if you are writing code that talks to LLMs programmatically, to iteratively solve a problem (<a href="./08-advanced-llm-agents.html">more on that later</a>). But we can learn from the principle general principle of breaking a problem into parts.</p>
 <p>Here’s a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but when fish are in high densities the algorithms can overcount the number of fish <span class="citation" data-cites="connolly_improved_2021">(<a href="#ref-connolly_improved_2021" role="doc-biblioref">Connolly et al. 2021</a>)</span>.</p>
 <p>Let’s see if the LLM can figure out the logic of adjusting for the overcounting bias.</p>
 <p>Straight-up question:</p>
@@ -473,6 +473,9 @@ Prompt
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-chen_unleashing_2025" class="csl-entry" role="listitem">
+Chen, Banghao, Zhaofeng Zhang, Nicolas Langrené, and Shengxin Zhu. 2025. <span>“Unleashing the Potential of Prompt Engineering for Large Language Models.”</span> <em>Patterns</em> 6 (6). <a href="https://doi.org/10.1016/j.patter.2025.101260">https://doi.org/10.1016/j.patter.2025.101260</a>.
+</div>
 <div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
 Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
 </div>

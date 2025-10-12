@@ -1,6 +1,6 @@
 # Writing documents with Quarto and AI assistants
 
-Below is my suggested workflow for using quarto to write scientific papers with the help of AI assistants. I'm currently switching to doing as many projects as possible with quarto rather than word for a few reasons:
+You can use quarto to write scientific papers. There are several reasons to use quarto rather than a word processor:
 
 1.  Easier to manage document style
 
@@ -12,7 +12,7 @@ Below is my suggested workflow for using quarto to write scientific papers with 
 
 Point 3 is great, no more cut and pasting figures into word documents!
 
-Point 4 is the big one. I'm developing my own 'writing mentor' scripts for large language models. Using quarto lets me implement writing advice specific to science direclty into my manuscripts.
+Point 4 is the big one. For instance, I'm developing my own 'writing mentor' prompts for large language models. Using quarto lets me implement writing advice specific to science direclty into my manuscripts.
 
 Quarto is 'What You See is What you Make', meaning that you write special syntax for formatting. Once you are used to it, this is way easier way to manage styles than word.
 
