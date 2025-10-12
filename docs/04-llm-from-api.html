@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; LLM prompting fundamentals – AI assistants for Scientific Coding</title>
+<title>4&nbsp; Calling LLMs via an Application Programming Interface – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-research-applications-LLMs.html" rel="next">
+<link href="./05-github-copilot.html" rel="next">
 <link href="./03-set-up.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-llm-prompting-fundamentals.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-llm-from-api.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for coding</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -161,44 +161,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-llm-prompting-fundamentals.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span></a>
+  <a href="./04-llm-from-api.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
+  <a href="./05-github-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-github-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
+  <a href="./06-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
+  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
+  <a href="./09-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project set-up for AI agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
+  <a href="./10-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -235,21 +235,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup-authorisation" id="toc-setup-authorisation" class="nav-link active" data-scroll-target="#setup-authorisation"><span class="header-section-number">4.1</span> Setup authorisation</a></li>
-  <li><a href="#understanding-how-llms-work" id="toc-understanding-how-llms-work" class="nav-link" data-scroll-target="#understanding-how-llms-work"><span class="header-section-number">4.2</span> Understanding how LLMs work</a>
+  <li><a href="#what-is-an-application-programming-interface" id="toc-what-is-an-application-programming-interface" class="nav-link active" data-scroll-target="#what-is-an-application-programming-interface"><span class="header-section-number">4.1</span> What is an Application Programming Interface?</a></li>
+  <li><a href="#setup-authorisation" id="toc-setup-authorisation" class="nav-link" data-scroll-target="#setup-authorisation"><span class="header-section-number">4.2</span> Setup authorisation</a></li>
+  <li><a href="#understanding-how-llms-work" id="toc-understanding-how-llms-work" class="nav-link" data-scroll-target="#understanding-how-llms-work"><span class="header-section-number">4.3</span> Understanding how LLMs work</a>
   <ul class="collapse">
-  <li><a href="#controlling-randomness-of-the-responess" id="toc-controlling-randomness-of-the-responess" class="nav-link" data-scroll-target="#controlling-randomness-of-the-responess"><span class="header-section-number">4.2.1</span> Controlling randomness of the responess</a></li>
-  <li><a href="#navigating-openrouter" id="toc-navigating-openrouter" class="nav-link" data-scroll-target="#navigating-openrouter"><span class="header-section-number">4.2.2</span> Navigating Openrouter</a></li>
-  <li><a href="#comparing-model-complexity" id="toc-comparing-model-complexity" class="nav-link" data-scroll-target="#comparing-model-complexity"><span class="header-section-number">4.2.3</span> Comparing model complexity</a></li>
-  <li><a href="#understanding-context-windows" id="toc-understanding-context-windows" class="nav-link" data-scroll-target="#understanding-context-windows"><span class="header-section-number">4.2.4</span> Understanding context windows</a></li>
+  <li><a href="#calling-llms-via-an-api" id="toc-calling-llms-via-an-api" class="nav-link" data-scroll-target="#calling-llms-via-an-api"><span class="header-section-number">4.3.1</span> Calling LLMs via an API</a></li>
+  <li><a href="#controlling-randomness-of-the-responess" id="toc-controlling-randomness-of-the-responess" class="nav-link" data-scroll-target="#controlling-randomness-of-the-responess"><span class="header-section-number">4.3.2</span> Controlling randomness of the responess</a></li>
+  <li><a href="#navigating-openrouter" id="toc-navigating-openrouter" class="nav-link" data-scroll-target="#navigating-openrouter"><span class="header-section-number">4.3.3</span> Navigating Openrouter</a></li>
+  <li><a href="#comparing-model-complexity" id="toc-comparing-model-complexity" class="nav-link" data-scroll-target="#comparing-model-complexity"><span class="header-section-number">4.3.4</span> Comparing model complexity</a></li>
+  <li><a href="#understanding-context-windows" id="toc-understanding-context-windows" class="nav-link" data-scroll-target="#understanding-context-windows"><span class="header-section-number">4.3.5</span> Understanding context windows</a></li>
   </ul></li>
-  <li><a href="#diy-stats-bot" id="toc-diy-stats-bot" class="nav-link" data-scroll-target="#diy-stats-bot"><span class="header-section-number">4.3</span> DIY stats bot</a>
+  <li><a href="#diy-stats-bot" id="toc-diy-stats-bot" class="nav-link" data-scroll-target="#diy-stats-bot"><span class="header-section-number">4.4</span> DIY stats bot</a>
   <ul class="collapse">
-  <li><a href="#multi-turn-conversation" id="toc-multi-turn-conversation" class="nav-link" data-scroll-target="#multi-turn-conversation"><span class="header-section-number">4.3.1</span> Multi-turn conversation</a></li>
-  <li><a href="#improving-the-stats-bot" id="toc-improving-the-stats-bot" class="nav-link" data-scroll-target="#improving-the-stats-bot"><span class="header-section-number">4.3.2</span> Improving the stats bot</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">4.3.3</span> Tools</a></li>
+  <li><a href="#multi-turn-conversation" id="toc-multi-turn-conversation" class="nav-link" data-scroll-target="#multi-turn-conversation"><span class="header-section-number">4.4.1</span> Multi-turn conversation</a></li>
+  <li><a href="#improving-the-stats-bot" id="toc-improving-the-stats-bot" class="nav-link" data-scroll-target="#improving-the-stats-bot"><span class="header-section-number">4.4.2</span> Improving the stats bot</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">4.4.3</span> Tools</a></li>
   </ul></li>
-  <li><a href="#reflection-on-prompting-fundamentals" id="toc-reflection-on-prompting-fundamentals" class="nav-link" data-scroll-target="#reflection-on-prompting-fundamentals"><span class="header-section-number">4.4</span> Reflection on prompting fundamentals</a></li>
+  <li><a href="#reflection-on-prompting-fundamentals" id="toc-reflection-on-prompting-fundamentals" class="nav-link" data-scroll-target="#reflection-on-prompting-fundamentals"><span class="header-section-number">4.5</span> Reflection on prompting fundamentals</a></li>
   </ul>
 </nav>
     </div>
@@ -258,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></h1>
 </div>
 
 
@@ -275,18 +277,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We’ll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you’ll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you’re not getting the results you expect.</p>
+<p>Calling LLMs programmatically via an API is powerful programming tool. First of all, it lets us better control the LLM’s responses than chat interface software (like chatGPT or copilot). Chat software manages our interactions, including adding additional context (potentially from our chat history). So it is harder to be sure exactly how the LLM is being prompted. With access via API we control exactly what goes to the LLM.</p>
+<p>Accessing with R or Python code also gives us the opportunity to automate LLM calls, which can be used to create Agents or automate document reading, as we will see later. Finally, it can give us access to special features that LLMs have which may not be available in some chat interfaces.</p>
+<p>This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you’ll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you’re not getting the results you expect.</p>
 <p><strong>Software requirements:</strong> VScode with R or Rstudio. API key, ideally to openrouter. R (best with ellmer) or Python.</p>
-<section id="setup-authorisation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="setup-authorisation"><span class="header-section-number">4.1</span> Setup authorisation</h2>
-<p>Get your API key, see Chapter 3 sections on apikeys and ellmer for connecting that to Ellmer.</p>
+<section id="what-is-an-application-programming-interface" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="what-is-an-application-programming-interface"><span class="header-section-number">4.1</span> What is an Application Programming Interface?</h2>
+<p>An Application Programming Interface (API) lets different software programs communicate with each other.</p>
+<p>Large Language Models often require high powered computers to run. It is possible to have one on your computer (called local hosting), but here we will look at using LLMs hosted with ‘Providers’, these are servers remote to our computer.</p>
+<p>An API allows you to send text prompts to an LLM provider (like OpenAI’s GPT models or Anthropic’s Claude) over the internet and receive the model’s response back to your code. This is different from using a chat interface like ChatGPT’s website, where you’re interacting through a user interface designed for humans.</p>
+<p>In fact, locally hosted LLMs also use an API to manage requests from your computer to the LLM software.</p>
+<p><strong>How API calls work:</strong> 1. Your code sends a request to the API endpoint (a web address) 2. The request includes your prompt, model choice, and parameters 3. The LLM service processes your request 4. The service sends back a structured response containing the model’s output 5. Your code can then use this response in further analysis or processing</p>
+<p>Most LLM APIs use a similar structure - you provide messages (like system prompts and user questions), specify which model to use, and set parameters to control the response. The API then returns the model’s generated text along with metadata about the request.</p>
+</section>
+<section id="setup-authorisation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="setup-authorisation"><span class="header-section-number">4.2</span> Setup authorisation</h2>
+<p>Get your API key, see <a href="./03-set-up.html">Chapter 3</a> for how to get an API key and connect Ellmer to an LLM provider.</p>
 <p>If you are using Python, save your API key in a .env file in your project directory, like this:</p>
 <p>`OPENROUTER_API_KEY=my-key-here</p>
 </section>
-<section id="understanding-how-llms-work" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="understanding-how-llms-work"><span class="header-section-number">4.2</span> Understanding how LLMs work</h2>
+<section id="understanding-how-llms-work" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="understanding-how-llms-work"><span class="header-section-number">4.3</span> Understanding how LLMs work</h2>
 <p>Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we’ll call an API directly through computer code.</p>
 <p>By accessing the API in this way we get as close to the raw LLM as we are able. Later on we will use ‘coding assistants’ (e.g.&nbsp;copilot) which put another layer of software between you and the LLM.</p>
+<section id="calling-llms-via-an-api" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="calling-llms-via-an-api"><span class="header-section-number">4.3.1</span> Calling LLMs via an API</h3>
 <p>Try to get it to complete a sentence:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R - Ellmer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Python</a></li></ul>
@@ -464,8 +479,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="tip">
 <p><strong>Tip:</strong> It is generally more effective to tell the LLM <strong>what to do</strong> rather than <strong>what not to do</strong> (just like people!).</p>
 </div>
-<section id="controlling-randomness-of-the-responess" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="controlling-randomness-of-the-responess"><span class="header-section-number">4.2.1</span> Controlling randomness of the responess</h3>
+</section>
+<section id="controlling-randomness-of-the-responess" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="controlling-randomness-of-the-responess"><span class="header-section-number">4.3.2</span> Controlling randomness of the responess</h3>
 <p>The “temperature” parameter controls the randomness of token predictions. Lower temperatures (closer to 0) make the model more deterministic, while higher temperatures (closer to 2) make it more creative and unpredictable.</p>
 <p>Even at 0 there is still a small amount of randomness. We can also try to make a response more deterministic with the ‘top_k’ parameter. Top K forces the model to choose among a smaller set of tokens, setting it to 1 will give the most predictable results</p>
 <p>Let’s compare responses with different temperatures and top K settings:</p>
@@ -566,8 +582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are quite a few different parameters you can play with to control how an LLM responds. The <a href="https://openrouter.ai/docs/api-reference/parameters">names and meanings of these are all documented in the Openrouter docs</a>.</p>
 </div>
 </section>
-<section id="navigating-openrouter" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="navigating-openrouter"><span class="header-section-number">4.2.2</span> Navigating Openrouter</h3>
+<section id="navigating-openrouter" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="navigating-openrouter"><span class="header-section-number">4.3.3</span> Navigating Openrouter</h3>
 <p>I created a lot of the code for this tutorial by browsing the Openrouter page to see what is possible.</p>
 <p>There are two key pages.</p>
 <p>The <a href="https://openrouter.ai/models">Models</a> page lists all the models available. If you have some idea of what you want you can filter this list. Click the page icon to copy the string for the model id. You can use this to replace the string in <code>model = "anthropic/claude-3.5-haiku"</code> if you want to use a different model.</p>
@@ -576,8 +592,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Click a provider then the drop-down arrow to see what parameter choices are available for this model (note not all providers support all parameters for a model).</p>
 <p>The <a href="https://openrouter.ai/docs/quickstart">second important page is the docs page</a>. This has all the information on using the openrouter API. There are lost of code examples, usually in Python. You can use an AI assistant to translate these to R if you are using R.</p>
 <p>For example, there is a long list of parameters that various LLMs support. If you want to try any of these just add them using the same syntax as we did for the temperature parameter. Note that not all LLMs support all parameters. To find out what parameters a model supports go to the model’s provider page and <a href="https://openrouter.ai/docs/api-reference/parameters">expand a specific provider to see a list of Supported Parameters</a>.</p>
-<section id="api-errors." class="level4" data-number="4.2.2.1">
-<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="api-errors."><span class="header-section-number">4.2.2.1</span> API errors.</h4>
+<section id="api-errors." class="level4" data-number="4.3.3.1">
+<h4 data-number="4.3.3.1" class="anchored" data-anchor-id="api-errors."><span class="header-section-number">4.3.3.1</span> API errors.</h4>
 <p>Sometimes you won’t get a response instead you’ll get an HTTP error. After you send your response you may get an answer something like <code>Error: 402</code>.</p>
 <p><a href="https://openrouter.ai/docs/api-reference/errors">All the error codes are listed here</a>. Some common errors codes:</p>
 <p><strong>400</strong> There’s an error in your code.</p>
@@ -587,21 +603,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>429</strong> Wow you are really a power user! You’ve been rate limited, meaning you’re calling the LLM too much, too quickly. Just wait a bit and try again (or add pauses in your code to slow it down if you are doing automated repeat requests).</p>
 </section>
 </section>
-<section id="comparing-model-complexity" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="comparing-model-complexity"><span class="header-section-number">4.2.3</span> Comparing model complexity</h3>
+<section id="comparing-model-complexity" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="comparing-model-complexity"><span class="header-section-number">4.3.4</span> Comparing model complexity</h3>
 <p>Different models have different capabilities based on their size, training data, and architecture.</p>
 <p>For example <code>anthropic/claude-3.5-haiku</code> has many fewer parameters than <code>anthropic/claude-sonnet-4</code>. This means that the latter model is more complex and can handle more nuanced tasks. However, haiku is significantly cheaper to run. Haiku is 80c per million input tokens vs $3 for Sonnet. Output tokens are $4 vs $15</p>
 <p>Task for you: use the <a href="https://openrouter.ai/models">Openrouter models page</a> to find a different model to try.</p>
 <p>Hint try some of the Chinese models like Kimi instead of the American models.</p>
 </section>
-<section id="understanding-context-windows" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="understanding-context-windows"><span class="header-section-number">4.2.4</span> Understanding context windows</h3>
+<section id="understanding-context-windows" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="understanding-context-windows"><span class="header-section-number">4.3.5</span> Understanding context windows</h3>
 <p>LLMs have a limited “context window” - the amount of text they can consider when generating a response. This affects their ability to maintain coherence over long conversations. For most LLMs this is about 100-200K tokens, which includes input and output. However, Google’s models have up to 1 million + tokens.</p>
 <p>We’ll come back to the context window when we explore more advanced tools with longer prompts. These simple prompts don’t come close to using up the context window.</p>
 </section>
 </section>
-<section id="diy-stats-bot" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="diy-stats-bot"><span class="header-section-number">4.3</span> DIY stats bot</h2>
+<section id="diy-stats-bot" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="diy-stats-bot"><span class="header-section-number">4.4</span> DIY stats bot</h2>
 <p>Let’s put together what we’ve learnt so far and built our own chatbot. I’ve provided you with a detailed system prompt that implements a chat bot that specialises in helping with statistics. First, we read the bot markdown file from github, then we can use it in our chat session.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">R - Ellmer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Python</a></li></ul>
@@ -695,8 +711,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="tip">
 <p><strong>Tip:</strong> How many of you started using “DIY-stats-bot-system.md” without first reading it? Did you find the easter egg in my prompt? For security you should ALWAYS read prompts before you start running them through LLM chats. We’ll see later that LLMs can be given ‘tools’ which allow them to run code on your computer. Its easy to see how a malicious prompt could mis-use these tools. We’ll cover security later.</p>
 </div>
-<section id="multi-turn-conversation" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="multi-turn-conversation"><span class="header-section-number">4.3.1</span> Multi-turn conversation</h3>
+<section id="multi-turn-conversation" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="multi-turn-conversation"><span class="header-section-number">4.4.1</span> Multi-turn conversation</h3>
 <p>You might want to have a conversation with your chat bot to help you problem solve. This is easy with Ellmer and a bit fiddly with python or base R. I’m only going to cover Ellmer here.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">R - Ellmer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Python</a></li></ul>
@@ -728,8 +744,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Tip:</strong> LLMs performance is better if you put everything in an initial single questions, rather than a multi-turn conversation. <a href="https://arxiv.org/abs/2505.06120">Responses to a problem split into multiple questions are less accurate than responses to problem that is put up front in the initial prompt</a>. This rule applies across many domains from logic to coding. I like to think of it as mansplaining, the LLMs have (sub-concioulsy?) been designed to prefer being mansplained over having a conversation. We’ll look more at this later.</p>
 </div>
 </section>
-<section id="improving-the-stats-bot" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="improving-the-stats-bot"><span class="header-section-number">4.3.2</span> Improving the stats bot</h3>
+<section id="improving-the-stats-bot" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="improving-the-stats-bot"><span class="header-section-number">4.4.2</span> Improving the stats bot</h3>
 <p>Make a local copy of the stats bot system prompt and try editing it. You can use your coding skills to write the stats bot to file, or just go here and copy the text: <a href="https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md">https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md</a>.</p>
 <p>Try different commands within it and see how your chat bot responds (you’ll have to open a new chat object each time).</p>
 <p>Here’s some ideas.</p>
@@ -744,14 +760,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Tip:</strong> Adjectives, CAPITALS, <code>*markdown*</code> formatting can all help create emphasis so that your model more closely follows your commands. I used ‘abhors’ and ‘verhment’ above on purpose.</p>
 </div>
 </section>
-<section id="tools" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="tools"><span class="header-section-number">4.3.3</span> Tools</h3>
+<section id="tools" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="tools"><span class="header-section-number">4.4.3</span> Tools</h3>
 <p>Tools like Copilot Agent mode then go a step further and send the results of step 5 back to the LLM, which then interprets the results and the loop continues (sometimes with and sometimes without direct user approval).</p>
 <p>If you want to go further with making your own tools, then I suggest you check out <code>ellmer</code> package. It supports tool creation in a structured way. For instance, I made a tool that allows an <a href="https://ellmer.tidyverse.org/articles/tool-calling.html">LLM to download and save ocean data to your computer</a>.</p>
 </section>
 </section>
-<section id="reflection-on-prompting-fundamentals" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="reflection-on-prompting-fundamentals"><span class="header-section-number">4.4</span> Reflection on prompting fundamentals</h2>
+<section id="reflection-on-prompting-fundamentals" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="reflection-on-prompting-fundamentals"><span class="header-section-number">4.5</span> Reflection on prompting fundamentals</h2>
 <p>To recap, the basic workflow an agent follows is:</p>
 <ol type="1">
 <li>Set-up a system prompt with detailed instructions for how the LLM should format responses</li>
@@ -1194,8 +1210,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-research-applications-LLMs.html" class="pagination-link" aria-label="Research applications of LLMs">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-github-copilot.html" class="pagination-link" aria-label="Github copilot for R">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

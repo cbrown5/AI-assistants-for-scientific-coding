@@ -1,12 +1,36 @@
-# LLM prompting fundamentals
+# Calling LLMs via an Application Programming Interface
 
-We'll cover LLM prompting theory through practical examples. This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you'll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you're not getting the results you expect.
+Calling LLMs programmatically via an API is powerful programming tool. 
+First of all, it lets us better control the LLM's responses than chat interface software (like chatGPT or copilot). Chat software manages our interactions, including adding additional context (potentially from our chat history). So it is harder to be sure exactly how the LLM is being prompted. With access via API we control exactly what goes to the LLM. 
+
+Accessing with R or Python code also gives us the opportunity to automate LLM calls, which can be used to create Agents or automate document reading, as we will see later. Finally, it can give us access to special features that LLMs have which may not be available in some chat interfaces. 
+
+This section will give you a deep understanding of how chatbots work and teach you some advanced prompting skills. By understanding these technical foundations, you'll be better equipped to leverage LLMs effectively for your R programming and data analysis tasks, and to troubleshoot when you're not getting the results you expect.
 
 **Software requirements:** VScode with R or Rstudio. API key, ideally to openrouter. R (best with ellmer) or Python.
 
+## What is an Application Programming Interface?
+
+An Application Programming Interface (API) lets different software programs communicate with each other. 
+
+Large Language Models often require high powered computers to run. It is possible to have one on your computer (called local hosting), but here we will look at using LLMs hosted with 'Providers', these are servers remote to our computer. 
+
+An API allows you to send text prompts to an LLM provider (like OpenAI's GPT models or Anthropic's Claude) over the internet and receive the model's response back to your code. This is different from using a chat interface like ChatGPT's website, where you're interacting through a user interface designed for humans. 
+
+In fact, locally hosted LLMs also use an API to manage requests from your computer to the LLM software. 
+
+**How API calls work:**
+1. Your code sends a request to the API endpoint (a web address)
+2. The request includes your prompt, model choice, and parameters
+3. The LLM service processes your request
+4. The service sends back a structured response containing the model's output
+5. Your code can then use this response in further analysis or processing
+
+Most LLM APIs use a similar structure - you provide messages (like system prompts and user questions), specify which model to use, and set parameters to control the response. The API then returns the model's generated text along with metadata about the request.
+
 ## Setup authorisation
 
-Get your API key, see Chapter 3 sections on apikeys and ellmer for connecting that to Ellmer. 
+Get your API key, see [Chapter 3](03-set-up.qmd) for how to get an API key and connect Ellmer to an LLM provider. 
 
 If you are using Python, save your API key in a .env file in your project directory, like this: 
 
@@ -17,6 +41,8 @@ If you are using Python, save your API key in a .env file in your project direct
 Large Language Models (LLMs) operate by predicting the next token in a sequence, one token at a time. To understand how this works in practice, we'll call an API directly through computer code. 
 
 By accessing the API in this way we get as close to the raw LLM as we are able. Later on we will use 'coding assistants' (e.g. copilot) which put another layer of software between you and the LLM. 
+
+### Calling LLMs via an API
 
 Try to get it to complete a sentence: 
 

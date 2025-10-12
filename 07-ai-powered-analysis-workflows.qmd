@@ -164,7 +164,7 @@ Here's an example from one of my readme files that has the above elements.
 
 ::: {.callout-note title="Prompt"}
 
-## Instructions for the agent
+## Instructions for AI agent
 
 The agent will produce a report that answers the above questions. The report will include a description of the data, the methods used for analysis, and the results of the analysis. The code will be written as R scripts. 
 
@@ -239,7 +239,7 @@ Help me plan the workflow and scripts to implement this analysis
 Once you're happy with the plan, you can get copilot to implement it. There's roughly three ways to do this, with increasing levels of automation
 
 1. Start creating the code yourself, using inline editing and copilot edit to help write bits of the code
-2. Instruct an AI agent to complete the tasks in the readme, manually checking in and editing the code as you go
+2. Instruct an AI agent to complete the tasks in the readme, manually checking in and editing the code as you go. See the [Agents chapter](08-advanced-llm-agents.qmd) for more on AI Agents. 
 3. Full 'vibe-coding' which means you ask an AI agent to complete the task and just accept all of its suggestions.
 
 Vibe coding isn't recommended for scientific projects, more on that later. 
@@ -276,9 +276,8 @@ Much the same as above, just less planning and you don't need to search the lite
 
 Ecological modelling is a creative art with rules. The rules are the scientific method, the medium is math, logic and code. You can view AI as part of this creative scientific process, rather than a replacement for the human. 
 
-Use an agent to create multiple complete versions of your project. You can then compare them to get ideas. You can also continuously refine the prompt to get what you want as you go. 
+Use an LLM assistant to create multiple complete versions of your project. You can then compare them to get ideas. You can also continuously refine the prompt to get what you want as you go. 
 
-Add it as a tool inyour belt, not a replacement. Talking to clleagues, reading, sitting on a board looking at the ocean, having showers etc... are all stil important. 
+Add it as a tool in your belt, not a replacement. Talking to colleagues, reading, sitting on a board looking at the ocean, having showers etc... are all still important. 
 
-Create same thing multiple times and compare 
 

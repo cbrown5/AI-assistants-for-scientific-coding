@@ -4,6 +4,10 @@
 
 [View the book, rendered with Quarto pages](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
 
+## Planned updates
+
+Add 'fakedataR' package to the data privacy section, once I've investigated it
+
 ## Teaching plan
 
 Set-up and run an agent 'paper in a prompt. 

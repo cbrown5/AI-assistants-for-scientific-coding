@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-llm-prompting-fundamentals.html" rel="next">
+<link href="./04-llm-from-api.html" rel="next">
 <link href="./02-introduction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for coding</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,44 +127,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-llm-prompting-fundamentals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span></a>
+  <a href="./04-llm-from-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
+  <a href="./05-github-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-github-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
+  <a href="./06-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
+  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
+  <a href="./09-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project set-up for AI agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
+  <a href="./10-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -206,8 +206,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#preferred-option-for-r-users" id="toc-preferred-option-for-r-users" class="nav-link" data-scroll-target="#preferred-option-for-r-users"><span class="header-section-number">3.2.1</span> Preferred option for R users</a></li>
   <li><a href="#option-2-for-r-users" id="toc-option-2-for-r-users" class="nav-link" data-scroll-target="#option-2-for-r-users"><span class="header-section-number">3.2.2</span> Option 2 for R users</a></li>
-  <li><a href="#python-users" id="toc-python-users" class="nav-link" data-scroll-target="#python-users"><span class="header-section-number">3.2.3</span> Python users</a></li>
-  <li><a href="#options-3" id="toc-options-3" class="nav-link" data-scroll-target="#options-3"><span class="header-section-number">3.2.4</span> Options 3 +</a></li>
+  <li><a href="#option-3-for-r-users-positron-assistant" id="toc-option-3-for-r-users-positron-assistant" class="nav-link" data-scroll-target="#option-3-for-r-users-positron-assistant"><span class="header-section-number">3.2.3</span> Option 3 for R users: Positron assistant</a></li>
+  <li><a href="#python-users" id="toc-python-users" class="nav-link" data-scroll-target="#python-users"><span class="header-section-number">3.2.4</span> Python users</a></li>
+  <li><a href="#options-4" id="toc-options-4" class="nav-link" data-scroll-target="#options-4"><span class="header-section-number">3.2.5</span> Options 4 +</a></li>
   </ul></li>
   <li><a href="#software-options-summary" id="toc-software-options-summary" class="nav-link" data-scroll-target="#software-options-summary"><span class="header-section-number">3.3</span> Software options summary</a></li>
   <li><a href="#sec-apikeys" id="toc-sec-apikeys" class="nav-link" data-scroll-target="#sec-apikeys"><span class="header-section-number">3.4</span> Getting an API key</a></li>
@@ -283,16 +284,35 @@ ul.task-list li input[type="checkbox"] {
 <p>Use Rstudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.7</span></a>) and ‘Gander: Rstudio friendly alternative to copilot’ (<a href="#sec-gander" class="quarto-xref"><span>Section 3.8</span></a>).</p>
 <p>Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>) then in Rstudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).</p>
 </section>
-<section id="python-users" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="python-users"><span class="header-section-number">3.2.3</span> Python users</h3>
+<section id="option-3-for-r-users-positron-assistant" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="option-3-for-r-users-positron-assistant"><span class="header-section-number">3.2.3</span> Option 3 for R users: Positron assistant</h3>
+<p><a href="https://positron.posit.co/">Positron</a> is a new IDE from Posit (the creators of RStudio) that is designed for data science. It includes a built-in <a href="https://positron.posit.co/assistant.html">AI assistant</a> that can help you with coding tasks.</p>
+<p>Positron is very similar to VScode, in fact the editor was originally a copy of VScode’s source code. It is designed for R and Python, so for some people it may be easier to set-up than VScode.</p>
+<p>I’ve put it as option 3 for now as it is still on version 0.xxx (as of 2025-10-10), so there are still likely to be many changes to this software.</p>
+<p>Positron’s assistant provides similar functionality to GitHub Copilot, including:</p>
+<ul>
+<li>Code completion and suggestions</li>
+<li>Natural language to code generation</li>
+<li>Code explanation and documentation</li>
+</ul>
+<p>To use Positron with its AI assistant:</p>
+<ol type="1">
+<li>Download and install Positron from https://positron.posit.co/</li>
+<li>Follow the instructions in the <a href="https://positron.posit.co/assistant.html">Positron assistant documentation</a> to set up the AI assistant</li>
+<li>You’ll need to configure your AI providers.</li>
+</ol>
+<p>As of writing (2025-10-10) it supports Github Copilot for code completion and chat and Anthropic for chat. So your providers are more limited than other options here.</p>
+</section>
+<section id="python-users" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="python-users"><span class="header-section-number">3.2.4</span> Python users</h3>
 <p>I’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.</p>
 <p>You will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for <a href="https://code.visualstudio.com/docs/python/python-tutorial">Python set-up</a>.</p>
 <p>Then follow the instructions for ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.6</span></a>).</p>
 <p>I also recommend you get an API key with OpenRouter (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>).</p>
 <p>You don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.</p>
 </section>
-<section id="options-3" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="options-3"><span class="header-section-number">3.2.4</span> Options 3 +</h3>
+<section id="options-4" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="options-4"><span class="header-section-number">3.2.5</span> Options 4 +</h3>
 <p>There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See <a href="#sec-otheroptions" class="quarto-xref"><span>Section 3.9</span></a>.</p>
 <p>As a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.</p>
 </section>
@@ -357,6 +377,12 @@ ul.task-list li input[type="checkbox"] {
 <td>R users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.</td>
 <td>- Possibly a bit easier to set-up R than with VScode<br>- Pros and cons are same as VScode with Roo Code or Cline</td>
 <td>- New software<br>- Limited features and support</td>
+</tr>
+<tr class="even">
+<td>Positron Assistant</td>
+<td>R users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.</td>
+<td>- Possibly a bit easier to set-up R than with VScode<br>- Pros R friendly developer. Cons on version 0 so software will likely change</td>
+<td>- New software<br>- Limited features to date</td>
 </tr>
 </tbody>
 </table>
@@ -938,13 +964,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-introduction.html" class="pagination-link" aria-label="Introduction to LLMs for R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span>
+      <a href="./02-introduction.html" class="pagination-link" aria-label="Introduction to LLMs for coding">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for coding</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-llm-prompting-fundamentals.html" class="pagination-link" aria-label="LLM prompting fundamentals">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-llm-from-api.html" class="pagination-link" aria-label="Calling LLMs via an Application Programming Interface">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

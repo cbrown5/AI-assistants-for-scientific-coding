@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Github copilot for R – AI assistants for Scientific Coding</title>
+<title>5&nbsp; Github copilot for R – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07-advanced-llm-agents.html" rel="next">
-<link href="./05-research-applications-LLMs.html" rel="prev">
+<link href="./06-general-prompting-advice.html" rel="next">
+<link href="./04-llm-from-api.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-github-copilot.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-github-copilot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for coding</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -161,44 +161,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-llm-prompting-fundamentals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span></a>
+  <a href="./04-llm-from-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
+  <a href="./05-github-copilot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-github-copilot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
+  <a href="./06-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
+  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
+  <a href="./09-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project set-up for AI agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
+  <a href="./10-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -235,48 +235,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-to-do-if-you-are-not-using-r-with-vscode" id="toc-what-to-do-if-you-are-not-using-r-with-vscode" class="nav-link active" data-scroll-target="#what-to-do-if-you-are-not-using-r-with-vscode"><span class="header-section-number">6.1</span> What to do if you are not using R with VScode</a></li>
-  <li><a href="#inline-code-editing" id="toc-inline-code-editing" class="nav-link" data-scroll-target="#inline-code-editing"><span class="header-section-number">6.2</span> Inline code editing</a>
+  <li><a href="#what-to-do-if-you-are-not-using-r-with-vscode" id="toc-what-to-do-if-you-are-not-using-r-with-vscode" class="nav-link active" data-scroll-target="#what-to-do-if-you-are-not-using-r-with-vscode"><span class="header-section-number">5.1</span> What to do if you are not using R with VScode</a></li>
+  <li><a href="#inline-code-editing" id="toc-inline-code-editing" class="nav-link" data-scroll-target="#inline-code-editing"><span class="header-section-number">5.2</span> Inline code editing</a>
   <ul class="collapse">
-  <li><a href="#code-completion" id="toc-code-completion" class="nav-link" data-scroll-target="#code-completion"><span class="header-section-number">6.2.1</span> 1. Code completion</a></li>
-  <li><a href="#using-comments" id="toc-using-comments" class="nav-link" data-scroll-target="#using-comments"><span class="header-section-number">6.2.2</span> 2. Using comments</a></li>
-  <li><a href="#code-completion-settings" id="toc-code-completion-settings" class="nav-link" data-scroll-target="#code-completion-settings"><span class="header-section-number">6.2.3</span> 3. Code completion settings</a></li>
-  <li><a href="#inline-code-generation" id="toc-inline-code-generation" class="nav-link" data-scroll-target="#inline-code-generation"><span class="header-section-number">6.2.4</span> 4. Inline code generation</a></li>
+  <li><a href="#code-completion" id="toc-code-completion" class="nav-link" data-scroll-target="#code-completion"><span class="header-section-number">5.2.1</span> 1. Code completion</a></li>
+  <li><a href="#using-comments" id="toc-using-comments" class="nav-link" data-scroll-target="#using-comments"><span class="header-section-number">5.2.2</span> 2. Using comments</a></li>
+  <li><a href="#code-completion-settings" id="toc-code-completion-settings" class="nav-link" data-scroll-target="#code-completion-settings"><span class="header-section-number">5.2.3</span> 3. Code completion settings</a></li>
+  <li><a href="#inline-code-generation" id="toc-inline-code-generation" class="nav-link" data-scroll-target="#inline-code-generation"><span class="header-section-number">5.2.4</span> 4. Inline code generation</a></li>
   </ul></li>
-  <li><a href="#ask-mode" id="toc-ask-mode" class="nav-link" data-scroll-target="#ask-mode"><span class="header-section-number">6.3</span> Ask mode</a>
+  <li><a href="#ask-mode" id="toc-ask-mode" class="nav-link" data-scroll-target="#ask-mode"><span class="header-section-number">5.3</span> Ask mode</a>
   <ul class="collapse">
-  <li><a href="#improving-our-initial-prompt-by-attaching-data" id="toc-improving-our-initial-prompt-by-attaching-data" class="nav-link" data-scroll-target="#improving-our-initial-prompt-by-attaching-data"><span class="header-section-number">6.3.1</span> Improving our initial prompt by attaching data</a></li>
-  <li><a href="#improving-our-initial-prompt-by-attaching-domain-knowledge" id="toc-improving-our-initial-prompt-by-attaching-domain-knowledge" class="nav-link" data-scroll-target="#improving-our-initial-prompt-by-attaching-domain-knowledge"><span class="header-section-number">6.3.2</span> Improving our initial prompt by attaching domain knowledge</a></li>
-  <li><a href="#planning-implementation" id="toc-planning-implementation" class="nav-link" data-scroll-target="#planning-implementation"><span class="header-section-number">6.3.3</span> Planning implementation</a></li>
+  <li><a href="#improving-our-initial-prompt-by-attaching-data" id="toc-improving-our-initial-prompt-by-attaching-data" class="nav-link" data-scroll-target="#improving-our-initial-prompt-by-attaching-data"><span class="header-section-number">5.3.1</span> Improving our initial prompt by attaching data</a></li>
+  <li><a href="#improving-our-initial-prompt-by-attaching-domain-knowledge" id="toc-improving-our-initial-prompt-by-attaching-domain-knowledge" class="nav-link" data-scroll-target="#improving-our-initial-prompt-by-attaching-domain-knowledge"><span class="header-section-number">5.3.2</span> Improving our initial prompt by attaching domain knowledge</a></li>
+  <li><a href="#planning-implementation" id="toc-planning-implementation" class="nav-link" data-scroll-target="#planning-implementation"><span class="header-section-number">5.3.3</span> Planning implementation</a></li>
   </ul></li>
-  <li><a href="#edit-mode-creating-code-from-text" id="toc-edit-mode-creating-code-from-text" class="nav-link" data-scroll-target="#edit-mode-creating-code-from-text"><span class="header-section-number">6.4</span> Edit mode: Creating code from text</a>
+  <li><a href="#edit-mode-creating-code-from-text" id="toc-edit-mode-creating-code-from-text" class="nav-link" data-scroll-target="#edit-mode-creating-code-from-text"><span class="header-section-number">5.4</span> Edit mode: Creating code from text</a>
   <ul class="collapse">
-  <li><a href="#adding-documentation-with-edit-mode" id="toc-adding-documentation-with-edit-mode" class="nav-link" data-scroll-target="#adding-documentation-with-edit-mode"><span class="header-section-number">6.4.1</span> Adding documentation with edit mode</a></li>
-  <li><a href="#workflows-and-tips-for-edit-mode" id="toc-workflows-and-tips-for-edit-mode" class="nav-link" data-scroll-target="#workflows-and-tips-for-edit-mode"><span class="header-section-number">6.4.2</span> Workflows and tips for edit mode</a></li>
+  <li><a href="#adding-documentation-with-edit-mode" id="toc-adding-documentation-with-edit-mode" class="nav-link" data-scroll-target="#adding-documentation-with-edit-mode"><span class="header-section-number">5.4.1</span> Adding documentation with edit mode</a></li>
+  <li><a href="#workflows-and-tips-for-edit-mode" id="toc-workflows-and-tips-for-edit-mode" class="nav-link" data-scroll-target="#workflows-and-tips-for-edit-mode"><span class="header-section-number">5.4.2</span> Workflows and tips for edit mode</a></li>
   </ul></li>
-  <li><a href="#agent-mode-automated-workflows" id="toc-agent-mode-automated-workflows" class="nav-link" data-scroll-target="#agent-mode-automated-workflows"><span class="header-section-number">6.5</span> Agent mode: Automated workflows</a>
+  <li><a href="#agent-mode-automated-workflows" id="toc-agent-mode-automated-workflows" class="nav-link" data-scroll-target="#agent-mode-automated-workflows"><span class="header-section-number">5.5</span> Agent mode: Automated workflows</a>
   <ul class="collapse">
-  <li><a href="#exploring-agent-mode" id="toc-exploring-agent-mode" class="nav-link" data-scroll-target="#exploring-agent-mode"><span class="header-section-number">6.5.1</span> Exploring agent mode</a></li>
-  <li><a href="#writing-up-the-project" id="toc-writing-up-the-project" class="nav-link" data-scroll-target="#writing-up-the-project"><span class="header-section-number">6.5.2</span> Writing up the project?</a></li>
-  <li><a href="#agent-mode-errors" id="toc-agent-mode-errors" class="nav-link" data-scroll-target="#agent-mode-errors"><span class="header-section-number">6.5.3</span> Agent mode errors</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.5.4</span> Summary</a></li>
+  <li><a href="#exploring-agent-mode" id="toc-exploring-agent-mode" class="nav-link" data-scroll-target="#exploring-agent-mode"><span class="header-section-number">5.5.1</span> Exploring agent mode</a></li>
+  <li><a href="#writing-up-the-project" id="toc-writing-up-the-project" class="nav-link" data-scroll-target="#writing-up-the-project"><span class="header-section-number">5.5.2</span> Writing up the project?</a></li>
+  <li><a href="#agent-mode-errors" id="toc-agent-mode-errors" class="nav-link" data-scroll-target="#agent-mode-errors"><span class="header-section-number">5.5.3</span> Agent mode errors</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.5.4</span> Summary</a></li>
   </ul></li>
-  <li><a href="#llm-choice" id="toc-llm-choice" class="nav-link" data-scroll-target="#llm-choice"><span class="header-section-number">6.6</span> LLM choice</a>
+  <li><a href="#llm-choice" id="toc-llm-choice" class="nav-link" data-scroll-target="#llm-choice"><span class="header-section-number">5.6</span> LLM choice</a>
   <ul class="collapse">
-  <li><a href="#bring-your-own-api-key-byok" id="toc-bring-your-own-api-key-byok" class="nav-link" data-scroll-target="#bring-your-own-api-key-byok"><span class="header-section-number">6.6.1</span> Bring Your Own API Key (BYOK)</a></li>
+  <li><a href="#bring-your-own-api-key-byok" id="toc-bring-your-own-api-key-byok" class="nav-link" data-scroll-target="#bring-your-own-api-key-byok"><span class="header-section-number">5.6.1</span> Bring Your Own API Key (BYOK)</a></li>
   </ul></li>
-  <li><a href="#tools-and-mcp" id="toc-tools-and-mcp" class="nav-link" data-scroll-target="#tools-and-mcp"><span class="header-section-number">6.7</span> Tools and MCP</a></li>
-  <li><a href="#other-options" id="toc-other-options" class="nav-link" data-scroll-target="#other-options"><span class="header-section-number">6.8</span> Other options</a>
+  <li><a href="#tools-and-mcp" id="toc-tools-and-mcp" class="nav-link" data-scroll-target="#tools-and-mcp"><span class="header-section-number">5.7</span> Tools and MCP</a></li>
+  <li><a href="#other-options" id="toc-other-options" class="nav-link" data-scroll-target="#other-options"><span class="header-section-number">5.8</span> Other options</a>
   <ul class="collapse">
-  <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">6.8.1</span> Indexing</a></li>
-  <li><a href="#configure-code-completions" id="toc-configure-code-completions" class="nav-link" data-scroll-target="#configure-code-completions"><span class="header-section-number">6.8.2</span> Configure code completions</a></li>
-  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">6.8.3</span> Next edit suggestions</a></li>
-  <li><a href="#premium-requests-bar" id="toc-premium-requests-bar" class="nav-link" data-scroll-target="#premium-requests-bar"><span class="header-section-number">6.8.4</span> Premium requests bar</a></li>
+  <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing"><span class="header-section-number">5.8.1</span> Indexing</a></li>
+  <li><a href="#configure-code-completions" id="toc-configure-code-completions" class="nav-link" data-scroll-target="#configure-code-completions"><span class="header-section-number">5.8.2</span> Configure code completions</a></li>
+  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">5.8.3</span> Next edit suggestions</a></li>
+  <li><a href="#premium-requests-bar" id="toc-premium-requests-bar" class="nav-link" data-scroll-target="#premium-requests-bar"><span class="header-section-number">5.8.4</span> Premium requests bar</a></li>
   </ul></li>
-  <li><a href="#customizing-github-copilot-mode-and-instructions" id="toc-customizing-github-copilot-mode-and-instructions" class="nav-link" data-scroll-target="#customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.9</span> Customizing Github Copilot mode and instructions</a>
+  <li><a href="#customizing-github-copilot-mode-and-instructions" id="toc-customizing-github-copilot-mode-and-instructions" class="nav-link" data-scroll-target="#customizing-github-copilot-mode-and-instructions"><span class="header-section-number">5.9</span> Customizing Github Copilot mode and instructions</a>
   <ul class="collapse">
-  <li><a href="#custom-modes" id="toc-custom-modes" class="nav-link" data-scroll-target="#custom-modes"><span class="header-section-number">6.9.1</span> Custom modes</a></li>
-  <li><a href="#custom-intstructions" id="toc-custom-intstructions" class="nav-link" data-scroll-target="#custom-intstructions"><span class="header-section-number">6.9.2</span> Custom intstructions</a></li>
+  <li><a href="#custom-modes" id="toc-custom-modes" class="nav-link" data-scroll-target="#custom-modes"><span class="header-section-number">5.9.1</span> Custom modes</a></li>
+  <li><a href="#custom-intstructions" id="toc-custom-intstructions" class="nav-link" data-scroll-target="#custom-intstructions"><span class="header-section-number">5.9.2</span> Custom intstructions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-githubcopilot-chapter" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></h1>
+<h1 class="title"><span id="sec-githubcopilot-chapter" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></h1>
 </div>
 
 
@@ -305,12 +305,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>I’ll show you how you can most effectively use github copilot to plan, code and write up your data analysis and modelling.</p>
 <p><strong>Software requirements:</strong> VScode with R or Python and github copilot license + extension for VScode (comes built in to VScode).</p>
+<p>Many of the tools described below are also implemented a similar way in the Positron Assistant. So you can follow along with that software if you prefer.</p>
 <p>Github Copilot calls itself an ‘AI programming assistant’ or an ‘AI pair programmer’. I’ll refer to it as an ‘LLM coding assistant’ or just ‘Assistant’.</p>
 <p>Assistants add a layer of software between you and the LLM. The software is doing some hidden interpretation of what you want to do, as well as trying to save costs. For instance, for most assistants we often don’t get to control (or even see) the system message, the temperature or the number of output tokens. The assistant is also guessing context to include in the prompt, so it can automatically give the LLM more context. At the same time it is managing the LLM’s context window and trying to save on costs.</p>
 <p>There is no generic name for this type of software (the field is moving to fast to have standardized names). So I’ll refer to them Assistants. In this bucket I’ll also put chatGPT, Claude, Roo Code, Cline and others. Note that Github Copilot (which I’ll call copilot for short) is different to the ‘Copilot’ assistant that is on the web and in the Teams app.</p>
 <p>This software is also called ‘chatbots’, however, I prefer assistants as the tasks they can do are much broader than just chatting.</p>
 <div class="tip">
-<p><strong>Tip:</strong> You’ll get the most of out Github Copilot if you use Visual Studio Code as your development environment (rather than RStudio). Setting up VScode with R can be a bit fiddly, check out my my installation instructions (Chapter 3) if you have trouble. Web searching advice is also a good idea if you are stuck. Its worth the effort.</p>
+<p><strong>Tip:</strong> You’ll get the most of out Github Copilot if you use Visual Studio Code as your development environment (rather than RStudio). Setting up VScode with R can be a bit fiddly, check out my my installation instructions <a href="./03-set-up.html">(Chapter 3)</a> if you have trouble. Web searching advice is also a good idea if you are stuck. Its worth the effort.</p>
 </div>
 <p>Copilot It is developing rapidly, so it is quite likely that when you read this there will be changes and new features.</p>
 <p>In this section I’ll focus on showing the main ways you can use copilot. Just be aware the implementation may change in future.</p>
@@ -323,17 +324,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Edit mode</li>
 <li>Agent mode</li>
 </ul>
-<section id="what-to-do-if-you-are-not-using-r-with-vscode" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="what-to-do-if-you-are-not-using-r-with-vscode"><span class="header-section-number">6.1</span> What to do if you are not using R with VScode</h2>
+<section id="what-to-do-if-you-are-not-using-r-with-vscode" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="what-to-do-if-you-are-not-using-r-with-vscode"><span class="header-section-number">5.1</span> What to do if you are not using R with VScode</h2>
 <p>If you are using Python in VScode, then just use the same dataset I have below, but write in a .py script. Copilot can help you if you get stuck with anything.</p>
-<p>If you are using R in Rstudio. You can enable copilot with inline completions from Rstudio (if you have github copilot account). See Chapter 3, Option 2 for how to do that.</p>
+<p>If you are using R in Rstudio. You can enable copilot with inline completions from Rstudio (if you have github copilot account). See <a href="./03-set-up.html">Chapter 3</a>, Option 2 for how to do that.</p>
 <p>Once we get to the Inline Code Generation section you can use gander as described in Chapter 3.</p>
 </section>
-<section id="inline-code-editing" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="inline-code-editing"><span class="header-section-number">6.2</span> Inline code editing</h2>
+<section id="inline-code-editing" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="inline-code-editing"><span class="header-section-number">5.2</span> Inline code editing</h2>
 <p>This chapter explores techniques for using GitHub Copilot’s inline code editing capabilities to enhance your R programming workflow.</p>
-<section id="code-completion" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="code-completion"><span class="header-section-number">6.2.1</span> 1. Code completion</h3>
+<section id="code-completion" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="code-completion"><span class="header-section-number">5.2.1</span> 1. Code completion</h3>
 <p>This is the only option supported in Rstudio (last time I checked).</p>
 <p>Assuming you have github copilot set-up you just need to start a new R script (remember to keep it organized and give it a useful name) and start typing. You’ll see suggested code completions appear in grey. Hit <code>tab</code> to complete them.</p>
 <p>Let’s read in the benthic site data and fish counts:</p>
@@ -353,8 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Tip:</strong> Sometimes GC gets stuck in a loop and keeps recommending the same line. To break it out of the loop try typing something new.</p>
 </div>
 </section>
-<section id="using-comments" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="using-comments"><span class="header-section-number">6.2.2</span> 2. Using comments</h3>
+<section id="using-comments" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="using-comments"><span class="header-section-number">5.2.2</span> 2. Using comments</h3>
 <p>The code completion is using your script and all open scripts in VScode to predict your next line of code. It won’t know the variable names unless you’ve provided that. One way is to include them in the readme.md file and have that open, another is to use comments in the active script (which tends to work more reliably), e.g.</p>
 <pre><code># Make a point plot of secchi against pres.topa
 gg...</code></pre>
@@ -382,28 +383,28 @@ gg...</code></pre>
     #summarize pres.topa and CB_cover</code></pre>
 <p>If the variable names are documented above you can ofter be lazier and less precise with variable names here.</p>
 </section>
-<section id="code-completion-settings" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="code-completion-settings"><span class="header-section-number">6.2.3</span> 3. Code completion settings</h3>
+<section id="code-completion-settings" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="code-completion-settings"><span class="header-section-number">5.2.3</span> 3. Code completion settings</h3>
 <p>Click the octocat in the bottom right corner of VScode to fine-tune the settings. You can enable/disable code completions (sometimes they are annoying e.g.&nbsp;when writing a workshop!).</p>
 <p>You can also enable ‘next edit suggestions’. These are useful if editing an exisiting file. e.g.&nbsp;if you misspelt ‘sechi’ then updated it in one place, it will suggest updates through the script. Hit tab to move through these.</p>
 <p>The box will also tell you if indexing is available. Indexing allows AI to search your code faster.</p>
 </section>
-<section id="inline-code-generation" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="inline-code-generation"><span class="header-section-number">6.2.4</span> 4. Inline code generation</h3>
+<section id="inline-code-generation" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="inline-code-generation"><span class="header-section-number">5.2.4</span> 4. Inline code generation</h3>
 <p>In VScode you can also access an inline chat box with cmd/cntrl-i. This chat can chat as well as edit code.</p>
 <p>You can click anywhere and active this. I find it most useful though to select a section of code and then hit cmd/cntrl-i.</p>
 <p>This is most useful to - Add new code - Explain code - Fix bugs - Add tests</p>
 <p>Try select some of your code (e.g.&nbsp;a ggplot) and ask it to explain what the code does.</p>
 <p>Now try select one of your plots and ask for some style changes (e.g.&nbsp;theme, colours, axes label sizes etc…).</p>
 <p>Now add a bug into one of your plots. See if the inline chatbox can fix the bug.</p>
-<section id="prompt-shortcuts" class="level4" data-number="6.2.4.1">
-<h4 data-number="6.2.4.1" class="anchored" data-anchor-id="prompt-shortcuts"><span class="header-section-number">6.2.4.1</span> Prompt shortcuts</h4>
+<section id="prompt-shortcuts" class="level4" data-number="5.2.4.1">
+<h4 data-number="5.2.4.1" class="anchored" data-anchor-id="prompt-shortcuts"><span class="header-section-number">5.2.4.1</span> Prompt shortcuts</h4>
 <p>Use the <code>/</code> to bring up a list of prompt shortcuts. The most useful in R are <code>/explain</code>, <code>/fix</code>, <code>/tests</code>. Try select some code then use these to see what happens.</p>
 </section>
 </section>
 </section>
-<section id="ask-mode" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="ask-mode"><span class="header-section-number">6.3</span> Ask mode</h2>
+<section id="ask-mode" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="ask-mode"><span class="header-section-number">5.3</span> Ask mode</h2>
 <p>Ask mode is a chatbot that has access to context from your active project. It is great to help you plan analysis and implementation, using context from your project. It is also handy to help explain code.</p>
 <p>In VScode click the ‘octocat’ symbol that should be at the top towards the right. This will open the chat window.</p>
 <p>The chat panel will appear down the bottom of this new sidebar. Confirm that the chatbot is currently set to ‘Ask’ mode.</p>
@@ -411,8 +412,8 @@ gg...</code></pre>
 <p>Start by asking the chatbot for guidance on a statistical analysis. We are interested in how the abundance of Topa relates to coral cover. For instance you could ask:</p>
 <pre><code>How can I test the relationship between pres.topa and CB_cover?</code></pre>
 <p>Evaluate the quality of its response and we will discuss.</p>
-<section id="improving-our-initial-prompt-by-attaching-data" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-data"><span class="header-section-number">6.3.1</span> Improving our initial prompt by attaching data</h3>
+<section id="improving-our-initial-prompt-by-attaching-data" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-data"><span class="header-section-number">5.3.1</span> Improving our initial prompt by attaching data</h3>
 <p>Recall our initial prompt was:</p>
 <pre><code>How can I statistically test the relationship between pres.topa and CB_cover?</code></pre>
 <p>Try some of the strategies above (make a new prompt by clicking the + button) and compare the quality of advice.</p>
@@ -423,8 +424,8 @@ gg...</code></pre>
 <p>Then drag and drop it into the ask window and add something like:</p>
 <pre><code>How can I statistically test the relationship between pres.topa and CB_cover? Here are the first 6 rows of data</code></pre>
 </section>
-<section id="improving-our-initial-prompt-by-attaching-domain-knowledge" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-domain-knowledge"><span class="header-section-number">6.3.2</span> Improving our initial prompt by attaching domain knowledge</h3>
+<section id="improving-our-initial-prompt-by-attaching-domain-knowledge" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="improving-our-initial-prompt-by-attaching-domain-knowledge"><span class="header-section-number">5.3.2</span> Improving our initial prompt by attaching domain knowledge</h3>
 <p>You can further improve the response by attaching a trusted resource. e.g.&nbsp;<a href="https://environmentalcomputing.net/statistics/glms/glm-2/">save this webpage on count models for ecology</a> to your computer. Then you can attach the html file.</p>
 <p>However, html files are full of code as well as the text we want. It can be more efficient for the LLM if you convert the html to markdown. Here’s a handy browser operated tool that will convert an arbitrary webpage to markdown:</p>
 <p>https://tools.simonwillison.net/jina-reader</p>
@@ -436,8 +437,8 @@ gg...</code></pre>
 <p>And it gave me a nice summary suggesting to try overdispersion models first (which is a good suggestion).</p>
 <p>The absolute best practice would be to give the assistant all the context for your study and observational design. Let’s see how doing that can work in our favour when planning implementation.</p>
 </section>
-<section id="planning-implementation" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="planning-implementation"><span class="header-section-number">6.3.3</span> Planning implementation</h3>
+<section id="planning-implementation" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="planning-implementation"><span class="header-section-number">5.3.3</span> Planning implementation</h3>
 <p>Another way to use Ask mode is for help in implementing an analysis. Many of our workflows are complex and involve multiple data wrangling steps.</p>
 <p>To get the best out of GC I recommend creating a detailed README.md file with project context. Let’s try that and use it to plan our project.</p>
 <p>Save the <a href="https://github.com/cbrown5/R-llm-workshop/tree/main/resources/benthic-analysis">README.md that his here to a local file</a>. (Remember that we are going to be using this as a prompt, so read it first).</p>
@@ -450,8 +451,8 @@ gg...</code></pre>
 <p>Let’s move onto edit mode to see how to put this plan to action.</p>
 </section>
 </section>
-<section id="edit-mode-creating-code-from-text" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="edit-mode-creating-code-from-text"><span class="header-section-number">6.4</span> Edit mode: Creating code from text</h2>
+<section id="edit-mode-creating-code-from-text" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="edit-mode-creating-code-from-text"><span class="header-section-number">5.4</span> Edit mode: Creating code from text</h2>
 <p>Edit mode will edit files for you. The best way to learn how is to just see it in action.</p>
 <p>Open the Chat panel and click the ‘Ask’ button, then select ‘Edit’.</p>
 <p>Now go back to your R file with the plots in it. In edit mode suggest a new plot such as:</p>
@@ -460,23 +461,23 @@ gg...</code></pre>
 <p><strong>Tip:</strong> Sometimes you can’t go back once copilot has made edits to a file. So its good practice to use git and commmit changes before and after editing.</p>
 </div>
 <p>Try creating some other plots or analyses using edit mode.</p>
-<section id="adding-documentation-with-edit-mode" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="adding-documentation-with-edit-mode"><span class="header-section-number">6.4.1</span> Adding documentation with edit mode</h3>
+<section id="adding-documentation-with-edit-mode" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="adding-documentation-with-edit-mode"><span class="header-section-number">5.4.1</span> Adding documentation with edit mode</h3>
 <p>Edit mode can write text as well as code. It can be handy to use for documentation for instance.</p>
 <p>Open the README.md. Then type this prompt:</p>
 <pre><code>Document what this script does in the readme. </code></pre>
 <p>Drag and drop your script into the chat window as well.</p>
 <p>Click ‘Keep’ if you like what it did. Or you can suggest improvements. Alternatively, accept it for now and then edit it afterwards.</p>
 <p>Another way to use edit mode is for translation. Try getting it to translate part of your code into another programming language, or part of your text into another language (Spanish and French are the best options at the moment).</p>
-<section id="why-so-much-code" class="level4" data-number="6.4.1.1">
-<h4 data-number="6.4.1.1" class="anchored" data-anchor-id="why-so-much-code"><span class="header-section-number">6.4.1.1</span> Why so much code?</h4>
+<section id="why-so-much-code" class="level4" data-number="5.4.1.1">
+<h4 data-number="5.4.1.1" class="anchored" data-anchor-id="why-so-much-code"><span class="header-section-number">5.4.1.1</span> Why so much code?</h4>
 <p>Copilot is designed as a programming assistant. We don’t know its system message, but given the main market for this software is professional programmers, we can guess it has a strong emphasis on programming robust code.</p>
 <p>You might notice that copilot tend to ‘over-engineer’ your R scripts. For instance, it has a tendancy to make an <code>if</code> statement to check if each new package needs installing, before loading it.</p>
 <p>If you don’t like this style you can add a statement to the readme asking it to keep implementation simple.</p>
 </section>
 </section>
-<section id="workflows-and-tips-for-edit-mode" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="workflows-and-tips-for-edit-mode"><span class="header-section-number">6.4.2</span> Workflows and tips for edit mode</h3>
+<section id="workflows-and-tips-for-edit-mode" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="workflows-and-tips-for-edit-mode"><span class="header-section-number">5.4.2</span> Workflows and tips for edit mode</h3>
 <p>Remember its an assistant, its not doing the project for you. So you need to make sure it stays on track. Left unattended (if you just accept, accept, accept without reading) it can go down rabbit holes. Sometimes it creates superfluous analyses or even incorret statistics.</p>
 <p>So here’s how I recommend you use it:</p>
 <ul>
@@ -486,16 +487,16 @@ gg...</code></pre>
 </ul>
 </section>
 </section>
-<section id="agent-mode-automated-workflows" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="agent-mode-automated-workflows"><span class="header-section-number">6.5</span> Agent mode: Automated workflows</h2>
+<section id="agent-mode-automated-workflows" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="agent-mode-automated-workflows"><span class="header-section-number">5.5</span> Agent mode: Automated workflows</h2>
 <p>Agents are LLMs that have tools that allow them to work autonomously. In effect they review the results of tool use (such as writing code and running code), then respond to those results.</p>
 <p>In Copilot’s chat window you can set it to ‘Agent’ mode to enable these features.</p>
 <p>After each tool use copilot will ask you to confirm the changes and the next action. At that point you can review its changes, make edits, or continue chatting to suggest refinements.</p>
 <p><img src="https://code.visualstudio.com/assets/blogs/2025/02/24/diagram.png" class="img-fluid"></p>
 <p><strong>Image:</strong> Agent mode from https://code.visualstudio.com</p>
 <p>Agent mode has access to the terminal, so it will be using the terminal application to run scripts it creates. We’ll demonstrate in class so you can understand what its doing.</p>
-<section id="exploring-agent-mode" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="exploring-agent-mode"><span class="header-section-number">6.5.1</span> Exploring agent mode</h3>
+<section id="exploring-agent-mode" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="exploring-agent-mode"><span class="header-section-number">5.5.1</span> Exploring agent mode</h3>
 <p>Let’s explore Agent mode’s features through some analysis.</p>
 <p>Switch the Modes to agent mode. Make sure you have the <a href="https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md">readme file</a> in your project directory. This has all the context our agent will need.</p>
 <p>It will help if you have the readme file open when you run the agent, so open that file now (then it will refer to that file first).</p>
@@ -510,19 +511,19 @@ gg...</code></pre>
 <pre><code>Arrr matey, I be wantin' to run a regression of pres.topa on cb_cover. Hoist all the scripts I need for this voyage, and chart the plots of the predicted relationship between these variables!</code></pre>
 <p>(Ok so that last prompt definitely doesn’t follow the guidelines of being super clear, but I was bored and it seemed to work ok)</p>
 </section>
-<section id="writing-up-the-project" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="writing-up-the-project"><span class="header-section-number">6.5.2</span> Writing up the project?</h3>
+<section id="writing-up-the-project" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="writing-up-the-project"><span class="header-section-number">5.5.2</span> Writing up the project?</h3>
 <p>You can keep going from here if you like and get agent mode to write up the results it found as an Rmd file. It will use the tables it generates to (hopefully) make accurate interpretations. Copilot Pro also has vision capabilities. This means it will be able to interpret the figures it creates as well. We’ll see that in action when we look at Roo Code in a bit.</p>
 <p>If you do that, as always, don’t take anything for granted. Make sure you check everything and understand the results yourself.</p>
 </section>
-<section id="agent-mode-errors" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="agent-mode-errors"><span class="header-section-number">6.5.3</span> Agent mode errors</h3>
+<section id="agent-mode-errors" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="agent-mode-errors"><span class="header-section-number">5.5.3</span> Agent mode errors</h3>
 <p>Agent mode will try to debug its errors, but can get stuck in a loop sometimes.</p>
 <p>One common error is that it will try to run <code>Rscript</code> from the terminal in order to run full R scripts. But not everyone’s computer is set-up with an <code>Rscript</code> command. To do this you will need to web search how to put <code>Rscript</code> on your PATH (which means it can be found from the terminal). How you do this depends on your computer.</p>
 <p>This is an advanced IT set-up feature that I won’t cover here, but for one tip see the custom instructions section below.</p>
 </section>
-<section id="summary" class="level3" data-number="6.5.4">
-<h3 data-number="6.5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.5.4</span> Summary</h3>
+<section id="summary" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.5.4</span> Summary</h3>
 <p>Agent mode can really accelerate your workflow development. But there are some risks. It can also go off track or write excessive amounts of code (over-engineering). Best practices for using Agent mode include:</p>
 <ul>
 <li>Separate science questions (what stats) from implementation stats (what code)</li>
@@ -534,8 +535,8 @@ gg...</code></pre>
 </ul>
 </section>
 </section>
-<section id="llm-choice" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="llm-choice"><span class="header-section-number">6.6</span> LLM choice</h2>
+<section id="llm-choice" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="llm-choice"><span class="header-section-number">5.6</span> LLM choice</h2>
 <p>Github copilot let’s you choose different LLMs. What you can see will depend on what type of plan you have. Some LLMs have a limited number of ‘Premium Requests’ per month (again depending on your account tier) (e.g.&nbsp;at time of writing Pro accounts got 300 premium requests per month.)</p>
 <p>Click the Model choice menu to see what’s available (bottom of chat window, probably says ‘GPT-4.1’ right now).</p>
 <p>The <code>0x</code> means you get unlimited requests, whereas a <code>1x</code> means it will use one full premium request.</p>
@@ -545,52 +546,52 @@ gg...</code></pre>
 <p>In general I’ve found the Claude Sonnet models are the best for R code and most reliable for tool use (e.g.&nbsp;Edit or Agent mode).</p>
 <p>GPT 4.1 is also pretty good, but in my experience there is a higher rate of errors. For instance, in Edit and Agent mode reasonably often it will delete text or code you wanted to keep (so keep an eye on what its doing). GPT 4.1 also tends to be a bit ‘lazier’ than Sonnet 4.0 in that it will tend to explain what to do, rather than explaning and implementing the suggestion.</p>
 <p>Play around with the same prompt, but different models, so you can compare performance.</p>
-<section id="bring-your-own-api-key-byok" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="bring-your-own-api-key-byok"><span class="header-section-number">6.6.1</span> Bring Your Own API Key (BYOK)</h3>
+<section id="bring-your-own-api-key-byok" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="bring-your-own-api-key-byok"><span class="header-section-number">5.6.1</span> Bring Your Own API Key (BYOK)</h3>
 <p>You can add your own API key to github copilot. This lets you access other models on a pay per use basis. To add an API key click the model menu then select ‘Manage models’ and follow instructions.</p>
 <p>You will also need an OpenAI API key if you want to use vision, that is, attach images as context.</p>
 </section>
 </section>
-<section id="tools-and-mcp" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="tools-and-mcp"><span class="header-section-number">6.7</span> Tools and MCP</h2>
+<section id="tools-and-mcp" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="tools-and-mcp"><span class="header-section-number">5.7</span> Tools and MCP</h2>
 <p>Advanced users may want to install Model Context Protocol Servers or tools. These are accessible via the cog in the chat window.</p>
 <p>I won’t cover tools and MCP in detail in this course. But these give Github Copilot additional abilites, such as web searching, or access to specific online databases or reference manuals (e.g.&nbsp;for code styles).</p>
 <p>There are some security concerns to consider if using tools, see later chapters on this topic.</p>
 </section>
-<section id="other-options" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="other-options"><span class="header-section-number">6.8</span> Other options</h2>
+<section id="other-options" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="other-options"><span class="header-section-number">5.8</span> Other options</h2>
 <p>Github Copilot is a complex software and I recommend browsing the docs for a comprehensive guide. But there are a few other key features.</p>
 <p>All of these are found by clicking the octocat on the bottom right of your VScode window.</p>
-<section id="indexing" class="level3" data-number="6.8.1">
-<h3 data-number="6.8.1" class="anchored" data-anchor-id="indexing"><span class="header-section-number">6.8.1</span> Indexing</h3>
+<section id="indexing" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="indexing"><span class="header-section-number">5.8.1</span> Indexing</h3>
 <p>First, it will automatically index the scripts and documents in your active directory. This means a version is created that the AI agent can quickly search. This speeds up recommendations and makes them more accurate.</p>
 <p>However, indexing may also be a data privacy concern. While your index shouldn’t be shared with anyone else, it does mean that as soon as you open VSCode github copilot is reading some of the files (hard to tell exactly what) to create its index in the cloud.</p>
 <p>To turn this off click the octocat and find the option for indexing to disable it.</p>
 </section>
-<section id="configure-code-completions" class="level3" data-number="6.8.2">
-<h3 data-number="6.8.2" class="anchored" data-anchor-id="configure-code-completions"><span class="header-section-number">6.8.2</span> Configure code completions</h3>
+<section id="configure-code-completions" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="configure-code-completions"><span class="header-section-number">5.8.2</span> Configure code completions</h3>
 <p>You can enable/disable code completions for a certain file type or all file types. Sometimes they get in the way or are distracting, like when you are writing qmd documents.</p>
 </section>
-<section id="next-edit-suggestions" class="level3" data-number="6.8.3">
-<h3 data-number="6.8.3" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">6.8.3</span> Next edit suggestions</h3>
+<section id="next-edit-suggestions" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">5.8.3</span> Next edit suggestions</h3>
 <p>This option is turned off by default. If turned on it will suggest changes anywhere in your document, rather than just at the cursor. For instance, if you update a variable name at the top, it will find and suggest updating all instances of that variable name. You use tab to scroll through the different ‘next edit’ suggestions when it makes those.</p>
 </section>
-<section id="premium-requests-bar" class="level3" data-number="6.8.4">
-<h3 data-number="6.8.4" class="anchored" data-anchor-id="premium-requests-bar"><span class="header-section-number">6.8.4</span> Premium requests bar</h3>
+<section id="premium-requests-bar" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="premium-requests-bar"><span class="header-section-number">5.8.4</span> Premium requests bar</h3>
 <p>This menu is also where you find how many premium requests you’ve used in this month.</p>
 </section>
 </section>
-<section id="customizing-github-copilot-mode-and-instructions" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="customizing-github-copilot-mode-and-instructions"><span class="header-section-number">6.9</span> Customizing Github Copilot mode and instructions</h2>
+<section id="customizing-github-copilot-mode-and-instructions" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="customizing-github-copilot-mode-and-instructions"><span class="header-section-number">5.9</span> Customizing Github Copilot mode and instructions</h2>
 <p>There’s a lot of customization options in copilot now. To see some of these, open the chat window and click the cog symbol. Then pick one of the options below</p>
-<section id="custom-modes" class="level3" data-number="6.9.1">
-<h3 data-number="6.9.1" class="anchored" data-anchor-id="custom-modes"><span class="header-section-number">6.9.1</span> Custom modes</h3>
+<section id="custom-modes" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="custom-modes"><span class="header-section-number">5.9.1</span> Custom modes</h3>
 <p>After the cog click ‘Modes’, then a pop-up will appear at the top of your VScode window. Click the plus to create a new mode. Follow the prompts. Try paste in our text from the <a href="https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md">stats bot from before</a>.</p>
 <p>Once that is saved in the .github directory (so only local to this project) you can click the Modes selector (bottom left of chat window, might say ‘Ask’, ‘Edit’ or ‘Agent’) and choose your new mode. Try having a conversation with it.</p>
 <p>You can also give custom modes access to tools, so they can edit or act like agents. If you’re an advanced user you might want to play around with these options to make modes for different tasks (like data exploration).</p>
 </section>
-<section id="custom-intstructions" class="level3" data-number="6.9.2">
-<h3 data-number="6.9.2" class="anchored" data-anchor-id="custom-intstructions"><span class="header-section-number">6.9.2</span> Custom intstructions</h3>
+<section id="custom-intstructions" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="custom-intstructions"><span class="header-section-number">5.9.2</span> Custom intstructions</h3>
 <p>For heavy Agent users you may want to set-up custom instructions. These are just instructions attached to every prompt you run in this project. To create these press the cog button again, click ‘Instructions’ and follow the steps to create a new instruction as we did above for the modes.</p>
 <p>Some ideas: you could set preference for ggplot2 or a specific coding style.</p>
 <p>You can also add instructions to tell the agent how to use Rscript to avoid terminal errors <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot">See here for instructions</a>. One way around Rscript related errors is to find the path to the Rscript executable on your computer (e.g.&nbsp;Rscript.exe on windows) and then create a custom instruction that says something like:</p>
@@ -1024,13 +1025,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05-research-applications-LLMs.html" class="pagination-link" aria-label="Research applications of LLMs">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span>
+      <a href="./04-llm-from-api.html" class="pagination-link" aria-label="Calling LLMs via an Application Programming Interface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-advanced-llm-agents.html" class="pagination-link" aria-label="Advanced LLM agents">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-general-prompting-advice.html" class="pagination-link" aria-label="General principles for effective use of LLMs and AI assistants">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

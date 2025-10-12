@@ -1,4 +1,4 @@
-# Introduction to LLMs for R
+# Introduction to LLMs for coding
 
 [Slides from the workshop presentation (on a google drive)](https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&ouid=107596646496267980935&rtpof=true&sd=true)
 

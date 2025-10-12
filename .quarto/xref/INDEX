@@ -85,5 +85,20 @@
   },
   "14-appendix.qmd": {
     "14-appendix.html": "79611937"
+  },
+  "04-llm-from-api.qmd": {
+    "04-llm-from-api.html": "3531faab"
+  },
+  "05-github-copilot.qmd": {
+    "05-github-copilot.html": "ee406718"
+  },
+  "06-general-prompting-advice.qmd": {
+    "06-general-prompting-advice.html": "acb0165a"
+  },
+  "09-specification-sheets.qmd": {
+    "09-specification-sheets.html": "8088a4d2"
+  },
+  "10-research-applications-LLMs.qmd": {
+    "10-research-applications-LLMs.html": "6a31d6d1"
   }
 }

@@ -1,6 +1,9 @@
 # Research applications of LLMs
 
-## Automating literature reviews
+Below we'll look at two applications. The first is calling LLMs programmatically to automate quantitative literature reviews @sec-lit-reviews. The second is using the API to access special web search features of some LLMs in @sec-websearch
+
+
+## Automating literature reviews {#sec-lit-reviews}
 Now let's see if we can use `ellmer` to clean up some text from a pdf and summarize it. `ellmer` has some handy functions for processing pdfs to text, so they can then be fed into prompts.  
 
 I'm going to attempt to summarize my [recent paper on turtle fishing](https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.13056). 
@@ -82,7 +85,7 @@ In this case the sample size its given us is the estimated number of turtles cau
 
 You should also experiment with models, I used Claude haiku because its cheap, but Claude sonnet would probably be more accurate. 
 
-## Batch processing prompts
+### Batch processing prompts
 
 Let's try this with a batch of papers (here I'll just use two). For this example I'll just use
 two abstracts, which I've obtained as plain text. The first is from [another study on turtle catch
@@ -147,13 +150,13 @@ Unfortunately, with required = FALSE it still hallucinated answers. I then tried
 
 I think this could work, but some work on the prompts would be needed. 
 
-### Reflections 
+#### Reflections 
 
-#### Cost uncertainty
+##### Cost uncertainty
 
 This should be cheap. It cost &lt;1c to make this post with all the testing. So in theory you could do 100s of methods sections for &lt;100USD. However, if you are testing back and forwards a lot or using full papers the cost could add up. It will be hard to estimate this until people get more experience.
 
-#### Obtaining the papers and dealing with unstructued text in PDFs or HTML
+##### Obtaining the papers and dealing with unstructued text in PDFs or HTML
 
 A big challenge will be getting the text into a format that the LLM can use. Then there are issues like obtaining the text. Downloading pdfs is time consuming and data intensive. Trying to read text data from webpages can also be hard, due to paywalls and rate limits (you might get blocked for making reqeat requests).
 
@@ -165,15 +168,15 @@ The ellmer pdf utility function seems to work ok for getting text from pdfs. I'm
 
 Some other handy tools I use are from AI researcher Simon Willison, who made a [PDF reader that runs in your browser](https://tools.simonwillison.net/jina-reader) and [Jina reader](https://tools.simonwillison.net/jina-reader) for extracting plain text from URLs. Both of these run in your browser, so no data is uploaded to any servers. 
 
-#### Prompting
+##### Prompting
 
 Need to experiment with this to get it right. It might also be good to repeat prompt the same text to triangulate accurate results.
 
-#### Validation
+##### Validation
 
 You'll definitely want to manually check the output and report accuracy statistics in your study. So maybe your review has 1000 papers, you'll want to manually check 100 of them to see how accurate the LLM was.
 
-#### You'll still need to read a lot of papers to write a good lit review
+##### You'll still need to read a lot of papers to write a good lit review
 
 A lit review is more than the systematic data. I still believe you need to read a lot of papers in order to understand the literature and make a useful synthesis. If you just use AI you're vulnerable to the [‘illusion of understanding'](https://www.nature.com/articles/s41586-024-07146-0).
 
@@ -186,7 +189,7 @@ Another good use case would be to extract model types from species distribution 
 Harder tasks will be where the papers are from diverse disciplines, or use inconsistent terminology, or methods. My study was a good example of that, there were about 5 different sample sizes reported. So in this example we'd need first to think clearly about what sample size you wanted to extract before writing the prompt.
 
 
-## Deep research {#sec-deepresearch}
+## Deep research {#sec-websearch}
 
 As of writing ellmer gives you incomplete input parameters and responses if you are using Open Router's API. One gap is that it doesn't properly handle requests and responses to web search enabled LLMs. That's a shame, because Open Router lets you access and experiment with a broad range of web search LLMs. 
 

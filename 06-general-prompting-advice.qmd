@@ -22,7 +22,9 @@ What statistical problems might I run into if I want to build a statistical mode
 
 There's many examples available of how LLMs can reason effectively if they are encouraged to work through a problem step-by-step, whereas they guess (some would say hallucinate) the answer if just asked the question straight up. 
 
-Here's a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but [when fish are in high densities the algorithms can overcount the number of fish](TODO add ref). 
+There are many structured prompting strategies that work by splitting a problem into smaller parts [@chen_unleashing_2025]. We won't cover these here, they are most beneficial if you are writing code that talks to LLMs programmatically, to iteratively solve a problem ([more on that later](08-advanced-llm-agents.qmd)). But we can learn from the principle general principle of breaking a problem into parts. 
+
+Here's a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but when fish are in high densities the algorithms can overcount the number of fish [@connolly_improved_2021]. 
 
 Let's see if the LLM can figure out the logic of adjusting for the overcounting bias. 
 

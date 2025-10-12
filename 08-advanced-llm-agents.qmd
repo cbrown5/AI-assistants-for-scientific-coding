@@ -2,6 +2,10 @@
 
 There are many LLM agent software programs available and more emerging all the time. Here I'll cover a couple. Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). This means they can autonomously complete a task that you set up for them. 
 
+Here's a comparison for how a statistical workflow might look if using inline code editing and Edit features with github copilot, versuss using an agent. 
+
+![](resources/AI-agent-workflows.png)
+
 The default for most agents is to request permission before running tools. This is safer because there are security concerns (they can write and run code) and they can also make mistakes. So you might want to review each decision the agent proposes (at they work very fast, so you will be the bottleneck in the process). 
 
 My current workflow is to use a mix of Github Copilot's editing features and agents (Roo Code or Github Copilot). I usually start a project with writing a detailed prompt, markdown file or readme file that explains what I want to do. Then I get the Agent to scaffold it and make a first attempt at the code. 
@@ -82,7 +86,7 @@ You 'BYOK' ('bring your own key') with Roo Code, meaning you provide the API key
 
 Roo code is more complex and expensive to use than Copilot (you are paying per token and it uses a lot of tokens), but allows significant amounts of customization to make bespoke agents that can help with the scientific process. 
 
-Some of the customization optoins include: 
+Some of the customization options include: 
 
 - API access
 - Model options

@@ -1,6 +1,6 @@
-# Best practice project setup
+# Project set-up for AI agents
 
-This chapter focuses on establishing a project structure and workflow that can get the most out of your LLM assistants.  
+This chapter focuses on establishing a project structure and workflow that can get the most out of using AI agents. 
 
 ## Project organization
 
@@ -100,7 +100,7 @@ my-project/
 
 ## Example data 
 
-For the next few chapters we'll work with some ecological data on benthic marine habitats and fish. 
+For this chapter we'll work with some ecological data on benthic marine habitats and fish. 
 
 ### Case-study: Bumphead parrotfish, 'Topa' in Solomon Islands
 

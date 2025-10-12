@@ -71,7 +71,7 @@ I also recommend you get an API key with OpenRouter (@sec-apikeys).
 
 You don't need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages. 
 
-### Options 3 + 
+### Options 4 + 
 
 There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See @sec-otheroptions. 
 
@@ -90,6 +90,7 @@ Here are some of the software options I've looked at. Or if you've picked your o
 | VSCode with Roo Code     | Experienced programmers who want to fully automate coding workflows      | - Fully automated agents<br>- Multiple modes for different behaviours, e.g. architect versus code<br>- Orchestrate mode that can delegate to sub-agents and complete very complex tasks<br>- BYO API key<br>- System messages fully customizable for advanced scientific applications of agents<br>- One of the best performing and most popular agents | - VSCode can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing 'as you type' like copilot<br>- Not suitable for novice programmers |
 | VSCode with Cline         | Same as Roo Code. The user base for Cline is slightly larger. | - Fully automated agents<br>- Multiple modes for different behaviours<br>- BYO API key<br>- System messages customizable<br>- Large user base | - Less options for customizing the system prompt compared to Roo Code<br>- Not suitable for novice programmers |
 | Positron with Roo Code or Cline | R users who don't want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio. | - Possibly a bit easier to set-up R than with VScode<br>- Pros and cons are same as VScode with Roo Code or Cline | - New software<br>- Limited features and support |
+| Positron Assistant | R users who don't want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio. | - Possibly a bit easier to set-up R than with VScode<br>- Pros R friendly developer. Cons on version 0 so software will likely change | - New software<br>- Limited features to date |
 
 There are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Claude code, Cursor and Windsurf. I haven't tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio. 
 

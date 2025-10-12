@@ -10,13 +10,13 @@ book:
     - index.qmd
     - 02-introduction.qmd
     - 03-set-up.qmd
-    - 04-llm-prompting-fundamentals.qmd
-    - 05-research-applications-LLMs.qmd
-    - 06-github-copilot.qmd
-    - 07-advanced-llm-agents.qmd
-    - 08-general-prompting-advice.qmd
-    - 09-ai-powered-analysis-workflows.qmd
-    - 10-specification-sheets.qmd
+    - 04-llm-from-api.qmd
+    - 05-github-copilot.qmd
+    - 06-general-prompting-advice.qmd
+    - 07-ai-powered-analysis-workflows.qmd
+    - 08-advanced-llm-agents.qmd
+    - 09-specification-sheets.qmd
+    - 10-research-applications-LLMs.qmd
     - 11-writing-documents.qmd
     - 12-cost-security.qmd
     - 13-ethics-copyright.qmd

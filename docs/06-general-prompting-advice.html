@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Advanced LLM agents – AI assistants for Scientific Coding</title>
+<title>6&nbsp; General principles for effective use of LLMs and AI assistants – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./08-general-prompting-advice.html" rel="next">
-<link href="./06-github-copilot.html" rel="prev">
+<link href="./07-ai-powered-analysis-workflows.html" rel="next">
+<link href="./05-github-copilot.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-advanced-llm-agents.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-general-prompting-advice.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to LLMs for coding</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,44 +147,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-llm-prompting-fundamentals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">LLM prompting fundamentals</span></span></a>
+  <a href="./04-llm-from-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calling LLMs via an Application Programming Interface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
+  <a href="./05-github-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-github-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span></a>
+  <a href="./06-general-prompting-advice.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-advanced-llm-agents.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
+  <a href="./07-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-general-prompting-advice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span></a>
+  <a href="./08-advanced-llm-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-ai-powered-analysis-workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span></a>
+  <a href="./09-specification-sheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Project set-up for AI agents</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Best practice project setup</span></span></a>
+  <a href="./10-research-applications-LLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research applications of LLMs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -201,11 +221,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#software-options" id="toc-software-options" class="nav-link active" data-scroll-target="#software-options"><span class="header-section-number">7.1</span> Software options</a>
-  <ul class="collapse">
-  <li><a href="#roo-code" id="toc-roo-code" class="nav-link" data-scroll-target="#roo-code"><span class="header-section-number">7.1.1</span> Roo code</a></li>
-  </ul></li>
-  <li><a href="#github-copilot-cli" id="toc-github-copilot-cli" class="nav-link" data-scroll-target="#github-copilot-cli"><span class="header-section-number">7.2</span> Github Copilot CLI</a></li>
+  <li><a href="#break-your-problem-down-into-smaller-parts" id="toc-break-your-problem-down-into-smaller-parts" class="nav-link active" data-scroll-target="#break-your-problem-down-into-smaller-parts"><span class="header-section-number">6.1</span> Break your problem down into smaller parts</a></li>
+  <li><a href="#be-clear-specific-and-give-lots-of-details" id="toc-be-clear-specific-and-give-lots-of-details" class="nav-link" data-scroll-target="#be-clear-specific-and-give-lots-of-details"><span class="header-section-number">6.2</span> Be clear, specific and give lots of details</a></li>
+  <li><a href="#put-everything-up-front-rather-than-engaging-in-conversation" id="toc-put-everything-up-front-rather-than-engaging-in-conversation" class="nav-link" data-scroll-target="#put-everything-up-front-rather-than-engaging-in-conversation"><span class="header-section-number">6.3</span> Put everything up front, rather than engaging in conversation</a></li>
+  <li><a href="#overall-advice-over-explain-what-you-want-and-say-it-all-up-front" id="toc-overall-advice-over-explain-what-you-want-and-say-it-all-up-front" class="nav-link" data-scroll-target="#overall-advice-over-explain-what-you-want-and-say-it-all-up-front"><span class="header-section-number">6.4</span> Overall advice: Over-explain what you want and say it all up front</a></li>
   </ul>
 </nav>
     </div>
@@ -214,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Advanced LLM agents</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></h1>
 </div>
 
 
@@ -231,87 +250,233 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>There are many LLM agent software programs available and more emerging all the time. Here I’ll cover a couple. Agents <a href="https://simonwillison.net/2025/Sep/18/agents/">run tools in a loop</a>. This means they can autonomously complete a task that you set up for them.</p>
-<p>The default for most agents is to request permission before running tools. This is safer because there are security concerns (they can write and run code) and they can also make mistakes. So you might want to review each decision the agent proposes (at they work very fast, so you will be the bottleneck in the process).</p>
-<p>My current workflow is to use a mix of Github Copilot’s editing features and agents (Roo Code or Github Copilot). I usually start a project with writing a detailed prompt, markdown file or readme file that explains what I want to do. Then I get the Agent to scaffold it and make a first attempt at the code.</p>
-<p>You should keep your readme updated for continued agent use, to keep the agent on topic. If there’s out of date or inappropriate context in the readme (such as mentioning an R package you don’t want to use), you’ll find the agent defaults back to using the wrong tools.</p>
-<p>Then it’s often a process of iteration. Don’t be afraid to delete everything an Agent has done and start again. I often find for R that it implements overally complex code. So I’m often starting again with clearer commands for how to write the R code.</p>
-<p>You can also just accept every suggestion without reading it, also called ‘vibe coding’. However, I don’t recommend doing that, especially when you are starting out. You need to get a feel of how much direction it needs and problems it might create. Without human intervention the algorithms have a tendency to go off task:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="07-advanced-llm-agents_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<blockquote class="blockquote">
+<p>Take all your problems and rip ’em apart<br>
+Carry them off in a shopping cart<br>
+Another thing you should’ve known from the start<br>
+The problems in hand are lighter than at heart…<br>
+And another thing you have to know in this world<br>
+Cut up your hair, straighten your curls<br>
+Well, your problems hide in your curls</p>
+</blockquote>
+<p><em>Little Acorns by The White Stripes</em></p>
+<p>If you have a curly problem you need to break it into small parts. And let’s be honest, most real data analysis problems are curly problems.</p>
+<p><strong>Breaking your problems into small parts</strong> is my number one piece of advice for any interaction you have with LLMs and AI assistants.</p>
+<p>Number two <strong>is being clear and specific</strong>. Let’s look at how these apply in the context of data analysis</p>
+<section id="break-your-problem-down-into-smaller-parts" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="break-your-problem-down-into-smaller-parts"><span class="header-section-number">6.1</span> Break your problem down into smaller parts</h2>
+<p>What statistical problems might I run into if I want to build a statistical model that predicts fish abundance from coral cover?</p>
+<p>There’s many examples available of how LLMs can reason effectively if they are encouraged to work through a problem step-by-step, whereas they guess (some would say hallucinate) the answer if just asked the question straight up.</p>
+<p>There are many structured prompting strategies that work by splitting a problem into smaller parts <span class="citation" data-cites="chen_unleashing_2025">(<a href="#ref-chen_unleashing_2025" role="doc-biblioref"><strong>chen_unleashing_2025?</strong></a>)</span>. We won’t cover these here, they are most beneficial if you are writing code that talks to LLMs programmatically, to iteratively solve a problem (<a href="./08-advanced-llm-agents.html">more on that later</a>). But we can learn from the principle general principle of breaking a problem into parts.</p>
+<p>Here’s a stats motivated example for you to try. Underwater cameras and deep learning image analysis are used to count fish on surveys, but when fish are in high densities the algorithms can overcount the number of fish <span class="citation" data-cites="connolly_improved_2021">(<a href="#ref-connolly_improved_2021" role="doc-biblioref">Connolly et al. 2021</a>)</span>.</p>
+<p>Let’s see if the LLM can figure out the logic of adjusting for the overcounting bias.</p>
+<p>Straight-up question:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%?</p>
 </div>
-<section id="software-options" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="software-options"><span class="header-section-number">7.1</span> Software options</h2>
-<p>We’ve already seen the Github Copilot interactive agent. Below we’ll look at two other options: Roo Code and Github Copilot CLI (which can be run programmatically).</p>
-<p>There are also a number of agents available that run in R. I haven’t mentioned them here (yet) as they are very early stage. But check out this <a href="https://luisdva.github.io/llmsr-book/index.html">resource</a> for an up-to-date overview.</p>
-<section id="roo-code" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="roo-code"><span class="header-section-number">7.1.1</span> Roo code</h3>
-<p><a href="https://docs.roocode.com/">Roo Code</a> is an LLM agent that you can run from a VSCode or Positron extension. I like this one because of its customization options, such as allowing you to create your own modes and fully modify the system prompt.</p>
-<p>You ‘BYOK’ (‘bring your own key’) with Roo Code, meaning you provide the API key for LLM access. It then uses that key to make requests on your behalf.</p>
-<p>Roo code is more complex and expensive to use than Copilot (you are paying per token and it uses a lot of tokens), but allows significant amounts of customization to make bespoke agents that can help with the scientific process.</p>
-<p>Some of the customization optoins include:</p>
-<ul>
-<li>API access</li>
-<li>Model options</li>
-<li>Customizing system message</li>
-<li>Context window management</li>
-<li>Cost</li>
-<li>Vision capabilities</li>
-</ul>
+</div>
+<p>The correct reasoning is: <code>2.5*5.5 = 13.75</code> predicted fish. Then we adjust for the overcounting bias: <code>13.75^(1/1.1) = 10.83</code> which is the true number.</p>
+<p>Options for breaking it down into parts</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? Use chain-of-thought reasoning to answer</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think like the White Stripes in their song Little Acorns to solve this problem: Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%?</p>
+</div>
+</div>
+<p>If you have an option for a ‘thinking’ or ‘reasoning’ model available, try the first prompt again, but use a reasoning model. These use a different computation process that does more reasoning.</p>
+<p>I tested this with Sonnet and GPT 4.1 models in copilot ask mode. Without the step-by-step instruction they sometimes got it write and sometimes got it wrong. Often the wrong answers were because they applied the bias in the wrong direction (ie <code>13.75^1.1</code>). With a thinking model it got it correct more often.</p>
 </section>
+<section id="be-clear-specific-and-give-lots-of-details" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="be-clear-specific-and-give-lots-of-details"><span class="header-section-number">6.2</span> Be clear, specific and give lots of details</h2>
+<p>There’s a trade-off between spending mental energy on writing a prompt and writing a prompt that gets you an accurate answer from the LLM. In general our brains are trying to minimize the amount of writing we do, so we don’t write enough or write clearly enough to get good performance out of the LLM.</p>
+<p>Some commentators have noted that the over-use of the term ‘hallucination’. You often find if you ask the same question again, but with clearer language and more details you’ll get an accurate answer. So is an inaccurate answer really a hallucination (making something up) or is it just the LLM answering based on insufficient information?</p>
+<p>Let’s look at a couple of examples.</p>
+<p>Clear your script of any plotting code and variable names (if using VScode) and try getting a GC to create a plot of two variables in our dataframe. Try this prompt, you can add it as a comment to use inline code completions, just ask it in ‘ask mode’ (or equivalent) or bring up the inline chat window (cmd/cntrl-i)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot branching coral cover against distance to logponds.</p>
+</div>
+</div>
+<p>Did the code work without human intervention? Without the context the AI won’t know the variable names. A better prompt would reference the variable names:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot cb_cover against dist_to_logging_km</p>
+</div>
+</div>
+<p>or even better</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make a geom_point with cb_cover on the y-axis and dist_to_logging_km on the x-axis</p>
+</div>
+</div>
+<p>Now let’s try a more complex example. If we wan’t to get advice on models for analyzing how the number of fish relates to coral cover we could ask:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How could I test the relationship between coral cover and fish?</p>
+</div>
+</div>
+<p>(If trying this in Ask mode make sure you have no data or scripts attached, which may add the extra context it needs).</p>
+<p>Sometimes if you do the above the LLM won’t even realize you are asking for a statistical ‘test’ and may give you an answer for computer programming tests.</p>
+<p>Slight better:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How could I test if there is a statistically significant relationship between coral cover and fish?</p>
+</div>
+</div>
+<p>But our data are count data, so the statistically best-practice answer would be a response that specifically accounts for the fact that fish are abundance counts.</p>
+<p>Even better would be to be specific about the data types:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site?</p>
+</div>
+</div>
+<p>Try each of these a few times and tally up how often you get a good recommendation for each prompt style. Make sure you start a new chat window each time. I would consider a good recommendation one that appropriately models the count data, e.g.&nbsp;a poisson or negative binomial GLM. Coral cover is the predictor variable so we don’t need to do any special transforms on that (sometimes the LLMs will recommend you transform it also).</p>
+<p>Note that if you are using a chat interface, rather than API calls, your interface may have a ‘memory’ which means each new prompt is not independent of previous prompts. Check the documents for your software to be sure and turn off memory if possible. If using VSCode you can open a new window from the ‘File’ menu and then open the GC chat directly without opening a project folder (so it has no context).</p>
+<p>We could make this prompt even better if we prompt to consider issues that may arise:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How could I test if there is a statistically significant relationship between coral cover and juvenile fish. Fish abundance is my response variable. Fish abundance was measured by counting fish on surveys of standard length at 50 different sites. Coral cover was measured as percent cover at each site? Reason step-by-step and identify any statistical issues that may arise with this analysis.</p>
+</div>
+</div>
 </section>
-<section id="github-copilot-cli" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="github-copilot-cli"><span class="header-section-number">7.2</span> Github Copilot CLI</h2>
-<p><a href="https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli">Github Copilot CLI (Command Line Interface)</a> recently became available. It is an AI agent, meaning it can use tools autonomously in a loop.</p>
-<p>The advantages of this one over Roo Code are a monthly subscription fee rather than API fees (note its not available in free copilot licenses) and ability to run it programmatically. Downsides are that it is not as customizable.</p>
-<p>It has two modes:</p>
+<section id="put-everything-up-front-rather-than-engaging-in-conversation" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="put-everything-up-front-rather-than-engaging-in-conversation"><span class="header-section-number">6.3</span> Put everything up front, rather than engaging in conversation</h2>
+<p>LLMs perform better if you explain to them in detail what you want straight-up, rather than trying to engage in conversation. Tests show that answers are less accurate if you present the same question over multiple turns versus giving all the information up front.</p>
+<p>The problem with multi-turn conversation is what’s called ‘context poisoning’. If the LLM doesn’t have all the information it will still try to answer and it may answer wrongly (what some people inaccurately call hallucinations). Once that incorrect answer is in the context window (chat thread) it is hard to get the LLM to forget it. The best thing to do is start the chat thread over again and write a clearer prompt to start with.</p>
+<p>Try the above example again, but break it into parts and get the LLM to answer each part before progressing.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prompt
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>An interactive mode that is like a terminal version of the Copilot agent that runs in the chat window</p></li>
-<li><p>A programmatic mode that can be run with shell scripts.</p></li>
+<li>How could I test if there is a statistically significant relationship between coral cover and juvenile fish.</li>
+<li>Fish abundance is my response variable.</li>
+<li>Fish abundance was measured by counting fish on surveys of standard length at 50 different sites.</li>
+<li>Coral cover was measured as percent cover at each site</li>
 </ol>
-<p>The Copilot CLI is available with paid versions of github copilot.</p>
-<p>The programmatic mode allows you to write scripts that call github copilot agents. This means you could run replicate agents on the same problem, then gather there results for analysis.</p>
-<p><a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli">Once you’ve setup the copilot CLI</a>, its very easy to run it from R:</p>
-<pre><code>
-copilot_cmd &lt;- "copilot -p 'Set-up this project directory with a readme.md file, and directories for outputs, scripts, plots.' --allow-all-tools"
-
-system(copilot_cmd)
-</code></pre>
-<p>This will run the agent autonomously in the current working directory of your R session.</p>
-<p>Now I wouldn’t recommend using <code>--allow-all-tools</code> like this however. <a href="https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli#security-considerations">There are important security considerations</a>. Like prompt injection attacks where an Agent goes on the web and gets tricked into doing something bad to your computer when it reads some malicious content. Likewise, agents can just stuff up and just delete or overwrite a bunch of files you wanted to keep.</p>
-<p>You do need to allow some tools however, otherwise you might as well run the agent in interactive mode (because you’ll have to manually approve every tool use). This defeats the time-saving goal of running agents in a loop.</p>
-<p>Here’s my current set-up:</p>
-<p><code>copilot -p 'A prompt here' --allow-all-tools --deny-tool 'shell(cd)' --deny-tool 'shell(git)' --deny-tool 'shell(pwd)' --deny-tool 'fetch' --deny-tool 'extensions' --deny-tool 'websearch' --deny-tool 'githubRepo'"</code></p>
-<p>I allow all tools, then prevent tools related to changing working directory, accessing the web or viewing directory context.</p>
-<p>There is still some risk here. e.g., if you want it to run Rscripts you might want to include in your prompt something like ‘Use <code>Rscript my-script.R</code> to run R scripts from the terminal.’ The R scripts could include anything (including connecting to the web).</p>
-<p>Here’s an example in action. I use sprintf to format the terminal command with the prompt, tools and sub-directory path.</p>
-<pre><code>copilot_prompt &lt;- "Set-up this project directory with a readme.md file, and directories for outputs, scripts, plots. Then create example data to illustrate a poisson GLM. Make prediction plots. Use `Rscript 'my-script.R'` to run R files. "
-
-copilot_tools &lt;- "--allow-all-tools --deny-tool 'shell(cd)' --deny-tool 'shell(git)' --deny-tool 'shell(pwd)' --deny-tool 'fetch' --deny-tool 'extensions' --deny-tool 'websearch' --deny-tool 'githubRepo'"
-
-subdir_path &lt;- "dir1"
-
- copilot_cmd &lt;- sprintf(
-    "cd '%s' &amp;&amp; copilot -p '%s' %s",
-    subdir_path,
-    copilot_prompt,
-    copilot_tools
-  )
-
-system(copilot_cmd)
-</code></pre>
-<p>From here it would be easy to create a loop over different subdirectory paths, and run a separate agent in each one. The advantage of <code>cd</code>ing into each path before the agent opens is that the agent can’t then see context from other sub-directories. So you get independent agent runs.</p>
-<p>You could use this to see how different prompts perform, or do complex prompt strategies like ‘tree of thought’. In tree of thought you ask an agent to create the same thing many times, it will do it slightly differently each time. Then you aggregate the results and pick the most common or most accurate one.</p>
-<p>My one gripe is that Github have provided us with woeful documentation of what the tool names are. I’m guessing the tools are what you can see if you open the chat window, click ‘Agent’ mode, then click the tool symbol.</p>
-<p>I’d love to have some default tool sets that simplify the tool permissions. For instance a tool set that locks down all web access.</p>
+</div>
+</div>
+<p>Compare the final answers to the answer you got when you put all of that in one initial single prompt. Note any instances of context poisoning.</p>
+<p>The problem gets worse in bigger projects, because as you fill up more of the context window small problems can be harder to detect and eliminate from your context window. For example, an incorrect line of code in a superseded script make make it into copilot’s index may repeatedly haunt you until you get rid of it and the index is updated.</p>
+<p>And that’s another reason to use git to manage versions, rather than keeping multiple versions of the same script hanging around (haunting?) your project directory.</p>
+<p>Its ok to engage the assistant in conversation and use it as a problem solving partner if you’re not sure of how to do something. But you should be aiming to come up with a plan. Once you have the plan, then write a really good clear prompt to get the final advice.</p>
+</section>
+<section id="overall-advice-over-explain-what-you-want-and-say-it-all-up-front" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="overall-advice-over-explain-what-you-want-and-say-it-all-up-front"><span class="header-section-number">6.4</span> Overall advice: Over-explain what you want and say it all up front</h2>
+<p>Overall the above steps amount to: Over-explaining what you want and saying it all up front. This probably means more effort on your behalf than you were hoping.</p>
+<p>You can prompt an agent with a command like ‘Create an academic paper about fish and coral using this data’, but the answer won’t be very good and will be full of inaccuracies.</p>
+<p>If you were to write (optionally with AI assistance) detailed instructions on your project’s aims, the details of the data collection and the analysis you want to do, you could get a long way towards an accurate first draft of an academic paper. We’ll look at the idea of expanding prompts into specification sheets later on.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
+Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -737,13 +902,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06-github-copilot.html" class="pagination-link" aria-label="Github copilot for R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span>
+      <a href="./05-github-copilot.html" class="pagination-link" aria-label="Github copilot for R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github copilot for R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./08-general-prompting-advice.html" class="pagination-link" aria-label="General principles for effective use of LLMs and AI assistants">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">General principles for effective use of LLMs and AI assistants</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-ai-powered-analysis-workflows.html" class="pagination-link" aria-label="AI powered analysis workflows">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">AI powered analysis workflows</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
