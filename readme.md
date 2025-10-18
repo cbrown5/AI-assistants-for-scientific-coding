@@ -8,6 +8,8 @@
 
 Add 'fakedataR' package to the data privacy section, once I've investigated it
 
+Expond on costs, ethics, copyright and dataprivacy chapters. 
+
 ## Teaching plan
 
 Set-up and run an agent 'paper in a prompt. 

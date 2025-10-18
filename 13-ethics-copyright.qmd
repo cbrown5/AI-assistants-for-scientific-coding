@@ -24,7 +24,7 @@ I think the upshot is using it deliberatley and being careful not to replace you
 ## Sustainability
 
 Training LLMs costs millions of dollars, much of this cost is energy use. Further, the data centres for training and running LLMs need water for cooling. 
-Asking a finished LLM questions uses much less energy, but cumulatively across the globe it adds up to a lot. Here are a few informative statistics I found online:
+Asking a finished LLM questions uses much less energy, but cumulatively across the globe it adds up. Here are a few informative statistics I found online:
 
 From [Forbes](https://www.forbes.com/sites/cindygordon/2024/03/12/chatgpt-and-generative-ai-innovations-are-creating-sustainability-havoc/):
 
@@ -36,7 +36,9 @@ To put it in context I did some calculations on my personal usage. I estimate th
 
 To put that in context, flying the 1.5 hours from Halifax to Montreal is about 172kg of emissions, driving 15 minutes is about 3 kg. So I'm using approximately 10 less than a short flight, or the same as driving to work once. 1000L is equivalent to taking about 22 5-minute showers. 
 
-Of course, the carbon cost is global, whereas the water cost is localised (Probably to US data centres, so by using this resource I'm really just making the water problem worse for Americans. )
+Here's an [alterantive analysis](https://andymasley.substack.com/p/the-ai-water-issue-is-fake) of water use based on prompting chatGPT. That analysis finds LLM water use is minimal, especially when put in context of water use on Golf Courses! Note though that using LLMs for coding is a much heavier use that occaisonal questions to chatGPT. 
+
+Of course, the carbon cost is global, whereas the water cost is localised (Probably to US data centres). 
 
 So its not a huge increase in my personal energy use. But cumulatively across the globe it is a lot. 
 
