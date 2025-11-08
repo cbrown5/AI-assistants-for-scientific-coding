@@ -14,7 +14,7 @@ I will cover:
 
 The content I’ll teach is suitable for anyone using computing coding (e.g. R, Python) to do data analysis.  
 
-Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so participants can follow along in other languages if they prefer. 
+Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. 
 To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python). 
 
 ## Citation for book
@@ -25,12 +25,16 @@ Please consider citing my accompanying article if you are using the advice in th
 
 Generative AI software for coding is changing fast. So this book will keep changing as I update it to reflect new developments. It does not make sense to publish it as a fixed book. The general guidelines for prompting, which have a longer shelf-life are captured in the article. So please cite that to support my work. 
 
-#### Who should read this book?  
+## Who should read this book?  
 
 The book is for: anyone who currently uses R, from intermittent users to 
 experienced professionals. The workshop is not suitable for those that need an introduction to R and I'll assume students know at least what R does and are able to do tasks like read in data and create plots.
 
 Important This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first. 
+
+## Is the book up to date? 
+
+The large language model industry is changing rapidly. I'll periodically update this book to keep up with developments. I also recommend checking out [Large Language Model tools for R](https://luisdva.github.io/llmsr-book/before-start.html) by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs. 
 
 ## About Chris 
 

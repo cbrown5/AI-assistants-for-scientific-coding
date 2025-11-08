@@ -10,7 +10,9 @@ The default for most agents is to request permission before running tools. This 
 
 My current workflow is to use a mix of Github Copilot's editing features and agents (Roo Code or Github Copilot). I usually start a project with writing a detailed prompt, markdown file or readme file that explains what I want to do. Then I get the Agent to scaffold it and make a first attempt at the code. 
 
-You should keep your readme updated for continued agent use, to keep the agent on topic. If there's out of date or inappropriate context in the readme (such as mentioning an R package you don't want to use), you'll find the agent defaults back to using the wrong tools. 
+The ecosystem of [agents implemented in R](https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents) is also growing. These R agents run from R, allowing you to integrate them into your own code. 
+
+You should keep a markdown updated for continued agent use, to keep the agent on topic. You can use a `readme.md` for this purpose. A common standard is to use an `AGENTS.md` markdown, many agents are programmed to look for and use `AGENTS.md`. If there's out of date or inappropriate context in the readme (such as mentioning an R package you don't want to use), you'll find the agent defaults back to using the wrong tools. 
 
 Then it's often a process of iteration. Don't be afraid to delete everything an Agent has done and start again. I often find for R that it implements overally complex code. So I'm often starting again with clearer commands for how to write the R code. 
 
