@@ -1,4 +1,4 @@
-# Writing documents with Quarto and AI assistants
+# Authoring documents
 
 You can use quarto to write scientific papers. There are several reasons to use quarto rather than a word processor:
 

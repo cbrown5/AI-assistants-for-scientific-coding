@@ -1,4 +1,4 @@
-# Calling LLMs via an Application Programming Interface
+# Running LLMs from an API
 
 Calling LLMs programmatically via an API is powerful programming tool. 
 First of all, it lets us better control the LLM's responses than chat interface software (like chatGPT or copilot). Chat software manages our interactions, including adding additional context (potentially from our chat history). So it is harder to be sure exactly how the LLM is being prompted. With access via API we control exactly what goes to the LLM. 

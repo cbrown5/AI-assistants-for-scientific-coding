@@ -1,4 +1,4 @@
-# AI powered analysis workflows 
+# AI powered analysis 
 
 Now you are familiar with some of the software options, let's look at how to use these tools in AI powered analysis workflows and some best practice prompting guidelines. 
 

@@ -48,16 +48,16 @@ Save some time for setting up the software, there is a bit to it. You may also n
 
 Note the book is still under construction. Most sections are complete, but a few sections just have bullet points that I refer to when teaching the workshop. It's also a fast moving space, so the content needs constant updating. 
 
-- [Introduction — Introduction to LLMs for coding](02-introduction.qmd): Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.
-- [Set-up and tools](03-set-up.qmd): Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.
-- [Calling LLMs via an API](04-llm-from-api.qmd): Accessing LLMs programmatically from R or Python, prompt structure and examples.
-- [GitHub Copilot for R and coding assistants](05-github-copilot.qmd): How to use Copilot and other assistant features for planning, coding and editing.
-- [General prompting advice](06-general-prompting-advice.qmd): Best practices for effective prompts, problem decomposition and chain-of-thought techniques.
-- [AI-powered analysis workflows](07-ai-powered-analysis-workflows.qmd): Organising workflows, stages of analysis and worked examples using an example dataset.
-- [Advanced LLM agents](08-advanced-llm-agents.qmd): Agents, automation, safety considerations and example agent workflows.
-- [Project set-up for AI agents (Specification sheets)](09-specification-sheets.qmd): Templates and guidance for organising projects to work well with agents and assistants.
-- [Research applications of LLMs](10-research-applications-LLMs.qmd): Programmatic literature review, pdf processing, web-searching and other research-focused examples.
-- [Writing documents with Quarto and AI assistants](11-writing-documents.qmd): Workflows for writing papers, reproducible figures and integrating AI into Quarto.
+- [Introduction](02-introduction.qmd): Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.
+- [Set-up](03-set-up.qmd): Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.
+- [Running LLMs from an API](04-llm-from-api.qmd): Accessing LLMs programmatically from R or Python, prompt structure and examples.
+- [GitHub Copilot for R](05-github-copilot.qmd): How to use Copilot and other assistant features for planning, coding and editing.
+- [Prompting tactics](06-general-prompting-advice.qmd): Best practices for effective prompts, problem decomposition and chain-of-thought techniques.
+- [AI-powered analysis](07-ai-powered-analysis-workflows.qmd): Organising workflows, stages of analysis and worked examples using an example dataset.
+- [LLM agents](08-advanced-llm-agents.qmd): Agents, automation, safety considerations and example agent workflows.
+- [Set-up for agents (Specification sheets)](09-specification-sheets.qmd): Templates and guidance for organising projects to work well with agents and assistants.
+- [Literature reviews](10-research-applications-LLMs.qmd): Programmatic literature review, pdf processing, web-searching and other research-focused examples.
+- [Authoring documents](11-writing-documents.qmd): Workflows for writing papers, reproducible figures and integrating AI into Quarto.
 - [Cost and security](12-cost-security.qmd): Practical considerations on cost, API security and agent safety.
 - [Ethics and copyright](13-ethics-copyright.qmd): Environmental impacts, IP concerns and ethical responsibilities when using LLMs.
 - [Appendix — Code and data](14-appendix.qmd): Code snippets, data access links and supporting scripts used in the book.

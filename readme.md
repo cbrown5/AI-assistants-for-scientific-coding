@@ -41,3 +41,11 @@ Security
 Ethics and copyright
 
 Discussion about what it means for science 
+
+## Notes for next time 
+
+Works well having VScode and coding first. 
+Add some more case-studies
+e.g. make three creative figure ideas and prototype these
+Create three analyses and explore residual diagnostics. 
+Deep search 

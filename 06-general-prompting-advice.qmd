@@ -1,14 +1,4 @@
-# General principles for effective use of LLMs and AI assistants
-
-> Take all your problems and rip 'em apart  
-> Carry them off in a shopping cart  
-> Another thing you should've known from the start  
-> The problems in hand are lighter than at heart...  
-> And another thing you have to know in this world  
-> Cut up your hair, straighten your curls  
-> Well, your problems hide in your curls
-
-*Little Acorns by The White Stripes* 
+# Prompting tactics
 
 If you have a curly problem you need to break it into small parts. And let's be honest, most real data analysis problems are curly problems. 
 
@@ -46,10 +36,6 @@ Think step-by-step to solve this problem: I have a regression that finds snapper
 ::: {.callout-note title="Prompt"}
 I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
  Use chain-of-thought reasoning to answer
-:::
-
-::: {.callout-note title="Prompt"}
-Think like the White Stripes in their song Little Acorns to solve this problem: Think step-by-step to solve this problem: I have a regression that finds snapper abundance increases by an average of 2.5 fish per 10% increase in seagrass cover, with an intercept of zero. But the snapper count data were biased upwards at high density, with a power relationship that has an exponent of 1.1. What is the expected abundance at a seagrass cover of 55%? 
 :::
 
 If you have an option for a 'thinking' or 'reasoning' model available, try the first prompt again, but use a reasoning model. These use a different computation process that does more reasoning. 

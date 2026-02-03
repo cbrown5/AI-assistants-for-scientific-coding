@@ -1,18 +1,20 @@
 # Cost and security
 
-This chapter addresses important practical considerations when using LLMs for R programming:
+This chapter addresses important practical considerations when using LLMs for R programming. 
 
-## Cost considerations
+## Cost
 
-- Managers and lab heads need to consider cost and impact on research budget
-- e.g. Copilot subscription free for students
-- Tools like Roo Code can be more expensive (pay per use as using API). 
-- Still, many of the tasks they can do are less than a hiring a person to do that (though they definitely need expert human oversight)
-- e.g. I estimated that processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts)
-- There are strategies you can use for optimizing token usage if you really want to optimize costs
-- You will need to balance cost with capabilities. Cheaper models are often less proficent. 
+Costs for genAI use to support coding are relatively small for researchers at institutions in wealthy countries, when compared to other research costs, like hiring staff or open access publication fees. 
 
-AI companies are running at a loss and its quite likely that costs will go up in future. The aim right now is to get us all dependent on the technology, so that we have to keep paying in future (another reason I think its improtant our own countries develop these capaibilites, and that we also need to strive to be capable to work in AI free ways as well. )
+The costs could be more significant for students or researchers on a tight budget. 
+
+It is worth exploring different options to identify who is offering free credits or free accounts. For instance, as of writing a Github Copilot subscription free for students and teachers can also get a free license. 
+
+Agents like Roo Code can be more expensive than a monthly subscription, depending on how much you use them. They are pay per token, so expenses can rack up for heavy use. Likewise, literature search applications could cost $100s or $1000s of dollars if you are screening 1000s of papers. 
+
+For example, I estimated that processing 6000 abstracts to extract data for a lit review might cost about USD300 (including cost of developing prompts). 
+
+If you find you are using LLM agents heavily and your costs are racking up, then you could investigate chat forums for your agent application to learn about token optimisation. Alternatively, you could sign up for a monthly subscription based account, like Claude Code. 
 
 ## API security
 
@@ -20,15 +22,6 @@ AI companies are running at a loss and its quite likely that costs will go up in
 - Sanitizing inputs to remove sensitive information
 - Local vs. cloud-based LLM solutions
 - Auditing and monitoring LLM interactions
-
-
-## Agent security 
-
-- Can run code on your computer
-- Be careful what it is doing
-- Read prompts before running them 
-
-Note that malicious people can hide text in webpages and pdfs and other content you might be uploading as context, e.g. using white font or tiny font. The LLM will still see this text and may act on it. 
 
 ## Lethal trifecta for prompt injection attacks
 
@@ -40,6 +33,17 @@ Never allow the agent to do all these three things at the same time:
 
 The [Lethal Trifecta for prompt injection attacks](https://simonwillison.net/2025/Aug/9/bay-area-ai/) (coined by Simon Williamson) is access to private data, ability to communicate externally and exposure to untrusted content. 
 
-What can happen is that if your agent can read untrusted sources, those sources may contain malicious prompts. These prompts could convince the agent to do things like send or post your personal data to the hacker or create malicious code that runs on your computer. 
+If your agent can read untrusted sources, those sources may contain malicious prompts. These prompts could convince the agent to do things like send or post your personal data to the hacker or create malicious code that runs on your computer. 
 
-You want to be sure your agents can't do these three things at once. Remember sensitive data includes your name, username, phone number, email, API keys as well as sensitive research data. 
+It is deceptive how easy it is to cross the line into the lethal trifecta. For example, you could ask ChatGPT to create a blog post for you based on a web search. ChatGPT and other chat platforms often store access to your past chat history. Your chat history could contain personal information. Now you've ticked off two of conditions in the trifecta. 
+
+Now say that during that web search ChatGPT finds malicious instructions that tell it hide your personal data in the blog post, such as putting your passwords in the alt text for an image. Once you post that blog you've now got all three conditions of the trifecta. 
+
+Agents that run on your computer are a greater risk, because it is possible for them to meet all three conditions, most of the time. Any agent that can write code can write code to send messages via the web (that includes in R). Most agents can also change their working directory, so they could explore any files on your computer. Most agents now have web search capabilities. So the lethal trifecta is there. 
+
+In the future I hope that sandboxing will become more accessible. Sandboxes create an environment on your computer that constrains what files the agent can explore. But currently it requires a high level of technical sophistification to setup a sandbox. It may also be difficult to do if you have a university owned computer that is locked down for software setup. 
+
+Agents you run in VSCode at the moment are generally safe, but not 100% safe. Most have explicit instructions not to shift working directories. However, instructions to LLMs are more like guidelines. I have often noticed the Copilot agent trying to use `cd` in the terminal to change working directory. Its use of `cd` is innocent in my case, it just wants to set a better view of the project, but I still never allow that. 
+
+So for now watch what your agents are doing and be careful about what data they can easily access and what web sources or reference material they are reading. 
+

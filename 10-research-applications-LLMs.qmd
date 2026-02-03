@@ -1,4 +1,4 @@
-# Research applications of LLMs
+# Literature reviews with LLMs
 
 Below we'll look at two applications. The first is calling LLMs programmatically to automate quantitative literature reviews @sec-lit-reviews. The second is using the API to access special web search features of some LLMs in @sec-websearch
 

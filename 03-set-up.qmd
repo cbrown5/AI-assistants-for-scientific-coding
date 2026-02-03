@@ -1,4 +1,4 @@
-# Software you'll need for this book and how to set it up {#sec-setup}
+# Software set-up
 
 There's lots of options for AI coding assistant software. What you use will depend on:
 

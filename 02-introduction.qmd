@@ -1,4 +1,4 @@
-# Introduction to LLMs for coding
+# Introduction
 
 [Slides from the workshop presentation (on a google drive)](https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&ouid=107596646496267980935&rtpof=true&sd=true)
 
@@ -9,7 +9,7 @@ LLMs were created to write text. But it soon became apparent that they excel at 
 
 Since then AI companies have been optimising their training and development for coding and logic. 
 
-There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Current models get about [50% resolution on this benchmark](https://www.swebench.com/). 
+There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Frontier models can solve [>70% of tasks on this benchmark](https://www.swebench.com/). 
 
 Their progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) [are saturated as LLMs are scoring close to 100% on these tests.](https://epoch.ai/frontiermath/the-benchmark). So newer tests of unsolved maths problems are being developed. 
 

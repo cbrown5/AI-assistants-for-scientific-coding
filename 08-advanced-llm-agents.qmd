@@ -1,4 +1,4 @@
-# Advanced LLM agents
+# LLM agents
 
 There are many LLM agent software programs available and more emerging all the time. Here I'll cover a couple. Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). This means they can autonomously complete a task that you set up for them. 
 
