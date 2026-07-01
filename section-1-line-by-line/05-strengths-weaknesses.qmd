@@ -1,12 +1,19 @@
 # Strengths and weaknesses of line-by-line completion
 
-<!-- source: new content, drawing directly on the author's pasted blog post
-     "Mitigating the risks of AI coding tools with judicious use for research tasks"
-     (saved at scratchpad/judicious-ai-use-blog.md), plus 13-ethics-copyright.qmd
-     section "Impacts on learning" -->
+You've now used inline completion, comment-driven completion, and Gander. Before we move on to agents in the next section, it's worth stepping back and asking: what is this line-by-line approach actually good for, and where does it run out of road?
 
-A discussion module: what line-by-line completion is good at, where it runs out of road, and why "judicious" use is the throughline for the whole book.
+I wrote about this at length in a post called ["Mitigating the risks of AI coding tools with judicious use for research tasks"](https://www.seascapemodels.org/posts/2026-05-09-judicious-AI-use/), after giving a talk to an environmental science coding club. The short version: being *judicious* with AI coding tools mitigates most of the risks that concern researchers — wasted time, electricity use, cybersecurity, and data privacy. By judicious I mean using a tool in a targeted way for a specific task where you already know it works well, and carefully preparing the context and prompt rather than just throwing AI at a poorly defined problem.
+
+Line-by-line completion is, almost by construction, judicious. It operates on one line or one small block at a time. The "context" it needs is just your open script (or, with Gander, your R environment). There's no autonomous multi-step plan for it to wander off course on. If it gets something wrong, you see it immediately and reject the suggestion — the blast radius of a bad completion is one line.
+
+That's the strength. It's also the weakness: line-by-line completion can't hold a whole analysis in its head. It won't notice that the model you fit three scripts ago used a different family than the one you're fitting now. It can't restructure a project, write a report, or decide whether a negative binomial or a Poisson GLM is the right call — all of which is coming in later sections when we look at agents and workflows.
+
+There's a well-known finding here worth flagging: the METR study found that professional software developers *thought* they'd go faster using AI tools, but on a set of real tasks they actually went slower. I think this problem is probably worse for researchers than for software developers. Developers have a comparatively easy way to verify success — the app either works or it doesn't. Research is harder to verify, because by definition you're doing something that hasn't been done before; some fields take decades to confirm a result. That makes it easy to burn time "fixing up slop," correcting mistakes, or rewriting an answer into your own style (if you're tired of seeing the same "on the other hand" LLM sentence structure showing up in blogs and papers everywhere, you're not alone).
+
+The trick, as I put it in that post, is to experiment just enough to know at what points in your workflow AI genuinely helps, then put the hard mental work in up front — on your prompts and your context — rather than hoping a bigger model will compensate for a vague ask. Throwing an enormous frontier model at a poorly defined problem isn't judicious use, no matter how capable the model is.
+
+There's a side-benefit to being judicious that's easy to miss: a clear workflow with carefully prepared prompts often lets a cheaper, smaller model perform just as well as the best one available. Cheaper models use less energy, and a surgical approach — giving an assistant access to fewer files and less context — creates fewer security risks too (more on that in [Section 4](../section-4-security-privacy/index.qmd)). So the same discipline that saves you time also tends to save electricity and reduce your attack surface. Line-by-line completion, used well, is naturally on the judicious end of that spectrum. Agents, which we're about to meet, are powerful precisely because they give up some of that built-in restraint — which is exactly why they need more deliberate handling.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: reflective challenge — identify a task where inline completion was enough, and one where it wasn't.
+Think of one coding task in the last week where an inline completion or Gander suggestion saved you real time, and one where you ended up spending more time fixing or rewriting what it gave you than if you'd written it yourself. What was different about the two tasks?
 :::

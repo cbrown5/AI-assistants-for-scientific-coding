@@ -1,9 +1,50 @@
 # Using comments to trigger inline code
 
-<!-- source: 05-github-copilot.qmd, section "2. Using comments" -->
+Code completion is predicting your next line from your script (and any other open scripts) — it won't know your variable names unless you've provided them somewhere. One way is to keep a readme.md open with your metadata in it. Another, which tends to work more reliably, is to write a comment describing what you want directly above where you're typing:
 
-How to steer completions with plain-English comments instead of typing code yourself, including a comments-only data wrangling exercise.
+```
+# Make a point plot of secchi against pres.topa
+gg...
+```
+
+That should get you the right ggplot. Using the actual variable names in your comment is more precise and helps the assistant guess correctly — this is the same "be specific" principle that shows up everywhere in this book, just applied one line at a time.
+
+You can also put key variable names in a comment block at the top of your script, so every completion after that has them in view.
+
+Another way to use this is to not write any R at all — just write a series of comments and let the assistant fill in the code. Try templating a series of plots like this:
+
+```
+# Make a point plot of secchi against pres.topa with a stat_smooth
+
+# Plot logged (two categories) and pres.topa as a boxplot
+
+# Plot CB_cover (branching coral cover) against secchi
+```
+
+::: {.tip}
+**Tip:** Remember one way to improve prompts is to be more specific. Using the correct variable names helps, whether you're prompting a chat window or just a code comment.
+:::
+
+Now go back through and click under each comment to trigger the suggestions.
+
+This strategy is especially handy in data wrangling. As a simple example, try producing this grouped summary using comments only:
+
+```{r, eval=FALSE}
+dat %>%
+    group_by(logged) %>%
+    summarize(mean_topa = mean(pres.topa),
+                mean_CB = mean(CB_cover))
+```
+
+To get there I'd write something like:
+
+```
+    # group dat by logged
+    # summarize pres.topa and CB_cover
+```
+
+If you've already documented the variable names above (in a readme or a comment block), you can often be lazier and less precise here and still get a correct completion.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge using comments-only wrangling on the benthic/fish data.
+Using comments only (no R code typed by you), get the assistant to produce a summary table of mean `secchi` and mean `pres.topa` grouped by `flow`. Then try the same task with the variable names left out of your comments — compare how many attempts it takes.
 :::

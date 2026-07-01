@@ -1,9 +1,33 @@
 # GH Copilot settings
 
-<!-- source: 05-github-copilot.qmd, sections "3. Code completion settings", "Other options" (Indexing, Configure code completions, Next edit suggestions, Premium requests), "LLM choice", "BYOK" -->
+Click the octocat icon in the bottom right corner of VScode to fine-tune how Copilot behaves. There's more in here than you'd expect, and a few settings are worth knowing about deliberately rather than discovering by accident.
 
-Tuning completion behaviour, next-edit suggestions, indexing, model choice and bring-your-own-key.
+## Configure code completions
+
+You can enable or disable inline completions for a specific file type or for everything. Sometimes they get in the way — I turn mine off when writing `.qmd` documents like this one, where I don't want R-flavoured completions popping up in prose.
+
+## Next edit suggestions
+
+Off by default. When enabled, Copilot suggests changes anywhere in your document, not just at the cursor. This is handy when editing an existing file — for example, if you rename a variable in one place, it will often suggest the same rename everywhere else it appears. Hit `tab` to cycle through the suggestions.
+
+## Indexing
+
+Copilot automatically indexes the scripts and documents in your active directory so it can search them faster and give more accurate completions. This is convenient, but worth knowing about for data-privacy reasons too — as soon as you open VScode, Copilot is reading some of your files (it's hard to tell exactly what) to build that index in the cloud. You can disable indexing from the octocat menu if that's a concern; we'll come back to data privacy in more depth in [Section 4](../section-4-security-privacy/04-keeping-data-secure.qmd).
+
+## Premium requests bar
+
+This is also where you can see how many "premium requests" you've used this month. Some LLMs are billed as `0x` (unlimited under your plan) and others as `1x` (one full premium request) — worth checking before you burn through a monthly allowance on a model you didn't need.
+
+## LLM choice
+
+Click the model choice menu (bottom of the chat window) to see what's available — this will depend on your Copilot plan. In general there isn't much formal evaluation of R coding or statistics specifically (there's much more for Python), but from my own use I've found the Claude Sonnet models the most reliable for R code and tool use (Edit or Agent mode). GPT models are also solid, but in my experience make more mistakes in Edit and Agent mode — including occasionally deleting text you wanted to keep — and tend to be a little "lazier," explaining what to do rather than just doing it.
+
+Play around with the same prompt on different models so you can compare performance for yourself; don't just take my word for it, this changes with every model release.
+
+## Bring Your Own API Key (BYOK)
+
+You can add your own API key to Copilot to access other models on a pay-per-use basis. Click the model menu, then "Manage models," and follow the prompts. You'll also need an OpenAI API key specifically if you want vision capabilities (attaching images as context).
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge on tweaking a Copilot setting and observing the effect.
+Ask the same question in Copilot chat — "How could I test if fish abundance depends on coral cover?" — using two different models from the model menu. Compare the two answers: do they suggest the same statistical approach?
 :::
