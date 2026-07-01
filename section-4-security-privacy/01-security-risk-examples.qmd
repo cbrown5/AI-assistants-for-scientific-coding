@@ -1,9 +1,31 @@
 # Security risk examples
 
-<!-- source: 12-cost-security.qmd section "Lethal trifecta for prompt injection attacks" -->
+We touched on the lethal trifecta briefly in [Section 2](../section-2-agents/03-security-risks.qmd) — now let's walk through it properly.
 
-A concrete walkthrough of the lethal trifecta — untrusted content, private data access, and the ability to communicate externally — and how easy it is to cross the line.
+## The lethal trifecta
+
+Never let an agent do all three of these at the same time:
+
+1. Read unverified material from the web (even material you downloaded earlier).
+2. Have access to sensitive data — including your personal data, API keys, and your research data.
+3. Upload information to the web — including creating webpages or pushing commits to GitHub.
+
+[The Lethal Trifecta for prompt injection attacks](https://simonwillison.net/2025/Aug/9/bay-area-ai/) (coined by Simon Willison) is: access to private data, ability to communicate externally, and exposure to untrusted content.
+
+If an agent can read untrusted sources, those sources might contain hidden malicious instructions — text designed to be read by an LLM, not a human, telling it to do something you didn't ask for. That instruction could convince the agent to send your data somewhere, or write malicious code that runs on your computer.
+
+## How easily you can cross the line
+
+It's deceptively easy to tick off all three conditions without noticing. Say you ask ChatGPT to write a blog post based on a web search. Chat platforms often retain your past conversation history, which might contain personal information — that's condition 2 ticked, alongside condition 1 (the web search). Now say the web search turns up a page with hidden instructions telling the model to embed your personal data in the post — say, in image alt text. Once you publish that post, you've ticked condition 3 as well, and the trifecta is complete.
+
+## Why agents on your computer are riskier
+
+Agents that run locally are a bigger risk than a chat window, because they can plausibly satisfy all three conditions most of the time. Any agent that can write code can write code that talks to the internet (that includes R). Most agents can change their working directory, so they can explore files well outside what you intended. Most now have web search built in. The trifecta is sitting right there.
+
+Sandboxing — constraining what files and network access an agent can reach — helps, but currently takes real technical effort to set up properly, and may be out of reach if you're on a locked-down university machine. We'll look at a concrete sandboxing example next.
+
+Agents you run inside VSCode are generally safe, but not 100% safe. Most are explicitly instructed not to change your working directory — but instructions to an LLM are guidelines, not guarantees. I've regularly seen Copilot's agent try to `cd` in the terminal anyway (in my experience, an innocent attempt to get a better view of the project) — but I never approve it, because I can't always tell innocent from not just from the confirmation dialog.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge identifying which trifecta conditions a given agent setup satisfies.
+Think through a task you might ask an agent to do with the benthic/fish project (e.g. "search for the latest best-practice method for count data, then update my analysis and push the changes to GitHub"). Which of the three trifecta conditions does that task tick off, and at what point?
 :::

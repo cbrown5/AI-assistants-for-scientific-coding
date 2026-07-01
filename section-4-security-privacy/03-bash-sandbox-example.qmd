@@ -1,10 +1,36 @@
 # Bash sandbox example
 
-<!-- source: 12-cost-security.qmd sandbox paragraph (currently 2 sentences) — needs
-     expansion into an actual worked example, verified hands-on by the author. -->
+A sandbox restricts what an agent's shell commands can actually reach — which files, and which parts of the network — independent of whatever the agent's own instructions say it should or shouldn't do. It's a control enforced by your computer, not a polite request written into a system prompt, which is exactly why it matters: instructions to an LLM are guidelines, sandboxes are not.
 
-A concrete example of restricting what an agent's shell/file access can touch.
+## A simple sandbox with Docker
+
+If you have Docker installed, one accessible way to sandbox an agent's shell access is to run it inside a container with no network access and only your project folder mounted:
+
+```bash
+docker run --rm -it \
+  --network none \
+  -v "$(pwd)":/workspace:rw \
+  -w /workspace \
+  rocker/tidyverse \
+  bash
+```
+
+What this buys you:
+
+- `--network none` means nothing running inside the container can reach the internet at all — no accidental data exfiltration, no fetching a malicious script, no `curl`.
+- `-v "$(pwd)":/workspace` mounts only your current project directory into the container. Anything outside it (your home folder, other projects, credentials elsewhere on disk) simply isn't visible from inside.
+- `--rm` throws the container away when you're done, so nothing about the session persists beyond what you explicitly saved into `/workspace`.
+
+Point your agent's shell tool at this container instead of your normal terminal, and even if it's tricked into running something malicious, there's nothing to steal and nowhere to send it.
+
+## The trade-off
+
+No network access also means no `install.packages()`, no downloading the benthic/fish data via `read_csv(url(...))`, and no web search. In practice you'll want to build an image with the R packages and data you need already baked in, or allow network access only to specific package registries rather than turning it off completely — most container runtimes support an allowlist rather than a strict on/off switch, though the details depend on your platform.
+
+## Lighter-weight alternatives
+
+If Docker feels like overkill, a restricted OS-level user account with read-only permissions on everything except your project's output folder achieves a weaker but still useful version of the same idea. On Linux, tools like `firejail` can restrict a single process's filesystem and network access without a full container. None of these are a substitute for reading what an agent is about to do — they're a backstop for when something slips through anyway.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge setting up a sandbox restriction and confirming the agent can't escape it.
+Try running an agent's shell tool inside the Docker sandbox above (or an equivalent restricted setup) on the topa/coral-cover project. Confirm for yourself that a command like `curl https://example.com` genuinely fails from inside the sandbox, and note what you had to pre-install in the image to still get your analysis working.
 :::

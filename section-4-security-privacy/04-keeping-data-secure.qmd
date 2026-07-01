@@ -1,10 +1,31 @@
 # Keeping data secure from the cloud
 
-<!-- source: 13-ethics-copyright.qmd section "Managing data privacy" (Options 1-4);
-     also implements readme.md's planned "fakedataR package" addition -->
+Any prompt you send to an LLM provider goes to that company's servers. So it's worth being deliberate about what you include in your prompts — the data you send is covered by that provider's privacy policy, not yours. Some subscription products (e.g. an institutional Copilot licence) claim to keep your data private; public consumer products tend to retain the right to use whatever you type as a prompt. If you put your best research ideas into a public chatbot, it's plausible those ideas resurface, in some form, to a different user asking something similar later.
 
-Options for keeping sensitive data away from cloud LLMs: local models, separating data from code, ignore-folder patterns, and no-data-retention providers.
+Before using an LLM on data you didn't collect entirely yourself, check the IP and ethical constraints that apply — human survey data in particular may come with restrictions on sending it to a foreign server, or on revealing any of it to a third party at all, LLM or otherwise.
+
+If your data is sensitive, you have a few real options.
+
+## Option 1: A locally hosted LLM
+
+Run a model on your own computer instead of calling out to a provider. We won't cover the setup here, but it's worth knowing this exists. Locally hosted models are fine for simpler tasks if you have reasonably capable hardware (a decent GPU helps a lot); they won't match the top hosted models on harder tasks, and can be slower to respond.
+
+## Option 2: Keep data separate from code development
+
+Use the LLM to help write the code that analyses your data, but never give it the data or the results. I'd recommend keeping sensitive data in a directory entirely outside your project folder, so an agent can't stumble into it by accident — and double-check the agent isn't feeding its own analysis output back into a prompt, which would leak the same information a different way.
+
+It helps to generate simulated data with the same structure as your real data to use for code development — you get a working pipeline with zero privacy risk, and (as a bonus) a built-in verification step, which we'll come back to properly in [Section 5](../section-5-agentic-engineering/03-simulated-data-verification.qmd). There's an R package called `fakedataR` aimed at exactly this kind of synthetic-data generation for privacy purposes — I haven't put it through its paces yet, so treat that as a pointer to investigate rather than a recommendation, and check its current state before relying on it.
+
+## Option 3: Ignore sensitive folders
+
+Some agents can be told to ignore specific folders — for example, a repository-level custom instruction to [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), or Roo Code's `.rooignore` file.
+
+Remember prompts aren't 100% precise the way code is — there's still a chance the agent wanders in anyway. If something is genuinely sensitive, keep it elsewhere on your computer entirely, and check every action before approving it.
+
+## Option 4: A no-data-retention provider
+
+OpenRouter has a "no data retention" toggle in your profile, which filters the providers it routes to down to ones with a no-retention policy. Worth checking whether your provider of choice offers something equivalent.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge picking the right data-privacy option for a hypothetical sensitive dataset.
+For a hypothetical version of the topa/coral-cover project where the GPS coordinates (`coordx`, `coordy`) had to stay confidential (e.g. to protect an endangered species location), pick which of the four options above you'd use, and explain what you'd tell an agent's README to keep it from ever seeing those two columns.
 :::

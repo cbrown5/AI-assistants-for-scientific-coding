@@ -1,10 +1,29 @@
 # Claude Code for web example
 
-<!-- source: new content — Claude Code isn't demoed anywhere in v1, only name-checked once.
-     Needs a real hands-on worked example run by the author before writing. -->
+Claude Code doesn't only run on your own machine — it also runs entirely in the cloud, through a web interface, with no local install at all. That's a meaningfully different security posture to everything else in this book so far, so it's worth understanding concretely rather than in the abstract.
 
-A worked example using Claude Code's cloud/web interface on the benthic/fish project.
+## What's actually happening
+
+When you start a Claude Code for web session, the agent runs inside an isolated, ephemeral container in the cloud, not on your laptop. Practically, that means:
+
+- The repository is freshly cloned into the container when the session starts — the agent never touches your local filesystem or any other project you have open.
+- Outbound network access is governed by a network policy you choose when the environment is created (for example, restricted to specific package registries, or more open). This is a real control, not just a suggestion in a system prompt — it's enforced at the infrastructure level.
+- The container is reclaimed once the session ends or goes idle for a while. Anything you want to keep has to be committed and pushed before that happens — there's no persistent local state to fall back on.
+- GitHub access (viewing PRs, pushing branches, commenting on issues) goes through an explicit integration, scoped to specific repositories you've authorised — the agent can't reach arbitrary repos just because it can reach one.
+
+## Why this changes the trifecta calculation
+
+Revisit the lethal trifecta from the previous module. Running an agent in an isolated cloud container doesn't remove any of the three conditions outright — it can still read untrusted web content, it still has access to whatever's in the repo it was given, and it can still push code or comment on GitHub. But it does shrink the blast radius of condition 2 considerably: there's no access to your personal files, your other projects, your browser history, or anything else on your actual computer. If something goes wrong, the damage is contained to that one cloned repo and whatever the network policy allowed it to reach — not your whole machine.
+
+That's a genuinely useful trade-off for exactly the kind of task this book is about: pointing an agent at one specific analysis project, with one specific dataset, and letting it work with less supervision than you'd give an agent running locally on your main machine.
+
+## Trying it yourself
+
+1. Push your project (e.g. the topa/coral-cover analysis from earlier sections) to a GitHub repository.
+2. Start a Claude Code for web session against that repository, and choose a network policy appropriate to the task — the most restrictive one that still lets the agent do what you need.
+3. Give it a specification-sheet-style prompt (see [Section 3](../section-3-workflows/04-specification-sheets.qmd)) rather than a vague one — the same "over-explain up front" advice applies just as much here as anywhere else in this book.
+4. Review the diff it produces before merging anything, exactly as you would for a local agent session (see [Reviewing agent output](../section-2-agents/08-reviewing-agent-output.qmd)).
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge trying the same task locally vs via Claude Code for web and comparing.
+Run the same specification-sheet prompt from Section 3 in a Claude Code for web session, choosing the most restrictive network policy that still lets it complete the task. Note what it couldn't do that a locally-run agent could — and whether that restriction ever actually got in the way.
 :::
