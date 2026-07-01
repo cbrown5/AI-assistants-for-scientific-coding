@@ -1,0 +1,21 @@
+# Prompting agents II: web search and specification
+
+## Web search
+
+Some agents (and most chat platforms — ChatGPT, Copilot in Teams) can search the web to help build a tutorial or find a method for your specific problem, which you can then attach as context to your actual analysis session:
+
+::: {.callout-note title="Prompt"}
+Research the peer-reviewed academic literature to find the most robust methods for analysing ecological count data.
+:::
+
+You'll get better results with reasoning/thinking modes enabled where available — these cost more to run (so are often paid-tier only), but read the reasoning trace if you can see it, since it tells you *how* the model decided what to search for, which matters for judging whether to trust the answer. Web-search prompts also don't like being long — keep them short and specific, unlike the detailed spec-sheet prompts we'll see next. We'll cover programmatic web search (calling it via API rather than a chat UI) in [Section 6](../section-6-api-access/index.qmd).
+
+## From context to specification
+
+Everything in this module and the last one — data summaries, metadata, domain knowledge, web research — is really just an assortment of context you're assembling before you prompt. The next logical step is to stop assembling it ad hoc and write it all down in one place: a **specification sheet**. Instead of prompting an agent with "create an academic paper about fish and coral using this data" (which will produce something plausible-looking and full of inaccuracies), you write out your aims, data collection methodology and desired analysis in advance — and hand the agent something it can actually execute well.
+
+We'll build a complete, real specification sheet — the one I actually use for the topa/coral-cover case study — in [Section 3](../section-3-workflows/04-specification-sheets.qmd).
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Try the web-search prompt above (or an equivalent) in a chat platform with search enabled. Read the reasoning trace if one is shown, and note one thing about *how* it decided what to search for that you wouldn't have known just from the final answer.
+:::

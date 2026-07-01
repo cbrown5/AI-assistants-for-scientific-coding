@@ -1,0 +1,37 @@
+# Updating existing scripts with agents
+
+So far we've mostly looked at agents creating new code. Just as often, you'll want one to modify code you already have — this is edit mode's job (or an agent's file-editing tool, if you're beyond Copilot specifically).
+
+Open a script with some plots in it and try:
+
+::: {.callout-note title="Prompt"}
+Create a pairs plot for all continuous variables
+:::
+
+::: {.tip}
+**Tip:** Sometimes you can't undo an edit once it's made. Get into the habit of committing to git before *and* after a round of agent edits — that way you always have a clean point to roll back to.
+:::
+
+Edit mode writes prose as well as code. Try it on documentation: open your README, type:
+
+::: {.callout-note title="Prompt"}
+Document what this script does in the readme.
+:::
+
+and drag your script into the chat alongside it. Review what it wrote — accept it, ask for changes, or edit it yourself afterward.
+
+## Why so much code?
+
+You'll likely notice assistants tend to "over-engineer" R scripts — a common example is wrapping every `library()` call in an `if (!requireNamespace(...))` check before loading it. We don't know the system prompt behind most of these tools, but given their primary market is professional software engineers, it's a reasonable guess that robustness-focused instructions are baked in somewhere. If you don't want this style, say so explicitly in your README — e.g. "keep implementation simple, this is a one-off analysis script, not a package."
+
+## Staying on track
+
+Left unattended — accept, accept, accept, without reading — an agent can wander into rabbit holes: superfluous analyses, or even incorrect statistics that look plausible. My recommended discipline:
+
+- Use git, so you can always roll back.
+- Read the suggested edits before accepting them.
+- **Never** edit a file yourself while an agent is mid-edit on it. Most editing tools locate where to insert changes by matching text in the file — if you change the file underneath them, the next edit can land in the wrong place.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Commit your project to git, then ask an agent to refactor one of your plotting scripts for the benthic/fish data to use a shared `theme_classic()` across all plots. Read the diff before accepting, and note anything it changed that you didn't ask for.
+:::

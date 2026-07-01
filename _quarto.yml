@@ -6,22 +6,56 @@ book:
   title: "AI assistants for Scientific Coding"
   author: "Chris Brown"
   date: "2025-08-30"
+  page-navigation: true
   chapters:
     - index.qmd
-    - 02-introduction.qmd
-    - 03-set-up.qmd
-    - 04-llm-from-api.qmd
-    - 05-github-copilot.qmd
-    - 06-general-prompting-advice.qmd
-    - 07-ai-powered-analysis-workflows.qmd
-    - 08-advanced-llm-agents.qmd
-    - 09-specification-sheets.qmd
-    - 10-research-applications-LLMs.qmd
-    - 11-writing-documents.qmd
-    - 12-cost-security.qmd
-    - 13-ethics-copyright.qmd
-    - 14-appendix.qmd
-    
+    - 01-introduction.qmd
+    - 02-setup.qmd
+    - part: section-1-line-by-line/index.qmd
+      chapters:
+        - section-1-line-by-line/01-inline-completion.qmd
+        - section-1-line-by-line/02-comment-driven-completion.qmd
+        - section-1-line-by-line/03-copilot-settings.qmd
+        - section-1-line-by-line/04-gander.qmd
+        - section-1-line-by-line/05-strengths-weaknesses.qmd
+    - part: section-2-agents/index.qmd
+      chapters:
+        - section-2-agents/01-agent-options.qmd
+        - section-2-agents/02-how-agents-work.qmd
+        - section-2-agents/03-security-risks.qmd
+        - section-2-agents/04-first-agent-example.qmd
+        - section-2-agents/05-prompting-agents-part1.qmd
+        - section-2-agents/06-prompting-agents-part2.qmd
+        - section-2-agents/07-updating-existing-scripts.qmd
+        - section-2-agents/08-reviewing-agent-output.qmd
+        - section-2-agents/09-when-agents-get-stuck.qmd
+    - part: section-3-workflows/index.qmd
+      chapters:
+        - section-3-workflows/01-select-statistical-approach.qmd
+        - section-3-workflows/02-plan-implementation.qmd
+        - section-3-workflows/03-write-the-code.qmd
+        - section-3-workflows/04-specification-sheets.qmd
+    - part: section-4-security-privacy/index.qmd
+      chapters:
+        - section-4-security-privacy/01-security-risk-examples.qmd
+        - section-4-security-privacy/02-claude-code-web-example.qmd
+        - section-4-security-privacy/03-bash-sandbox-example.qmd
+        - section-4-security-privacy/04-keeping-data-secure.qmd
+        - section-4-security-privacy/05-limitations.qmd
+    - part: section-5-agentic-engineering/index.qmd
+      chapters:
+        - section-5-agentic-engineering/01-tests-verification-principles.qmd
+        - section-5-agentic-engineering/02-red-green-tdd.qmd
+        - section-5-agentic-engineering/03-simulated-data-verification.qmd
+    - part: section-6-api-access/index.qmd
+      chapters:
+        - section-6-api-access/01-api-keys.qmd
+        - section-6-api-access/02-how-api-access-works.qmd
+        - section-6-api-access/03-chat-basics.qmd
+        - section-6-api-access/04-diy-chatbot.qmd
+        - section-6-api-access/05-make-an-agent.qmd
+        - section-6-api-access/06-lit-review-example.qmd
+    - 99-appendix.qmd
 
 bibliography: book.bib
 

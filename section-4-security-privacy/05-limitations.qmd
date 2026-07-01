@@ -1,0 +1,11 @@
+# Limitations
+
+None of the safeguards in this section — permission prompts, sandboxes, no-data-retention providers, ignore files — add up to a guarantee. It's worth being honest about that rather than letting a security module leave you falsely reassured.
+
+Sandboxes constrain what an agent's tools can reach, but setting one up properly still takes real technical effort, and may simply be out of reach if you're working on a locked-down university machine without admin rights. A `.rooignore` or repository custom instruction reduces the chance an agent wanders into a sensitive folder, but a prompt is not a guarantee the way a filesystem permission is — there's always some chance it goes there anyway. Running Claude Code for web in an isolated container shrinks the blast radius of a mistake, but the agent can still read whatever's in the repo you gave it, and still push whatever it wrote.
+
+So the practical posture, even after applying everything in this section, is the same one we've come back to throughout the book: watch what your agent is doing, and think carefully about what data it can access and what untrusted sources it's been given before you hand over the keys. Layered defences reduce risk, they don't remove it — and the layer that catches the mistake the sandbox didn't anticipate is usually you, reading the diff before you approve it.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Pick one security measure from this section (sandboxing, a no-data-retention provider, an ignore file, or the isolated-container approach). Describe one concrete way it could still fail to protect you, even when set up correctly.
+:::

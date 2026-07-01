@@ -1,0 +1,186 @@
+# Specification sheets
+
+The three steps in this section — select an approach, plan the implementation, write the code — come together most powerfully in a single document: a **specification sheet**. It's the README concept from the previous module, taken all the way, and it's the single most effective thing you can hand an agent before turning it loose on real analysis.
+
+## Case study: bumphead parrotfish, "Topa," in Solomon Islands
+
+Since this is the fullest worked example in the book, it's worth knowing the story behind our running dataset. Bumphead parrotfish (*Bolbometopon muricatum*) are an enigmatic tropical species — adults have a large forehead bump used to display and fight during breeding. They travel in schools, bite off chunks of coral to eat the algae on it, and literally excrete clean sand as a result. Their size, schooling habit and late maturity make them vulnerable to overfishing, and [many populations are in decline](https://doi.org/10.1007/s00338-019-01801-z).
+
+Until the mid-2010s, nobody knew where juveniles settled. In Kia province, Solomon Islands, Rick Hamilton (The Nature Conservancy) led surveys of nearshore reef habitat — motivated by local community concern that "topa" (the local name) were declining — and divers swam standardised transects across 49 sites, despite the presence of crocodiles in the mangroves. They only ever found juvenile topa hiding in branching coral. Around the same time, logging in the region was bulldozing mangrove "log ponds" to move logs to barges, causing sediment runoff that can smother coral habitat.
+
+These surveys were first published by [Hamilton et al. 2017](http://dx.doi.org/10.1016/j.biocon.2017.04.024), with a follow-up Bayesian pollution-footprint model in [Brown and Hamilton 2018](http://dx.doi.org/10.1111/cobi.13079). The data and original analysis code are on [GitHub](https://github.com/cbrown5/BenthicLatent); we use a simplified version throughout this book, with thanks to Rick Hamilton for making it available.
+
+## Project organisation
+
+Set up each new project in its own folder, initialise git, and keep scripts short and modular (one for data prep, one for modelling, and so on):
+
+```
+my-project/
+├── README.md
+├── .gitignore
+├── Scripts/
+│   ├── 01_data-prep.R
+│   ├── 02_data-analysis.R
+│   └── 03_plots.R
+├── Shared/
+│   ├── Outputs/
+│   │   ├── Figures/
+│   │   ├── data-prep/
+│   │   └── model-objects/
+│   ├── Data/
+│   └── Manuscripts/
+└── Private/
+```
+
+## The README template
+
+```
+# PROJECT TITLE
+
+## Summary
+
+## Aims
+
+## Data methodology
+
+## Analysis methodology
+
+## Tech context
+- We will use the R program
+- tidyverse packages for data manipulation
+- ggplot2 for data visualization
+
+Keep your scripts short and modular to facilitate debugging. Don't complete
+all of the steps below in one script. Finish scripts where it makes sense
+and save intermediate datasets.
+
+## Steps
+As you go tick off the steps below.
+
+[ ] Wrangle data
+[ ] Fit regression
+[ ] Plot verification
+[ ] ...
+
+## Data
+Include meta-data here and file paths.
+
+## Directory structure
+(as above)
+```
+
+## Metadata
+
+**fish-coral-cover-sites.csv**
+
+| Variable | Meaning |
+|---|---|
+| `site` | Unique site ID |
+| `reef.ID` | Unique reef ID |
+| `pres.topa` | Number of topa (bumphead) counted |
+| `pres.habili` | Number of habili (*Cheilinus*) counted |
+| `secchi` | Horizontal secchi depth (m); higher = clearer water |
+| `flow` | "Strong" or "Mild" tidal flow at the site |
+| `logged` | "Logged" or "Not logged" — whether the site is in a region with logging |
+| `coordx`, `coordy` | Coordinates, UTM zone 57S |
+| `CB_cover` | PIT points recording branching coral cover |
+| `soft_cover` | PIT points recording soft coral cover |
+| `n_pts` | Total PIT points at the site (for normalising cover to percent) |
+| `dist_to_logging_km` | Linear distance to nearest log pond (km) |
+
+## A full worked spec sheet
+
+Here's a complete example, written the way I'd actually hand it to an agent. Notice it fully answers all four parts of the README template above, and is specific about packages, model structure, and even namespace conventions — not just "do a GLM."
+
+::: {.callout-note title="Prompt"}
+
+# Analysis of fish dependence on coral habitat
+
+## Introduction
+This project will ask how abundance of fish juveniles depends on coral cover. The fish we are interested in is *Bolbometopon muricatum*, the bumphead parrotfish. Also known as 'topa' in the local language of our study region. We will analyze survey data from 49 sites, that includes benthic cover surveys and surveys fish abundance at the same locations. We are studying its juvenile habitat.
+
+## Aims of the analysis
+
+1. Does fish abundance depend on branching coral cover?
+2. What is the direction and strength of the relationship between fish abundance and branching coral cover?
+3. Does fish abundance depend on soft coral cover?
+
+## Data methodology
+
+The data was collected with the point intersect transect method. Divers swam along transects. There were several transects per site. Along each transect they dropped points and recorded the type of benthic organism (in categories) on that point. Percentage cover for one organism type can then be calculated as the number of points with that organism divided by the total number of points on that transect. In our data we have percent cover of branching corals and percent cover of soft corals. Transects were averaged to give a single value for each site. At each site divers also counted the number of juvenile 'topa' along dive transects of the same length.
+
+## Analysis methodology
+
+We will use generalized linear models to analyze the relationship between topa and the two coral cover types. Topa abundance is probably over-dispersed, so we will need to use a negative binomial family. We will use R and the MASS package:
+
+`MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)`
+
+To obtain a final model we should do model selection, starting with a full model then working towards simpler models. We will use likelihood ratio tests to compare models, e.g:
+
+```
+m1 <- MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)
+m2 <- MASS::glm.nb(pres.topa ~ CB_cover + soft_cover, data = fish_coral_cover_sites)
+anova(m1, m2, test = "Chisq")
+```
+
+Proceed with m2 if the interaction term is not significant, otherwise proceed with m1.
+
+On completion of model selection, do model diagnostics: check residuals and the dispersion parameter, save as png files. Write a diagnostics report as an Rmarkdown file.
+
+## Instructions for the agent
+
+The agent will produce a report that answers the above questions. The report will include a description of the data, the methods used for analysis, and the results of the analysis. The code will be written as R scripts. Each script should be modular and save intermediate results as datafiles and figures. The final report must be written in Rmarkdown format. The figures will be imported using markdown syntax, e.g. `![](outputs/plots/figure1.png)`. Don't use R code for figures in the markdown report. Summary tables should be imported from .csv files and created using the `knitr::kable()` function in Rmarkdown. The report must include:
+
+- Study aims
+- Data methodology
+- Analysis methodology
+- Results
+  - Model selection and verification
+  - Model fit statistics
+  - Plots of predicted fish abundance (log-link scale) based on the final model, with confidence intervals
+  - Relevant statistics (r2, p-values, etc.)
+
+The agent must also produce diagnostic plots and a separate report on model diagnostics.
+
+### Tech context
+- We will use the R program
+- tidyverse packages for data manipulation
+- ggplot2 for data visualization
+- use `theme_set(theme_classic())` for plots
+- Use the `MASS` package for the negative binomial model, however don't load it globally with `library(MASS)`, instead use `MASS::glm.nb()` to avoid namespace conflicts.
+- Use `visreg` package for plotting model effects and confidence intervals, e.g. `visreg::visreg(m2, "CB_cover", "soft_cover", gg=TRUE, scale = 'linear')`
+
+Keep your scripts short and modular to facilitate debugging. Don't complete all of the steps below in one script. Finish scripts where it makes sense and save intermediate datasets.
+
+When using Rscript to run R scripts in terminal put quotes around the file, e.g. `Rscript "1_model.R"`
+
+### Workflow
+
+1. Create a todo list and keep track of progress
+2. Data processing including standardizing coral variables by number of points
+3. Model selection and verification, produce diagnostic plots
+4. Model diagnostic plots markdown report
+5. Create plots of predictions from the final model
+6. Write report in markdown format
+
+### Directory structure
+
+```
+glm-test-case/
+├── data/
+├── fish-coral.csv
+├── glm-readme.md
+├── initial-prompt.md
+├── outputs/
+│   └── plots/
+└── scripts/
+```
+
+Put the .rmd reports in the top-level directory.
+:::
+
+Have a go at writing your own spec sheet for a variation on this analysis — pick your own aim, e.g. testing whether fish abundance depends on `dist_to_logging_km` instead of, or as well as, coral cover.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Write your own "Aims" and "Analysis methodology" sections for a spec sheet that tests whether `pres.topa` depends on `dist_to_logging_km`. Hand the full spec sheet to an agent and see how closely its plan matches what you had in mind before you wrote it.
+:::

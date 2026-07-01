@@ -1,0 +1,3 @@
+# Section 6: LLM access via API {.unnumbered}
+
+Under every assistant and agent is an API call. This section takes you underneath the chat window: getting an API key, understanding how ellmer talks to a provider, building a simple chat and a DIY chatbot, then building your own minimal coding agent from scratch, and finally applying all of it to a literature review example.

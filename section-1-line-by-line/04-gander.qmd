@@ -1,0 +1,33 @@
+# Gander: R package for code completion
+
+If you're an RStudio user and don't want to leave it for VScode, [Gander](https://simonpcouch.github.io/gander/articles/gander.html) is the closest thing to Copilot's inline completion you'll get. Posit's own announcement is worth a skim too: [Introducing Gander](https://posit.co/blog/introducing-gander/).
+
+Gander's trick is that it can see *inside* your R session. Where Copilot is guessing your variable names from text in open scripts, Gander can look at the actual objects in your environment — so it already knows what columns are in `dat` without you telling it.
+
+If you haven't already, follow the [Gander set-up instructions](../02-setup.qmd#sec-gander) in Setup before continuing.
+
+Once it's working, try this: load the benthic data, select a blank line, hit your Gander shortcut, and type a prompt like:
+
+```
+Make a ggplot of pres.topa against CB_cover, coloured by logged
+```
+
+Because Gander can see `dat` directly, it should get the variable names and their types right on the first try — a nice contrast with the tab-completion experience from the previous modules, where you often had to spell things out yourself.
+
+Try a few more prompts, selecting existing code first and asking Gander to modify it:
+
+```
+Add a stat_smooth to this plot
+```
+
+```
+Convert this ggplot to use theme_classic()
+```
+
+::: {.tip}
+**Tip:** Because Gander can see your R objects, it uses more tokens per request than plain code completion. The [Gander documentation](https://simonpcouch.github.io/gander/articles/gander.html) has options for controlling how much of your environment gets sent, which is worth reading if you're watching your API costs.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Select the `dat %>% group_by(logged) %>% summarize(...)` code from the previous module and ask Gander to add a third summary column for `secchi`. Compare how confidently it picks the right column compared to when you did the same task with comment-driven completion.
+:::

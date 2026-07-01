@@ -1,0 +1,53 @@
+# Using simulated data as a verification step
+
+Here's a verification trick that's standard practice in statistics but rarely makes it into an agent's default workflow: before you trust a model fit to your real data, fit it to *simulated* data where you already know the true answer, because you generated it yourself. If the pipeline can't recover a relationship you built in on purpose, there's no reason to trust it on data where you don't know the answer.
+
+## Simulating fake topa counts
+
+Let's simulate count data with the same structure as `pres.topa ~ CB_cover`, but with a coral-cover effect we chose ourselves:
+
+```{r eval=FALSE}
+library(tidyverse)
+library(MASS)
+
+set.seed(42)
+n_sites <- 49
+
+true_intercept <- log(2)     # ~2 topa at zero coral cover, on the log scale
+true_cb_effect <- 0.03       # positive effect of CB_cover on log(topa)
+true_theta <- 5              # dispersion parameter for the negative binomial
+
+sim_dat <- tibble(
+  site = 1:n_sites,
+  CB_cover = runif(n_sites, min = 0, max = 40)
+) %>%
+  mutate(
+    mu = exp(true_intercept + true_cb_effect * CB_cover),
+    pres.topa = rnegbin(n_sites, mu = mu, theta = true_theta)
+  )
+```
+
+Now fit the same model you'd fit to the real data:
+
+```{r eval=FALSE}
+m_sim <- MASS::glm.nb(pres.topa ~ CB_cover, data = sim_dat)
+summary(m_sim)
+```
+
+## What "recovers the truth" means here
+
+You're not expecting the fitted coefficient to exactly equal `0.03` — with 49 sites and real sampling noise, it won't. What you're checking is:
+
+- The estimated `CB_cover` coefficient is positive and in a plausible range around the true value.
+- The true value falls inside the 95% confidence interval most of the time — run the simulation a few times (or wrap it in a loop over, say, 200 replicates) and check the true effect falls inside the interval roughly 95% of the time, not 50% or 20%.
+- The estimated `theta` is in the right ballpark of the true dispersion you simulated.
+
+If any of those fail consistently, the problem isn't your real data — it's the pipeline itself (wrong family, a coding bug, a mis-specified formula), and you've found that out *before* it had a chance to quietly corrupt your interpretation of the real analysis.
+
+## Handing this to an agent
+
+This is a natural task to specify explicitly rather than hope an agent thinks to do it: add a step to your specification sheet (see [Section 3](../section-3-workflows/04-specification-sheets.qmd)) that says something like "before fitting the model to the real data, simulate data with a known `CB_cover` effect and confirm the same model code recovers it, within a reasonable margin, before proceeding." Agents default to the most familiar workflow — fit model, report results — unless you explicitly ask for the verification step in between.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Change `true_cb_effect` to `0` in the simulation above (i.e. no real relationship between coral cover and topa) and refit the model. Does the fitted model correctly show a non-significant effect most of the time, or does it falsely detect an effect more often than you'd expect by chance?
+:::

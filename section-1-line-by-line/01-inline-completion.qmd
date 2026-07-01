@@ -1,0 +1,35 @@
+# Inline code completion
+
+**Software requirements:** VScode with R or Python and a GitHub Copilot license + extension (or RStudio with Copilot enabled — see [Setup](../02-setup.qmd)).
+
+Inline completion is the gentlest introduction to AI-assisted coding, and probably how you're already using it if you've dabbled at all. You start typing, the assistant guesses what you meant to type next, and you hit `tab` to accept.
+
+GitHub Copilot calls itself an "AI programming assistant" or "AI pair programmer." I'll refer to it more generally as an LLM coding assistant, or just an Assistant — a term I'll also use for ChatGPT, Claude, Roo Code, Cline and others, since the field moves too fast to have settled on a standard name for this kind of software.
+
+An Assistant adds a layer between you and the LLM. It's quietly deciding what context to send, managing your context window, and often saving on cost — usually without telling you the system message, temperature, or token limits it's using. Keep that in mind: you're not talking directly to the model, you're talking through some software that's making its own decisions about what the model sees.
+
+Let's read in the benthic coral cover and fish count data we'll use throughout this book:
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(readr)
+
+dat <- read_csv(url("https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"))
+
+head(dat)
+summary(dat)
+```
+
+More [details on this data are available here](https://github.com/cbrown5/example-ecological-data/blob/main/data/benthic-reefs-and-fish/readme.md).
+
+Now start a new line and try create a ggplot of `secchi` (a measure of water clarity — higher values mean clearer water) and `pres.topa` (count of topa, the bumphead parrotfish). Start typing `gg` and see what happens.
+
+You should get a recommendation for a ggplot. But it won't know the variable names, because completion is guessing from your script (and any other open scripts), not from the data itself.
+
+::: {.tip}
+**Tip:** Sometimes the assistant gets stuck in a loop and keeps recommending the same line. To break it out of the loop try typing something new.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Clear a new script, load `dat`, and try tab-completing a ggplot of `CB_cover` against `dist_to_logging_km` without typing any variable names yourself first. Note how many attempts it takes before the completion uses the correct column names.
+:::

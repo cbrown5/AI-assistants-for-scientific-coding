@@ -1,0 +1,39 @@
+# Step 3: Write the code
+
+Once you're happy with the plan, it's time to implement it. There are roughly three levels of automation, in increasing order:
+
+1. **Manual, assistant-assisted** — write the code yourself, using inline completion and edit mode (Section 1) for the fiddly bits.
+2. **Agent-assisted** — instruct an agent to complete tasks from your README, checking in and editing as you go (see [Section 2](../section-2-agents/index.qmd) for more on agents).
+3. **Full "vibe coding"** — ask an agent to complete the task and accept every suggestion without reading it.
+
+Vibe coding isn't recommended for scientific projects — we'll come back to why in [Section 2](../section-2-agents/08-reviewing-agent-output.qmd) and [Section 5](../section-5-agentic-engineering/index.qmd).
+
+::: {.tip}
+**Tip:** Your README is the assistant's memory across chat sessions (where it would otherwise forget everything). Keep it updated as you go — it's also what future-you will thank you for.
+:::
+
+A few more tips for this stage:
+
+- Attach data or domain knowledge as you go, whenever the assistant can't get it from the README alone.
+- Get the assistant to write tests for your data pipeline — checking joins worked properly, and that you didn't duplicate or drop rows. We'll build this out properly in [Section 5](../section-5-agentic-engineering/index.qmd).
+
+## Suggested workflows
+
+**For an analysis that's new to you:**
+
+1. Read the literature to find the appropriate analysis for your question and data.
+2. Once you've narrowed the options, find useful domain knowledge — vignettes, manuals, blogs with suitable R examples.
+3. Set up a new project folder with the directory structure and README from the previous module.
+4. Use an assistant to implement the analysis, attaching data summaries and domain knowledge for the best prompts.
+
+**For an analysis you already know well:** much the same, minus the literature search — you already know what you want. Keep saving useful domain knowledge when you come across it, so it's on hand next time.
+
+## Iterating
+
+Ecological modelling is a creative art with rules — the rules are the scientific method, the medium is math, logic and code. Think of AI as part of that creative process, not a replacement for it.
+
+Use an assistant to generate multiple complete attempts at your project, then compare them for ideas, refining your prompt as you go. It's a tool in your belt, not a replacement for talking to colleagues, reading widely, or staring at the ocean while you think something through.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Ask an agent to implement a `pres.topa ~ CB_cover` negative binomial GLM twice, from the same README, in two separate runs. Compare the two scripts it produces — do they make the same modelling choices?
+:::
