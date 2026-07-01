@@ -1,12 +1,29 @@
 # Tests, verification and output-checking principles
 
-<!-- source: seeded from 07-ai-powered-analysis-workflows.qmd closing tip
-     ("You can get the assistant to write tests for your datasets...") and
-     08-advanced-llm-agents.qmd best-practices list ("Checking what it does as it does it").
-     Mostly new content — this is a new engineering-focused framing not really covered in v1. -->
+Software engineers have spent decades building habits to catch mistakes before they ship — tests, code review, continuous integration. Most of that toolkit assumes you have a clear, checkable definition of "correct": the app either logs the user in or it doesn't. Data analysis rarely gives you that luxury. A GLM with the wrong family, a join that silently drops rows, or a plot with the axes mislabeled can all look completely fine to the eye and still be wrong. That's exactly the gap this section tries to close: borrowing engineering verification habits, adapted for the fact that "correct" in a scientific analysis is a fuzzier target than "correct" in software.
 
-Why verification matters for data analysis code, and general principles for checking what an agent produced (row counts, joins, sanity-check plots).
+## Why this matters more with agents
+
+An agent will happily produce a script, run it, and report success — "success" here just means the code executed without an error, which is a much weaker claim than "the analysis is right." A model that fits without warnings can still have the wrong distributional family; a join that runs without an error can still have silently duplicated or dropped rows. None of that shows up as a red error message. It shows up in numbers that are subtly wrong.
+
+## General principles
+
+- **Check row counts before and after every join or filter.** If `nrow()` changes in a way you didn't expect, something merged wrong — usually a many-to-many join you thought was one-to-one.
+- **Sanity-check summary statistics against what you already know.** If you expect `pres.topa` to range from 0 to maybe 20 per site, and your summary shows a max of 4000, that's a decimal point or a units error, not a real finding.
+- **Ask the agent to write a check, not just the analysis.** "Write a script that confirms every `site` value in the fish data has exactly one matching row in the benthic data" is a specific, verifiable request an agent can act on directly.
+- **Verification plots are cheap insurance.** A histogram of a response variable, a plot of raw data before modelling, and a residual plot after — take seconds to produce and often catch what a model summary table alone won't.
+- **Read the diagnostics, don't just generate them.** Asking an agent for diagnostic plots and then not looking at them defeats the purpose — this is the same discipline as [reviewing agent output](../section-2-agents/08-reviewing-agent-output.qmd) in Section 2, applied specifically to statistical assumptions.
+
+## A concrete habit
+
+Before you trust any agent-produced analysis of the benthic/fish data, get in the habit of asking for (and reading) at least these three things:
+
+1. A row-count check across every join.
+2. A histogram or summary of the response variable (`pres.topa`) before modelling.
+3. A residual or dispersion diagnostic after modelling.
+
+The next two modules build this into something more structured: writing the check *before* the analysis exists (red-green TDD), and using simulated data with a known answer as a verification target.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge writing a verification check for the benthic/fish join (no lost or duplicated sites).
+Ask an agent to join `fish-coral-cover-sites.csv` to a second copy of itself on `site` (simulating a many-to-many join mistake), then write a check that would have caught the row-count blowup. Confirm the check actually fails on the bad join and passes on a correct one-to-one join.
 :::
