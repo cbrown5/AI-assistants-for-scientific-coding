@@ -1,10 +1,35 @@
 # Prompting agents I: giving context
 
-<!-- source: 07-ai-powered-analysis-workflows.qmd, sections "Giving context",
-     "Attaching data or data summaries", "Attach domain knowledge" -->
+We covered the general principle of attaching data and domain knowledge back in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd), when the question was "which statistical method?" The same principle applies just as strongly once you're running a multi-step agent — arguably more so, because an agent that's missing context won't just give you a mediocre answer, it'll go and *implement* a mediocre answer across several files.
 
-How to feed an agent the context it needs: data summaries, metadata, and trusted domain knowledge.
+## Attaching data summaries
+
+Large datasets can be awkward to attach directly — they eat up the context window. Some agents (Copilot's agent mode included) will automatically truncate a large data frame if you attach it, but it's more reliable to ask the agent to generate its own summary first:
+
+::: {.callout-note title="Prompt"}
+Write a script that creates a smaller version of the benthic data that has only the first six rows of data
+:::
+
+Then attach that small summary (or the metadata readme) to your actual analysis prompt.
+
+## Attaching domain knowledge
+
+If you're emulating a specific paper or method, convert it to markdown and attach it — a webpage tool like [Jina Reader](https://tools.simonwillison.net/jina-reader) works well for this. Package vignettes and stats tutorial blogs are also good sources; keep a running list handy for when you need them.
+
+::: {.tip}
+**Tip:** Be careful with anything you didn't write yourself before attaching it to an agent session — check it doesn't contain hidden instructions. More on why in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd).
+:::
+
+## Writing a metadata summary with the agent itself
+
+You can get the agent to help write this context, rather than writing it all yourself:
+
+::: {.callout-note title="Prompt"}
+Write a summary of the meta-data for this database in a new markdown file [attach the csv]
+:::
+
+Read over what it produces and correct anything wrong before you rely on it — an inaccurate metadata file is worse than none, because it'll confidently mislead every subsequent agent session that reads it.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge comparing agent output with and without an attached data summary.
+Ask an agent to write a metadata markdown file summarising `fish-coral-cover-sites.csv`, then check it against the [real metadata readme](https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md). Note anything it got wrong or left out.
 :::

@@ -1,10 +1,33 @@
 # Your first agent example
 
-<!-- source: 05-github-copilot.qmd, section "Agent mode: Automated workflows" / "Exploring agent mode"
-     (the pres.topa ~ cb_cover regression + plotting example, incl. the pirate-prompt aside) -->
+Time to run an agent end-to-end. In VSCode, open the chat panel and switch the mode from "Ask" or "Edit" to "Agent" (in other tools, look for an equivalent mode or model switch — Roo Code and Claude Code default to agent-style behaviour).
 
-Run an agent end-to-end on the benthic/fish data: fit a regression, make a plot, and see what it does without you writing the code.
+Make sure the [readme file for our example data](https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md) is saved in your project directory and open in your editor — that gives the agent the context it needs about variable names and the study before it starts.
+
+Now prompt it with something like:
+
+::: {.callout-note title="Prompt"}
+I want to do a regression of pres.topa on cb_cover. Create all the scripts I need to do this, as well as run the scripts to make plots of the predicted relationship between the variables
+:::
+
+Then follow along with the conversation, adjusting or correcting as it goes. Everyone's result will look a little different — that's normal, and worth comparing notes on if you're doing this alongside others.
+
+::: {.tip}
+**Tip:** There's no single "optimal" prompt, only better and worse ones. Often the best way to write is the way you're most comfortable writing — you'll get more out of your own thinking that way, and the agent performs about the same either way.
+:::
+
+Here's proof of that last point — an alternative phrasing of the same prompt:
+
+::: {.callout-note title="Prompt"}
+Arrr matey, I be wantin' to run a regression of pres.topa on cb_cover. Hoist all the scripts I need for this voyage, and chart the plots of the predicted relationship between these variables!
+:::
+
+(That one definitely doesn't follow the "be clear and specific" guidance — but it got the job done anyway. Don't overthink your prompt style; the content matters more than the tone.)
+
+## Writing it up
+
+If you want to keep going, ask agent mode to write up the results as an Rmd or qmd file. It'll use the tables and figures it generated to interpret them — and if your model has vision capabilities, it can look at the plots it created too. As always: don't take anything for granted, check the write-up matches what you'd conclude yourself.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge re-running the same prompt twice and comparing outputs.
+Run the same regression prompt twice, in two separate agent sessions. Compare the two scripts — did the agent make the same choice of GLM family both times (Poisson vs. negative binomial), and did it check for overdispersion either time without being asked?
 :::

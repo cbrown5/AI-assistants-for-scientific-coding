@@ -1,10 +1,11 @@
 # Security risks
 
-<!-- source: 08-advanced-llm-agents.qmd (permission-before-tool-use paragraph) +
-     light teaser of 12-cost-security.qmd lethal trifecta (full depth deferred to Section 4) -->
+Before we run our first agent, it's worth pausing on why the permission-before-tool-use model exists. An agent that can write and run code on your computer can, in principle, do anything you could do from a terminal — including things you didn't ask for.
 
-Why agents ask permission before acting, and a first look at what can go wrong when they don't.
+Most agents ask you to confirm before running a tool, precisely because of this. But instructions given to an LLM are more like guidelines than guarantees. I've regularly seen Copilot's agent try to `cd` into a different directory in the terminal, despite explicit instructions not to — usually an innocent attempt to get a better view of the project, but I never approve it, because I can't always tell the difference between innocent and not from the confirmation dialog alone.
+
+The deeper risk is what's called the **lethal trifecta**: an agent that can read untrusted content, access private data, and communicate externally, all at once. If an agent reads something from the web that contains a hidden malicious instruction, and it also has access to your files and a way to send information out (the terminal, git, a webpage it can write), that instruction can act on your behalf without you approving anything that looked dangerous at the time. We'll unpack this properly with a concrete example in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd) — for now, just note that "the agent asked permission before running a tool" is a safety net, not a guarantee, and it gets thinner the more capabilities you hand an agent at once.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge spotting a risky agent permission request.
+Next time an agent asks permission to run a tool, pause before clicking approve and ask yourself: could this tool call read something untrusted, access something private, or send information externally? Note which (if any) of the three applies.
 :::

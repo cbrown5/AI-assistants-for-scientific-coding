@@ -1,11 +1,20 @@
 # Reviewing agent output
 
-<!-- source: 05-github-copilot.qmd section "Why so much code?" +
-     08-advanced-llm-agents.qmd (vibe coding paragraph) +
-     13-ethics-copyright.qmd section "Who's responsible for mistakes?" -->
+You can accept every suggestion an agent makes without reading it — this is what people mean by "vibe coding." It's fine for prototyping a throwaway idea or a low-stakes app. It's a bad fit for anything you plan to publish, because the whole point of vibe coding is that you *haven't* verified it's correct — and unlike an app that visibly works or doesn't, a subtly wrong statistical analysis can look completely fine right up until someone tries to reproduce it.
 
-How to check what an agent actually did before you accept it, and why vibe coding is a bad fit for serious science.
+Here's the part that doesn't change no matter how good the tooling gets: **you own the content you create with an assistant, and you're responsible for it.** You couldn't blame an LLM if you had to retract a paper because of an incorrect analysis, any more than you could blame a calculator.
+
+## What to actually check
+
+Before accepting an agent's output, it's worth having a habit, not just good intentions:
+
+- Does the statistical approach match what you decided in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd) — or did it quietly substitute something more familiar to it?
+- Did it check assumptions it should have (overdispersion, residual patterns) or just fit the model and move on?
+- Are there extra analyses or files you didn't ask for? Agents sometimes pad out a task with things that look thorough but weren't requested.
+- Does the code match the style and packages your README specified, or did it default back to its own preferences?
+
+This isn't about distrust for its own sake — it's the same posture you'd bring to checking a research assistant's work, human or otherwise. The difference with an agent is that it will never tell you it's unsure, so the checking has to be entirely on your side.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge reading an agent-generated diff and finding one thing you'd change.
+Take the script an agent produced for you in an earlier module (the regression of `pres.topa` on `CB_cover`, or the pairs plot). Read it line by line and find one thing you'd change — a package choice, a default argument, an assumption it didn't check.
 :::
