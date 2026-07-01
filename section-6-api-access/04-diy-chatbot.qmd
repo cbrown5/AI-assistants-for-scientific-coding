@@ -1,10 +1,48 @@
 # DIY chatbot
 
-<!-- source: 04-llm-from-api.qmd sections "DIY stats bot" and "Improving the stats bot";
-     reuses resources/DIY-stats-bot-system.md as-is -->
+Let's put what we've learned together and build a purpose-built chatbot. I've written a detailed system prompt for a chat bot that specialises in helping with statistics — I call it Bilby. We'll read the system prompt from GitHub, then use it in a chat session.
 
-Building the Bilby stats bot from a system prompt, finding the easter egg, and the security lesson it teaches.
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+```{r}
+library(ellmer)
+
+stats_bot <- readr::read_file(url("https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md"))
+
+chat_stats <- chat_openrouter(
+  system_prompt = stats_bot,
+  model = "anthropic/claude-sonnet-4",
+  api_args = list(max_tokens = 5000)
+)
+
+chat_stats$chat("Who are you?")
+```
+
+::: {.tip}
+**Tip:** How many of you started using `DIY-stats-bot-system.md` without reading it first? Did you find the easter egg in the prompt? For security, you should **always** read a prompt before running it — we'll see in [Section 4](../section-4-security-privacy/index.qmd) that agents can be given tools that let them run code on your computer, and it's easy to imagine a malicious prompt misusing those.
+:::
+
+Try asking it a few different statistical questions and see how it responds — does it stay in character? Does it push back on a poorly specified question the way a human statistician would?
+
+## Multi-turn with the stats bot
+
+You can also drop straight into `live_console(chat_stats)` (see the previous module) if you want an ongoing conversation with Bilby rather than one-off questions.
+
+## Improving the stats bot
+
+Make a local copy of the system prompt and edit it. You can write it to file with your own R code, or just copy the text directly from [the file on GitHub](https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md). Some ideas:
+
+- Make it a vehement Bayesian who abhors frequentist statistics.
+- Give it mode-specific instructions, e.g. always suggesting appropriate verification plots.
+- Try different temperatures.
+- Add your own easter egg.
+
+::: {.tip}
+**Tip:** Adjectives, CAPITALS and `*markdown*` emphasis can all help a model follow your instructions more closely. I used "abhors" and "vehement" above on purpose.
+:::
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge editing the stats bot's system prompt and observing the behaviour change.
+Edit the stats bot's system prompt so that it always recommends a verification step (like a residual plot or a simulated-data check — see [Section 5](../section-5-agentic-engineering/index.qmd)) alongside any modelling advice it gives for the topa/coral-cover data. Test it with the question "How should I model pres.topa as a function of CB_cover?"
 :::

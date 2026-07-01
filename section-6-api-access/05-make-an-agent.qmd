@@ -1,14 +1,69 @@
 # Make an agent: simple read-and-write agent
 
-<!-- source: seeded from 04-llm-from-api.qmd section "Tools" (ellmer tool-calling teaser),
-     system.md (Roo Code system prompt) and resources/DIY-stats-bot-system.md as reference
-     material for "what does an agent system prompt look like." Framing inspired by
-     Hadley Wickham's "A coding agent is six functions in a trenchcoat" (tidydesign.substack.com)
-     — agent = a handful of tools (read_file, write_file, run_command) wired to an LLM in
-     a loop. Mostly new content: prototype the actual ellmer tool-loop code before writing. -->
+By now the word "agent" has come up a lot — Copilot's agent mode, Roo Code, Claude Code. It's tempting to imagine something mysterious going on inside them. It isn't. As Hadley Wickham put it in a recent post, ["A coding agent is six functions in a trenchcoat"](https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in): strip away the marketing and a coding agent is a handful of plain functions — read a file, write a file, run a shell command — wired up to an LLM that gets to call them in a loop. Everything else (the fancy chat UI, the permission prompts, the diff viewer) is scaffolding around that simple core.
 
-Build a minimal coding agent from scratch in R with ellmer: three tools (`read_file`, `write_file`, `run_command`) and a loop.
+We already saw the general shape of this loop back in [Section 2](../section-2-agents/02-how-agents-work.qmd): the model responds, your software inspects the response, runs whatever tool was requested, and feeds the result back — round and round until the model decides it's done. Let's build the smallest possible version of that ourselves, in R, using `ellmer`'s tool-calling support.
+
+## Three tools
+
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+```{r}
+library(ellmer)
+
+read_file_tool <- tool(
+  function(path) paste(readLines(path, warn = FALSE), collapse = "\n"),
+  "Read the full contents of a text file and return it as a string.",
+  path = type_string("Relative path to the file to read")
+)
+
+write_file_tool <- tool(
+  function(path, content) {
+    writeLines(content, path)
+    paste("Wrote", nchar(content), "characters to", path)
+  },
+  "Write content to a file, creating or overwriting it.",
+  path = type_string("Relative path to the file to write"),
+  content = type_string("The full content to write to the file")
+)
+
+run_command_tool <- tool(
+  function(command) {
+    paste(system(command, intern = TRUE), collapse = "\n")
+  },
+  "Run a shell command in the current working directory and return its output.",
+  command = type_string("The shell command to run, e.g. 'Rscript myscript.R'")
+)
+```
+
+That's the whole toolbox. Nothing here is agent-specific — they're just ordinary R functions wrapped with `ellmer::tool()`, which describes each one and its arguments so the LLM knows when and how to call them.
+
+## Wiring them to a chat
+
+```{r}
+chat <- chat_anthropic(
+  system_prompt = "You are a careful coding agent. You have tools to read files,
+  write files, and run shell commands in the current project directory. Use
+  Rscript to run R scripts, e.g. `Rscript 'my-script.R'`. Explain what you did
+  after each tool use."
+)
+
+chat$register_tool(read_file_tool)
+chat$register_tool(write_file_tool)
+chat$register_tool(run_command_tool)
+
+chat$chat("Read fish-coral-cover-sites.csv, then write a one-paragraph summary
+of its columns to a new file called summary.md")
+```
+
+This is the trick worth noticing: `chat$chat()` already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model's response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don't write the `while` loop yourself; ellmer's tool support *is* the loop. That's really all Roo Code, Copilot's agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see `system.md` in this repo for a full example — the system prompt Roo Code actually uses).
+
+## Making it safer
+
+Our toy agent above will happily run *any* shell command it's asked to, including ones that touch the network or delete files. Real agents guard this with permission prompts before every tool call (which is why Copilot and Claude Code ask you to confirm each step) or with an allow/deny list of specific commands. If you wanted to harden this toy version, the cheapest fix is to check `command` inside `run_command_tool` before executing it — for instance, refusing to run anything containing `rm`, `curl`, or `git push`.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge adding a fourth tool (e.g. `list_files`) to your agent.
+Add a fourth tool, `list_files`, that returns the files in the current directory (`list.files()`). Register it with your chat, then ask the agent to "List the files here, then read whichever one looks like it contains the coral and fish survey data." See whether it picks `fish-coral-cover-sites.csv` correctly.
 :::
