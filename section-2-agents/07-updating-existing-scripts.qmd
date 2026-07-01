@@ -1,0 +1,10 @@
+# Updating existing scripts with agents
+
+<!-- source: 05-github-copilot.qmd, sections "Edit mode: Creating code from text" and
+     "Workflows and tips for edit mode" -->
+
+Using edit mode to modify code you already have, and the git discipline that makes it safe to do so.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge editing an existing plot script with an agent, committing before and after.
+:::

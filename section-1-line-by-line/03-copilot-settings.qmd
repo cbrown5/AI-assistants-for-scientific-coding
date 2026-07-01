@@ -1,0 +1,9 @@
+# GH Copilot settings
+
+<!-- source: 05-github-copilot.qmd, sections "3. Code completion settings", "Other options" (Indexing, Configure code completions, Next edit suggestions, Premium requests), "LLM choice", "BYOK" -->
+
+Tuning completion behaviour, next-edit suggestions, indexing, model choice and bring-your-own-key.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge on tweaking a Copilot setting and observing the effect.
+:::

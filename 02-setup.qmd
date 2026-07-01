@@ -1,0 +1,5 @@
+# Setup
+
+<!-- source: 03-set-up.qmd (reuse near-verbatim) -->
+
+Step-by-step software installation and recommended environments (R, Python, editors), so you're ready for the hands-on modules that follow. No quiz for this module.

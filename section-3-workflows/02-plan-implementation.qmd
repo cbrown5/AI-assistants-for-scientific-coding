@@ -1,0 +1,11 @@
+# Step 2: Plan implementation
+
+<!-- source: 07-ai-powered-analysis-workflows.qmd section "Plan implementation and project structure"
+     (directory structure, README-as-agent-memory concept — the full spec sheet example
+     is deferred to module 04 in this section) -->
+
+Turning a chosen method into a project plan: directory structure and the README as the agent's memory.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge drafting a directory structure for a new benthic/fish analysis project.
+:::

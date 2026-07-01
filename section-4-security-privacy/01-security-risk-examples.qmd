@@ -1,0 +1,9 @@
+# Security risk examples
+
+<!-- source: 12-cost-security.qmd section "Lethal trifecta for prompt injection attacks" -->
+
+A concrete walkthrough of the lethal trifecta — untrusted content, private data access, and the ability to communicate externally — and how easy it is to cross the line.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge identifying which trifecta conditions a given agent setup satisfies.
+:::

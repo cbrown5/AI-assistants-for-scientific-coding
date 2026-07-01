@@ -1,0 +1,10 @@
+# Bash sandbox example
+
+<!-- source: 12-cost-security.qmd sandbox paragraph (currently 2 sentences) — needs
+     expansion into an actual worked example, verified hands-on by the author. -->
+
+A concrete example of restricting what an agent's shell/file access can touch.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge setting up a sandbox restriction and confirming the agent can't escape it.
+:::

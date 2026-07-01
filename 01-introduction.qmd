@@ -1,0 +1,5 @@
+# Introduction
+
+<!-- source: 02-introduction.qmd (reuse near-verbatim) -->
+
+Strengths, weaknesses and common failure modes of language models when used for programming and data analysis. No quiz for this module — it's scene-setting for everything that follows.

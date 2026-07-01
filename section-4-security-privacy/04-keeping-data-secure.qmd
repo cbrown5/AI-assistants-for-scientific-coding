@@ -1,0 +1,10 @@
+# Keeping data secure from the cloud
+
+<!-- source: 13-ethics-copyright.qmd section "Managing data privacy" (Options 1-4);
+     also implements readme.md's planned "fakedataR package" addition -->
+
+Options for keeping sensitive data away from cloud LLMs: local models, separating data from code, ignore-folder patterns, and no-data-retention providers.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge picking the right data-privacy option for a hypothetical sensitive dataset.
+:::

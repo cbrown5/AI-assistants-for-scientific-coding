@@ -1,0 +1,11 @@
+# Agent options
+
+<!-- source: 03-set-up.qmd (software comparison table, Roo Code/Cline/Positron rows) +
+     08-advanced-llm-agents.qmd section "Software options"; needs a new paragraph on
+     Claude Code specifically (only name-dropped once in v1) -->
+
+A tour of the current agent landscape: Claude Code, VSCode + Copilot agent mode, GitHub Copilot CLI, and Positron Assistant.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge comparing two agent options on the same small task.
+:::

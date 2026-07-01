@@ -1,0 +1,9 @@
+# Inline code completion
+
+<!-- source: 05-github-copilot.qmd, section "1. Code completion" -->
+
+Your first taste of AI-assisted coding: tab-complete suggestions as you type, tried out on the benthic reef data.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge referencing `pres.topa`/`CB_cover` inline-completion behaviour.
+:::

@@ -1,0 +1,14 @@
+# Make an agent: simple read-and-write agent
+
+<!-- source: seeded from 04-llm-from-api.qmd section "Tools" (ellmer tool-calling teaser),
+     system.md (Roo Code system prompt) and resources/DIY-stats-bot-system.md as reference
+     material for "what does an agent system prompt look like." Framing inspired by
+     Hadley Wickham's "A coding agent is six functions in a trenchcoat" (tidydesign.substack.com)
+     — agent = a handful of tools (read_file, write_file, run_command) wired to an LLM in
+     a loop. Mostly new content: prototype the actual ellmer tool-loop code before writing. -->
+
+Build a minimal coding agent from scratch in R with ellmer: three tools (`read_file`, `write_file`, `run_command`) and a loop.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge adding a fourth tool (e.g. `list_files`) to your agent.
+:::

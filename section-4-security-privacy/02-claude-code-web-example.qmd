@@ -1,0 +1,10 @@
+# Claude Code for web example
+
+<!-- source: new content — Claude Code isn't demoed anywhere in v1, only name-checked once.
+     Needs a real hands-on worked example run by the author before writing. -->
+
+A worked example using Claude Code's cloud/web interface on the benthic/fish project.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge trying the same task locally vs via Claude Code for web and comparing.
+:::

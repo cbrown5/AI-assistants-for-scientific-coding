@@ -1,0 +1,9 @@
+# Using comments to trigger inline code
+
+<!-- source: 05-github-copilot.qmd, section "2. Using comments" -->
+
+How to steer completions with plain-English comments instead of typing code yourself, including a comments-only data wrangling exercise.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge using comments-only wrangling on the benthic/fish data.
+:::

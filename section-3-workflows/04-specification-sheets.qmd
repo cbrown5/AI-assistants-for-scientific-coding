@@ -1,0 +1,11 @@
+# Specification sheets
+
+<!-- source: 09-specification-sheets.qmd (project organisation, README/AGENTS.md template,
+     and the full worked example spec sheet for the fish/coral case study — largest
+     single reuse target in the book) -->
+
+Bringing steps 1-3 together into a single, detailed specification sheet, with a full worked example for the topa/coral-cover case study.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge writing your own spec sheet section for a variation on the topa analysis.
+:::

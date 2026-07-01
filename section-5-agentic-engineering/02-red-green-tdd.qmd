@@ -1,0 +1,10 @@
+# Red-green TDD for data analysis
+
+<!-- source: new content — no v1 equivalent. Adapt the software-engineering red/green
+     test-driven-development cycle to statistical/data-analysis code written with an agent. -->
+
+Write the failing check first, then get the agent to make it pass — applying red-green TDD to a statistical analysis instead of application code.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge writing a red (failing) test for the topa/coral-cover GLM before implementing it.
+:::

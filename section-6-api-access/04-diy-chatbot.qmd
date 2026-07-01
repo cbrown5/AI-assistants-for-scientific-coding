@@ -1,0 +1,10 @@
+# DIY chatbot
+
+<!-- source: 04-llm-from-api.qmd sections "DIY stats bot" and "Improving the stats bot";
+     reuses resources/DIY-stats-bot-system.md as-is -->
+
+Building the Bilby stats bot from a system prompt, finding the easter egg, and the security lesson it teaches.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge editing the stats bot's system prompt and observing the behaviour change.
+:::

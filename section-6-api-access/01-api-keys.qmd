@@ -1,0 +1,10 @@
+# API keys
+
+<!-- source: 03-set-up.qmd sections "Getting an API key {#sec-apikeys}" and
+     "Ellmer set-up {#sec-ellmer}" -->
+
+Getting a key from OpenRouter, Anthropic or OpenAI, and wiring it into your `.Renviron`.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge confirming ellmer picks up your key without hardcoding it anywhere.
+:::

@@ -1,0 +1,11 @@
+# Reviewing agent output
+
+<!-- source: 05-github-copilot.qmd section "Why so much code?" +
+     08-advanced-llm-agents.qmd (vibe coding paragraph) +
+     13-ethics-copyright.qmd section "Who's responsible for mistakes?" -->
+
+How to check what an agent actually did before you accept it, and why vibe coding is a bad fit for serious science.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge reading an agent-generated diff and finding one thing you'd change.
+:::

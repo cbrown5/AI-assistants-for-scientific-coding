@@ -1,0 +1,10 @@
+# Your first agent example
+
+<!-- source: 05-github-copilot.qmd, section "Agent mode: Automated workflows" / "Exploring agent mode"
+     (the pres.topa ~ cb_cover regression + plotting example, incl. the pirate-prompt aside) -->
+
+Run an agent end-to-end on the benthic/fish data: fit a regression, make a plot, and see what it does without you writing the code.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge re-running the same prompt twice and comparing outputs.
+:::

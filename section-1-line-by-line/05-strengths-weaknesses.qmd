@@ -1,0 +1,12 @@
+# Strengths and weaknesses of line-by-line completion
+
+<!-- source: new content, drawing directly on the author's pasted blog post
+     "Mitigating the risks of AI coding tools with judicious use for research tasks"
+     (saved at scratchpad/judicious-ai-use-blog.md), plus 13-ethics-copyright.qmd
+     section "Impacts on learning" -->
+
+A discussion module: what line-by-line completion is good at, where it runs out of road, and why "judicious" use is the throughline for the whole book.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: reflective challenge — identify a task where inline completion was enough, and one where it wasn't.
+:::

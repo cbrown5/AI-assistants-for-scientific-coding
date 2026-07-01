@@ -1,0 +1,10 @@
+# Step 3: Write the code
+
+<!-- source: 07-ai-powered-analysis-workflows.qmd sections "Writing the code",
+     "Suggested workflows", "Iterating" -->
+
+Three levels of automation for turning a plan into working code, from manual editing to full agent runs — and why iterating over multiple attempts beats accepting the first one.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge running the same implementation prompt twice and comparing the two attempts.
+:::

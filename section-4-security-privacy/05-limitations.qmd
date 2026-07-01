@@ -1,0 +1,9 @@
+# Limitations
+
+<!-- source: 12-cost-security.qmd closing paragraphs ("watch what your agents are doing...") -->
+
+What security measures in this section can't guarantee, and why ongoing vigilance still matters.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge listing one residual risk that remains even after applying this section's advice.
+:::

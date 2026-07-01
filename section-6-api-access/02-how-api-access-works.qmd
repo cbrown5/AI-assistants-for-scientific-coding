@@ -1,0 +1,11 @@
+# How API access works with ellmer
+
+<!-- source: 04-llm-from-api.qmd (first ~2/3): "What is an API," "Calling LLMs via an API,"
+     "Controlling randomness," "Navigating Openrouter," "API errors," "Comparing model
+     complexity," "Understanding context windows" -->
+
+What an API call actually does, system vs user prompts, temperature and top_k, context windows, and reading error codes.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge comparing two temperature settings on the same completion prompt.
+:::

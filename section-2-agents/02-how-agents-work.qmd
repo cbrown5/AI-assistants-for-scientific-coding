@@ -1,0 +1,9 @@
+# How agents work
+
+<!-- source: 08-advanced-llm-agents.qmd intro + workflow figure resources/AI-agent-workflows.png -->
+
+The core idea: agents run tools in a loop, reviewing the results of each tool call before deciding what to do next.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge tracing through one loop iteration on a concrete example.
+:::

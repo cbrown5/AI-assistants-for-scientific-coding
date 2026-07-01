@@ -1,0 +1,9 @@
+# Step 1: Select a statistical approach
+
+<!-- source: 07-ai-powered-analysis-workflows.qmd section "Selecting a statistical method" -->
+
+Choosing the right analysis before you touch code: domain knowledge, chain-of-thought, and cross-disciplinary prompting.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge asking an LLM for method suggestions with vs without domain knowledge in the prompt.
+:::

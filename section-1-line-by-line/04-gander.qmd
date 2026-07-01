@@ -1,0 +1,9 @@
+# Gander: R package for code completion
+
+<!-- source: 03-set-up.qmd, section "Gander: Rstudio friendly alternative to copilot {#sec-gander}"; add link https://posit.co/blog/introducing-gander -->
+
+Setting up and using Gander, an RStudio-native alternative to Copilot that can see inside your R objects.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge using Gander on a `dat` object from the benthic/fish data.
+:::

@@ -1,0 +1,10 @@
+# Literature review example
+
+<!-- source: 10-research-applications-LLMs.qmd section "Automating literature reviews"
+     (excluding "Deep research"/web search, already covered in Section 2 module 06) -->
+
+Using ellmer's structured data extraction to pull data from PDFs, batch-process abstracts, and honestly assess where this does and doesn't work.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge extracting structured data from one abstract and manually checking accuracy.
+:::

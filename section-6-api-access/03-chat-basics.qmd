@@ -1,0 +1,9 @@
+# Chat: multi-turn conversations
+
+<!-- source: 04-llm-from-api.qmd section "Multi-turn conversation" -->
+
+Using `chat_openrouter`, `live_console`/`live_browser`, and why multi-turn chat is more prone to context poisoning than a single well-prepared prompt.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge comparing a single detailed prompt vs the same info split over several turns.
+:::

@@ -1,0 +1,11 @@
+# When agents get stuck
+
+<!-- source: 05-github-copilot.qmd section "Agent mode errors" +
+     06-general-prompting-advice.qmd context-poisoning material +
+     05-github-copilot.qmd tip about GC getting "stuck in a loop" -->
+
+Recognising loops, PATH/Rscript errors, and context poisoning — and when to just restart the chat.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge deliberately poisoning a chat's context, then recovering by restarting.
+:::

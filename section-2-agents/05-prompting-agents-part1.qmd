@@ -1,0 +1,10 @@
+# Prompting agents I: giving context
+
+<!-- source: 07-ai-powered-analysis-workflows.qmd, sections "Giving context",
+     "Attaching data or data summaries", "Attach domain knowledge" -->
+
+How to feed an agent the context it needs: data summaries, metadata, and trusted domain knowledge.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge comparing agent output with and without an attached data summary.
+:::

@@ -1,0 +1,12 @@
+# Tests, verification and output-checking principles
+
+<!-- source: seeded from 07-ai-powered-analysis-workflows.qmd closing tip
+     ("You can get the assistant to write tests for your datasets...") and
+     08-advanced-llm-agents.qmd best-practices list ("Checking what it does as it does it").
+     Mostly new content — this is a new engineering-focused framing not really covered in v1. -->
+
+Why verification matters for data analysis code, and general principles for checking what an agent produced (row counts, joins, sanity-check plots).
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge writing a verification check for the benthic/fish join (no lost or duplicated sites).
+:::

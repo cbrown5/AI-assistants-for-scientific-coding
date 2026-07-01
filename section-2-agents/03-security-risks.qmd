@@ -1,0 +1,10 @@
+# Security risks
+
+<!-- source: 08-advanced-llm-agents.qmd (permission-before-tool-use paragraph) +
+     light teaser of 12-cost-security.qmd lethal trifecta (full depth deferred to Section 4) -->
+
+Why agents ask permission before acting, and a first look at what can go wrong when they don't.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge spotting a risky agent permission request.
+:::

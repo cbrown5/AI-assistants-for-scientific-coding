@@ -1,0 +1,12 @@
+# Using simulated data as a verification step
+
+<!-- source: new content — no direct v1 equivalent (13-ethics-copyright.qmd "Option 2"
+     mentions simulated data but for privacy, a different purpose; reuse only the concept).
+     Use the pres.topa ~ CB_cover negative-binomial GLM from 09-specification-sheets.qmd
+     as the worked simulation target. -->
+
+Simulating data with known parameters to check that your model and pipeline can recover the truth, using the topa/coral-cover GLM as the worked example.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge simulating fake topa counts from a known CB_cover effect and checking the fitted model recovers it.
+:::

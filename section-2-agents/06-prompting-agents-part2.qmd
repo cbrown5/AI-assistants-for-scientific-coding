@@ -1,0 +1,11 @@
+# Prompting agents II: web search and specification
+
+<!-- source: 07-ai-powered-analysis-workflows.qmd section "Web search" +
+     09-specification-sheets.qmd README/AGENTS.md concept (light touch; full spec
+     sheet detail lives in Section 3 module 04) -->
+
+Using web search to gather domain knowledge, and a first look at specification-sheet-style prompting.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO: challenge using a web-search prompt to find a stats method, then verifying it.
+:::

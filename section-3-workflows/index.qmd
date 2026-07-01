@@ -1,0 +1,3 @@
+# Section 3: AI in workflows {.unnumbered}
+
+A good analysis workflow separates deciding *what* to do from *how* to code it. This section walks through my suggested three-step workflow — select a statistical approach, plan the implementation, then write the code — as three short modules, followed by a module on specification sheets that ties the whole thing together with a full worked example.
