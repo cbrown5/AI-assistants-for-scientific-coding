@@ -1,9 +1,39 @@
 # Step 1: Select a statistical approach
 
-<!-- source: 07-ai-powered-analysis-workflows.qmd section "Selecting a statistical method" -->
+LLM prompting works best when you already have a clear idea of your goal and the workflow needed to reach it. We saw the general principle back in prompting fundamentals: break your problem into smaller parts. For data analysis, that means treating each of these as a separate step rather than blurring them together:
 
-Choosing the right analysis before you touch code: domain knowledge, chain-of-thought, and cross-disciplinary prompting.
+1. **Select a statistical approach** — decide what kind of analysis answers your question.
+2. **Plan the implementation** — design the code structure and project layout (next module).
+3. **Write the code** — implement the analysis (the module after that).
+
+LLMs perform differently across these steps. They're strong at code generation and implementation planning, but noticeably less reliable at picking the right statistical approach or interpreting subtle results. Treating each step separately — rather than asking an agent to do all three at once — keeps you making the decisions that need a human, and stops you making them "on the fly" inside a big vibe-coded session.
+
+## Choosing the method, before the code
+
+Identify the analysis you want before thinking about how to code it. Once you have an approach, then look at what packages implement it.
+
+The limited formal evaluations of LLMs on statistics so far have found the biggest accuracy gains for prompts that:
+
+- Include domain knowledge in the prompt.
+- Include the data, or a summary of it, in the prompt.
+- Combine domain knowledge with chain-of-thought reasoning (chain-of-thought on its own doesn't help much).
+
+Larger, more recent models also tend to do better — worth trying a current frontier model (e.g. Claude Sonnet or Opus, or GPT-5) if you have access, even if you use a cheaper model for the bulk of your work.
+
+::: {.tip}
+**Tip:** LLMs default to the most obvious, well-known statistical approach. If you want something more creative or better matched to your specific problem, you need to work a bit harder — for example: "Suggest methods for this analysis, taking inspiration from different disciplines such as medicine, psychology and climate research."
+:::
+
+## Attaching data and domain knowledge
+
+Attaching data (or a summary of it) is proven to improve statistical recommendations — the model can see actual column names and value ranges rather than guessing. For a large dataset, ask the assistant to generate a small summary first (e.g. "write a script that creates a version of the benthic data with only the first six rows") rather than attaching the whole thing.
+
+Domain knowledge helps just as much. If there's a paper you're trying to emulate, convert it to markdown (e.g. via [Jina Reader](https://tools.simonwillison.net/jina-reader)) and attach that. Good sources: stats tutorial blogs, package vignettes, and documentation — keep a running list handy.
+
+::: {.tip}
+**Tip:** If you consulted a human statistician, they'd ask you a lot of questions before answering. An LLM won't — it'll just answer, whether or not it has enough context. If you asked me "how do I see if fish are related to coral cover?" with that little information, I wouldn't jump straight to an answer. The LLM will. Come prepared with the context it needs, rather than expecting it to ask.
+:::
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO: challenge asking an LLM for method suggestions with vs without domain knowledge in the prompt.
+Ask an assistant "How could I test if fish abundance depends on coral cover?" with no context attached. Then ask again, this time attaching a six-row summary of the `fish-coral-cover-sites.csv` data and a one-sentence description of the sampling design. Compare the specificity of the two answers.
 :::
