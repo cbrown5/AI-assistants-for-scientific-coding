@@ -12,6 +12,16 @@ My own workflow mixes Copilot's editing features with a full agent (Roo Code or 
 
 Keep a markdown file updated as you go, so the agent stays on topic across sessions — a `README.md` works, and a growing number of agents look specifically for a file called `AGENTS.md`. If the context in that file goes stale (say, it still mentions a package you've since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.
 
+## Memory files
+
+Different agents use different filenames for these persistent instruction files, but they all serve the same purpose: load standing context at the start of every session without you having to retype it.
+
+- **`AGENTS.md`** — OpenAI's convention, now widely adopted. Read automatically by Codex and supported by Roo Code and Cline. Good for general project instructions, preferred packages, and conventions the agent should follow.
+- **`CLAUDE.md`** — Claude Code's equivalent. Claude Code reads it from the project root (and any parent directories) at the start of each session, so instructions in it apply project-wide. You can nest `CLAUDE.md` files in subdirectories to scope rules to a folder.
+- **`README.md`** — Not agent-specific, but many agents will read it if no dedicated memory file is present. Useful because it doubles as documentation for human collaborators.
+
+The practical advice is the same regardless of which file your agent reads: keep it short, keep it current, and delete anything that no longer applies. A stale memory file actively misleads the agent. See [Section 5](../section-5-customizing-agents/01-what-is-customization.qmd) for how these files relate to skills and custom agent modes.
+
 ::: {.callout-important title="Challenge" appearance="simple"}
 Open `system.md` in this repo — the actual system prompt Roo Code uses. Find the section that lists its available tools. How many of them map onto the simple "read a file / write a file / run a command" set we'll build in Section 7?
 :::

@@ -1,5 +1,52 @@
-# Appendix — Code and data
+# Appendix
 
-<!-- source: 14-appendix.qmd (reuse as-is) -->
+## Code and data
 
 Code snippets, data access links and supporting scripts used throughout the book.
+
+## Introduction to Markdown
+
+Markdown is a lightweight plain-text format that renders to formatted HTML (or PDF, Word, etc.). Most agent memory files, README files, and the chapters of this book are written in Markdown — so a basic reading knowledge is useful even if you never write it from scratch.
+
+The essentials:
+
+| Element | Markdown syntax |
+|---|---|
+| Heading | `# H1`, `## H2`, `### H3` |
+| Bold | `**bold**` |
+| Italic | `*italic*` |
+| Inline code | `` `code` `` |
+| Fenced code block | ```` ```r ```` … ```` ``` ```` |
+| Bulleted list | `- item` |
+| Link | `[text](url)` |
+
+That covers most of what you'll encounter. For a complete reference, see the [CommonMark spec](https://commonmark.org/help/) or the concise [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
+
+## Introduction to Quarto
+
+Quarto is an open-source publishing system built on Pandoc. It extends Markdown with executable code chunks (R, Python, Julia, Observable JS) and compiles documents to HTML, PDF, Word, slides, or — as in this book — a multi-page website.
+
+A minimal Quarto document looks like this:
+
+````markdown
+---
+title: "My analysis"
+format: html
+---
+
+Some prose.
+
+```{r}
+plot(1:10)
+```
+````
+
+The YAML block at the top (`---` … `---`) sets document-level options. Code chunks are fenced with ```` ``` ```` and an engine tag (`{r}`, `{python}`, etc.). Everything else is standard Markdown.
+
+To render from the terminal: `quarto render myfile.qmd`. In RStudio or Positron, click the **Render** button.
+
+Useful starting points:
+
+- [Quarto documentation](https://quarto.org/docs/guide/) — the official guide, well-written and searchable.
+- [R for Data Science, Ch. 28–29](https://r4ds.hadley.nz/) — gentle introduction in the context of R workflows.
+- [Quarto for Scientists](https://qmd4sci.njtierney.com/) — a short, focused tutorial aimed at researchers.
