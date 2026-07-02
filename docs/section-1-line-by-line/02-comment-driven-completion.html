@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Brown">
-<meta name="dcterms.date" content="2025-08-30">
 
-<title>AI assistants for Scientific Coding</title>
+<title>5&nbsp; Using comments to trigger inline code – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,28 +20,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./01-introduction.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b7e7ab1ff026ee059046a040530bec69.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../section-1-line-by-line/03-copilot-settings.html" rel="next">
+<link href="../section-1-line-by-line/01-inline-completion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b7e7ab1ff026ee059046a040530bec69.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -85,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/02-comment-driven-completion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Using comments to trigger inline code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -99,10 +133,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI assistants for Scientific Coding</a> 
+      <a href="../">AI assistants for Scientific Coding</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -114,25 +148,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Setup</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-1-line-by-line/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-1-line-by-line/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 1: Line-by-line code completion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -141,31 +175,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1-line-by-line/01-inline-completion.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-1-line-by-line/01-inline-completion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Inline code completion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1-line-by-line/02-comment-driven-completion.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-1-line-by-line/02-comment-driven-completion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Using comments to trigger inline code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1-line-by-line/03-copilot-settings.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-1-line-by-line/03-copilot-settings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1-line-by-line/04-gander.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-1-line-by-line/04-gander.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-1-line-by-line/05-strengths-weaknesses.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-1-line-by-line/05-strengths-weaknesses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></span></a>
   </div>
 </li>
@@ -173,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-2-agents/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-2-agents/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 2: Agents</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -182,55 +216,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/02-how-agents-work.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/02-how-agents-work.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How agents work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/03-security-risks.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/03-security-risks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Security risks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/04-first-agent-example.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/04-first-agent-example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Your first agent example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/05-prompting-agents-part1.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/05-prompting-agents-part1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prompting agents I: giving context</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/06-prompting-agents-part2.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/06-prompting-agents-part2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Prompting agents II: web search and specification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/07-updating-existing-scripts.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/07-updating-existing-scripts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Updating existing scripts with agents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/08-reviewing-agent-output.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/08-reviewing-agent-output.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reviewing agent output</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-2-agents/09-when-agents-get-stuck.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-2-agents/09-when-agents-get-stuck.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">When agents get stuck</span></span></a>
   </div>
 </li>
@@ -238,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-3-workflows/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-3-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 3: AI in workflows</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -247,25 +281,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Step 1: Select a statistical approach</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-3-workflows/02-plan-implementation.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-3-workflows/02-plan-implementation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Step 2: Plan implementation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-3-workflows/03-write-the-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-3-workflows/03-write-the-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Step 3: Write the code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-3-workflows/04-specification-sheets.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-3-workflows/04-specification-sheets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Specification sheets</span></span></a>
   </div>
 </li>
@@ -273,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 4: Security, data privacy and cloud agents</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -282,31 +316,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Security risk examples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4-security-privacy/02-claude-code-web-example.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-4-security-privacy/02-claude-code-web-example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Claude Code for web example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4-security-privacy/03-bash-sandbox-example.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-4-security-privacy/03-bash-sandbox-example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bash sandbox example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4-security-privacy/04-keeping-data-secure.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-4-security-privacy/04-keeping-data-secure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Keeping data secure from the cloud</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-4-security-privacy/05-limitations.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-4-security-privacy/05-limitations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limitations</span></span></a>
   </div>
 </li>
@@ -314,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-5-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-5-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 5: Agentic engineering for data analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -323,19 +357,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-5-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-5-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-5-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-5-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-5-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-5-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
   </div>
 </li>
@@ -343,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./section-6-api-access/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../section-6-api-access/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 6: LLM access via API</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -352,37 +386,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-6-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
@@ -390,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendix.html" class="sidebar-item-text sidebar-link">
+  <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
@@ -399,50 +433,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">0.1</span> Summary</a></li>
-  <li><a href="#citation-for-book" id="toc-citation-for-book" class="nav-link" data-scroll-target="#citation-for-book"><span class="header-section-number">0.2</span> Citation for book</a></li>
-  <li><a href="#who-should-read-this-book" id="toc-who-should-read-this-book" class="nav-link" data-scroll-target="#who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</a></li>
-  <li><a href="#is-the-book-up-to-date" id="toc-is-the-book-up-to-date" class="nav-link" data-scroll-target="#is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</a></li>
-  <li><a href="#about-chris" id="toc-about-chris" class="nav-link" data-scroll-target="#about-chris"><span class="header-section-number">0.5</span> About Chris</a></li>
-  <li><a href="#software-youll-need-for-this-workshop" id="toc-software-youll-need-for-this-workshop" class="nav-link" data-scroll-target="#software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</a></li>
-  <li><a href="#book-overview" id="toc-book-overview" class="nav-link" data-scroll-target="#book-overview"><span class="header-section-number">0.7</span> Book overview</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">0.8</span> Data</a>
-  <ul class="collapse">
-  <li><a href="#benthic-cover-surveys-and-fish-habitat" id="toc-benthic-cover-surveys-and-fish-habitat" class="nav-link" data-scroll-target="#benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/02-comment-driven-completion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Using comments to trigger inline code</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">AI assistants for Scientific Coding</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Using comments to trigger inline code</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Chris Brown </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -452,70 +458,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="summary" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">0.1</span> Summary</h2>
-<p>If you are doing data analysis you are probably using language models (e.g.&nbsp;ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.</p>
-<p>I will cover:</p>
-<ul>
-<li><p>How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).</p></li>
-<li><p>Vibe coding and how future analysis workflows will change dramatically from today</p></li>
-<li><p>Best practice prompting techniques that can dramatically improve model performance for complex data analysis</p></li>
-<li><p>Applying language models to common environmental applications such as GLMs and multivariate statistics</p></li>
-<li><p>Issues including environmental impacts, copyright and ethics</p></li>
-<li><p>I’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.</p></li>
-</ul>
-<p>The content I’ll teach is suitable for anyone using computing coding (e.g.&nbsp;R, Python) to do data analysis.</p>
-<p>Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g.&nbsp;R or Python).</p>
-</section>
-<section id="citation-for-book" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="citation-for-book"><span class="header-section-number">0.2</span> Citation for book</h2>
-<p>Please consider citing my accompanying article if you are using the advice in this book, currently in pre-print form:</p>
-<p><strong>Citation: Brown &amp; Spillias (2025). Prompting large language models for quality ecological statistics. Pre-print. https://doi.org/10.32942/X2CS80</strong></p>
-<p>Generative AI software for coding is changing fast. So this book will keep changing as I update it to reflect new developments. It does not make sense to publish it as a fixed book. The general guidelines for prompting, which have a longer shelf-life are captured in the article. So please cite that to support my work.</p>
-</section>
-<section id="who-should-read-this-book" class="level2" data-number="0.3">
-<h2 data-number="0.3" class="anchored" data-anchor-id="who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</h2>
-<p>The book is for: anyone who currently uses R, from intermittent users to experienced professionals. The workshop is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots.</p>
-<p>Important This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first.</p>
-</section>
-<section id="is-the-book-up-to-date" class="level2" data-number="0.4">
-<h2 data-number="0.4" class="anchored" data-anchor-id="is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</h2>
-<p>The large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out <a href="https://luisdva.github.io/llmsr-book/before-start.html">Large Language Model tools for R</a> by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.</p>
-</section>
-<section id="about-chris" class="level2" data-number="0.5">
-<h2 data-number="0.5" class="anchored" data-anchor-id="about-chris"><span class="header-section-number">0.5</span> About Chris</h2>
-<p>I’m an Associate Professor of Fisheries Science at University of Tasmania and an Australian Research Council Future Fellow. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.</p>
-</section>
-<section id="software-youll-need-for-this-workshop" class="level2" data-number="0.6">
-<h2 data-number="0.6" class="anchored" data-anchor-id="software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</h2>
-<p>Save some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See <a href="./02-setup.html">Setup</a> for more detailed instructions.</p>
-</section>
-<section id="book-overview" class="level2" data-number="0.7">
-<h2 data-number="0.7" class="anchored" data-anchor-id="book-overview"><span class="header-section-number">0.7</span> Book overview</h2>
-<p>The book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections. Every module except Introduction and Setup ends with a Challenge to try yourself. Note the book is still under construction and it’s a fast moving space, so the content needs constant updating.</p>
-<ul>
-<li><a href="./01-introduction.html">Introduction</a>: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.</li>
-<li><a href="./02-setup.html">Setup</a>: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.</li>
-<li><a href="./section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a>: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.</li>
-<li><a href="./section-2-agents/index.html">Section 2: Agents</a>: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.</li>
-<li><a href="./section-3-workflows/index.html">Section 3: AI in workflows</a>: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.</li>
-<li><a href="./section-4-security-privacy/index.html">Section 4: Security, data privacy and cloud agents</a>: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.</li>
-<li><a href="./section-5-agentic-engineering/index.html">Section 5: Agentic engineering for data analysis</a>: Tests and verification, red-green TDD, and using simulated data as a verification step.</li>
-<li><a href="./section-6-api-access/index.html">Section 6: LLM access via API</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
-<li><a href="./99-appendix.html">Appendix — Code and data</a>: Code snippets, data access links and supporting scripts used in the book.</li>
-</ul>
-</section>
-<section id="data" class="level2" data-number="0.8">
-<h2 data-number="0.8" class="anchored" data-anchor-id="data"><span class="header-section-number">0.8</span> Data</h2>
-<p>We’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.</p>
-<section id="benthic-cover-surveys-and-fish-habitat" class="level3" data-number="0.8.1">
-<h3 data-number="0.8.1" class="anchored" data-anchor-id="benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</h3>
-<p>In this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by <a href="http://dx.doi.org/10.1016/j.biocon.2017.04.024">Hamilton et al.&nbsp;2017</a> who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.</p>
-<p>In a follow-up study <a href="http://dx.doi.org/10.1111/cobi.13079">Brown and Hamilton 2018</a> developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.</p>
+<p>Code completion is predicting your next line from your script (and any other open scripts) — it won’t know your variable names unless you’ve provided them somewhere. One way is to keep a readme.md open with your metadata in it. Another, which tends to work more reliably, is to write a comment describing what you want directly above where you’re typing:</p>
+<pre><code># Make a point plot of secchi against pres.topa
+gg...</code></pre>
+<p>That should get you the right ggplot. Using the actual variable names in your comment is more precise and helps the assistant guess correctly — this is the same “be specific” principle that shows up everywhere in this book, just applied one line at a time.</p>
+<p>You can also put key variable names in a comment block at the top of your script, so every completion after that has them in view.</p>
+<p>Another way to use this is to not write any R at all — just write a series of comments and let the assistant fill in the code. Try templating a series of plots like this:</p>
+<pre><code># Make a point plot of secchi against pres.topa with a stat_smooth
+
+# Plot logged (two categories) and pres.topa as a boxplot
+
+# Plot CB_cover (branching coral cover) against secchi</code></pre>
+<div class="tip">
+<p><strong>Tip:</strong> Remember one way to improve prompts is to be more specific. Using the correct variable names helps, whether you’re prompting a chat window or just a code comment.</p>
+</div>
+<p>Now go back through and click under each comment to trigger the suggestions.</p>
+<p>This strategy is especially handy in data wrangling. As a simple example, try producing this grouped summary using comments only:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(logged) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean_topa =</span> <span class="fu">mean</span>(pres.topa),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean_CB =</span> <span class="fu">mean</span>(CB_cover))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To get there I’d write something like:</p>
+<pre><code>    # group dat by logged
+    # summarize pres.topa and CB_cover</code></pre>
+<p>If you’ve already documented the variable names above (in a readme or a comment block), you can often be lazier and less precise here and still get a correct completion.</p>
+<div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using comments only (no R code typed by you), get the assistant to produce a summary table of mean <code>secchi</code> and mean <code>pres.topa</code> grouped by <code>flow</code>. Then try the same task with the variable names left out of your comments — compare how many attempts it takes.</p>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -920,10 +903,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../section-1-line-by-line/01-inline-completion.html" class="pagination-link" aria-label="Inline code completion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Inline code completion</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-introduction.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-1-line-by-line/03-copilot-settings.html" class="pagination-link" aria-label="GH Copilot settings">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

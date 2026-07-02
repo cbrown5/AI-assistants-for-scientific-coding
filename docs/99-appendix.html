@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Brown">
-<meta name="dcterms.date" content="2025-08-30">
 
-<title>AI assistants for Scientific Coding</title>
+<title>36&nbsp; Appendix — Code and data – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-introduction.html" rel="next">
+<link href="./section-6-api-access/06-lit-review-example.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -85,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendix.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
@@ -390,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendix.html" class="sidebar-item-text sidebar-link">
+  <a href="./99-appendix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
@@ -399,50 +397,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">0.1</span> Summary</a></li>
-  <li><a href="#citation-for-book" id="toc-citation-for-book" class="nav-link" data-scroll-target="#citation-for-book"><span class="header-section-number">0.2</span> Citation for book</a></li>
-  <li><a href="#who-should-read-this-book" id="toc-who-should-read-this-book" class="nav-link" data-scroll-target="#who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</a></li>
-  <li><a href="#is-the-book-up-to-date" id="toc-is-the-book-up-to-date" class="nav-link" data-scroll-target="#is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</a></li>
-  <li><a href="#about-chris" id="toc-about-chris" class="nav-link" data-scroll-target="#about-chris"><span class="header-section-number">0.5</span> About Chris</a></li>
-  <li><a href="#software-youll-need-for-this-workshop" id="toc-software-youll-need-for-this-workshop" class="nav-link" data-scroll-target="#software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</a></li>
-  <li><a href="#book-overview" id="toc-book-overview" class="nav-link" data-scroll-target="#book-overview"><span class="header-section-number">0.7</span> Book overview</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">0.8</span> Data</a>
-  <ul class="collapse">
-  <li><a href="#benthic-cover-surveys-and-fish-habitat" id="toc-benthic-cover-surveys-and-fish-habitat" class="nav-link" data-scroll-target="#benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AI assistants for Scientific Coding</h1>
+<h1 class="title"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Chris Brown </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -452,70 +422,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="summary" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">0.1</span> Summary</h2>
-<p>If you are doing data analysis you are probably using language models (e.g.&nbsp;ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.</p>
-<p>I will cover:</p>
-<ul>
-<li><p>How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).</p></li>
-<li><p>Vibe coding and how future analysis workflows will change dramatically from today</p></li>
-<li><p>Best practice prompting techniques that can dramatically improve model performance for complex data analysis</p></li>
-<li><p>Applying language models to common environmental applications such as GLMs and multivariate statistics</p></li>
-<li><p>Issues including environmental impacts, copyright and ethics</p></li>
-<li><p>I’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.</p></li>
-</ul>
-<p>The content I’ll teach is suitable for anyone using computing coding (e.g.&nbsp;R, Python) to do data analysis.</p>
-<p>Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g.&nbsp;R or Python).</p>
-</section>
-<section id="citation-for-book" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="citation-for-book"><span class="header-section-number">0.2</span> Citation for book</h2>
-<p>Please consider citing my accompanying article if you are using the advice in this book, currently in pre-print form:</p>
-<p><strong>Citation: Brown &amp; Spillias (2025). Prompting large language models for quality ecological statistics. Pre-print. https://doi.org/10.32942/X2CS80</strong></p>
-<p>Generative AI software for coding is changing fast. So this book will keep changing as I update it to reflect new developments. It does not make sense to publish it as a fixed book. The general guidelines for prompting, which have a longer shelf-life are captured in the article. So please cite that to support my work.</p>
-</section>
-<section id="who-should-read-this-book" class="level2" data-number="0.3">
-<h2 data-number="0.3" class="anchored" data-anchor-id="who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</h2>
-<p>The book is for: anyone who currently uses R, from intermittent users to experienced professionals. The workshop is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots.</p>
-<p>Important This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first.</p>
-</section>
-<section id="is-the-book-up-to-date" class="level2" data-number="0.4">
-<h2 data-number="0.4" class="anchored" data-anchor-id="is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</h2>
-<p>The large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out <a href="https://luisdva.github.io/llmsr-book/before-start.html">Large Language Model tools for R</a> by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.</p>
-</section>
-<section id="about-chris" class="level2" data-number="0.5">
-<h2 data-number="0.5" class="anchored" data-anchor-id="about-chris"><span class="header-section-number">0.5</span> About Chris</h2>
-<p>I’m an Associate Professor of Fisheries Science at University of Tasmania and an Australian Research Council Future Fellow. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.</p>
-</section>
-<section id="software-youll-need-for-this-workshop" class="level2" data-number="0.6">
-<h2 data-number="0.6" class="anchored" data-anchor-id="software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</h2>
-<p>Save some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See <a href="./02-setup.html">Setup</a> for more detailed instructions.</p>
-</section>
-<section id="book-overview" class="level2" data-number="0.7">
-<h2 data-number="0.7" class="anchored" data-anchor-id="book-overview"><span class="header-section-number">0.7</span> Book overview</h2>
-<p>The book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections. Every module except Introduction and Setup ends with a Challenge to try yourself. Note the book is still under construction and it’s a fast moving space, so the content needs constant updating.</p>
-<ul>
-<li><a href="./01-introduction.html">Introduction</a>: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.</li>
-<li><a href="./02-setup.html">Setup</a>: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.</li>
-<li><a href="./section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a>: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.</li>
-<li><a href="./section-2-agents/index.html">Section 2: Agents</a>: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.</li>
-<li><a href="./section-3-workflows/index.html">Section 3: AI in workflows</a>: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.</li>
-<li><a href="./section-4-security-privacy/index.html">Section 4: Security, data privacy and cloud agents</a>: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.</li>
-<li><a href="./section-5-agentic-engineering/index.html">Section 5: Agentic engineering for data analysis</a>: Tests and verification, red-green TDD, and using simulated data as a verification step.</li>
-<li><a href="./section-6-api-access/index.html">Section 6: LLM access via API</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
-<li><a href="./99-appendix.html">Appendix — Code and data</a>: Code snippets, data access links and supporting scripts used in the book.</li>
-</ul>
-</section>
-<section id="data" class="level2" data-number="0.8">
-<h2 data-number="0.8" class="anchored" data-anchor-id="data"><span class="header-section-number">0.8</span> Data</h2>
-<p>We’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.</p>
-<section id="benthic-cover-surveys-and-fish-habitat" class="level3" data-number="0.8.1">
-<h3 data-number="0.8.1" class="anchored" data-anchor-id="benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</h3>
-<p>In this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by <a href="http://dx.doi.org/10.1016/j.biocon.2017.04.024">Hamilton et al.&nbsp;2017</a> who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.</p>
-<p>In a follow-up study <a href="http://dx.doi.org/10.1111/cobi.13079">Brown and Hamilton 2018</a> developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.</p>
+<!-- source: 14-appendix.qmd (reuse as-is) -->
+<p>Code snippets, data access links and supporting scripts used throughout the book.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -920,11 +830,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./section-6-api-access/06-lit-review-example.html" class="pagination-link" aria-label="Literature review example">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Literature review example</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-introduction.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

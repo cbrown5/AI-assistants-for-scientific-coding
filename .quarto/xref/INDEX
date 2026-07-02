@@ -100,5 +100,125 @@
   },
   "10-research-applications-LLMs.qmd": {
     "10-research-applications-LLMs.html": "6a31d6d1"
+  },
+  "02-setup.qmd": {
+    "02-setup.html": "eb7268de"
+  },
+  "section-1-line-by-line/index.qmd": {
+    "index.html": "caec6e60"
+  },
+  "section-1-line-by-line/01-inline-completion.qmd": {
+    "01-inline-completion.html": "9ec93b68"
+  },
+  "section-1-line-by-line/02-comment-driven-completion.qmd": {
+    "02-comment-driven-completion.html": "7d7f5c0c"
+  },
+  "section-1-line-by-line/03-copilot-settings.qmd": {
+    "03-copilot-settings.html": "00b59be3"
+  },
+  "section-1-line-by-line/04-gander.qmd": {
+    "04-gander.html": "7c0547f0"
+  },
+  "section-1-line-by-line/05-strengths-weaknesses.qmd": {
+    "05-strengths-weaknesses.html": "bbd1e3c4"
+  },
+  "section-2-agents/index.qmd": {
+    "index.html": "dec5b79c"
+  },
+  "section-2-agents/01-agent-options.qmd": {
+    "01-agent-options.html": "cbd0df4b"
+  },
+  "section-2-agents/02-how-agents-work.qmd": {
+    "02-how-agents-work.html": "77ef1de4"
+  },
+  "section-2-agents/03-security-risks.qmd": {
+    "03-security-risks.html": "39fa5e61"
+  },
+  "section-2-agents/04-first-agent-example.qmd": {
+    "04-first-agent-example.html": "01d4d724"
+  },
+  "section-2-agents/05-prompting-agents-part1.qmd": {
+    "05-prompting-agents-part1.html": "d07cfe39"
+  },
+  "section-2-agents/06-prompting-agents-part2.qmd": {
+    "06-prompting-agents-part2.html": "195d8e8e"
+  },
+  "section-2-agents/07-updating-existing-scripts.qmd": {
+    "07-updating-existing-scripts.html": "3438fef8"
+  },
+  "section-2-agents/08-reviewing-agent-output.qmd": {
+    "08-reviewing-agent-output.html": "eab5b09b"
+  },
+  "section-2-agents/09-when-agents-get-stuck.qmd": {
+    "09-when-agents-get-stuck.html": "f081cfda"
+  },
+  "section-3-workflows/index.qmd": {
+    "index.html": "41fac5ca"
+  },
+  "section-3-workflows/01-select-statistical-approach.qmd": {
+    "01-select-statistical-approach.html": "a8dd6b61"
+  },
+  "section-3-workflows/02-plan-implementation.qmd": {
+    "02-plan-implementation.html": "4910553f"
+  },
+  "section-3-workflows/03-write-the-code.qmd": {
+    "03-write-the-code.html": "6bbe2c09"
+  },
+  "section-3-workflows/04-specification-sheets.qmd": {
+    "04-specification-sheets.html": "5019df5d"
+  },
+  "section-4-security-privacy/index.qmd": {
+    "index.html": "e2885c4f"
+  },
+  "section-4-security-privacy/01-security-risk-examples.qmd": {
+    "01-security-risk-examples.html": "ef68654d"
+  },
+  "section-4-security-privacy/02-claude-code-web-example.qmd": {
+    "02-claude-code-web-example.html": "10050fb8"
+  },
+  "section-4-security-privacy/03-bash-sandbox-example.qmd": {
+    "03-bash-sandbox-example.html": "18a2dff5"
+  },
+  "section-4-security-privacy/04-keeping-data-secure.qmd": {
+    "04-keeping-data-secure.html": "65c1b7d0"
+  },
+  "section-4-security-privacy/05-limitations.qmd": {
+    "05-limitations.html": "c53f2a75"
+  },
+  "section-5-agentic-engineering/index.qmd": {
+    "index.html": "a8881aaa"
+  },
+  "section-5-agentic-engineering/01-tests-verification-principles.qmd": {
+    "01-tests-verification-principles.html": "a1ead49b"
+  },
+  "section-5-agentic-engineering/02-red-green-tdd.qmd": {
+    "02-red-green-tdd.html": "7452395f"
+  },
+  "section-5-agentic-engineering/03-simulated-data-verification.qmd": {
+    "03-simulated-data-verification.html": "857f339a"
+  },
+  "section-6-api-access/index.qmd": {
+    "index.html": "f4735486"
+  },
+  "section-6-api-access/01-api-keys.qmd": {
+    "01-api-keys.html": "a3d44c7a"
+  },
+  "section-6-api-access/02-how-api-access-works.qmd": {
+    "02-how-api-access-works.html": "e8b933dc"
+  },
+  "section-6-api-access/03-chat-basics.qmd": {
+    "03-chat-basics.html": "7dba7dfb"
+  },
+  "section-6-api-access/04-diy-chatbot.qmd": {
+    "04-diy-chatbot.html": "28879b8f"
+  },
+  "section-6-api-access/05-make-an-agent.qmd": {
+    "05-make-an-agent.html": "de5fefa3"
+  },
+  "section-6-api-access/06-lit-review-example.qmd": {
+    "06-lit-review-example.html": "f40a7138"
+  },
+  "99-appendix.qmd": {
+    "99-appendix.html": "b1cf5907"
   }
 }
