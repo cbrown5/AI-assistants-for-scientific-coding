@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Agent options – AI assistants for Scientific Coding</title>
+<title>38&nbsp; Make an agent: simple read-and-write agent – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-2-agents/02-how-agents-work.html" rel="next">
-<link href="../section-2-agents/index.html" rel="prev">
+<link href="../section-7-api-access/06-lit-review-example.html" rel="next">
+<link href="../section-7-api-access/04-diy-chatbot.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link active">
+  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
   </div>
 </li>
@@ -410,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
@@ -438,20 +473,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link active" data-scroll-target="#claude-code"><span class="header-section-number">9.1</span> Claude Code</a></li>
-  <li><a href="#vscode-with-github-copilots-agent-mode" id="toc-vscode-with-github-copilots-agent-mode" class="nav-link" data-scroll-target="#vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</a></li>
-  <li><a href="#github-copilot-cli" id="toc-github-copilot-cli" class="nav-link" data-scroll-target="#github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</a></li>
-  <li><a href="#roo-code-cline" id="toc-roo-code-cline" class="nav-link" data-scroll-target="#roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</a></li>
-  <li><a href="#positron-assistant" id="toc-positron-assistant" class="nav-link" data-scroll-target="#positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</a></li>
+  <li><a href="#three-tools" id="toc-three-tools" class="nav-link active" data-scroll-target="#three-tools"><span class="header-section-number">38.1</span> Three tools</a></li>
+  <li><a href="#wiring-them-to-a-chat" id="toc-wiring-them-to-a-chat" class="nav-link" data-scroll-target="#wiring-them-to-a-chat"><span class="header-section-number">38.2</span> Wiring them to a chat</a></li>
+  <li><a href="#making-it-safer" id="toc-making-it-safer" class="nav-link" data-scroll-target="#making-it-safer"><span class="header-section-number">38.3</span> Making it safer</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></h1>
+<h1 class="title"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></h1>
 </div>
 
 
@@ -468,29 +501,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>An agent is an assistant that can act autonomously across multiple steps — writing code, running it, reading the result, and deciding what to do next — rather than completing one line or answering one question. Here’s the current landscape, in rough order of how you’d likely meet them.</p>
-<section id="claude-code" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">9.1</span> Claude Code</h2>
-<p>Claude Code is a subscription-based agent that runs from your terminal, an IDE extension, or — as we’ll see in <a href="../section-4-security-privacy/02-claude-code-web-example.html">Section 4</a> — entirely in the cloud via a web interface. It reads and edits files, runs shell commands, and can work through a multi-step task with minimal supervision if you let it. In my own experience and in the <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70079">formal test-case evaluations Scott Spillias and I ran</a>, Claude models have had a strong track record on R and statistics tasks specifically, which matters more to us here than general coding benchmarks tuned around software engineering.</p>
-</section>
-<section id="vscode-with-github-copilots-agent-mode" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</h2>
-<p>You’ve already met Copilot for inline completion, ask mode and edit mode in Section 1. Agent mode is the same tool, but let loose across your terminal and file system with tools it can call on its own. We’ll run our first example with it in the next module.</p>
-</section>
-<section id="github-copilot-cli" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</h2>
-<p>A newer, terminal-based way to run Copilot agents, useful when you want to script or automate agent runs (for example, looping over several sub-directories with different prompts) rather than clicking through a chat window. Billed via your Copilot subscription rather than per-token API usage.</p>
-</section>
-<section id="roo-code-cline" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</h2>
-<p>VSCode extensions that are “bring your own key” (BYOK) — you supply an API key and pay per token. More expensive to run than a Copilot subscription for heavy use, but far more customisable: you can fully rewrite the system prompt, create custom modes, and (with Roo Code specifically) delegate sub-tasks to other agents in “orchestrator” mode. <code>system.md</code> in this repo is the actual system prompt Roo Code uses — worth a skim just to see how much detail goes into making an agent behave.</p>
-</section>
-<section id="positron-assistant" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</h2>
-<p>Positron is Posit’s new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.</p>
-<div class="tip">
-<p><strong>Tip:</strong> There’s also a growing ecosystem of agents that run <em>from inside</em> R itself, rather than as an IDE extension — see <a href="https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents">Large Language Model Tools for R</a> for an up-to-date list. We’ll build the simplest possible version of one of these ourselves in <a href="../section-7-api-access/05-make-an-agent.html">Section 7</a>.</p>
+<p>By now the word “agent” has come up a lot — Copilot’s agent mode, Roo Code, Claude Code. It’s tempting to imagine something mysterious going on inside them. It isn’t. As Hadley Wickham put it in a recent post, <a href="https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in">“A coding agent is six functions in a trenchcoat”</a>: strip away the marketing and a coding agent is a handful of plain functions — read a file, write a file, run a shell command — wired up to an LLM that gets to call them in a loop. Everything else (the fancy chat UI, the permission prompts, the diff viewer) is scaffolding around that simple core.</p>
+<p>We already saw the general shape of this loop back in <a href="../section-2-agents/02-how-agents-work.html">Section 2</a>: the model responds, your software inspects the response, runs whatever tool was requested, and feeds the result back — round and round until the model decides it’s done. Let’s build the smallest possible version of that ourselves, in R, using <code>ellmer</code>’s tool-calling support.</p>
+<section id="three-tools" class="level2" data-number="38.1">
+<h2 data-number="38.1" class="anchored" data-anchor-id="three-tools"><span class="header-section-number">38.1</span> Three tools</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>read_file_tool <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(path) <span class="fu">paste</span>(<span class="fu">readLines</span>(path, <span class="at">warn =</span> <span class="cn">FALSE</span>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Read the full contents of a text file and return it as a string."</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="fu">type_string</span>(<span class="st">"Relative path to the file to read"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>write_file_tool <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(path, content) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeLines</span>(content, path)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Wrote"</span>, <span class="fu">nchar</span>(content), <span class="st">"characters to"</span>, path)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Write content to a file, creating or overwriting it."</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="fu">type_string</span>(<span class="st">"Relative path to the file to write"</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="fu">type_string</span>(<span class="st">"The full content to write to the file"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>run_command_tool <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(command) {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="fu">system</span>(command, <span class="at">intern =</span> <span class="cn">TRUE</span>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Run a shell command in the current working directory and return its output."</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">command =</span> <span class="fu">type_string</span>(<span class="st">"The shell command to run, e.g. 'Rscript myscript.R'"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>That’s the whole toolbox. Nothing here is agent-specific — they’re just ordinary R functions wrapped with <code>ellmer::tool()</code>, which describes each one and its arguments so the LLM knows when and how to call them.</p>
+</section>
+<section id="wiring-them-to-a-chat" class="level2" data-number="38.2">
+<h2 data-number="38.2" class="anchored" data-anchor-id="wiring-them-to-a-chat"><span class="header-section-number">38.2</span> Wiring them to a chat</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_anthropic</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a careful coding agent. You have tools to read files,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">  write files, and run shell commands in the current project directory. Use</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Rscript to run R scripts, e.g. `Rscript 'my-script.R'`. Explain what you did</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">  after each tool use."</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(read_file_tool)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(write_file_tool)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(run_command_tool)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Read fish-coral-cover-sites.csv, then write a one-paragraph summary</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">of its columns to a new file called summary.md"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is the trick worth noticing: <code>chat$chat()</code> already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model’s response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don’t write the <code>while</code> loop yourself; ellmer’s tool support <em>is</em> the loop. That’s really all Roo Code, Copilot’s agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see <code>system.md</code> in this repo for a full example — the system prompt Roo Code actually uses).</p>
+</section>
+<section id="making-it-safer" class="level2" data-number="38.3">
+<h2 data-number="38.3" class="anchored" data-anchor-id="making-it-safer"><span class="header-section-number">38.3</span> Making it safer</h2>
+<p>Our toy agent above will happily run <em>any</em> shell command it’s asked to, including ones that touch the network or delete files. Real agents guard this with permission prompts before every tool call (which is why Copilot and Claude Code ask you to confirm each step) or with an allow/deny list of specific commands. If you wanted to harden this toy version, the cheapest fix is to check <code>command</code> inside <code>run_command_tool</code> before executing it — for instance, refusing to run anything containing <code>rm</code>, <code>curl</code>, or <code>git push</code>.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -501,7 +566,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pick two agent options from this list that you have access to. Give both the same prompt: “Read fish-coral-cover-sites.csv and make a ggplot of pres.topa against CB_cover.” Compare not just the output, but how much you had to intervene along the way.</p>
+<p>Add a fourth tool, <code>list_files</code>, that returns the files in the current directory (<code>list.files()</code>). Register it with your chat, then ask the agent to “List the files here, then read whichever one looks like it contains the coral and fish survey data.” See whether it picks <code>fish-coral-cover-sites.csv</code> correctly.</p>
 </div>
 </div>
 
@@ -911,13 +976,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-2-agents/index.html" class="pagination-link" aria-label="Section 2: Agents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Section 2: Agents</span>
+      <a href="../section-7-api-access/04-diy-chatbot.html" class="pagination-link" aria-label="DIY chatbot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-2-agents/02-how-agents-work.html" class="pagination-link" aria-label="How agents work">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How agents work</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-7-api-access/06-lit-review-example.html" class="pagination-link" aria-label="Literature review example">
+        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Literature review example</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

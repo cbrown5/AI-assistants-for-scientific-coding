@@ -1,0 +1,21 @@
+# Claude Code skills as a worked example
+
+Claude Code implements the skills idea directly: you write a folder with a short description and a set of instructions (optionally with helper scripts), drop it somewhere Claude Code looks for skills, and from then on you (or the agent itself) can invoke it by name — `/skill-name` — instead of retyping the instructions.
+
+## What's actually in a skill
+
+A minimal skill is just a description plus instructions. Claude Code ships with several to see the pattern:
+
+- `pdf` — instructions and helper scripts for reading, splitting, merging, and manipulating PDF files.
+- `docx` — instructions for producing properly formatted Word documents (headings, tables of contents, page numbers).
+- `code-review` — a description of what to look for and how to report findings, so a review is consistent no matter who runs it or when.
+
+Each one solves the same problem: rather than the agent guessing "what does a good PDF-handling job look like" from scratch, or you re-explaining it, the instructions are written down once, named, and reused.
+
+## Other systems, same idea
+
+Claude Code's `/skill-name` mechanism is one concrete implementation. The general pattern — name, description, saved instructions, optionally bundled scripts — shows up under other names elsewhere: Roo Code's custom modes (Section 2), a saved prompt template in a chat tool, or just a markdown file in your project that you paste into every session. The mechanism differs; the payoff (consistency, less retyping) doesn't.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Sketch a one-paragraph description for a skill that fits and checks a GLM on count data — what would the description say so an agent knows when to reach for it, and what two or three instructions would you put inside? You don't need to wire it up yet.
+:::

@@ -220,5 +220,53 @@
   },
   "99-appendix.qmd": {
     "99-appendix.html": "b1cf5907"
+  },
+  "section-5-customizing-agents/index.qmd": {
+    "index.html": "5e848aaa"
+  },
+  "section-5-customizing-agents/01-what-is-customization.qmd": {
+    "01-what-is-customization.html": "d2df717e"
+  },
+  "section-5-customizing-agents/02-claude-code-skills-example.qmd": {
+    "02-claude-code-skills-example.html": "6f81029d"
+  },
+  "section-5-customizing-agents/03-skill-for-analysis.qmd": {
+    "03-skill-for-analysis.html": "632cb311"
+  },
+  "section-5-customizing-agents/04-subagents-plotting-and-methods.qmd": {
+    "04-subagents-plotting-and-methods.html": "c0381264"
+  },
+  "section-6-agentic-engineering/index.qmd": {
+    "index.html": "d05adf01"
+  },
+  "section-6-agentic-engineering/01-tests-verification-principles.qmd": {
+    "01-tests-verification-principles.html": "f51603d7"
+  },
+  "section-6-agentic-engineering/02-red-green-tdd.qmd": {
+    "02-red-green-tdd.html": "9b8f022d"
+  },
+  "section-6-agentic-engineering/03-simulated-data-verification.qmd": {
+    "03-simulated-data-verification.html": "c97506df"
+  },
+  "section-7-api-access/index.qmd": {
+    "index.html": "6d0259bc"
+  },
+  "section-7-api-access/01-api-keys.qmd": {
+    "01-api-keys.html": "8863dbb7"
+  },
+  "section-7-api-access/02-how-api-access-works.qmd": {
+    "02-how-api-access-works.html": "08e04858"
+  },
+  "section-7-api-access/03-chat-basics.qmd": {
+    "03-chat-basics.html": "548c8814"
+  },
+  "section-7-api-access/04-diy-chatbot.qmd": {
+    "04-diy-chatbot.html": "a996657c"
+  },
+  "section-7-api-access/05-make-an-agent.qmd": {
+    "05-make-an-agent.html": "5fd0fd78"
+  },
+  "section-7-api-access/06-lit-review-example.qmd": {
+    "06-lit-review-example.html": "4f0cc490"
   }
 }

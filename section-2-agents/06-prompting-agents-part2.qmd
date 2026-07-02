@@ -8,7 +8,7 @@ Some agents (and most chat platforms — ChatGPT, Copilot in Teams) can search t
 Research the peer-reviewed academic literature to find the most robust methods for analysing ecological count data.
 :::
 
-You'll get better results with reasoning/thinking modes enabled where available — these cost more to run (so are often paid-tier only), but read the reasoning trace if you can see it, since it tells you *how* the model decided what to search for, which matters for judging whether to trust the answer. Web-search prompts also don't like being long — keep them short and specific, unlike the detailed spec-sheet prompts we'll see next. We'll cover programmatic web search (calling it via API rather than a chat UI) in [Section 6](../section-6-api-access/index.qmd).
+You'll get better results with reasoning/thinking modes enabled where available — these cost more to run (so are often paid-tier only), but read the reasoning trace if you can see it, since it tells you *how* the model decided what to search for, which matters for judging whether to trust the answer. Web-search prompts also don't like being long — keep them short and specific, unlike the detailed spec-sheet prompts we'll see next. We'll cover programmatic web search (calling it via API rather than a chat UI) in [Section 7](../section-7-api-access/index.qmd).
 
 ## From context to specification
 

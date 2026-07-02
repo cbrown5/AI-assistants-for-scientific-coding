@@ -14,7 +14,7 @@ Run a model on your own computer instead of calling out to a provider. We won't 
 
 Use the LLM to help write the code that analyses your data, but never give it the data or the results. I'd recommend keeping sensitive data in a directory entirely outside your project folder, so an agent can't stumble into it by accident — and double-check the agent isn't feeding its own analysis output back into a prompt, which would leak the same information a different way.
 
-It helps to generate simulated data with the same structure as your real data to use for code development — you get a working pipeline with zero privacy risk, and (as a bonus) a built-in verification step, which we'll come back to properly in [Section 5](../section-5-agentic-engineering/03-simulated-data-verification.qmd). There's an R package called `fakedataR` aimed at exactly this kind of synthetic-data generation for privacy purposes — I haven't put it through its paces yet, so treat that as a pointer to investigate rather than a recommendation, and check its current state before relying on it.
+It helps to generate simulated data with the same structure as your real data to use for code development — you get a working pipeline with zero privacy risk, and (as a bonus) a built-in verification step, which we'll come back to properly in [Section 6](../section-6-agentic-engineering/03-simulated-data-verification.qmd). There's an R package called `fakedataR` aimed at exactly this kind of synthetic-data generation for privacy purposes — I haven't put it through its paces yet, so treat that as a pointer to investigate rather than a recommendation, and check its current state before relying on it.
 
 ## Option 3: Ignore sensitive folders
 

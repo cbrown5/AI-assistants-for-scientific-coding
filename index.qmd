@@ -54,8 +54,9 @@ The book is organised as short, self-paced modules — each about 10 minutes —
 - [Section 2: Agents](section-2-agents/index.qmd): Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.
 - [Section 3: AI in workflows](section-3-workflows/index.qmd): My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.
 - [Section 4: Security, data privacy and cloud agents](section-4-security-privacy/index.qmd): Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.
-- [Section 5: Agentic engineering for data analysis](section-5-agentic-engineering/index.qmd): Tests and verification, red-green TDD, and using simulated data as a verification step.
-- [Section 6: LLM access via API](section-6-api-access/index.qmd): API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.
+- [Section 5: Customizing agents](section-5-customizing-agents/index.qmd): Skills and sub-agents — packaging reusable instructions and delegating specialized roles, worked through a GLM analysis, plotting, and methods write-up.
+- [Section 6: Agentic engineering for data analysis](section-6-agentic-engineering/index.qmd): Tests and verification, red-green TDD, and using simulated data as a verification step.
+- [Section 7: LLM access via API](section-7-api-access/index.qmd): API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.
 - [Appendix — Code and data](99-appendix.qmd): Code snippets, data access links and supporting scripts used in the book.
 
 ## Data 

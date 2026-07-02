@@ -6,7 +6,7 @@ Once you're happy with the plan, it's time to implement it. There are roughly th
 2. **Agent-assisted** — instruct an agent to complete tasks from your README, checking in and editing as you go (see [Section 2](../section-2-agents/index.qmd) for more on agents).
 3. **Full "vibe coding"** — ask an agent to complete the task and accept every suggestion without reading it.
 
-Vibe coding isn't recommended for scientific projects — we'll come back to why in [Section 2](../section-2-agents/08-reviewing-agent-output.qmd) and [Section 5](../section-5-agentic-engineering/index.qmd).
+Vibe coding isn't recommended for scientific projects — we'll come back to why in [Section 2](../section-2-agents/08-reviewing-agent-output.qmd) and [Section 6](../section-6-agentic-engineering/index.qmd).
 
 ::: {.tip}
 **Tip:** Your README is the assistant's memory across chat sessions (where it would otherwise forget everything). Keep it updated as you go — it's also what future-you will thank you for.
@@ -15,7 +15,7 @@ Vibe coding isn't recommended for scientific projects — we'll come back to why
 A few more tips for this stage:
 
 - Attach data or domain knowledge as you go, whenever the assistant can't get it from the README alone.
-- Get the assistant to write tests for your data pipeline — checking joins worked properly, and that you didn't duplicate or drop rows. We'll build this out properly in [Section 5](../section-5-agentic-engineering/index.qmd).
+- Get the assistant to write tests for your data pipeline — checking joins worked properly, and that you didn't duplicate or drop rows. We'll build this out properly in [Section 6](../section-6-agentic-engineering/index.qmd).
 
 ## Suggested workflows
 

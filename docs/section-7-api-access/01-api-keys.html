@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Agent options – AI assistants for Scientific Coding</title>
+<title>34&nbsp; API keys – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-2-agents/02-how-agents-work.html" rel="next">
-<link href="../section-2-agents/index.html" rel="prev">
+<link href="../section-7-api-access/02-how-api-access-works.html" rel="next">
+<link href="../section-7-api-access/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/01-api-keys.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link active">
+  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
   </div>
 </li>
@@ -386,7 +386,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
@@ -433,25 +433,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link active" data-scroll-target="#claude-code"><span class="header-section-number">9.1</span> Claude Code</a></li>
-  <li><a href="#vscode-with-github-copilots-agent-mode" id="toc-vscode-with-github-copilots-agent-mode" class="nav-link" data-scroll-target="#vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</a></li>
-  <li><a href="#github-copilot-cli" id="toc-github-copilot-cli" class="nav-link" data-scroll-target="#github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</a></li>
-  <li><a href="#roo-code-cline" id="toc-roo-code-cline" class="nav-link" data-scroll-target="#roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</a></li>
-  <li><a href="#positron-assistant" id="toc-positron-assistant" class="nav-link" data-scroll-target="#positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/01-api-keys.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></h1>
+<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></h1>
 </div>
 
 
@@ -468,28 +458,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>An agent is an assistant that can act autonomously across multiple steps — writing code, running it, reading the result, and deciding what to do next — rather than completing one line or answering one question. Here’s the current landscape, in rough order of how you’d likely meet them.</p>
-<section id="claude-code" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">9.1</span> Claude Code</h2>
-<p>Claude Code is a subscription-based agent that runs from your terminal, an IDE extension, or — as we’ll see in <a href="../section-4-security-privacy/02-claude-code-web-example.html">Section 4</a> — entirely in the cloud via a web interface. It reads and edits files, runs shell commands, and can work through a multi-step task with minimal supervision if you let it. In my own experience and in the <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70079">formal test-case evaluations Scott Spillias and I ran</a>, Claude models have had a strong track record on R and statistics tasks specifically, which matters more to us here than general coding benchmarks tuned around software engineering.</p>
-</section>
-<section id="vscode-with-github-copilots-agent-mode" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</h2>
-<p>You’ve already met Copilot for inline completion, ask mode and edit mode in Section 1. Agent mode is the same tool, but let loose across your terminal and file system with tools it can call on its own. We’ll run our first example with it in the next module.</p>
-</section>
-<section id="github-copilot-cli" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</h2>
-<p>A newer, terminal-based way to run Copilot agents, useful when you want to script or automate agent runs (for example, looping over several sub-directories with different prompts) rather than clicking through a chat window. Billed via your Copilot subscription rather than per-token API usage.</p>
-</section>
-<section id="roo-code-cline" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</h2>
-<p>VSCode extensions that are “bring your own key” (BYOK) — you supply an API key and pay per token. More expensive to run than a Copilot subscription for heavy use, but far more customisable: you can fully rewrite the system prompt, create custom modes, and (with Roo Code specifically) delegate sub-tasks to other agents in “orchestrator” mode. <code>system.md</code> in this repo is the actual system prompt Roo Code uses — worth a skim just to see how much detail goes into making an agent behave.</p>
-</section>
-<section id="positron-assistant" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</h2>
-<p>Positron is Posit’s new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.</p>
+<p><strong>Software requirements:</strong> R (ideally with <code>ellmer</code> installed) or Python, and an API key with a provider — ideally OpenRouter.</p>
+<p>Everything in this section works by talking to an LLM provider’s API directly, rather than through a chat app or an assistant like Copilot. To do that you need an API key — think of it like a password that lets your code send prompts to a provider on your behalf.</p>
+<p>If you haven’t already, follow <a href="../02-setup.html#sec-apikeys">‘Getting an API key’</a> and <a href="../02-setup.html#sec-ellmer">‘Ellmer set-up’</a> in Setup. The short version:</p>
+<ol type="1">
+<li>Sign up with a provider — I recommend <a href="https://accounts.openrouter.ai/sign-up">OpenRouter</a> for this section, since it gives you access to models from many providers with one key.</li>
+<li>Buy a small amount of credit (a few dollars will get you a long way through this book’s examples).</li>
+<li>Save the key to your <code>.Renviron</code> file (<code>usethis::edit_r_environ()</code>), as <code>OPENROUTER_API_KEY="xxxxxx"</code>, then restart R.</li>
+</ol>
+<p><code>ellmer</code> will automatically find the key so long as you use the standard environment variable name for your provider — see <code>?ellmer::chat_openrouter</code> (or <code>chat_xxx</code> for whichever provider you’re using).</p>
 <div class="tip">
-<p><strong>Tip:</strong> There’s also a growing ecosystem of agents that run <em>from inside</em> R itself, rather than as an IDE extension — see <a href="https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents">Large Language Model Tools for R</a> for an up-to-date list. We’ll build the simplest possible version of one of these ourselves in <a href="../section-7-api-access/05-make-an-agent.html">Section 7</a>.</p>
+<p><strong>Tip:</strong> The sign-up page for an API key is often a completely different webpage to the one you use for a subscription product like ChatGPT Plus or Claude Code. Don’t assume they’re the same account.</p>
 </div>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
@@ -501,12 +480,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pick two agent options from this list that you have access to. Give both the same prompt: “Read fish-coral-cover-sites.csv and make a ggplot of pres.topa against CB_cover.” Compare not just the output, but how much you had to intervene along the way.</p>
+<p>Confirm your key is working without ever typing it into a script: run <code>library(ellmer); chat_openrouter()$chat("Say hello")</code> in a fresh R session and check it returns a response. If it fails, the problem is almost always the environment variable name or a missing restart of R.</p>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -911,13 +889,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-2-agents/index.html" class="pagination-link" aria-label="Section 2: Agents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Section 2: Agents</span>
+      <a href="../section-7-api-access/index.html" class="pagination-link" aria-label="Section 7: LLM access via API">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Section 7: LLM access via API</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-2-agents/02-how-agents-work.html" class="pagination-link" aria-label="How agents work">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How agents work</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-7-api-access/02-how-api-access-works.html" class="pagination-link" aria-label="How API access works with ellmer">
+        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,5 +1,195 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI assistants for Scientific Coding",
+    "section": "",
+    "text": "0.1 Summary\nIf you are doing data analysis you are probably using language models (e.g. ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.\nI will cover:\nThe content I’ll teach is suitable for anyone using computing coding (e.g. R, Python) to do data analysis.\nExamples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "AI assistants for Scientific Coding",
+    "section": "",
+    "text": "How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).\nVibe coding and how future analysis workflows will change dramatically from today\nBest practice prompting techniques that can dramatically improve model performance for complex data analysis\nApplying language models to common environmental applications such as GLMs and multivariate statistics\nIssues including environmental impacts, copyright and ethics\nI’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#citation-for-book",
+    "href": "index.html#citation-for-book",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.2 Citation for book",
+    "text": "0.2 Citation for book\nPlease consider citing my accompanying article if you are using the advice in this book, currently in pre-print form:\nCitation: Brown & Spillias (2025). Prompting large language models for quality ecological statistics. Pre-print. https://doi.org/10.32942/X2CS80\nGenerative AI software for coding is changing fast. So this book will keep changing as I update it to reflect new developments. It does not make sense to publish it as a fixed book. The general guidelines for prompting, which have a longer shelf-life are captured in the article. So please cite that to support my work.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#who-should-read-this-book",
+    "href": "index.html#who-should-read-this-book",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.3 Who should read this book?",
+    "text": "0.3 Who should read this book?\nThe book is for: anyone who currently uses R, from intermittent users to experienced professionals. The workshop is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots.\nImportant This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#is-the-book-up-to-date",
+    "href": "index.html#is-the-book-up-to-date",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.4 Is the book up to date?",
+    "text": "0.4 Is the book up to date?\nThe large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out Large Language Model tools for R by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about-chris",
+    "href": "index.html#about-chris",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.5 About Chris",
+    "text": "0.5 About Chris\nI’m an Associate Professor of Fisheries Science at University of Tasmania and an Australian Research Council Future Fellow. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#software-youll-need-for-this-workshop",
+    "href": "index.html#software-youll-need-for-this-workshop",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.6 Software you’ll need for this workshop",
+    "text": "0.6 Software you’ll need for this workshop\nSave some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See Setup for more detailed instructions.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#book-overview",
+    "href": "index.html#book-overview",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.7 Book overview",
+    "text": "0.7 Book overview\nThe book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections. Every module except Introduction and Setup ends with a Challenge to try yourself. Note the book is still under construction and it’s a fast moving space, so the content needs constant updating.\n\nIntroduction: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.\nSetup: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.\nSection 1: Line-by-line code completion: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.\nSection 2: Agents: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.\nSection 3: AI in workflows: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.\nSection 4: Security, data privacy and cloud agents: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.\nSection 5: Customizing agents: Skills and sub-agents — packaging reusable instructions and delegating specialized roles, worked through a GLM analysis, plotting, and methods write-up.\nSection 6: Agentic engineering for data analysis: Tests and verification, red-green TDD, and using simulated data as a verification step.\nSection 7: LLM access via API: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.\nAppendix — Code and data: Code snippets, data access links and supporting scripts used in the book.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "AI assistants for Scientific Coding",
+    "section": "0.8 Data",
+    "text": "0.8 Data\nWe’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.\n\n0.8.1 Benthic cover surveys and fish habitat\nIn this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by Hamilton et al. 2017 who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.\nIn a follow-up study Brown and Hamilton 2018 developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "01-introduction.html",
+    "href": "01-introduction.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "2.1 The jagged frontier of LLM progress\nSlides from the workshop presentation (on a google drive)\nLLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.\nSince then AI companies have been optimising their training and development for coding and logic.\nThere are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Frontier models can solve &gt;70% of tasks on this benchmark.\nTheir progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) are saturated as LLMs are scoring close to 100% on these tests.. So newer tests of unsolved maths problems are being developed.\nHowever, others are finding that the ability of LLMs on math and logic are overstated, perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be ‘industry leaders’ and grab market share with impressive results on benchmarks.\nEither way, it does seem that the current areas of progress are programming, math and logic.\nEvaluations on statistics and the R software are less common.\nThe limited evaluations of LLMs on their ability to identify the correct statistical procedure are less impressive than other benchmarks. An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model, found accuracy at suggesting the correct statistical test of between 8% and 90%.\nIn general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer.\nThe results also indicate the improvements that can be gained through better prompts (i.e. doubling in accuracy for GPT 4).\nThe lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.\nFor us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.\nIn this book we’ll walk through some of the ways you can use LLMs to help you do statistics, data analysis and R coding (and a bit of python too), working through short self-paced modules built around a single running example dataset. There are a multitude of software and R package options. So many its bewildering. In the next module I’ll give you a few of the easiest set-up options available.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html",
+    "href": "02-setup.html",
+    "title": "3  Setup",
+    "section": "",
+    "text": "3.1 R packages\nThere’s lots of options for AI coding assistant software. What you use will depend on:\nBelow I’ve provided instructions for some of the options. These certainly aren’t comprehensive.\nThere are a multitude of other R package options beyond what I cover below, which are covered in Large Language Model Tools for R by Luis D. Verde Arregoitia (in English and Spanish).\nI recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that’s relevant to your set-up needs.\nIf you are using R then we will make use of: install.packages(c(\"vegan\", \"ellmer\",\"tidyverse\"). For Python users you can follow along most examples without these, this isn’t an R training course, its a course on using AI to assist with coding.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#options-for-ai-software",
+    "href": "02-setup.html#options-for-ai-software",
+    "title": "3  Setup",
+    "section": "3.2 Options for AI software",
+    "text": "3.2 Options for AI software\n\n3.2.1 Preferred option for R users\nWhat I will be using, and what I prefer you to use is:\n\nThe R program from the VS Code Integrated Development Environment (IDE)\nGithub Copilot\nR Ellmer package, for which you’ll need an API key to one of the LLM providers\n\nThe challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down!\nIf you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (Section 3.4) (required for ellmer), ‘Ellmer set-up’ (Section 3.7), VS code setup (Section 3.5) and ‘Github Copilot set-up’ (Section 3.6).\n\n\n3.2.2 Option 2 for R users\nUse Rstudio with R. You will need ellmer and gander packages. See instructions below for ‘Getting an API key’ (Section 3.4), ‘Ellmer set-up’ (Section 3.7) and ‘Gander: Rstudio friendly alternative to copilot’ (Section 3.8).\nRstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (Section 3.6) then in Rstudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).\n\n\n3.2.3 Option 3 for R users: Positron assistant\nPositron is a new IDE from Posit (the creators of RStudio) that is designed for data science. It includes a built-in AI assistant that can help you with coding tasks.\nPositron is very similar to VScode, in fact the editor was originally a copy of VScode’s source code. It is designed for R and Python, so for some people it may be easier to set-up than VScode.\nI’ve put it as option 3 for now as it is still on version 0.xxx (as of 2025-10-10), so there are still likely to be many changes to this software.\nPositron’s assistant provides similar functionality to GitHub Copilot, including:\n\nCode completion and suggestions\nNatural language to code generation\nCode explanation and documentation\n\nTo use Positron with its AI assistant:\n\nDownload and install Positron from https://positron.posit.co/\nFollow the instructions in the Positron assistant documentation to set up the AI assistant\nYou’ll need to configure your AI providers.\n\nAs of writing (2025-10-10) it supports Github Copilot for code completion and chat and Anthropic for chat. So your providers are more limited than other options here.\n\n\n3.2.4 Python users\nI’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.\nYou will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for Python set-up.\nThen follow the instructions for ‘Github Copilot set-up’ (Section 3.6).\nI also recommend you get an API key with OpenRouter (Section 3.4).\nYou don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.\n\n\n3.2.5 Options 4+\nThere are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See Section 3.9.\nAs a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#software-options-summary",
+    "href": "02-setup.html#software-options-summary",
+    "title": "3  Setup",
+    "section": "3.3 Software options summary",
+    "text": "3.3 Software options summary\nHere are some of the software options I’ve looked at. Or if you’ve picked your option from the above list, just jump ahead to the required sections.\n\n\n\n\n\n\n\n\n\nOption\nBest for\nPros\nCons\n\n\n\n\nVScode with Github Copilot\nCoders of all abilities who have a fixed budget or just want to try IDE integration\n- Subscription based- Capable free tier- Editor integration (auto-complete style)- Agent mode- Multiple LLMs available- Easy to use\n- VSCode can be hard to set-up for R users- Less flexibility and customization than other agents- The Github Copilot Agent is less automated than other agent software- Limited choice of LLMs (unless you BYO API key)\n\n\nEllmer R package\nR users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers.\n- Works anywhere R works- Unlimited flexibility- BYO API key, can interact with any LLM- Automate API calls to LLMs\n- Only a basic prompt interface provided (you need to write it)\n\n\nGander R package\nModerately experienced R users who don’t want to leave RStudio.\n- Works with Rstudio- Can see ‘inside of’ R objects, so knows your variable names- Can customize how it works to optimize performance and cost- BYO API key, can interact with any LLM\n- Requires some experience with the R program- Not as deeply integrated with Rstudio as Github Copilot is with VScode (doesn’t have as many features as copilot)\n\n\nAider\nExperienced python programmers\n- Python based AI agent- Interact with the agent via Python code- Highly flexible, can use as an everyday coding assistant or to create bespoke agents- Can edit files as well as run in agent mode\n- Not a straightforward prompt interface- Requires Python coding experience\n\n\nVSCode with Roo Code\nExperienced programmers who want to fully automate coding workflows\n- Fully automated agents- Multiple modes for different behaviours, e.g. architect versus code- Orchestrate mode that can delegate to sub-agents and complete very complex tasks- BYO API key- System messages fully customizable for advanced scientific applications of agents- One of the best performing and most popular agents\n- VSCode can be hard to set-up for R users- Can get more expensive- Does not do inline code editing ‘as you type’ like copilot- Not suitable for novice programmers\n\n\nVSCode with Cline\nSame as Roo Code. The user base for Cline is slightly larger.\n- Fully automated agents- Multiple modes for different behaviours- BYO API key- System messages customizable- Large user base\n- Less options for customizing the system prompt compared to Roo Code- Not suitable for novice programmers\n\n\nPositron with Roo Code or Cline\nR users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.\n- Possibly a bit easier to set-up R than with VScode- Pros and cons are same as VScode with Roo Code or Cline\n- New software- Limited features and support\n\n\nPositron Assistant\nR users who don’t want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio.\n- Possibly a bit easier to set-up R than with VScode- Pros R friendly developer. Cons on version 0 so software will likely change\n- New software- Limited features to date\n\n\nClaude Code\nUsers who want a subscription-based, terminal- and cloud-native agent that also runs on the web\n- Fully automated agents, run from the terminal or a browser- Strong track record on R and statistics tasks- Subscription based, so cost is predictable- Runs in isolated cloud sandboxes for web sessions\n- Not deeply integrated with RStudio- Newer to the R community, fewer worked examples out there yet\n\n\n\nThere are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Cursor and Windsurf. I haven’t tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio. We’ll come back to Claude Code specifically in Section 2, since it’s really an agent rather than an inline-completion tool.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-apikeys",
+    "href": "02-setup.html#sec-apikeys",
+    "title": "3  Setup",
+    "section": "3.4 Getting an API key",
+    "text": "3.4 Getting an API key\nAn API key is like a password that allows the AI assistant (e.g. roo code) to send your prompt to a large language model. Your key should be kept private. Usually you’ll have to buy some credits. These allow you to send prompts to the LLM. You’ll be paying per prompt.\nNow you need to choose your large language model provider. I’m currently using OpenRouter and Anthropic, which have a diversity of models for generating text, code and reading images. Do some web searching to find out the latest info on providers and models.\nYou choose depends on what you want to do and your budget. Some providers offer a free tier. You’ll need to web search for the latest info on this.\nFor this workshop I strongly recommend you get an OpenRouter API key. This will give you the most flexibility to try different models and to find models that have free options.\nOnce you’ve chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.\nThe one caveat is that OpenRouter may not have access the the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key.\nImportant the sign-up for getting an API key is often through a different webpage to the sign-up you may be using for subscription based AI tools (e.g. Claude Code or ChatGPT). Here are a couple of key links:\n\nSign-up here to get an API key for OpenRouter to access LLMs from 100s of providers\nSign-up here to get an API key for Anthropic’s LLMs\nSign-up here to get an API key for OpenAI’s LLMs",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-vscodesetup",
+    "href": "02-setup.html#sec-vscodesetup",
+    "title": "3  Setup",
+    "section": "3.5 VSCode set-up for R users",
+    "text": "3.5 VSCode set-up for R users\nVScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.\nMost of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I’ll explain how to set-up VSCode (a popular IDE) so you can use Cline.\n\n3.5.1 Software requirements\nTo set up VScode for R and Cline, you’ll need:\n\nR programming language\nVScode text editor\nR extension for VScode\nCline AI assistant extension for VScode\n\nNote that if you computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you.\n\n\n3.5.2 Install R\n\nGo to the official R project website: https://www.r-project.org/\nClick the “download R” link in the Getting Started section\nChoose a CRAN mirror close to your location\nDownload the appropriate R installer for your operating system\nRun the installer and follow the prompts to complete installation\n\n\n\n3.5.3 R packages\n\nOpen R or RStudio\nInstall language server install.packages(\"languageserver\")\nInstall httpgd install.packages(\"httpgd\") (this helps improve plots in VScode). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd\n\n\n\n3.5.4 Install VScode\n\nGo to the official VScode website: https://code.visualstudio.com/\nClick the big blue “Download” button\nDownload the appropriate VScode installer for your operating system\nRun the installer and follow the prompts\nLaunch VScode once installation is complete\n\n\n\n3.5.5 Install R extension\n\nOpen VScode\nOpen the Extensions view in VScode (click the boxes on left hand side)\nSearch for “R” in the extensions marketplace\nSelect the “R” extension published by REditorSupport\nClick the “Install” button\nRestart VScode after installation if prompted\n\nMore info on vscode and R here\n\n\n3.5.6 Connect R and VScode\n\nOpen a new terminal in VScode (Terminal &gt; New Terminal)\nCheck that R is installed by running: R --version\nType R to open the R console in the terminal\nNow open any R script in VS code (File &gt; Open)\nRun some R code to check that VS code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.\n\nIf R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. Also update ‘rterm’ with the same path. You can find the path by opening a terminal and typing which R (on mac) or in a windows terminal where R.\nOne way to fine out where R is installed on your computer is to open Rstudio, go to ‘Tools’ -&gt; ‘General’ then under the field ‘R version’ it will have the path to your R version that may look like this: ‘C:.0’\nCopy that path from Rstudio. Then go back to the VScode settings and paste it into the ‘rpath’ and ‘rterm’ settings. You will also need to add the R.exe on the end like this: ‘C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe’\nNow open an R script and run it (e.g. press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If its not working you’ll get an error pop-up. Go back and check the steps above.\nIf you copied it on windows you may also need to reverse the slashes, like I have above.\nWhile you have the extension settings open search for ‘httgp’ and make sure Plot: Use Httpgd is enabled.\n\n\n3.5.7 Issues and tips for VScode with R\nThis is just a list of issues I’ve had and how I’ve solved them.\nPlotting If your R plots look weird (like tiny font), make sure httpgp is enabled. Go back to steps above and see how to do that.\nViewing data There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do View(dat) in R you get a nice table. Some also allow editing.\nGetting help to install software My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software.\nR markdown There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VScode. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. There is some helpful instructions here\nR terminal crashes If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to on avail.\nShortcut keys (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code.\n\n\n3.5.8 Installing radian (optional)\nRadian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.\nTo set this up, install radian (you need python to do this). More instructions here.\nThen go to the terminal and find the path where radian is installed (e.g. which radian on mac or where radian on windows).\nNow open your settings in VScode (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-githubcopilot",
+    "href": "02-setup.html#sec-githubcopilot",
+    "title": "3  Setup",
+    "section": "3.6 Github Copilot set-up",
+    "text": "3.6 Github Copilot set-up\nOnce you have VSCode just follow the simple steps here. Note if you already have a Github account make sure you have your login information handy.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-ellmer",
+    "href": "02-setup.html#sec-ellmer",
+    "title": "3  Setup",
+    "section": "3.7 Ellmer set-up",
+    "text": "3.7 Ellmer set-up\nFirst, you need to get an API key from the provider, see step above on ‘Getting an API key’.\nThen, you need to add the key to your .Renviron file:\nusethis::edit_r_environ()\nThen type in your key like this:\nOPENROUTER_API_KEY=“xxxxxx”\nIf you are using open AI it would be like this:\nOPENAI_API_KEY=“xxxxxx”\ni.e. use the appropriate name for the provider you are using.\nThen restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-gander",
+    "href": "02-setup.html#sec-gander",
+    "title": "3  Setup",
+    "section": "3.8 Gander: Rstudio friendly alternative to copilot",
+    "text": "3.8 Gander: Rstudio friendly alternative to copilot\nGander lets you select code in Rstudio and edit it directly through calls to an LLM. Posit’s own announcement post is a good short read too: Introducing Gander.\nFollow the steps to set-up Ellmer first.\nThen you can install.packages(gander)\nNow, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: usethis::edit_r_profile()\nNow set the option for your LLM, e.g.\noptions(.gander_chat = ellmer::chat_anthropic()) or options(.gander_chat = ellmer::chat_openai())\nNow add a keyboard short-cut to use Gander. Go to the ‘Tools’ menu at the top, click ‘Add-ins’, ‘Browse Add-ins’, then click the ‘Keyboard shortcuts’ button. Find the row for Gander (probably at the bottom), click in the second column for ‘Shortcut’ and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click ‘Cancel’ once you’ve set the shortcut key (‘Cancel’ as we don’t want to run Gander right now).\nIf for some reason the shortcut key won’t you can also gander::gander_addin() at anytime from R.\nNow to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like ‘make this code more fun’) and hit enter to test it does something.\nI recommend reading the gander reference as there are ways you can customize it to know your data but also save on tokens. We’ll use Gander for code completion in Section 1.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-setup.html#sec-otheroptions",
+    "href": "02-setup.html#sec-otheroptions",
+    "title": "3  Setup",
+    "section": "3.9 Installing other gen AI VSCode extensions",
+    "text": "3.9 Installing other gen AI VSCode extensions\ne.g. if you want to try Roo Code or Cline.\n\nOpen the Extensions view in VScode (Ctrl+Shift+X)\nSearch for the genAI assistant of your choice. I’m use Roo Code currently. Cline is another popular choice.\nSelect the extension\nClick the “Install” button\nThe extension icon (e.g. a Roo if using Roo Code) should appear in the VScode sidebar (left side).\n\nYou’ll have to navigate the extensions menus to input your API key. It won’t work without an API key that gives you access to an LLM. e.g. for Roo Code:\n\nClick on the extension icon (e.g. a roo for roo code or robot for cline) on the left hand side\nClick the cog (if the settings don’t open automatically)\nSelect your API provider and cut and paste the API key into the box.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  },
+  {
     "objectID": "section-1-line-by-line/index.html",
     "href": "section-1-line-by-line/index.html",
     "title": "Section 1: Line-by-line code completion",
@@ -178,7 +368,7 @@
     "href": "section-2-agents/01-agent-options.html#positron-assistant",
     "title": "9  Agent options",
     "section": "9.5 Positron Assistant",
-    "text": "9.5 Positron Assistant\nPositron is Posit’s new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.\n\nTip: There’s also a growing ecosystem of agents that run from inside R itself, rather than as an IDE extension — see Large Language Model Tools for R for an up-to-date list. We’ll build the simplest possible version of one of these ourselves in Section 6.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nPick two agent options from this list that you have access to. Give both the same prompt: “Read fish-coral-cover-sites.csv and make a ggplot of pres.topa against CB_cover.” Compare not just the output, but how much you had to intervene along the way.",
+    "text": "9.5 Positron Assistant\nPositron is Posit’s new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.\n\nTip: There’s also a growing ecosystem of agents that run from inside R itself, rather than as an IDE extension — see Large Language Model Tools for R for an up-to-date list. We’ll build the simplest possible version of one of these ourselves in Section 7.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nPick two agent options from this list that you have access to. Give both the same prompt: “Read fish-coral-cover-sites.csv and make a ggplot of pres.topa against CB_cover.” Compare not just the output, but how much you had to intervene along the way.",
     "crumbs": [
       "Section 2: Agents",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Agent options</span>"
@@ -189,7 +379,7 @@
     "href": "section-2-agents/02-how-agents-work.html",
     "title": "10  How agents work",
     "section": "",
-    "text": "Agents run tools in a loop. That’s really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. We’ll build a toy version of this loop ourselves with ellmer in Section 6 — once you’ve built one, “agent” stops feeling like a mysterious term.\nHere’s roughly how a statistical workflow looks with inline editing (Section 1) versus with an agent doing the same task:\n\nThe default behaviour for most agents is to ask your permission before running a tool. That’s a safety feature — agents can write and run code, and they can also just get things wrong — so you get a chance to review each step before it happens. In practice, agents work fast enough that you become the bottleneck in the loop, not the model.\nMy own workflow mixes Copilot’s editing features with a full agent (Roo Code or Copilot’s agent mode): I start a project by writing a detailed prompt or README (see Section 3), then let the agent scaffold the project and make a first attempt at the code.\nKeep a markdown file updated as you go, so the agent stays on topic across sessions — a README.md works, and a growing number of agents look specifically for a file called AGENTS.md. If the context in that file goes stale (say, it still mentions a package you’ve since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nOpen system.md in this repo — the actual system prompt Roo Code uses. Find the section that lists its available tools. How many of them map onto the simple “read a file / write a file / run a command” set we’ll build in Section 6?",
+    "text": "Agents run tools in a loop. That’s really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. We’ll build a toy version of this loop ourselves with ellmer in Section 7 — once you’ve built one, “agent” stops feeling like a mysterious term.\nHere’s roughly how a statistical workflow looks with inline editing (Section 1) versus with an agent doing the same task:\n\nThe default behaviour for most agents is to ask your permission before running a tool. That’s a safety feature — agents can write and run code, and they can also just get things wrong — so you get a chance to review each step before it happens. In practice, agents work fast enough that you become the bottleneck in the loop, not the model.\nMy own workflow mixes Copilot’s editing features with a full agent (Roo Code or Copilot’s agent mode): I start a project by writing a detailed prompt or README (see Section 3), then let the agent scaffold the project and make a first attempt at the code.\nKeep a markdown file updated as you go, so the agent stays on topic across sessions — a README.md works, and a growing number of agents look specifically for a file called AGENTS.md. If the context in that file goes stale (say, it still mentions a package you’ve since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nOpen system.md in this repo — the actual system prompt Roo Code uses. Find the section that lists its available tools. How many of them map onto the simple “read a file / write a file / run a command” set we’ll build in Section 7?",
     "crumbs": [
       "Section 2: Agents",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>How agents work</span>"
@@ -277,7 +467,7 @@
     "href": "section-2-agents/06-prompting-agents-part2.html",
     "title": "14  Prompting agents II: web search and specification",
     "section": "",
-    "text": "14.1 Web search\nSome agents (and most chat platforms — ChatGPT, Copilot in Teams) can search the web to help build a tutorial or find a method for your specific problem, which you can then attach as context to your actual analysis session:\nYou’ll get better results with reasoning/thinking modes enabled where available — these cost more to run (so are often paid-tier only), but read the reasoning trace if you can see it, since it tells you how the model decided what to search for, which matters for judging whether to trust the answer. Web-search prompts also don’t like being long — keep them short and specific, unlike the detailed spec-sheet prompts we’ll see next. We’ll cover programmatic web search (calling it via API rather than a chat UI) in Section 6.",
+    "text": "14.1 Web search\nSome agents (and most chat platforms — ChatGPT, Copilot in Teams) can search the web to help build a tutorial or find a method for your specific problem, which you can then attach as context to your actual analysis session:\nYou’ll get better results with reasoning/thinking modes enabled where available — these cost more to run (so are often paid-tier only), but read the reasoning trace if you can see it, since it tells you how the model decided what to search for, which matters for judging whether to trust the answer. Web-search prompts also don’t like being long — keep them short and specific, unlike the detailed spec-sheet prompts we’ll see next. We’ll cover programmatic web search (calling it via API rather than a chat UI) in Section 7.",
     "crumbs": [
       "Section 2: Agents",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Prompting agents II: web search and specification</span>"
@@ -306,223 +496,79 @@
     ]
   },
   {
-    "objectID": "section-5-agentic-engineering/01-tests-verification-principles.html",
-    "href": "section-5-agentic-engineering/01-tests-verification-principles.html",
-    "title": "27  Tests, verification and output-checking principles",
+    "objectID": "section-2-agents/07-updating-existing-scripts.html",
+    "href": "section-2-agents/07-updating-existing-scripts.html",
+    "title": "15  Updating existing scripts with agents",
     "section": "",
-    "text": "27.1 Why this matters more with agents\nSoftware engineers have spent decades building habits to catch mistakes before they ship — tests, code review, continuous integration. Most of that toolkit assumes you have a clear, checkable definition of “correct”: the app either logs the user in or it doesn’t. Data analysis rarely gives you that luxury. A GLM with the wrong family, a join that silently drops rows, or a plot with the axes mislabeled can all look completely fine to the eye and still be wrong. That’s exactly the gap this section tries to close: borrowing engineering verification habits, adapted for the fact that “correct” in a scientific analysis is a fuzzier target than “correct” in software.\nAn agent will happily produce a script, run it, and report success — “success” here just means the code executed without an error, which is a much weaker claim than “the analysis is right.” A model that fits without warnings can still have the wrong distributional family; a join that runs without an error can still have silently duplicated or dropped rows. None of that shows up as a red error message. It shows up in numbers that are subtly wrong.",
+    "text": "15.1 Why so much code?\nSo far we’ve mostly looked at agents creating new code. Just as often, you’ll want one to modify code you already have — this is edit mode’s job (or an agent’s file-editing tool, if you’re beyond Copilot specifically).\nOpen a script with some plots in it and try:\nEdit mode writes prose as well as code. Try it on documentation: open your README, type:\nand drag your script into the chat alongside it. Review what it wrote — accept it, ask for changes, or edit it yourself afterward.\nYou’ll likely notice assistants tend to “over-engineer” R scripts — a common example is wrapping every library() call in an if (!requireNamespace(...)) check before loading it. We don’t know the system prompt behind most of these tools, but given their primary market is professional software engineers, it’s a reasonable guess that robustness-focused instructions are baked in somewhere. If you don’t want this style, say so explicitly in your README — e.g. “keep implementation simple, this is a one-off analysis script, not a package.”",
     "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
+      "Section 2: Agents",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Updating existing scripts with agents</span>"
     ]
   },
   {
-    "objectID": "section-5-agentic-engineering/01-tests-verification-principles.html#general-principles",
-    "href": "section-5-agentic-engineering/01-tests-verification-principles.html#general-principles",
-    "title": "27  Tests, verification and output-checking principles",
-    "section": "27.2 General principles",
-    "text": "27.2 General principles\n\nCheck row counts before and after every join or filter. If nrow() changes in a way you didn’t expect, something merged wrong — usually a many-to-many join you thought was one-to-one.\nSanity-check summary statistics against what you already know. If you expect pres.topa to range from 0 to maybe 20 per site, and your summary shows a max of 4000, that’s a decimal point or a units error, not a real finding.\nAsk the agent to write a check, not just the analysis. “Write a script that confirms every site value in the fish data has exactly one matching row in the benthic data” is a specific, verifiable request an agent can act on directly.\nVerification plots are cheap insurance. A histogram of a response variable, a plot of raw data before modelling, and a residual plot after — take seconds to produce and often catch what a model summary table alone won’t.\nRead the diagnostics, don’t just generate them. Asking an agent for diagnostic plots and then not looking at them defeats the purpose — this is the same discipline as reviewing agent output in Section 2, applied specifically to statistical assumptions.",
+    "objectID": "section-2-agents/07-updating-existing-scripts.html#staying-on-track",
+    "href": "section-2-agents/07-updating-existing-scripts.html#staying-on-track",
+    "title": "15  Updating existing scripts with agents",
+    "section": "15.2 Staying on track",
+    "text": "15.2 Staying on track\nLeft unattended — accept, accept, accept, without reading — an agent can wander into rabbit holes: superfluous analyses, or even incorrect statistics that look plausible. My recommended discipline:\n\nUse git, so you can always roll back.\nRead the suggested edits before accepting them.\nNever edit a file yourself while an agent is mid-edit on it. Most editing tools locate where to insert changes by matching text in the file — if you change the file underneath them, the next edit can land in the wrong place.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nCommit your project to git, then ask an agent to refactor one of your plotting scripts for the benthic/fish data to use a shared theme_classic() across all plots. Read the diff before accepting, and note anything it changed that you didn’t ask for.",
     "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
+      "Section 2: Agents",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Updating existing scripts with agents</span>"
     ]
   },
   {
-    "objectID": "section-5-agentic-engineering/01-tests-verification-principles.html#a-concrete-habit",
-    "href": "section-5-agentic-engineering/01-tests-verification-principles.html#a-concrete-habit",
-    "title": "27  Tests, verification and output-checking principles",
-    "section": "27.3 A concrete habit",
-    "text": "27.3 A concrete habit\nBefore you trust any agent-produced analysis of the benthic/fish data, get in the habit of asking for (and reading) at least these three things:\n\nA row-count check across every join.\nA histogram or summary of the response variable (pres.topa) before modelling.\nA residual or dispersion diagnostic after modelling.\n\nThe next two modules build this into something more structured: writing the check before the analysis exists (red-green TDD), and using simulated data with a known answer as a verification target.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nAsk an agent to join fish-coral-cover-sites.csv to a second copy of itself on site (simulating a many-to-many join mistake), then write a check that would have caught the row-count blowup. Confirm the check actually fails on the bad join and passes on a correct one-to-one join.",
-    "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
-    ]
-  },
-  {
-    "objectID": "section-5-agentic-engineering/02-red-green-tdd.html",
-    "href": "section-5-agentic-engineering/02-red-green-tdd.html",
-    "title": "28  Red-green TDD for data analysis",
+    "objectID": "section-2-agents/08-reviewing-agent-output.html",
+    "href": "section-2-agents/08-reviewing-agent-output.html",
+    "title": "16  Reviewing agent output",
     "section": "",
-    "text": "28.1 What “red” looks like for an analysis\nTest-driven development, in its classic software form, goes: write a failing test first (red), write the minimum code to make it pass (green), then clean up. The point isn’t the tests themselves, it’s the discipline it forces — you have to decide what “correct” means before you write the code that’s supposed to produce it, rather than writing the code first and hoping it’s right.\nThat discipline transfers to data analysis surprisingly well, even though “correct” is fuzzier here than in software. You won’t be testing that a function returns the right integer — you’ll be testing that a pipeline behaves the way you already know it should, on data where you already know the answer.\nBefore asking an agent to build the full GLM pipeline for pres.topa ~ CB_cover, write the check that a correct pipeline needs to pass. For example:\n# red: this will fail, because model_fit.R doesn't exist yet\nsource(\"scripts/model_fit.R\")\n\ntestthat::test_that(\"model output has the columns we expect\", {\n  testthat::expect_true(all(c(\"term\", \"estimate\", \"std.error\") %in% names(model_summary)))\n})\n\ntestthat::test_that(\"CB_cover has a positive estimated effect\", {\n  testthat::expect_gt(model_summary$estimate[model_summary$term == \"CB_cover\"], 0)\n})\nRun it. It fails — there’s no model_fit.R yet, and no model_summary object. That’s red, and that’s the point: you’ve written down what “done” means before any code exists to satisfy it.",
+    "text": "16.1 What to actually check\nYou can accept every suggestion an agent makes without reading it — this is what people mean by “vibe coding.” It’s fine for prototyping a throwaway idea or a low-stakes app. It’s a bad fit for anything you plan to publish, because the whole point of vibe coding is that you haven’t verified it’s correct — and unlike an app that visibly works or doesn’t, a subtly wrong statistical analysis can look completely fine right up until someone tries to reproduce it.\nHere’s the part that doesn’t change no matter how good the tooling gets: you own the content you create with an assistant, and you’re responsible for it. You couldn’t blame an LLM if you had to retract a paper because of an incorrect analysis, any more than you could blame a calculator.\nBefore accepting an agent’s output, it’s worth having a habit, not just good intentions:\nThis isn’t about distrust for its own sake — it’s the same posture you’d bring to checking a research assistant’s work, human or otherwise. The difference with an agent is that it will never tell you it’s unsure, so the checking has to be entirely on your side.",
     "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
+      "Section 2: Agents",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reviewing agent output</span>"
     ]
   },
   {
-    "objectID": "section-5-agentic-engineering/02-red-green-tdd.html#getting-to-green",
-    "href": "section-5-agentic-engineering/02-red-green-tdd.html#getting-to-green",
-    "title": "28  Red-green TDD for data analysis",
-    "section": "28.2 Getting to green",
-    "text": "28.2 Getting to green\nNow hand the agent the spec sheet from Section 3 plus this test file, and ask it to write scripts/model_fit.R so the test passes. This changes what the agent is optimising for — instead of “write code that runs,” it’s “write code that makes this specific, falsifiable claim true.” That’s a much narrower and more checkable target, and it’s much harder for a plausible-looking-but-wrong analysis to sneak through it.",
-    "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
-    ]
-  },
-  {
-    "objectID": "section-5-agentic-engineering/02-red-green-tdd.html#why-the-direction-of-a-coefficient-is-a-good-first-test",
-    "href": "section-5-agentic-engineering/02-red-green-tdd.html#why-the-direction-of-a-coefficient-is-a-good-first-test",
-    "title": "28  Red-green TDD for data analysis",
-    "section": "28.3 Why the direction of a coefficient is a good first test",
-    "text": "28.3 Why the direction of a coefficient is a good first test\nNotice the second test above isn’t checking a p-value or an exact number — it’s checking the sign of an effect you already have strong prior reason to expect (branching coral cover should have a positive relationship with juvenile topa abundance, per Hamilton et al. 2017). That’s a deliberately weak, easy-to-state claim, which is exactly the right level for a first test — you’re not trying to encode the whole analysis in assertions, just the parts you’re confident enough about to write down as a checkable fact.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nWrite a red test that asserts the negative binomial dispersion parameter (theta) from MASS::glm.nb(pres.topa ~ CB_cover, data = dat) is greater than 0 and less than, say, 50 (a sanity range, not a precise prediction). Confirm it’s red before the model exists, then have an agent implement the model and confirm it goes green.",
-    "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
-    ]
-  },
-  {
-    "objectID": "section-5-agentic-engineering/03-simulated-data-verification.html",
-    "href": "section-5-agentic-engineering/03-simulated-data-verification.html",
-    "title": "29  Using simulated data as a verification step",
+    "objectID": "section-2-agents/08-reviewing-agent-output.html#what-to-actually-check",
+    "href": "section-2-agents/08-reviewing-agent-output.html#what-to-actually-check",
+    "title": "16  Reviewing agent output",
     "section": "",
-    "text": "29.1 Simulating fake topa counts\nHere’s a verification trick that’s standard practice in statistics but rarely makes it into an agent’s default workflow: before you trust a model fit to your real data, fit it to simulated data where you already know the true answer, because you generated it yourself. If the pipeline can’t recover a relationship you built in on purpose, there’s no reason to trust it on data where you don’t know the answer.\nLet’s simulate count data with the same structure as pres.topa ~ CB_cover, but with a coral-cover effect we chose ourselves:\nlibrary(tidyverse)\nlibrary(MASS)\n\nset.seed(42)\nn_sites &lt;- 49\n\ntrue_intercept &lt;- log(2)     # ~2 topa at zero coral cover, on the log scale\ntrue_cb_effect &lt;- 0.03       # positive effect of CB_cover on log(topa)\ntrue_theta &lt;- 5              # dispersion parameter for the negative binomial\n\nsim_dat &lt;- tibble(\n  site = 1:n_sites,\n  CB_cover = runif(n_sites, min = 0, max = 40)\n) %&gt;%\n  mutate(\n    mu = exp(true_intercept + true_cb_effect * CB_cover),\n    pres.topa = rnegbin(n_sites, mu = mu, theta = true_theta)\n  )\nNow fit the same model you’d fit to the real data:\nm_sim &lt;- MASS::glm.nb(pres.topa ~ CB_cover, data = sim_dat)\nsummary(m_sim)",
+    "text": "Does the statistical approach match what you decided in Section 3 — or did it quietly substitute something more familiar to it?\nDid it check assumptions it should have (overdispersion, residual patterns) or just fit the model and move on?\nAre there extra analyses or files you didn’t ask for? Agents sometimes pad out a task with things that look thorough but weren’t requested.\nDoes the code match the style and packages your README specified, or did it default back to its own preferences?\n\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nTake the script an agent produced for you in an earlier module (the regression of pres.topa on CB_cover, or the pairs plot). Read it line by line and find one thing you’d change — a package choice, a default argument, an assumption it didn’t check.",
     "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
+      "Section 2: Agents",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Reviewing agent output</span>"
     ]
   },
   {
-    "objectID": "section-5-agentic-engineering/03-simulated-data-verification.html#what-recovers-the-truth-means-here",
-    "href": "section-5-agentic-engineering/03-simulated-data-verification.html#what-recovers-the-truth-means-here",
-    "title": "29  Using simulated data as a verification step",
-    "section": "29.2 What “recovers the truth” means here",
-    "text": "29.2 What “recovers the truth” means here\nYou’re not expecting the fitted coefficient to exactly equal 0.03 — with 49 sites and real sampling noise, it won’t. What you’re checking is:\n\nThe estimated CB_cover coefficient is positive and in a plausible range around the true value.\nThe true value falls inside the 95% confidence interval most of the time — run the simulation a few times (or wrap it in a loop over, say, 200 replicates) and check the true effect falls inside the interval roughly 95% of the time, not 50% or 20%.\nThe estimated theta is in the right ballpark of the true dispersion you simulated.\n\nIf any of those fail consistently, the problem isn’t your real data — it’s the pipeline itself (wrong family, a coding bug, a mis-specified formula), and you’ve found that out before it had a chance to quietly corrupt your interpretation of the real analysis.",
-    "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
-    ]
-  },
-  {
-    "objectID": "section-5-agentic-engineering/03-simulated-data-verification.html#handing-this-to-an-agent",
-    "href": "section-5-agentic-engineering/03-simulated-data-verification.html#handing-this-to-an-agent",
-    "title": "29  Using simulated data as a verification step",
-    "section": "29.3 Handing this to an agent",
-    "text": "29.3 Handing this to an agent\nThis is a natural task to specify explicitly rather than hope an agent thinks to do it: add a step to your specification sheet (see Section 3) that says something like “before fitting the model to the real data, simulate data with a known CB_cover effect and confirm the same model code recovers it, within a reasonable margin, before proceeding.” Agents default to the most familiar workflow — fit model, report results — unless you explicitly ask for the verification step in between.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nChange true_cb_effect to 0 in the simulation above (i.e. no real relationship between coral cover and topa) and refit the model. Does the fitted model correctly show a non-significant effect most of the time, or does it falsely detect an effect more often than you’d expect by chance?",
-    "crumbs": [
-      "Section 5: Agentic engineering for data analysis",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
-    ]
-  },
-  {
-    "objectID": "section-6-api-access/index.html",
-    "href": "section-6-api-access/index.html",
-    "title": "Section 6: LLM access via API",
+    "objectID": "section-2-agents/09-when-agents-get-stuck.html",
+    "href": "section-2-agents/09-when-agents-get-stuck.html",
+    "title": "17  When agents get stuck",
     "section": "",
-    "text": "Under every assistant and agent is an API call. This section takes you underneath the chat window: getting an API key, understanding how ellmer talks to a provider, building a simple chat and a DIY chatbot, then building your own minimal coding agent from scratch, and finally applying all of it to a literature review example.",
+    "text": "17.1 Context poisoning\nAgents try to debug their own errors, but they can get stuck in a loop doing it. A common one: trying to run Rscript from the terminal to execute a full script, on a computer where Rscript isn’t on the system PATH. Fixing that is an IT-flavoured detour outside the scope of this book, but the practical workaround is to give the agent the full path explicitly in a custom instruction — e.g. “use Rscript.exe at C:/Program Files/R/bin/Rscript.exe” — rather than letting it keep guessing.\nThe deeper version of “getting stuck” isn’t an error message, it’s a wrong answer that’s already in the conversation. If an agent doesn’t have enough information, it won’t say so — it’ll answer anyway (what people often loosely call “hallucinating”). Once that wrong answer sits in the chat thread, it’s genuinely hard to get the model to un-learn it there. Telling it “no, that’s wrong, try again” inside the same conversation is fighting the poisoned context, not fixing it.\nThe reliable fix is almost always to start over: open a new chat and write a clearer, more complete prompt from scratch, rather than trying to patch a conversation that’s gone sideways.\nThis compounds in bigger projects. As more gets crammed into the context window, small mistakes get harder to spot and root out. An old, superseded script with a subtly wrong line of code can make it into an agent’s index and keep influencing its suggestions long after you thought you’d abandoned that approach — until you delete the file and the index catches up. That’s one more reason to use git properly, rather than keeping several versions of the “same” script lying around your project directory.",
     "crumbs": [
-      "Section 6: LLM access via API"
+      "Section 2: Agents",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>When agents get stuck</span>"
     ]
   },
   {
-    "objectID": "section-6-api-access/01-api-keys.html",
-    "href": "section-6-api-access/01-api-keys.html",
-    "title": "30  API keys",
+    "objectID": "section-2-agents/09-when-agents-get-stuck.html#context-poisoning",
+    "href": "section-2-agents/09-when-agents-get-stuck.html#context-poisoning",
+    "title": "17  When agents get stuck",
     "section": "",
-    "text": "Software requirements: R (ideally with ellmer installed) or Python, and an API key with a provider — ideally OpenRouter.\nEverything in this section works by talking to an LLM provider’s API directly, rather than through a chat app or an assistant like Copilot. To do that you need an API key — think of it like a password that lets your code send prompts to a provider on your behalf.\nIf you haven’t already, follow ‘Getting an API key’ and ‘Ellmer set-up’ in Setup. The short version:\n\nSign up with a provider — I recommend OpenRouter for this section, since it gives you access to models from many providers with one key.\nBuy a small amount of credit (a few dollars will get you a long way through this book’s examples).\nSave the key to your .Renviron file (usethis::edit_r_environ()), as OPENROUTER_API_KEY=\"xxxxxx\", then restart R.\n\nellmer will automatically find the key so long as you use the standard environment variable name for your provider — see ?ellmer::chat_openrouter (or chat_xxx for whichever provider you’re using).\n\nTip: The sign-up page for an API key is often a completely different webpage to the one you use for a subscription product like ChatGPT Plus or Claude Code. Don’t assume they’re the same account.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nConfirm your key is working without ever typing it into a script: run library(ellmer); chat_openrouter()$chat(\"Say hello\") in a fresh R session and check it returns a response. If it fails, the problem is almost always the environment variable name or a missing restart of R.",
+    "text": "Tip: If an agent keeps recommending the same broken fix over and over, that’s the tool-use equivalent of the inline-completion “stuck in a loop” problem from Section 1 — the fix is the same too: stop, and change the input rather than repeating the same request.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nDeliberately give an agent an incomplete or slightly wrong instruction about the benthic/fish data (e.g. call CB_cover something it isn’t), let it produce a wrong answer, then try correcting it within the same chat. Then start a fresh chat with a corrected prompt instead. Compare how much friction each approach took.",
     "crumbs": [
-      "Section 6: LLM access via API",
-      "<span class='chapter-number'>30</span>  <span class='chapter-title'>API keys</span>"
+      "Section 2: Agents",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>When agents get stuck</span>"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "AI assistants for Scientific Coding",
+    "objectID": "section-3-workflows/index.html",
+    "href": "section-3-workflows/index.html",
+    "title": "Section 3: AI in workflows",
     "section": "",
-    "text": "0.1 Summary\nIf you are doing data analysis you are probably using language models (e.g. ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.\nI will cover:\nThe content I’ll teach is suitable for anyone using computing coding (e.g. R, Python) to do data analysis.\nExamples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python).",
+    "text": "A good analysis workflow separates deciding what to do from how to code it. This section walks through my suggested three-step workflow — select a statistical approach, plan the implementation, then write the code — as three short modules, followed by a module on specification sheets that ties the whole thing together with a full worked example.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#summary",
-    "href": "index.html#summary",
-    "title": "AI assistants for Scientific Coding",
-    "section": "",
-    "text": "How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).\nVibe coding and how future analysis workflows will change dramatically from today\nBest practice prompting techniques that can dramatically improve model performance for complex data analysis\nApplying language models to common environmental applications such as GLMs and multivariate statistics\nIssues including environmental impacts, copyright and ethics\nI’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#citation-for-book",
-    "href": "index.html#citation-for-book",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.2 Citation for book",
-    "text": "0.2 Citation for book\nPlease consider citing my accompanying article if you are using the advice in this book, currently in pre-print form:\nCitation: Brown & Spillias (2025). Prompting large language models for quality ecological statistics. Pre-print. https://doi.org/10.32942/X2CS80\nGenerative AI software for coding is changing fast. So this book will keep changing as I update it to reflect new developments. It does not make sense to publish it as a fixed book. The general guidelines for prompting, which have a longer shelf-life are captured in the article. So please cite that to support my work.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#who-should-read-this-book",
-    "href": "index.html#who-should-read-this-book",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.3 Who should read this book?",
-    "text": "0.3 Who should read this book?\nThe book is for: anyone who currently uses R, from intermittent users to experienced professionals. The workshop is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots.\nImportant This book isn’t for people who need an introduction to R or Python. I’ll assume students know at least how to do tasks like read in data and create plots in Python or R. To use these AI tools effectively you absolutely have to understand how scientific computing works first. If you need an introduction to R then I recommend you learn it without AI first.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#is-the-book-up-to-date",
-    "href": "index.html#is-the-book-up-to-date",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.4 Is the book up to date?",
-    "text": "0.4 Is the book up to date?\nThe large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out Large Language Model tools for R by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#about-chris",
-    "href": "index.html#about-chris",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.5 About Chris",
-    "text": "0.5 About Chris\nI’m an Associate Professor of Fisheries Science at University of Tasmania and an Australian Research Council Future Fellow. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#software-youll-need-for-this-workshop",
-    "href": "index.html#software-youll-need-for-this-workshop",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.6 Software you’ll need for this workshop",
-    "text": "0.6 Software you’ll need for this workshop\nSave some time for setting up the software, there is a bit to it. You may also need IT help if your computer is locked down. See Setup for more detailed instructions.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#book-overview",
-    "href": "index.html#book-overview",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.7 Book overview",
-    "text": "0.7 Book overview\nThe book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections. Every module except Introduction and Setup ends with a Challenge to try yourself. Note the book is still under construction and it’s a fast moving space, so the content needs constant updating.\n\nIntroduction: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.\nSetup: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.\nSection 1: Line-by-line code completion: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.\nSection 2: Agents: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.\nSection 3: AI in workflows: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.\nSection 4: Security, data privacy and cloud agents: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.\nSection 5: Agentic engineering for data analysis: Tests and verification, red-green TDD, and using simulated data as a verification step.\nSection 6: LLM access via API: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.\nAppendix — Code and data: Code snippets, data access links and supporting scripts used in the book.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#data",
-    "href": "index.html#data",
-    "title": "AI assistants for Scientific Coding",
-    "section": "0.8 Data",
-    "text": "0.8 Data\nWe’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.\n\n0.8.1 Benthic cover surveys and fish habitat\nIn this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by Hamilton et al. 2017 who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.\nIn a follow-up study Brown and Hamilton 2018 developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "01-introduction.html",
-    "href": "01-introduction.html",
-    "title": "2  Introduction",
-    "section": "",
-    "text": "2.1 The jagged frontier of LLM progress\nSlides from the workshop presentation (on a google drive)\nLLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.\nSince then AI companies have been optimising their training and development for coding and logic.\nThere are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Frontier models can solve &gt;70% of tasks on this benchmark.\nTheir progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) are saturated as LLMs are scoring close to 100% on these tests.. So newer tests of unsolved maths problems are being developed.\nHowever, others are finding that the ability of LLMs on math and logic are overstated, perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be ‘industry leaders’ and grab market share with impressive results on benchmarks.\nEither way, it does seem that the current areas of progress are programming, math and logic.\nEvaluations on statistics and the R software are less common.\nThe limited evaluations of LLMs on their ability to identify the correct statistical procedure are less impressive than other benchmarks. An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model, found accuracy at suggesting the correct statistical test of between 8% and 90%.\nIn general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer.\nThe results also indicate the improvements that can be gained through better prompts (i.e. doubling in accuracy for GPT 4).\nThe lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.\nFor us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.\nIn this book we’ll walk through some of the ways you can use LLMs to help you do statistics, data analysis and R coding (and a bit of python too), working through short self-paced modules built around a single running example dataset. There are a multitude of software and R package options. So many its bewildering. In the next module I’ll give you a few of the easiest set-up options available.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+      "Section 3: AI in workflows"
     ]
   },
   {
@@ -596,7 +642,7 @@
     "href": "section-3-workflows/03-write-the-code.html",
     "title": "20  Step 3: Write the code",
     "section": "",
-    "text": "20.1 Suggested workflows\nOnce you’re happy with the plan, it’s time to implement it. There are roughly three levels of automation, in increasing order:\nVibe coding isn’t recommended for scientific projects — we’ll come back to why in Section 2 and Section 5.\nA few more tips for this stage:\nFor an analysis that’s new to you:\nFor an analysis you already know well: much the same, minus the literature search — you already know what you want. Keep saving useful domain knowledge when you come across it, so it’s on hand next time.",
+    "text": "20.1 Suggested workflows\nOnce you’re happy with the plan, it’s time to implement it. There are roughly three levels of automation, in increasing order:\nVibe coding isn’t recommended for scientific projects — we’ll come back to why in Section 2 and Section 6.\nA few more tips for this stage:\nFor an analysis that’s new to you:\nFor an analysis you already know well: much the same, minus the literature search — you already know what you want. Keep saving useful domain knowledge when you come across it, so it’s on hand next time.",
     "crumbs": [
       "Section 3: AI in workflows",
       "<span class='chapter-number'>20</span>  <span class='chapter-title'>Step 3: Write the code</span>"
@@ -732,6 +778,639 @@
     "crumbs": [
       "Section 3: AI in workflows",
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Specification sheets</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/index.html",
+    "href": "section-4-security-privacy/index.html",
+    "title": "Section 4: Security, data privacy and cloud agents",
+    "section": "",
+    "text": "Agents that can read files, browse the web and run code on your computer are powerful and risky. This section works through concrete security risk examples, a Claude Code for web example, a bash sandbox example, and practical advice for keeping your data secure when cloud-hosted agents are involved — plus a frank look at the limitations of all of the above.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/01-security-risk-examples.html",
+    "href": "section-4-security-privacy/01-security-risk-examples.html",
+    "title": "22  Security risk examples",
+    "section": "",
+    "text": "22.1 The lethal trifecta\nWe touched on the lethal trifecta briefly in Section 2 — now let’s walk through it properly.\nNever let an agent do all three of these at the same time:\nThe Lethal Trifecta for prompt injection attacks (coined by Simon Willison) is: access to private data, ability to communicate externally, and exposure to untrusted content.\nIf an agent can read untrusted sources, those sources might contain hidden malicious instructions — text designed to be read by an LLM, not a human, telling it to do something you didn’t ask for. That instruction could convince the agent to send your data somewhere, or write malicious code that runs on your computer.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Security risk examples</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/01-security-risk-examples.html#the-lethal-trifecta",
+    "href": "section-4-security-privacy/01-security-risk-examples.html#the-lethal-trifecta",
+    "title": "22  Security risk examples",
+    "section": "",
+    "text": "Read unverified material from the web (even material you downloaded earlier).\nHave access to sensitive data — including your personal data, API keys, and your research data.\nUpload information to the web — including creating webpages or pushing commits to GitHub.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Security risk examples</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/01-security-risk-examples.html#how-easily-you-can-cross-the-line",
+    "href": "section-4-security-privacy/01-security-risk-examples.html#how-easily-you-can-cross-the-line",
+    "title": "22  Security risk examples",
+    "section": "22.2 How easily you can cross the line",
+    "text": "22.2 How easily you can cross the line\nIt’s deceptively easy to tick off all three conditions without noticing. Say you ask ChatGPT to write a blog post based on a web search. Chat platforms often retain your past conversation history, which might contain personal information — that’s condition 2 ticked, alongside condition 1 (the web search). Now say the web search turns up a page with hidden instructions telling the model to embed your personal data in the post — say, in image alt text. Once you publish that post, you’ve ticked condition 3 as well, and the trifecta is complete.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Security risk examples</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/01-security-risk-examples.html#why-agents-on-your-computer-are-riskier",
+    "href": "section-4-security-privacy/01-security-risk-examples.html#why-agents-on-your-computer-are-riskier",
+    "title": "22  Security risk examples",
+    "section": "22.3 Why agents on your computer are riskier",
+    "text": "22.3 Why agents on your computer are riskier\nAgents that run locally are a bigger risk than a chat window, because they can plausibly satisfy all three conditions most of the time. Any agent that can write code can write code that talks to the internet (that includes R). Most agents can change their working directory, so they can explore files well outside what you intended. Most now have web search built in. The trifecta is sitting right there.\nSandboxing — constraining what files and network access an agent can reach — helps, but currently takes real technical effort to set up properly, and may be out of reach if you’re on a locked-down university machine. We’ll look at a concrete sandboxing example next.\nAgents you run inside VSCode are generally safe, but not 100% safe. Most are explicitly instructed not to change your working directory — but instructions to an LLM are guidelines, not guarantees. I’ve regularly seen Copilot’s agent try to cd in the terminal anyway (in my experience, an innocent attempt to get a better view of the project) — but I never approve it, because I can’t always tell innocent from not just from the confirmation dialog.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nThink through a task you might ask an agent to do with the benthic/fish project (e.g. “search for the latest best-practice method for count data, then update my analysis and push the changes to GitHub”). Which of the three trifecta conditions does that task tick off, and at what point?",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Security risk examples</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/02-claude-code-web-example.html",
+    "href": "section-4-security-privacy/02-claude-code-web-example.html",
+    "title": "23  Claude Code for web example",
+    "section": "",
+    "text": "23.1 What’s actually happening\nClaude Code doesn’t only run on your own machine — it also runs entirely in the cloud, through a web interface, with no local install at all. That’s a meaningfully different security posture to everything else in this book so far, so it’s worth understanding concretely rather than in the abstract.\nWhen you start a Claude Code for web session, the agent runs inside an isolated, ephemeral container in the cloud, not on your laptop. Practically, that means:",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Claude Code for web example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/02-claude-code-web-example.html#whats-actually-happening",
+    "href": "section-4-security-privacy/02-claude-code-web-example.html#whats-actually-happening",
+    "title": "23  Claude Code for web example",
+    "section": "",
+    "text": "The repository is freshly cloned into the container when the session starts — the agent never touches your local filesystem or any other project you have open.\nOutbound network access is governed by a network policy you choose when the environment is created (for example, restricted to specific package registries, or more open). This is a real control, not just a suggestion in a system prompt — it’s enforced at the infrastructure level.\nThe container is reclaimed once the session ends or goes idle for a while. Anything you want to keep has to be committed and pushed before that happens — there’s no persistent local state to fall back on.\nGitHub access (viewing PRs, pushing branches, commenting on issues) goes through an explicit integration, scoped to specific repositories you’ve authorised — the agent can’t reach arbitrary repos just because it can reach one.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Claude Code for web example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/02-claude-code-web-example.html#why-this-changes-the-trifecta-calculation",
+    "href": "section-4-security-privacy/02-claude-code-web-example.html#why-this-changes-the-trifecta-calculation",
+    "title": "23  Claude Code for web example",
+    "section": "23.2 Why this changes the trifecta calculation",
+    "text": "23.2 Why this changes the trifecta calculation\nRevisit the lethal trifecta from the previous module. Running an agent in an isolated cloud container doesn’t remove any of the three conditions outright — it can still read untrusted web content, it still has access to whatever’s in the repo it was given, and it can still push code or comment on GitHub. But it does shrink the blast radius of condition 2 considerably: there’s no access to your personal files, your other projects, your browser history, or anything else on your actual computer. If something goes wrong, the damage is contained to that one cloned repo and whatever the network policy allowed it to reach — not your whole machine.\nThat’s a genuinely useful trade-off for exactly the kind of task this book is about: pointing an agent at one specific analysis project, with one specific dataset, and letting it work with less supervision than you’d give an agent running locally on your main machine.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Claude Code for web example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/02-claude-code-web-example.html#trying-it-yourself",
+    "href": "section-4-security-privacy/02-claude-code-web-example.html#trying-it-yourself",
+    "title": "23  Claude Code for web example",
+    "section": "23.3 Trying it yourself",
+    "text": "23.3 Trying it yourself\n\nPush your project (e.g. the topa/coral-cover analysis from earlier sections) to a GitHub repository.\nStart a Claude Code for web session against that repository, and choose a network policy appropriate to the task — the most restrictive one that still lets the agent do what you need.\nGive it a specification-sheet-style prompt (see Section 3) rather than a vague one — the same “over-explain up front” advice applies just as much here as anywhere else in this book.\nReview the diff it produces before merging anything, exactly as you would for a local agent session (see Reviewing agent output).\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nRun the same specification-sheet prompt from Section 3 in a Claude Code for web session, choosing the most restrictive network policy that still lets it complete the task. Note what it couldn’t do that a locally-run agent could — and whether that restriction ever actually got in the way.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Claude Code for web example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/03-bash-sandbox-example.html",
+    "href": "section-4-security-privacy/03-bash-sandbox-example.html",
+    "title": "24  Bash sandbox example",
+    "section": "",
+    "text": "24.1 A simple sandbox with Docker\nA sandbox restricts what an agent’s shell commands can actually reach — which files, and which parts of the network — independent of whatever the agent’s own instructions say it should or shouldn’t do. It’s a control enforced by your computer, not a polite request written into a system prompt, which is exactly why it matters: instructions to an LLM are guidelines, sandboxes are not.\nIf you have Docker installed, one accessible way to sandbox an agent’s shell access is to run it inside a container with no network access and only your project folder mounted:\nWhat this buys you:\nPoint your agent’s shell tool at this container instead of your normal terminal, and even if it’s tricked into running something malicious, there’s nothing to steal and nowhere to send it.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Bash sandbox example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/03-bash-sandbox-example.html#a-simple-sandbox-with-docker",
+    "href": "section-4-security-privacy/03-bash-sandbox-example.html#a-simple-sandbox-with-docker",
+    "title": "24  Bash sandbox example",
+    "section": "",
+    "text": "docker run --rm -it \\\n  --network none \\\n  -v \"$(pwd)\":/workspace:rw \\\n  -w /workspace \\\n  rocker/tidyverse \\\n  bash\n\n\n--network none means nothing running inside the container can reach the internet at all — no accidental data exfiltration, no fetching a malicious script, no curl.\n-v \"$(pwd)\":/workspace mounts only your current project directory into the container. Anything outside it (your home folder, other projects, credentials elsewhere on disk) simply isn’t visible from inside.\n--rm throws the container away when you’re done, so nothing about the session persists beyond what you explicitly saved into /workspace.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Bash sandbox example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/03-bash-sandbox-example.html#the-trade-off",
+    "href": "section-4-security-privacy/03-bash-sandbox-example.html#the-trade-off",
+    "title": "24  Bash sandbox example",
+    "section": "24.2 The trade-off",
+    "text": "24.2 The trade-off\nNo network access also means no install.packages(), no downloading the benthic/fish data via read_csv(url(...)), and no web search. In practice you’ll want to build an image with the R packages and data you need already baked in, or allow network access only to specific package registries rather than turning it off completely — most container runtimes support an allowlist rather than a strict on/off switch, though the details depend on your platform.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Bash sandbox example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/03-bash-sandbox-example.html#lighter-weight-alternatives",
+    "href": "section-4-security-privacy/03-bash-sandbox-example.html#lighter-weight-alternatives",
+    "title": "24  Bash sandbox example",
+    "section": "24.3 Lighter-weight alternatives",
+    "text": "24.3 Lighter-weight alternatives\nIf Docker feels like overkill, a restricted OS-level user account with read-only permissions on everything except your project’s output folder achieves a weaker but still useful version of the same idea. On Linux, tools like firejail can restrict a single process’s filesystem and network access without a full container. None of these are a substitute for reading what an agent is about to do — they’re a backstop for when something slips through anyway.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nTry running an agent’s shell tool inside the Docker sandbox above (or an equivalent restricted setup) on the topa/coral-cover project. Confirm for yourself that a command like curl https://example.com genuinely fails from inside the sandbox, and note what you had to pre-install in the image to still get your analysis working.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Bash sandbox example</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/04-keeping-data-secure.html",
+    "href": "section-4-security-privacy/04-keeping-data-secure.html",
+    "title": "25  Keeping data secure from the cloud",
+    "section": "",
+    "text": "25.1 Option 1: A locally hosted LLM\nAny prompt you send to an LLM provider goes to that company’s servers. So it’s worth being deliberate about what you include in your prompts — the data you send is covered by that provider’s privacy policy, not yours. Some subscription products (e.g. an institutional Copilot licence) claim to keep your data private; public consumer products tend to retain the right to use whatever you type as a prompt. If you put your best research ideas into a public chatbot, it’s plausible those ideas resurface, in some form, to a different user asking something similar later.\nBefore using an LLM on data you didn’t collect entirely yourself, check the IP and ethical constraints that apply — human survey data in particular may come with restrictions on sending it to a foreign server, or on revealing any of it to a third party at all, LLM or otherwise.\nIf your data is sensitive, you have a few real options.\nRun a model on your own computer instead of calling out to a provider. We won’t cover the setup here, but it’s worth knowing this exists. Locally hosted models are fine for simpler tasks if you have reasonably capable hardware (a decent GPU helps a lot); they won’t match the top hosted models on harder tasks, and can be slower to respond.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Keeping data secure from the cloud</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/04-keeping-data-secure.html#option-2-keep-data-separate-from-code-development",
+    "href": "section-4-security-privacy/04-keeping-data-secure.html#option-2-keep-data-separate-from-code-development",
+    "title": "25  Keeping data secure from the cloud",
+    "section": "25.2 Option 2: Keep data separate from code development",
+    "text": "25.2 Option 2: Keep data separate from code development\nUse the LLM to help write the code that analyses your data, but never give it the data or the results. I’d recommend keeping sensitive data in a directory entirely outside your project folder, so an agent can’t stumble into it by accident — and double-check the agent isn’t feeding its own analysis output back into a prompt, which would leak the same information a different way.\nIt helps to generate simulated data with the same structure as your real data to use for code development — you get a working pipeline with zero privacy risk, and (as a bonus) a built-in verification step, which we’ll come back to properly in Section 6. There’s an R package called fakedataR aimed at exactly this kind of synthetic-data generation for privacy purposes — I haven’t put it through its paces yet, so treat that as a pointer to investigate rather than a recommendation, and check its current state before relying on it.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Keeping data secure from the cloud</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/04-keeping-data-secure.html#option-3-ignore-sensitive-folders",
+    "href": "section-4-security-privacy/04-keeping-data-secure.html#option-3-ignore-sensitive-folders",
+    "title": "25  Keeping data secure from the cloud",
+    "section": "25.3 Option 3: Ignore sensitive folders",
+    "text": "25.3 Option 3: Ignore sensitive folders\nSome agents can be told to ignore specific folders — for example, a repository-level custom instruction to GitHub Copilot, or Roo Code’s .rooignore file.\nRemember prompts aren’t 100% precise the way code is — there’s still a chance the agent wanders in anyway. If something is genuinely sensitive, keep it elsewhere on your computer entirely, and check every action before approving it.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Keeping data secure from the cloud</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/04-keeping-data-secure.html#option-4-a-no-data-retention-provider",
+    "href": "section-4-security-privacy/04-keeping-data-secure.html#option-4-a-no-data-retention-provider",
+    "title": "25  Keeping data secure from the cloud",
+    "section": "25.4 Option 4: A no-data-retention provider",
+    "text": "25.4 Option 4: A no-data-retention provider\nOpenRouter has a “no data retention” toggle in your profile, which filters the providers it routes to down to ones with a no-retention policy. Worth checking whether your provider of choice offers something equivalent.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nFor a hypothetical version of the topa/coral-cover project where the GPS coordinates (coordx, coordy) had to stay confidential (e.g. to protect an endangered species location), pick which of the four options above you’d use, and explain what you’d tell an agent’s README to keep it from ever seeing those two columns.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Keeping data secure from the cloud</span>"
+    ]
+  },
+  {
+    "objectID": "section-4-security-privacy/05-limitations.html",
+    "href": "section-4-security-privacy/05-limitations.html",
+    "title": "26  Limitations",
+    "section": "",
+    "text": "None of the safeguards in this section — permission prompts, sandboxes, no-data-retention providers, ignore files — add up to a guarantee. It’s worth being honest about that rather than letting a security module leave you falsely reassured.\nSandboxes constrain what an agent’s tools can reach, but setting one up properly still takes real technical effort, and may simply be out of reach if you’re working on a locked-down university machine without admin rights. A .rooignore or repository custom instruction reduces the chance an agent wanders into a sensitive folder, but a prompt is not a guarantee the way a filesystem permission is — there’s always some chance it goes there anyway. Running Claude Code for web in an isolated container shrinks the blast radius of a mistake, but the agent can still read whatever’s in the repo you gave it, and still push whatever it wrote.\nSo the practical posture, even after applying everything in this section, is the same one we’ve come back to throughout the book: watch what your agent is doing, and think carefully about what data it can access and what untrusted sources it’s been given before you hand over the keys. Layered defences reduce risk, they don’t remove it — and the layer that catches the mistake the sandbox didn’t anticipate is usually you, reading the diff before you approve it.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nPick one security measure from this section (sandboxing, a no-data-retention provider, an ignore file, or the isolated-container approach). Describe one concrete way it could still fail to protect you, even when set up correctly.",
+    "crumbs": [
+      "Section 4: Security, data privacy and cloud agents",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Limitations</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/index.html",
+    "href": "section-5-customizing-agents/index.html",
+    "title": "Section 5: Customizing agents",
+    "section": "",
+    "text": "By now you’ve got an agent doing useful work and you know the security trade-offs of letting it run. The next question is how to make that behavior repeatable — packaging what you’ve learned into a skill the agent can call by name, or splitting a task across specialized sub-agents — rather than re-explaining the same thing from scratch every session. We’ll build both around the same running example: fitting, plotting, and writing up the topa/coral-cover GLM.",
+    "crumbs": [
+      "Section 5: Customizing agents"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/01-what-is-customization.html",
+    "href": "section-5-customizing-agents/01-what-is-customization.html",
+    "title": "27  What is agent customization?",
+    "section": "",
+    "text": "27.1 Skills: saved instructions invoked by name\nEverything so far has treated an agent as one general-purpose assistant you prompt fresh each time. Once you’re running the same kind of task repeatedly — fit a GLM, make a diagnostic plot, write a methods paragraph — retyping the same instructions (or worse, half-remembering them and getting a slightly different result each time) becomes the bottleneck. There are two common ways to fix that.\nA skill is a instruction file (sometimes a folder of files, with scripts or reference material attached) that you write once and the agent can call up by name — “use the GLM skill” — instead of you retyping the spec every session. It’s really a spec sheet (Section 3) that’s been named, saved, and made re-usable. The agent decides when a request matches a skill’s description, or you invoke it directly.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>What is agent customization?</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/01-what-is-customization.html#sub-agents-delegating-to-a-specialized-role",
+    "href": "section-5-customizing-agents/01-what-is-customization.html#sub-agents-delegating-to-a-specialized-role",
+    "title": "27  What is agent customization?",
+    "section": "27.2 Sub-agents: delegating to a specialized role",
+    "text": "27.2 Sub-agents: delegating to a specialized role\nA sub-agent is a separate agent instance with its own scoped instructions — and sometimes its own restricted set of tools — that a coordinating agent delegates a piece of work to. Instead of one agent doing data prep, modelling, plotting, and write-up all in one long context, a “plotting” sub-agent might only ever see a fitted model object and produce a figure from it, never touching the raw data or the modelling decisions.\nThe two overlap: a sub-agent is often just an agent invoked with a particular skill attached. The distinction that matters practically is scope of context — a skill changes what instructions an agent follows; a sub-agent also changes what it can see.\n\nTip: Both are optimizations on repetition, not new capabilities. If you’re only running an analysis once, a good spec sheet (Section 3) is all you need — the payoff from packaging it as a skill or sub-agent shows up on the second and third run.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nThink of a task you’ve asked an agent to do more than twice this book (fitting pres.topa ~ CB_cover, say). Write one sentence describing what you’d put in a reusable skill for it — you don’t need to build it yet, just decide what’s worth saving.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>What is agent customization?</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/02-claude-code-skills-example.html",
+    "href": "section-5-customizing-agents/02-claude-code-skills-example.html",
+    "title": "28  Claude Code skills as a worked example",
+    "section": "",
+    "text": "28.1 What’s actually in a skill\nClaude Code implements the skills idea directly: you write a folder with a short description and a set of instructions (optionally with helper scripts), drop it somewhere Claude Code looks for skills, and from then on you (or the agent itself) can invoke it by name — /skill-name — instead of retyping the instructions.\nA minimal skill is just a description plus instructions. Claude Code ships with several to see the pattern:\nEach one solves the same problem: rather than the agent guessing “what does a good PDF-handling job look like” from scratch, or you re-explaining it, the instructions are written down once, named, and reused.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Claude Code skills as a worked example</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/02-claude-code-skills-example.html#whats-actually-in-a-skill",
+    "href": "section-5-customizing-agents/02-claude-code-skills-example.html#whats-actually-in-a-skill",
+    "title": "28  Claude Code skills as a worked example",
+    "section": "",
+    "text": "pdf — instructions and helper scripts for reading, splitting, merging, and manipulating PDF files.\ndocx — instructions for producing properly formatted Word documents (headings, tables of contents, page numbers).\ncode-review — a description of what to look for and how to report findings, so a review is consistent no matter who runs it or when.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Claude Code skills as a worked example</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/02-claude-code-skills-example.html#other-systems-same-idea",
+    "href": "section-5-customizing-agents/02-claude-code-skills-example.html#other-systems-same-idea",
+    "title": "28  Claude Code skills as a worked example",
+    "section": "28.2 Other systems, same idea",
+    "text": "28.2 Other systems, same idea\nClaude Code’s /skill-name mechanism is one concrete implementation. The general pattern — name, description, saved instructions, optionally bundled scripts — shows up under other names elsewhere: Roo Code’s custom modes (Section 2), a saved prompt template in a chat tool, or just a markdown file in your project that you paste into every session. The mechanism differs; the payoff (consistency, less retyping) doesn’t.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nSketch a one-paragraph description for a skill that fits and checks a GLM on count data — what would the description say so an agent knows when to reach for it, and what two or three instructions would you put inside? You don’t need to wire it up yet.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Claude Code skills as a worked example</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/03-skill-for-analysis.html",
+    "href": "section-5-customizing-agents/03-skill-for-analysis.html",
+    "title": "29  Writing a skill for analysis",
+    "section": "",
+    "text": "29.1 From spec sheet to skill\nLet’s turn the spec sheet from Section 3 into something reusable. The spec sheet answered “how do I analyze topa vs. coral cover, this one time.” A skill answers “how do I analyze any count-response GLM on this kind of survey data, every time.”\nThe spec sheet’s modelling section was specific to one prompt:\nA skill generalizes the procedure, not the specific variable names:\nNotice this skill doesn’t mention pres.topa or CB_cover anywhere — that’s the difference between a spec sheet (a project’s context) and a skill (a repeatable procedure). You still attach the project-specific data and variable names each time; the skill just supplies the modelling judgment calls so you don’t have to restate them.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Writing a skill for analysis</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/03-skill-for-analysis.html#from-spec-sheet-to-skill",
+    "href": "section-5-customizing-agents/03-skill-for-analysis.html#from-spec-sheet-to-skill",
+    "title": "29  Writing a skill for analysis",
+    "section": "",
+    "text": "NoteSpec sheet (one-off)\n\n\n\nWe will use generalized linear models… Topa abundance is probably over-dispersed, so we will need to use a negative binomial family… MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)\n\n\n\n\n\n\n\n\n\nNoteSkill: count-data-glm\n\n\n\nDescription: Use when fitting a GLM to a count response (abundance, counts, occurrences) that may be overdispersed.\nInstructions: 1. Check the response variable’s mean vs. variance — if variance notably exceeds the mean, use MASS::glm.nb() instead of glm(family = poisson). 2. Start from a full model with all hypothesised predictors and interactions, then simplify using likelihood ratio tests (anova(m1, m2, test = \"Chisq\")), dropping non-significant interactions first. 3. After selecting a final model, check the dispersion parameter and residual diagnostics before reporting results — never report a model that hasn’t been checked. 4. Don’t library(MASS) globally; call MASS::glm.nb() directly to avoid namespace conflicts.\n\n\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nSave the skill above (or your own version) and run it against fish-coral-cover-sites.csv in two separate agent sessions, asking it to fit pres.topa ~ CB_cover. Compare the two runs — does the skill produce the same family and same simplification choices both times? Compare this to the same-prompt-twice test from Section 2 and Section 3 — did packaging the instructions as a skill reduce the variation you saw there?",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Writing a skill for analysis</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/04-subagents-plotting-and-methods.html",
+    "href": "section-5-customizing-agents/04-subagents-plotting-and-methods.html",
+    "title": "30  Sub-agents for plotting and writing methods",
+    "section": "",
+    "text": "30.1 Splitting the task\nThe analysis skill from the last module produces a fitted model. What happens next — plotting it, writing it up — are different jobs with different failure modes, and giving them to separately scoped sub-agents rather than one agent holding everything at once tends to produce more consistent output.\nInstead of one agent doing modelling, plotting, and write-up in a single long session, delegate two narrower roles:",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Sub-agents for plotting and writing methods</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/04-subagents-plotting-and-methods.html#splitting-the-task",
+    "href": "section-5-customizing-agents/04-subagents-plotting-and-methods.html#splitting-the-task",
+    "title": "30  Sub-agents for plotting and writing methods",
+    "section": "",
+    "text": "Plotting sub-agent — given only the fitted model object (not the raw data, not the modelling decisions behind it), produce a ggplot of predicted pres.topa against CB_cover with confidence intervals, using visreg::visreg(m, \"CB_cover\", gg = TRUE) as a starting point.\nMethods-writing sub-agent — given only the model summary output (family, formula, dispersion, coefficients — not the raw dataset), write a two-sentence methods paragraph describing what was fitted and why.\n\n\n\n\n\n\n\nNotePrompt (plotting sub-agent)\n\n\n\nHere is a fitted model object m (MASS::glm.nb(pres.topa ~ CB_cover, data = fish_coral_cover_sites)). Produce a ggplot of the predicted relationship with confidence intervals using visreg. Do not refit or modify the model.\n\n\n\n\n\n\n\n\nNotePrompt (methods sub-agent)\n\n\n\nHere is the summary() output of a fitted negative binomial GLM (formula, coefficients, dispersion parameter). Write a two-sentence methods paragraph suitable for a results section, stating the model family, the response and predictor, and why that family was chosen.",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Sub-agents for plotting and writing methods</span>"
+    ]
+  },
+  {
+    "objectID": "section-5-customizing-agents/04-subagents-plotting-and-methods.html#why-scope-the-context-narrowly",
+    "href": "section-5-customizing-agents/04-subagents-plotting-and-methods.html#why-scope-the-context-narrowly",
+    "title": "30  Sub-agents for plotting and writing methods",
+    "section": "30.2 Why scope the context narrowly",
+    "text": "30.2 Why scope the context narrowly\nHanding the writing sub-agent only the model summary — not the full dataset or script history — isn’t just tidiness. An agent with the whole project in context will sometimes “helpfully” second-guess a modelling decision it wasn’t asked to review, or fold in details from an earlier draft that no longer apply. Narrowing what a sub-agent can see narrows what it can go wrong about.\n\nTip: This is the same context-poisoning concern from Section 2, applied deliberately — a fresh, narrowly-scoped sub-agent can’t inherit a mistake from an earlier stage of the pipeline it never saw.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nRun the two-sub-agent split above on the topa/coral-cover model, then run the same plotting-and-writing task with a single unscoped agent that has the whole project in context. Compare the two methods paragraphs and two plots — what’s different, and which would you trust more without checking further?",
+    "crumbs": [
+      "Section 5: Customizing agents",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Sub-agents for plotting and writing methods</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/index.html",
+    "href": "section-6-agentic-engineering/index.html",
+    "title": "Section 6: Agentic engineering for data analysis",
+    "section": "",
+    "text": "Software engineers have spent decades building practices to catch mistakes before they ship. This section adapts three of those practices — verification principles, red-green test-driven development, and simulated data as a sanity check — for scientific data analysis done with AI assistance.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/01-tests-verification-principles.html",
+    "href": "section-6-agentic-engineering/01-tests-verification-principles.html",
+    "title": "31  Tests, verification and output-checking principles",
+    "section": "",
+    "text": "31.1 Why this matters more with agents\nSoftware engineers have spent decades building habits to catch mistakes before they ship — tests, code review, continuous integration. Most of that toolkit assumes you have a clear, checkable definition of “correct”: the app either logs the user in or it doesn’t. Data analysis rarely gives you that luxury. A GLM with the wrong family, a join that silently drops rows, or a plot with the axes mislabeled can all look completely fine to the eye and still be wrong. That’s exactly the gap this section tries to close: borrowing engineering verification habits, adapted for the fact that “correct” in a scientific analysis is a fuzzier target than “correct” in software.\nAn agent will happily produce a script, run it, and report success — “success” here just means the code executed without an error, which is a much weaker claim than “the analysis is right.” A model that fits without warnings can still have the wrong distributional family; a join that runs without an error can still have silently duplicated or dropped rows. None of that shows up as a red error message. It shows up in numbers that are subtly wrong.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/01-tests-verification-principles.html#general-principles",
+    "href": "section-6-agentic-engineering/01-tests-verification-principles.html#general-principles",
+    "title": "31  Tests, verification and output-checking principles",
+    "section": "31.2 General principles",
+    "text": "31.2 General principles\n\nCheck row counts before and after every join or filter. If nrow() changes in a way you didn’t expect, something merged wrong — usually a many-to-many join you thought was one-to-one.\nSanity-check summary statistics against what you already know. If you expect pres.topa to range from 0 to maybe 20 per site, and your summary shows a max of 4000, that’s a decimal point or a units error, not a real finding.\nAsk the agent to write a check, not just the analysis. “Write a script that confirms every site value in the fish data has exactly one matching row in the benthic data” is a specific, verifiable request an agent can act on directly.\nVerification plots are cheap insurance. A histogram of a response variable, a plot of raw data before modelling, and a residual plot after — take seconds to produce and often catch what a model summary table alone won’t.\nRead the diagnostics, don’t just generate them. Asking an agent for diagnostic plots and then not looking at them defeats the purpose — this is the same discipline as reviewing agent output in Section 2, applied specifically to statistical assumptions.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/01-tests-verification-principles.html#a-concrete-habit",
+    "href": "section-6-agentic-engineering/01-tests-verification-principles.html#a-concrete-habit",
+    "title": "31  Tests, verification and output-checking principles",
+    "section": "31.3 A concrete habit",
+    "text": "31.3 A concrete habit\nBefore you trust any agent-produced analysis of the benthic/fish data, get in the habit of asking for (and reading) at least these three things:\n\nA row-count check across every join.\nA histogram or summary of the response variable (pres.topa) before modelling.\nA residual or dispersion diagnostic after modelling.\n\nThe next two modules build this into something more structured: writing the check before the analysis exists (red-green TDD), and using simulated data with a known answer as a verification target.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nAsk an agent to join fish-coral-cover-sites.csv to a second copy of itself on site (simulating a many-to-many join mistake), then write a check that would have caught the row-count blowup. Confirm the check actually fails on the bad join and passes on a correct one-to-one join.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Tests, verification and output-checking principles</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/02-red-green-tdd.html",
+    "href": "section-6-agentic-engineering/02-red-green-tdd.html",
+    "title": "32  Red-green TDD for data analysis",
+    "section": "",
+    "text": "32.1 What “red” looks like for an analysis\nTest-driven development, in its classic software form, goes: write a failing test first (red), write the minimum code to make it pass (green), then clean up. The point isn’t the tests themselves, it’s the discipline it forces — you have to decide what “correct” means before you write the code that’s supposed to produce it, rather than writing the code first and hoping it’s right.\nThat discipline transfers to data analysis surprisingly well, even though “correct” is fuzzier here than in software. You won’t be testing that a function returns the right integer — you’ll be testing that a pipeline behaves the way you already know it should, on data where you already know the answer.\nBefore asking an agent to build the full GLM pipeline for pres.topa ~ CB_cover, write the check that a correct pipeline needs to pass. For example:\n# red: this will fail, because model_fit.R doesn't exist yet\nsource(\"scripts/model_fit.R\")\n\ntestthat::test_that(\"model output has the columns we expect\", {\n  testthat::expect_true(all(c(\"term\", \"estimate\", \"std.error\") %in% names(model_summary)))\n})\n\ntestthat::test_that(\"CB_cover has a positive estimated effect\", {\n  testthat::expect_gt(model_summary$estimate[model_summary$term == \"CB_cover\"], 0)\n})\nRun it. It fails — there’s no model_fit.R yet, and no model_summary object. That’s red, and that’s the point: you’ve written down what “done” means before any code exists to satisfy it.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/02-red-green-tdd.html#getting-to-green",
+    "href": "section-6-agentic-engineering/02-red-green-tdd.html#getting-to-green",
+    "title": "32  Red-green TDD for data analysis",
+    "section": "32.2 Getting to green",
+    "text": "32.2 Getting to green\nNow hand the agent the spec sheet from Section 3 plus this test file, and ask it to write scripts/model_fit.R so the test passes. This changes what the agent is optimising for — instead of “write code that runs,” it’s “write code that makes this specific, falsifiable claim true.” That’s a much narrower and more checkable target, and it’s much harder for a plausible-looking-but-wrong analysis to sneak through it.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/02-red-green-tdd.html#why-the-direction-of-a-coefficient-is-a-good-first-test",
+    "href": "section-6-agentic-engineering/02-red-green-tdd.html#why-the-direction-of-a-coefficient-is-a-good-first-test",
+    "title": "32  Red-green TDD for data analysis",
+    "section": "32.3 Why the direction of a coefficient is a good first test",
+    "text": "32.3 Why the direction of a coefficient is a good first test\nNotice the second test above isn’t checking a p-value or an exact number — it’s checking the sign of an effect you already have strong prior reason to expect (branching coral cover should have a positive relationship with juvenile topa abundance, per Hamilton et al. 2017). That’s a deliberately weak, easy-to-state claim, which is exactly the right level for a first test — you’re not trying to encode the whole analysis in assertions, just the parts you’re confident enough about to write down as a checkable fact.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nWrite a red test that asserts the negative binomial dispersion parameter (theta) from MASS::glm.nb(pres.topa ~ CB_cover, data = dat) is greater than 0 and less than, say, 50 (a sanity range, not a precise prediction). Confirm it’s red before the model exists, then have an agent implement the model and confirm it goes green.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Red-green TDD for data analysis</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/03-simulated-data-verification.html",
+    "href": "section-6-agentic-engineering/03-simulated-data-verification.html",
+    "title": "33  Using simulated data as a verification step",
+    "section": "",
+    "text": "33.1 Simulating fake topa counts\nHere’s a verification trick that’s standard practice in statistics but rarely makes it into an agent’s default workflow: before you trust a model fit to your real data, fit it to simulated data where you already know the true answer, because you generated it yourself. If the pipeline can’t recover a relationship you built in on purpose, there’s no reason to trust it on data where you don’t know the answer.\nLet’s simulate count data with the same structure as pres.topa ~ CB_cover, but with a coral-cover effect we chose ourselves:\nlibrary(tidyverse)\nlibrary(MASS)\n\nset.seed(42)\nn_sites &lt;- 49\n\ntrue_intercept &lt;- log(2)     # ~2 topa at zero coral cover, on the log scale\ntrue_cb_effect &lt;- 0.03       # positive effect of CB_cover on log(topa)\ntrue_theta &lt;- 5              # dispersion parameter for the negative binomial\n\nsim_dat &lt;- tibble(\n  site = 1:n_sites,\n  CB_cover = runif(n_sites, min = 0, max = 40)\n) %&gt;%\n  mutate(\n    mu = exp(true_intercept + true_cb_effect * CB_cover),\n    pres.topa = rnegbin(n_sites, mu = mu, theta = true_theta)\n  )\nNow fit the same model you’d fit to the real data:\nm_sim &lt;- MASS::glm.nb(pres.topa ~ CB_cover, data = sim_dat)\nsummary(m_sim)",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/03-simulated-data-verification.html#what-recovers-the-truth-means-here",
+    "href": "section-6-agentic-engineering/03-simulated-data-verification.html#what-recovers-the-truth-means-here",
+    "title": "33  Using simulated data as a verification step",
+    "section": "33.2 What “recovers the truth” means here",
+    "text": "33.2 What “recovers the truth” means here\nYou’re not expecting the fitted coefficient to exactly equal 0.03 — with 49 sites and real sampling noise, it won’t. What you’re checking is:\n\nThe estimated CB_cover coefficient is positive and in a plausible range around the true value.\nThe true value falls inside the 95% confidence interval most of the time — run the simulation a few times (or wrap it in a loop over, say, 200 replicates) and check the true effect falls inside the interval roughly 95% of the time, not 50% or 20%.\nThe estimated theta is in the right ballpark of the true dispersion you simulated.\n\nIf any of those fail consistently, the problem isn’t your real data — it’s the pipeline itself (wrong family, a coding bug, a mis-specified formula), and you’ve found that out before it had a chance to quietly corrupt your interpretation of the real analysis.",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
+    ]
+  },
+  {
+    "objectID": "section-6-agentic-engineering/03-simulated-data-verification.html#handing-this-to-an-agent",
+    "href": "section-6-agentic-engineering/03-simulated-data-verification.html#handing-this-to-an-agent",
+    "title": "33  Using simulated data as a verification step",
+    "section": "33.3 Handing this to an agent",
+    "text": "33.3 Handing this to an agent\nThis is a natural task to specify explicitly rather than hope an agent thinks to do it: add a step to your specification sheet (see Section 3) that says something like “before fitting the model to the real data, simulate data with a known CB_cover effect and confirm the same model code recovers it, within a reasonable margin, before proceeding.” Agents default to the most familiar workflow — fit model, report results — unless you explicitly ask for the verification step in between.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nChange true_cb_effect to 0 in the simulation above (i.e. no real relationship between coral cover and topa) and refit the model. Does the fitted model correctly show a non-significant effect most of the time, or does it falsely detect an effect more often than you’d expect by chance?",
+    "crumbs": [
+      "Section 6: Agentic engineering for data analysis",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Using simulated data as a verification step</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/index.html",
+    "href": "section-7-api-access/index.html",
+    "title": "Section 7: LLM access via API",
+    "section": "",
+    "text": "Under every assistant and agent is an API call. This section takes you underneath the chat window: getting an API key, understanding how ellmer talks to a provider, building a simple chat and a DIY chatbot, then building your own minimal coding agent from scratch, and finally applying all of it to a literature review example.",
+    "crumbs": [
+      "Section 7: LLM access via API"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/01-api-keys.html",
+    "href": "section-7-api-access/01-api-keys.html",
+    "title": "34  API keys",
+    "section": "",
+    "text": "Software requirements: R (ideally with ellmer installed) or Python, and an API key with a provider — ideally OpenRouter.\nEverything in this section works by talking to an LLM provider’s API directly, rather than through a chat app or an assistant like Copilot. To do that you need an API key — think of it like a password that lets your code send prompts to a provider on your behalf.\nIf you haven’t already, follow ‘Getting an API key’ and ‘Ellmer set-up’ in Setup. The short version:\n\nSign up with a provider — I recommend OpenRouter for this section, since it gives you access to models from many providers with one key.\nBuy a small amount of credit (a few dollars will get you a long way through this book’s examples).\nSave the key to your .Renviron file (usethis::edit_r_environ()), as OPENROUTER_API_KEY=\"xxxxxx\", then restart R.\n\nellmer will automatically find the key so long as you use the standard environment variable name for your provider — see ?ellmer::chat_openrouter (or chat_xxx for whichever provider you’re using).\n\nTip: The sign-up page for an API key is often a completely different webpage to the one you use for a subscription product like ChatGPT Plus or Claude Code. Don’t assume they’re the same account.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nConfirm your key is working without ever typing it into a script: run library(ellmer); chat_openrouter()$chat(\"Say hello\") in a fresh R session and check it returns a response. If it fails, the problem is almost always the environment variable name or a missing restart of R.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>API keys</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html",
+    "href": "section-7-api-access/02-how-api-access-works.html",
+    "title": "35  How API access works with ellmer",
+    "section": "",
+    "text": "35.1 What is an Application Programming Interface?\nCalling LLMs programmatically via an API is a powerful step up from chat interfaces. First, it gives you control: chat software like ChatGPT or Copilot manages your interaction for you, quietly adding context (potentially from your chat history), so it’s hard to know exactly how the model is being prompted. With direct API access, you control exactly what goes to the LLM. Second, accessing it from R or Python code lets you automate calls — which is how we’ll build agents and literature-review tools later in this section.\nAn API lets different software programs talk to each other. Large language models need serious compute to run, so rather than hosting one yourself (which is possible, but not what we’ll cover here) we’ll send prompts over the internet to a Provider — a server run by a company like OpenAI or Anthropic, or an aggregator like OpenRouter — and get the response back.\nHow an API call works:",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#what-is-an-application-programming-interface",
+    "href": "section-7-api-access/02-how-api-access-works.html#what-is-an-application-programming-interface",
+    "title": "35  How API access works with ellmer",
+    "section": "",
+    "text": "Your code sends a request to the API endpoint (a web address).\nThe request includes your prompt, model choice, and parameters.\nThe provider’s service processes the request.\nIt sends back a structured response with the model’s output.\nYour code uses that response however you like.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#your-first-api-call",
+    "href": "section-7-api-access/02-how-api-access-works.html#your-first-api-call",
+    "title": "35  How API access works with ellmer",
+    "section": "35.2 Your first API call",
+    "text": "35.2 Your first API call\n\nR - EllmerPython\n\n\n\nlibrary(ellmer)\n\nchat &lt;- chat_openrouter(\n  system_prompt = \"You are a helpful assistant.\",\n  model = \"anthropic/claude-3.5-haiku\",\n  api_args = list(max_tokens = 50)\n)\nchat$chat(\"Ecologists like to eat \")\n\n\n\n\nimport requests, json, os\nfrom dotenv import load_dotenv\nload_dotenv()\n\napi_key = os.getenv(\"OPENROUTER_API_KEY\")\nresponse = requests.post(\n  url=\"https://openrouter.ai/api/v1/chat/completions\",\n  headers={\"Authorization\": f\"Bearer {api_key}\", \"Content-Type\": \"application/json\"},\n  data=json.dumps({\n    \"model\": \"anthropic/claude-3.5-haiku\",\n    \"messages\": [\n      {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n      {\"role\": \"user\", \"content\": \"Ecologists like to eat \"}\n    ]\n  })\n)\ndata = response.json()\ndata['choices'][0]['message']['content']\n\n\n\n\nNotice the model doesn’t just complete your sentence — it answers as an assistant instead. That’s the system prompt at work: a stronger directive than your user prompt, which sets the overall behaviour of the chat. In most chat interfaces (like Copilot) you never see the system prompt, the provider sets it for you.\n\nTip: It is generally more effective to tell the LLM what to do rather than what not to do — same as with people.\n\nTry overriding the default assistant behaviour with your own system prompt:\n\nchat &lt;- chat_openrouter(\n  system_prompt = \"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides\",\n  model = \"anthropic/claude-3.5-haiku\",\n  api_args = list(max_tokens = 50)\n)\nchat$chat(\"Ecologists like to eat \")",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#temperature-and-top_k",
+    "href": "section-7-api-access/02-how-api-access-works.html#temperature-and-top_k",
+    "title": "35  How API access works with ellmer",
+    "section": "35.3 Temperature and top_k",
+    "text": "35.3 Temperature and top_k\ntemperature controls the randomness of token predictions — lower (near 0) is more deterministic, higher (near 2) is more creative and unpredictable. top_k restricts the model to choosing among a smaller set of likely next tokens; top_k = 1 gives the most predictable output.\n\nchat_temp &lt;- chat_openrouter(\n  system_prompt = \"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only.\",\n  model = \"anthropic/claude-3.5-haiku\",\n  api_args = list(max_tokens = 50, temperature = 0, top_k = 1)\n)\nchat_temp$chat(\"Marine ecologists like to eat \")\n\nTry it again with temperature = 2 and no top_k (or a very high one). Low temperature/top_k gives you consistent, “safe” completions; higher values give more varied, sometimes less coherent ones.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#navigating-openrouter",
+    "href": "section-7-api-access/02-how-api-access-works.html#navigating-openrouter",
+    "title": "35  How API access works with ellmer",
+    "section": "35.4 Navigating OpenRouter",
+    "text": "35.4 Navigating OpenRouter\nThe Models page lists everything available — click a model to copy its id string for the model = argument. A single model may be served by multiple providers; OpenRouter picks one automatically, but its docs explain how to pin a specific provider (useful if you have data-security or ethical reasons to avoid particular ones). The docs page has the full parameter reference, usually with Python examples — an assistant can translate these to R for you if needed.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#comparing-model-complexity",
+    "href": "section-7-api-access/02-how-api-access-works.html#comparing-model-complexity",
+    "title": "35  How API access works with ellmer",
+    "section": "35.5 Comparing model complexity",
+    "text": "35.5 Comparing model complexity\nanthropic/claude-3.5-haiku has far fewer parameters than anthropic/claude-sonnet-4 — haiku is much cheaper (roughly 80c per million input tokens vs $3 for sonnet at time of writing) but less capable on nuanced tasks.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#understanding-context-windows",
+    "href": "section-7-api-access/02-how-api-access-works.html#understanding-context-windows",
+    "title": "35  How API access works with ellmer",
+    "section": "35.6 Understanding context windows",
+    "text": "35.6 Understanding context windows\nThe context window is the amount of text (input plus output) a model can consider at once — typically 100-200K tokens, though some models now offer 1M+. We’ll come back to this once we start building longer prompts and agents.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/02-how-api-access-works.html#api-errors",
+    "href": "section-7-api-access/02-how-api-access-works.html#api-errors",
+    "title": "35  How API access works with ellmer",
+    "section": "35.7 API errors",
+    "text": "35.7 API errors\nOccasionally you’ll get an HTTP error instead of a response. A few common ones from OpenRouter:\n\n400 — something’s wrong in your request.\n401 — invalid API key.\n402 — you’re out of credit.\n408 — timeout, your request may be too large or your connection too slow.\n429 — you’re being rate-limited (calling too much, too fast).\n\nFull list of error codes here.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nRun the same completion prompt three times with temperature = 0, top_k = 1, then three times with temperature = 1.5 and no top_k. Compare how much the outputs vary between runs at each setting.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>How API access works with ellmer</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/03-chat-basics.html",
+    "href": "section-7-api-access/03-chat-basics.html",
+    "title": "36  Chat: multi-turn conversations",
+    "section": "",
+    "text": "So far we’ve sent one prompt and got one answer back. Often you want an ongoing conversation — to problem-solve, refine an answer, or just chat. This is easy with ellmer (fiddlier with plain Python or base R, so we’ll stick to ellmer here).\n\nlibrary(ellmer)\n\nchat &lt;- chat_openrouter(\n  system_prompt = \"You are a helpful assistant who specialises in ecological statistics.\",\n  model = \"anthropic/claude-sonnet-4\",\n  api_args = list(max_tokens = 2000)\n)\n\nlive_console(chat)\n# live_browser(chat)\n\nlive_console() lets you chat right in the terminal. live_browser() opens a local browser window that feels a lot like ChatGPT’s interface.\n\nTip: LLMs perform better when you put everything in one well-prepared initial prompt, rather than a multi-turn conversation. Responses to a problem split across multiple questions are less accurate than the same information given up front — this holds across logic, coding and everything in between. I like to think of it as mansplaining: LLMs seem to have been (sub-consciously?) trained to prefer being told everything at once over having a back-and-forth.\n\nThis is the same “context poisoning” problem we ran into with agents in Section 2: once a wrong answer is sitting in the chat history, it’s hard to get the model to un-learn it within that thread. If a multi-turn conversation goes off the rails, the fix usually isn’t to keep correcting it — it’s to start a new chat with a clearer, more complete initial prompt.\nThat said, it’s fine to use a chat as a genuine problem-solving partner when you’re not sure what you want yet. Just don’t mistake “figuring it out together” for “getting the best possible answer” — once you’ve got a plan, write one clear, detailed prompt to get the final version.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nStart a live_console() chat and ask “How could I test if fish abundance depends on coral cover?” over four separate turns (one clarifying detail per turn: response variable, sampling method, number of sites, that it’s count data). Then start a fresh chat and ask the same thing as one single, fully detailed prompt. Compare the two final answers.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>Chat: multi-turn conversations</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/04-diy-chatbot.html",
+    "href": "section-7-api-access/04-diy-chatbot.html",
+    "title": "37  DIY chatbot",
+    "section": "",
+    "text": "37.1 Multi-turn with the stats bot\nLet’s put what we’ve learned together and build a purpose-built chatbot. I’ve written a detailed system prompt for a chat bot that specialises in helping with statistics — I call it Bilby. We’ll read the system prompt from GitHub, then use it in a chat session.\nTry asking it a few different statistical questions and see how it responds — does it stay in character? Does it push back on a poorly specified question the way a human statistician would?\nYou can also drop straight into live_console(chat_stats) (see the previous module) if you want an ongoing conversation with Bilby rather than one-off questions.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>DIY chatbot</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/04-diy-chatbot.html#improving-the-stats-bot",
+    "href": "section-7-api-access/04-diy-chatbot.html#improving-the-stats-bot",
+    "title": "37  DIY chatbot",
+    "section": "37.2 Improving the stats bot",
+    "text": "37.2 Improving the stats bot\nMake a local copy of the system prompt and edit it. You can write it to file with your own R code, or just copy the text directly from the file on GitHub. Some ideas:\n\nMake it a vehement Bayesian who abhors frequentist statistics.\nGive it mode-specific instructions, e.g. always suggesting appropriate verification plots.\nTry different temperatures.\nAdd your own easter egg.\n\n\nTip: Adjectives, CAPITALS and *markdown* emphasis can all help a model follow your instructions more closely. I used “abhors” and “vehement” above on purpose.\n\n\n\n\n\n\n\nImportantChallenge\n\n\n\nEdit the stats bot’s system prompt so that it always recommends a verification step (like a residual plot or a simulated-data check — see Section 6) alongside any modelling advice it gives for the topa/coral-cover data. Test it with the question “How should I model pres.topa as a function of CB_cover?”",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>DIY chatbot</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/05-make-an-agent.html",
+    "href": "section-7-api-access/05-make-an-agent.html",
+    "title": "38  Make an agent: simple read-and-write agent",
+    "section": "",
+    "text": "38.1 Three tools\nBy now the word “agent” has come up a lot — Copilot’s agent mode, Roo Code, Claude Code. It’s tempting to imagine something mysterious going on inside them. It isn’t. As Hadley Wickham put it in a recent post, “A coding agent is six functions in a trenchcoat”: strip away the marketing and a coding agent is a handful of plain functions — read a file, write a file, run a shell command — wired up to an LLM that gets to call them in a loop. Everything else (the fancy chat UI, the permission prompts, the diff viewer) is scaffolding around that simple core.\nWe already saw the general shape of this loop back in Section 2: the model responds, your software inspects the response, runs whatever tool was requested, and feeds the result back — round and round until the model decides it’s done. Let’s build the smallest possible version of that ourselves, in R, using ellmer’s tool-calling support.\nlibrary(ellmer)\n\nread_file_tool &lt;- tool(\n  function(path) paste(readLines(path, warn = FALSE), collapse = \"\\n\"),\n  \"Read the full contents of a text file and return it as a string.\",\n  path = type_string(\"Relative path to the file to read\")\n)\n\nwrite_file_tool &lt;- tool(\n  function(path, content) {\n    writeLines(content, path)\n    paste(\"Wrote\", nchar(content), \"characters to\", path)\n  },\n  \"Write content to a file, creating or overwriting it.\",\n  path = type_string(\"Relative path to the file to write\"),\n  content = type_string(\"The full content to write to the file\")\n)\n\nrun_command_tool &lt;- tool(\n  function(command) {\n    paste(system(command, intern = TRUE), collapse = \"\\n\")\n  },\n  \"Run a shell command in the current working directory and return its output.\",\n  command = type_string(\"The shell command to run, e.g. 'Rscript myscript.R'\")\n)\nThat’s the whole toolbox. Nothing here is agent-specific — they’re just ordinary R functions wrapped with ellmer::tool(), which describes each one and its arguments so the LLM knows when and how to call them.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Make an agent: simple read-and-write agent</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/05-make-an-agent.html#wiring-them-to-a-chat",
+    "href": "section-7-api-access/05-make-an-agent.html#wiring-them-to-a-chat",
+    "title": "38  Make an agent: simple read-and-write agent",
+    "section": "38.2 Wiring them to a chat",
+    "text": "38.2 Wiring them to a chat\n\nchat &lt;- chat_anthropic(\n  system_prompt = \"You are a careful coding agent. You have tools to read files,\n  write files, and run shell commands in the current project directory. Use\n  Rscript to run R scripts, e.g. `Rscript 'my-script.R'`. Explain what you did\n  after each tool use.\"\n)\n\nchat$register_tool(read_file_tool)\nchat$register_tool(write_file_tool)\nchat$register_tool(run_command_tool)\n\nchat$chat(\"Read fish-coral-cover-sites.csv, then write a one-paragraph summary\nof its columns to a new file called summary.md\")\n\nThis is the trick worth noticing: chat$chat() already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model’s response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don’t write the while loop yourself; ellmer’s tool support is the loop. That’s really all Roo Code, Copilot’s agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see system.md in this repo for a full example — the system prompt Roo Code actually uses).",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Make an agent: simple read-and-write agent</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/05-make-an-agent.html#making-it-safer",
+    "href": "section-7-api-access/05-make-an-agent.html#making-it-safer",
+    "title": "38  Make an agent: simple read-and-write agent",
+    "section": "38.3 Making it safer",
+    "text": "38.3 Making it safer\nOur toy agent above will happily run any shell command it’s asked to, including ones that touch the network or delete files. Real agents guard this with permission prompts before every tool call (which is why Copilot and Claude Code ask you to confirm each step) or with an allow/deny list of specific commands. If you wanted to harden this toy version, the cheapest fix is to check command inside run_command_tool before executing it — for instance, refusing to run anything containing rm, curl, or git push.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nAdd a fourth tool, list_files, that returns the files in the current directory (list.files()). Register it with your chat, then ask the agent to “List the files here, then read whichever one looks like it contains the coral and fish survey data.” See whether it picks fish-coral-cover-sites.csv correctly.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>Make an agent: simple read-and-write agent</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/06-lit-review-example.html",
+    "href": "section-7-api-access/06-lit-review-example.html",
+    "title": "39  Literature review example",
+    "section": "",
+    "text": "39.1 Batch processing\nLet’s use ellmer to pull structured data out of a PDF — a small taste of what a programmatic literature review looks like. I’ll try summarising my own paper on turtle fishing.\nThis fails with a 403 — the server is blocking the request, correctly guessing I’m calling the PDF programmatically. Downloading the PDF manually and reading it locally works fine instead:\nNow set up a chat and ask for structured data using ellmer’s type_object() helpers:\nIt works — but check it carefully. In my case the “sample size” it returned was actually a model output (an estimated number of turtles caught), not the survey’s real sample size. This paper reports several different sample sizes depending on which method you’re looking at, so the prompt needs sharpening if you want it consistently right, especially before batch-processing many papers.\nWrap the extraction in a function and apply it across several abstracts:\nprocess_abstract &lt;- function(file_path, chat) {\n  abstract_text &lt;- readLines(file_path, warn = FALSE)\n  chat$extract_data(abstract_text, type = paper_stats)\n}\nTo reduce hallucinated answers when the abstract doesn’t contain the information, mark fields optional:\npaper_stats &lt;- type_object(\n  sample_size = type_number(\"Number of surveys conducted to estimate turtle catch\", required = FALSE),\n  turtles_caught = type_number(\"Estimate for number of turtles caught\", required = FALSE),\n  year_of_study = type_number(\"Year data was collected\", required = FALSE),\n  region = type_string(\"Country or geographic region of the study\", required = FALSE)\n)\n\nabstract_files &lt;- list.files(path = \"pdf-examples\", pattern = \"\\\\.txt$\", full.names = TRUE)\nresults &lt;- lapply(abstract_files, function(file) process_abstract(file, chat))\nnames(results) &lt;- basename(abstract_files)\nresults\nEven with required = FALSE I still saw hallucinated answers — a year that was simply wrong for one study. Switching to Claude Sonnet (a more capable model) fixed some but not all of these. This is a genuinely hard problem, not a one-line fix.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Literature review example</span>"
+    ]
+  },
+  {
+    "objectID": "section-7-api-access/06-lit-review-example.html#reflections",
+    "href": "section-7-api-access/06-lit-review-example.html#reflections",
+    "title": "39  Literature review example",
+    "section": "39.2 Reflections",
+    "text": "39.2 Reflections\nCost is usually the least of your worries — this whole exercise, including testing, cost under 1c. Extracting from hundreds of methods sections is plausibly under $100. Cost only gets uncertain if you’re iterating a lot on prompts, or feeding in full papers rather than abstracts.\nGetting clean text in is the bigger challenge — downloading PDFs is slow, and paywalled HTML is often worse. HTML is preferable when you can get it, because tags already give you some structure.\nValidation matters more than ever — if your review covers 1000 papers, plan to manually check a sample (say 100) and report the accuracy you found, the same as you would for any other measurement instrument.\nYou still need to read the papers. A lit review is more than extracted numbers — if you only use AI extraction you’re vulnerable to the ‘illusion of understanding’. This tool is best suited to well-defined, narrow extraction tasks across consistently structured papers (e.g. pulling model types out of 500 species distribution model papers), not as a substitute for reading broadly.\n\n\n\n\n\n\nImportantChallenge\n\n\n\nDefine a paper_stats object tailored to extracting the response variable, predictor variables, and statistical family used, from an abstract about an ecological count-data analysis (real or invented). Run it on two abstracts and manually check whether the extracted family (e.g. Poisson, negative binomial) is actually correct.",
+    "crumbs": [
+      "Section 7: LLM access via API",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Literature review example</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendix.html",
+    "href": "99-appendix.html",
+    "title": "40  Appendix — Code and data",
+    "section": "",
+    "text": "Code snippets, data access links and supporting scripts used throughout the book.",
+    "crumbs": [
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Appendix — Code and data</span>"
     ]
   }
 ]

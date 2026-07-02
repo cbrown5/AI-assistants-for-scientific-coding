@@ -6,15 +6,16 @@
 
 ## v2 structure
 
-The book is now a set of short, self-paced modules (~10 min each) grouped into six sections, following Introduction and Setup. Every module except Introduction and Setup ends with a Challenge callout. See `_quarto.yml` for the full chapter/part list.
+The book is now a set of short, self-paced modules (~10 min each) grouped into seven sections, following Introduction and Setup. Every module except Introduction and Setup ends with a Challenge callout. See `_quarto.yml` for the full chapter/part list.
 
 - Introduction, Setup (no quizzes)
 - Section 1: Line-by-line code completion
 - Section 2: Agents
 - Section 3: AI in workflows
 - Section 4: Security, data privacy and cloud agents
-- Section 5: Agentic engineering for data analysis
-- Section 6: LLM access via API
+- Section 5: Customizing agents
+- Section 6: Agentic engineering for data analysis
+- Section 7: LLM access via API
 
 ## Planned updates
 
@@ -31,11 +32,11 @@ Chapter 11 from v1 ("Authoring documents" — writing papers with Quarto + AI) w
 Map a seminar session onto sections rather than individual chapters:
 
 1. Setup + Section 1 (line-by-line completion) — intro to the tools, cheapest to demo live.
-2. Section 6 (API access) + DIY stats bot — prompting fundamentals, using ellmer, vscode or just a web browser.
+2. Section 7 (API access) + DIY stats bot — prompting fundamentals, using ellmer, vscode or just a web browser.
    - Get participants to try a specific vs. vague prompt and score the answers.
    - Do the "break your problem into smaller parts" example live, comparing two models and two prompt strategies.
-3. Section 3 (workflows) + Section 5 (agentic engineering) — stats problem solving, implementation advice, verification habits.
-4. Section 2 (agents) + Section 4 (security/privacy) — automation, safety, and a discussion of what this means for science.
+3. Section 3 (workflows) + Section 6 (agentic engineering) — stats problem solving, implementation advice, verification habits.
+4. Section 2 (agents) + Section 4 (security/privacy) + Section 5 (customizing agents) — automation, safety, packaging skills/sub-agents, and a discussion of what this means for science.
 
 ## Notes for next time
 

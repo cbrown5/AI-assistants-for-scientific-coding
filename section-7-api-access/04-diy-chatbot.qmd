@@ -44,5 +44,5 @@ Make a local copy of the system prompt and edit it. You can write it to file wit
 :::
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Edit the stats bot's system prompt so that it always recommends a verification step (like a residual plot or a simulated-data check — see [Section 5](../section-5-agentic-engineering/index.qmd)) alongside any modelling advice it gives for the topa/coral-cover data. Test it with the question "How should I model pres.topa as a function of CB_cover?"
+Edit the stats bot's system prompt so that it always recommends a verification step (like a residual plot or a simulated-data check — see [Section 6](../section-6-agentic-engineering/index.qmd)) alongside any modelling advice it gives for the topa/coral-cover data. Test it with the question "How should I model pres.topa as a function of CB_cover?"
 :::

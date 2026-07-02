@@ -42,19 +42,25 @@ book:
         - section-4-security-privacy/03-bash-sandbox-example.qmd
         - section-4-security-privacy/04-keeping-data-secure.qmd
         - section-4-security-privacy/05-limitations.qmd
-    - part: section-5-agentic-engineering/index.qmd
+    - part: section-5-customizing-agents/index.qmd
       chapters:
-        - section-5-agentic-engineering/01-tests-verification-principles.qmd
-        - section-5-agentic-engineering/02-red-green-tdd.qmd
-        - section-5-agentic-engineering/03-simulated-data-verification.qmd
-    - part: section-6-api-access/index.qmd
+        - section-5-customizing-agents/01-what-is-customization.qmd
+        - section-5-customizing-agents/02-claude-code-skills-example.qmd
+        - section-5-customizing-agents/03-skill-for-analysis.qmd
+        - section-5-customizing-agents/04-subagents-plotting-and-methods.qmd
+    - part: section-6-agentic-engineering/index.qmd
       chapters:
-        - section-6-api-access/01-api-keys.qmd
-        - section-6-api-access/02-how-api-access-works.qmd
-        - section-6-api-access/03-chat-basics.qmd
-        - section-6-api-access/04-diy-chatbot.qmd
-        - section-6-api-access/05-make-an-agent.qmd
-        - section-6-api-access/06-lit-review-example.qmd
+        - section-6-agentic-engineering/01-tests-verification-principles.qmd
+        - section-6-agentic-engineering/02-red-green-tdd.qmd
+        - section-6-agentic-engineering/03-simulated-data-verification.qmd
+    - part: section-7-api-access/index.qmd
+      chapters:
+        - section-7-api-access/01-api-keys.qmd
+        - section-7-api-access/02-how-api-access-works.qmd
+        - section-7-api-access/03-chat-basics.qmd
+        - section-7-api-access/04-diy-chatbot.qmd
+        - section-7-api-access/05-make-an-agent.qmd
+        - section-7-api-access/06-lit-review-example.qmd
     - 99-appendix.qmd
 
 bibliography: book.bib
@@ -64,7 +70,3 @@ format:
     code-overflow: wrap
     theme: simplex
     css: style.css
-  pdf:
-    documentclass: scrreprt
-  epub:
-    cover-image: cover.png

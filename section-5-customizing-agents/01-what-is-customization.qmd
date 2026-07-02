@@ -1,0 +1,21 @@
+# What is agent customization?
+
+Everything so far has treated an agent as one general-purpose assistant you prompt fresh each time. Once you're running the same kind of task repeatedly — fit a GLM, make a diagnostic plot, write a methods paragraph — retyping the same instructions (or worse, half-remembering them and getting a slightly different result each time) becomes the bottleneck. There are two common ways to fix that.
+
+## Skills: saved instructions invoked by name
+
+A **skill** is a instruction file (sometimes a folder of files, with scripts or reference material attached) that you write once and the agent can call up by name — "use the GLM skill" — instead of you retyping the spec every session. It's really a spec sheet (Section 3) that's been named, saved, and made re-usable. The agent decides when a request matches a skill's description, or you invoke it directly.
+
+## Sub-agents: delegating to a specialized role
+
+A **sub-agent** is a separate agent instance with its own scoped instructions — and sometimes its own restricted set of tools — that a coordinating agent delegates a piece of work to. Instead of one agent doing data prep, modelling, plotting, and write-up all in one long context, a "plotting" sub-agent might only ever see a fitted model object and produce a figure from it, never touching the raw data or the modelling decisions.
+
+The two overlap: a sub-agent is often just an agent invoked with a particular skill attached. The distinction that matters practically is *scope of context* — a skill changes what instructions an agent follows; a sub-agent also changes what it can see.
+
+::: {.tip}
+**Tip:** Both are optimizations on repetition, not new capabilities. If you're only running an analysis once, a good spec sheet (Section 3) is all you need — the payoff from packaging it as a skill or sub-agent shows up on the second and third run.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Think of a task you've asked an agent to do more than twice this book (fitting `pres.topa ~ CB_cover`, say). Write one sentence describing what you'd put in a reusable skill for it — you don't need to build it yet, just decide what's worth saving.
+:::

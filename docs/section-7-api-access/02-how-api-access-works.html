@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Agent options – AI assistants for Scientific Coding</title>
+<title>35&nbsp; How API access works with ellmer – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-2-agents/02-how-agents-work.html" rel="next">
-<link href="../section-2-agents/index.html" rel="prev">
+<link href="../section-7-api-access/03-chat-basics.html" rel="next">
+<link href="../section-7-api-access/01-api-keys.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/02-how-api-access-works.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link active">
+  <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
   </div>
 </li>
@@ -392,7 +427,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
+  <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
@@ -438,20 +473,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link active" data-scroll-target="#claude-code"><span class="header-section-number">9.1</span> Claude Code</a></li>
-  <li><a href="#vscode-with-github-copilots-agent-mode" id="toc-vscode-with-github-copilots-agent-mode" class="nav-link" data-scroll-target="#vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</a></li>
-  <li><a href="#github-copilot-cli" id="toc-github-copilot-cli" class="nav-link" data-scroll-target="#github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</a></li>
-  <li><a href="#roo-code-cline" id="toc-roo-code-cline" class="nav-link" data-scroll-target="#roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</a></li>
-  <li><a href="#positron-assistant" id="toc-positron-assistant" class="nav-link" data-scroll-target="#positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</a></li>
+  <li><a href="#what-is-an-application-programming-interface" id="toc-what-is-an-application-programming-interface" class="nav-link active" data-scroll-target="#what-is-an-application-programming-interface"><span class="header-section-number">35.1</span> What is an Application Programming Interface?</a></li>
+  <li><a href="#your-first-api-call" id="toc-your-first-api-call" class="nav-link" data-scroll-target="#your-first-api-call"><span class="header-section-number">35.2</span> Your first API call</a></li>
+  <li><a href="#temperature-and-top_k" id="toc-temperature-and-top_k" class="nav-link" data-scroll-target="#temperature-and-top_k"><span class="header-section-number">35.3</span> Temperature and top_k</a></li>
+  <li><a href="#navigating-openrouter" id="toc-navigating-openrouter" class="nav-link" data-scroll-target="#navigating-openrouter"><span class="header-section-number">35.4</span> Navigating OpenRouter</a></li>
+  <li><a href="#comparing-model-complexity" id="toc-comparing-model-complexity" class="nav-link" data-scroll-target="#comparing-model-complexity"><span class="header-section-number">35.5</span> Comparing model complexity</a></li>
+  <li><a href="#understanding-context-windows" id="toc-understanding-context-windows" class="nav-link" data-scroll-target="#understanding-context-windows"><span class="header-section-number">35.6</span> Understanding context windows</a></li>
+  <li><a href="#api-errors" id="toc-api-errors" class="nav-link" data-scroll-target="#api-errors"><span class="header-section-number">35.7</span> API errors</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-2-agents/index.html">Section 2: Agents</a></li><li class="breadcrumb-item"><a href="../section-2-agents/01-agent-options.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/02-how-api-access-works.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></h1>
+<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></h1>
 </div>
 
 
@@ -468,29 +505,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>An agent is an assistant that can act autonomously across multiple steps — writing code, running it, reading the result, and deciding what to do next — rather than completing one line or answering one question. Here’s the current landscape, in rough order of how you’d likely meet them.</p>
-<section id="claude-code" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">9.1</span> Claude Code</h2>
-<p>Claude Code is a subscription-based agent that runs from your terminal, an IDE extension, or — as we’ll see in <a href="../section-4-security-privacy/02-claude-code-web-example.html">Section 4</a> — entirely in the cloud via a web interface. It reads and edits files, runs shell commands, and can work through a multi-step task with minimal supervision if you let it. In my own experience and in the <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70079">formal test-case evaluations Scott Spillias and I ran</a>, Claude models have had a strong track record on R and statistics tasks specifically, which matters more to us here than general coding benchmarks tuned around software engineering.</p>
+<p>Calling LLMs programmatically via an API is a powerful step up from chat interfaces. First, it gives you control: chat software like ChatGPT or Copilot manages your interaction for you, quietly adding context (potentially from your chat history), so it’s hard to know exactly how the model is being prompted. With direct API access, you control exactly what goes to the LLM. Second, accessing it from R or Python code lets you automate calls — which is how we’ll build agents and literature-review tools later in this section.</p>
+<section id="what-is-an-application-programming-interface" class="level2" data-number="35.1">
+<h2 data-number="35.1" class="anchored" data-anchor-id="what-is-an-application-programming-interface"><span class="header-section-number">35.1</span> What is an Application Programming Interface?</h2>
+<p>An API lets different software programs talk to each other. Large language models need serious compute to run, so rather than hosting one yourself (which is possible, but not what we’ll cover here) we’ll send prompts over the internet to a Provider — a server run by a company like OpenAI or Anthropic, or an aggregator like OpenRouter — and get the response back.</p>
+<p><strong>How an API call works:</strong></p>
+<ol type="1">
+<li>Your code sends a request to the API endpoint (a web address).</li>
+<li>The request includes your prompt, model choice, and parameters.</li>
+<li>The provider’s service processes the request.</li>
+<li>It sends back a structured response with the model’s output.</li>
+<li>Your code uses that response however you like.</li>
+</ol>
 </section>
-<section id="vscode-with-github-copilots-agent-mode" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="vscode-with-github-copilots-agent-mode"><span class="header-section-number">9.2</span> VSCode with GitHub Copilot’s agent mode</h2>
-<p>You’ve already met Copilot for inline completion, ask mode and edit mode in Section 1. Agent mode is the same tool, but let loose across your terminal and file system with tools it can call on its own. We’ll run our first example with it in the next module.</p>
-</section>
-<section id="github-copilot-cli" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="github-copilot-cli"><span class="header-section-number">9.3</span> GitHub Copilot CLI</h2>
-<p>A newer, terminal-based way to run Copilot agents, useful when you want to script or automate agent runs (for example, looping over several sub-directories with different prompts) rather than clicking through a chat window. Billed via your Copilot subscription rather than per-token API usage.</p>
-</section>
-<section id="roo-code-cline" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="roo-code-cline"><span class="header-section-number">9.4</span> Roo Code / Cline</h2>
-<p>VSCode extensions that are “bring your own key” (BYOK) — you supply an API key and pay per token. More expensive to run than a Copilot subscription for heavy use, but far more customisable: you can fully rewrite the system prompt, create custom modes, and (with Roo Code specifically) delegate sub-tasks to other agents in “orchestrator” mode. <code>system.md</code> in this repo is the actual system prompt Roo Code uses — worth a skim just to see how much detail goes into making an agent behave.</p>
-</section>
-<section id="positron-assistant" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="positron-assistant"><span class="header-section-number">9.5</span> Positron Assistant</h2>
-<p>Positron is Posit’s new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.</p>
-<div class="tip">
-<p><strong>Tip:</strong> There’s also a growing ecosystem of agents that run <em>from inside</em> R itself, rather than as an IDE extension — see <a href="https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents">Large Language Model Tools for R</a> for an up-to-date list. We’ll build the simplest possible version of one of these ourselves in <a href="../section-7-api-access/05-make-an-agent.html">Section 7</a>.</p>
+<section id="your-first-api-call" class="level2" data-number="35.2">
+<h2 data-number="35.2" class="anchored" data-anchor-id="your-first-api-call"><span class="header-section-number">35.2</span> Your first API call</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R - Ellmer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a helpful assistant."</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Ecologists like to eat "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests, json, os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.post(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url<span class="op">=</span><span class="st">"https://openrouter.ai/api/v1/chat/completions"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  headers<span class="op">=</span>{<span class="st">"Authorization"</span>: <span class="ss">f"Bearer </span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">"</span>, <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span>},</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>json.dumps({</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"model"</span>: <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"messages"</span>: [</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      {<span class="st">"role"</span>: <span class="st">"system"</span>, <span class="st">"content"</span>: <span class="st">"You are a helpful assistant."</span>},</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="st">"Ecologists like to eat "</span>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<p>Notice the model doesn’t just complete your sentence — it answers as an assistant instead. That’s the <strong>system prompt</strong> at work: a stronger directive than your user prompt, which sets the overall behaviour of the chat. In most chat interfaces (like Copilot) you never see the system prompt, the provider sets it for you.</p>
+<div class="tip">
+<p><strong>Tip:</strong> It is generally more effective to tell the LLM <strong>what to do</strong> rather than <strong>what not to do</strong> — same as with people.</p>
+</div>
+<p>Try overriding the default assistant behaviour with your own system prompt:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Ecologists like to eat "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="temperature-and-top_k" class="level2" data-number="35.3">
+<h2 data-number="35.3" class="anchored" data-anchor-id="temperature-and-top_k"><span class="header-section-number">35.3</span> Temperature and top_k</h2>
+<p><code>temperature</code> controls the randomness of token predictions — lower (near 0) is more deterministic, higher (near 2) is more creative and unpredictable. <code>top_k</code> restricts the model to choosing among a smaller set of likely next tokens; <code>top_k = 1</code> gives the most predictable output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>chat_temp <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only."</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-3.5-haiku"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">50</span>, <span class="at">temperature =</span> <span class="dv">0</span>, <span class="at">top_k =</span> <span class="dv">1</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>chat_temp<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Marine ecologists like to eat "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Try it again with <code>temperature = 2</code> and no <code>top_k</code> (or a very high one). Low temperature/top_k gives you consistent, “safe” completions; higher values give more varied, sometimes less coherent ones.</p>
+</section>
+<section id="navigating-openrouter" class="level2" data-number="35.4">
+<h2 data-number="35.4" class="anchored" data-anchor-id="navigating-openrouter"><span class="header-section-number">35.4</span> Navigating OpenRouter</h2>
+<p>The <a href="https://openrouter.ai/models">Models page</a> lists everything available — click a model to copy its id string for the <code>model =</code> argument. A single model may be served by multiple providers; OpenRouter picks one automatically, but its docs explain how to pin a specific provider (useful if you have data-security or ethical reasons to avoid particular ones). The <a href="https://openrouter.ai/docs/quickstart">docs page</a> has the full parameter reference, usually with Python examples — an assistant can translate these to R for you if needed.</p>
+</section>
+<section id="comparing-model-complexity" class="level2" data-number="35.5">
+<h2 data-number="35.5" class="anchored" data-anchor-id="comparing-model-complexity"><span class="header-section-number">35.5</span> Comparing model complexity</h2>
+<p><code>anthropic/claude-3.5-haiku</code> has far fewer parameters than <code>anthropic/claude-sonnet-4</code> — haiku is much cheaper (roughly 80c per million input tokens vs $3 for sonnet at time of writing) but less capable on nuanced tasks.</p>
+</section>
+<section id="understanding-context-windows" class="level2" data-number="35.6">
+<h2 data-number="35.6" class="anchored" data-anchor-id="understanding-context-windows"><span class="header-section-number">35.6</span> Understanding context windows</h2>
+<p>The context window is the amount of text (input plus output) a model can consider at once — typically 100-200K tokens, though some models now offer 1M+. We’ll come back to this once we start building longer prompts and agents.</p>
+</section>
+<section id="api-errors" class="level2" data-number="35.7">
+<h2 data-number="35.7" class="anchored" data-anchor-id="api-errors"><span class="header-section-number">35.7</span> API errors</h2>
+<p>Occasionally you’ll get an HTTP error instead of a response. A few common ones from OpenRouter:</p>
+<ul>
+<li><strong>400</strong> — something’s wrong in your request.</li>
+<li><strong>401</strong> — invalid API key.</li>
+<li><strong>402</strong> — you’re out of credit.</li>
+<li><strong>408</strong> — timeout, your request may be too large or your connection too slow.</li>
+<li><strong>429</strong> — you’re being rate-limited (calling too much, too fast).</li>
+</ul>
+<p><a href="https://openrouter.ai/docs/api-reference/errors">Full list of error codes here</a>.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -501,7 +619,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pick two agent options from this list that you have access to. Give both the same prompt: “Read fish-coral-cover-sites.csv and make a ggplot of pres.topa against CB_cover.” Compare not just the output, but how much you had to intervene along the way.</p>
+<p>Run the same completion prompt three times with <code>temperature = 0, top_k = 1</code>, then three times with <code>temperature = 1.5</code> and no <code>top_k</code>. Compare how much the outputs vary between runs at each setting.</p>
 </div>
 </div>
 
@@ -911,13 +1029,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-2-agents/index.html" class="pagination-link" aria-label="Section 2: Agents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Section 2: Agents</span>
+      <a href="../section-7-api-access/01-api-keys.html" class="pagination-link" aria-label="API keys">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-2-agents/02-how-agents-work.html" class="pagination-link" aria-label="How agents work">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How agents work</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-7-api-access/03-chat-basics.html" class="pagination-link" aria-label="Chat: multi-turn conversations">
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

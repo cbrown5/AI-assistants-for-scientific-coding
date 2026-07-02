@@ -1,6 +1,6 @@
 # How agents work
 
-Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). That's really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. We'll build a toy version of this loop ourselves with `ellmer` in [Section 6](../section-6-api-access/05-make-an-agent.qmd) — once you've built one, "agent" stops feeling like a mysterious term.
+Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). That's really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. We'll build a toy version of this loop ourselves with `ellmer` in [Section 7](../section-7-api-access/05-make-an-agent.qmd) — once you've built one, "agent" stops feeling like a mysterious term.
 
 Here's roughly how a statistical workflow looks with inline editing (Section 1) versus with an agent doing the same task:
 
@@ -13,5 +13,5 @@ My own workflow mixes Copilot's editing features with a full agent (Roo Code or 
 Keep a markdown file updated as you go, so the agent stays on topic across sessions — a `README.md` works, and a growing number of agents look specifically for a file called `AGENTS.md`. If the context in that file goes stale (say, it still mentions a package you've since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Open `system.md` in this repo — the actual system prompt Roo Code uses. Find the section that lists its available tools. How many of them map onto the simple "read a file / write a file / run a command" set we'll build in Section 6?
+Open `system.md` in this repo — the actual system prompt Roo Code uses. Find the section that lists its available tools. How many of them map onto the simple "read a file / write a file / run a command" set we'll build in Section 7?
 :::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>29&nbsp; Using simulated data as a verification step – AI assistants for Scientific Coding</title>
+<title>30&nbsp; Sub-agents for plotting and writing methods – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-6-api-access/index.html" rel="next">
-<link href="../section-5-agentic-engineering/02-red-green-tdd.html" rel="prev">
+<link href="../section-6-agentic-engineering/index.html" rel="next">
+<link href="../section-5-customizing-agents/03-skill-for-analysis.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -119,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-agentic-engineering/index.html">Section 5: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-5-agentic-engineering/03-simulated-data-verification.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-customizing-agents/index.html">Section 5: Customizing agents</a></li><li class="breadcrumb-item"><a href="../section-5-customizing-agents/04-subagents-plotting-and-methods.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -348,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../section-5-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Agentic engineering for data analysis</span></a>
+            <a href="../section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 5: Customizing agents</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -357,28 +322,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+  <a href="../section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+  <a href="../section-5-customizing-agents/02-claude-code-skills-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  <a href="../section-5-customizing-agents/03-skill-for-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-5-customizing-agents/04-subagents-plotting-and-methods.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../section-6-api-access/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 6: LLM access via API</span></a>
+            <a href="../section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -386,38 +357,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+  <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+  <a href="../section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+  <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 7: LLM access via API</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+  <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+  <a href="../section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+  <a href="../section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
     </ul>
@@ -438,18 +438,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#simulating-fake-topa-counts" id="toc-simulating-fake-topa-counts" class="nav-link active" data-scroll-target="#simulating-fake-topa-counts"><span class="header-section-number">29.1</span> Simulating fake topa counts</a></li>
-  <li><a href="#what-recovers-the-truth-means-here" id="toc-what-recovers-the-truth-means-here" class="nav-link" data-scroll-target="#what-recovers-the-truth-means-here"><span class="header-section-number">29.2</span> What “recovers the truth” means here</a></li>
-  <li><a href="#handing-this-to-an-agent" id="toc-handing-this-to-an-agent" class="nav-link" data-scroll-target="#handing-this-to-an-agent"><span class="header-section-number">29.3</span> Handing this to an agent</a></li>
+  <li><a href="#splitting-the-task" id="toc-splitting-the-task" class="nav-link active" data-scroll-target="#splitting-the-task"><span class="header-section-number">30.1</span> Splitting the task</a></li>
+  <li><a href="#why-scope-the-context-narrowly" id="toc-why-scope-the-context-narrowly" class="nav-link" data-scroll-target="#why-scope-the-context-narrowly"><span class="header-section-number">30.2</span> Why scope the context narrowly</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-agentic-engineering/index.html">Section 5: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-5-agentic-engineering/03-simulated-data-verification.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-customizing-agents/index.html">Section 5: Customizing agents</a></li><li class="breadcrumb-item"><a href="../section-5-customizing-agents/04-subagents-plotting-and-methods.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></h1>
+<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></h1>
 </div>
 
 
@@ -466,49 +465,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Here’s a verification trick that’s standard practice in statistics but rarely makes it into an agent’s default workflow: before you trust a model fit to your real data, fit it to <em>simulated</em> data where you already know the true answer, because you generated it yourself. If the pipeline can’t recover a relationship you built in on purpose, there’s no reason to trust it on data where you don’t know the answer.</p>
-<section id="simulating-fake-topa-counts" class="level2" data-number="29.1">
-<h2 data-number="29.1" class="anchored" data-anchor-id="simulating-fake-topa-counts"><span class="header-section-number">29.1</span> Simulating fake topa counts</h2>
-<p>Let’s simulate count data with the same structure as <code>pres.topa ~ CB_cover</code>, but with a coral-cover effect we chose ourselves:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_sites <span class="ot">&lt;-</span> <span class="dv">49</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>true_intercept <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="dv">2</span>)     <span class="co"># ~2 topa at zero coral cover, on the log scale</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>true_cb_effect <span class="ot">&lt;-</span> <span class="fl">0.03</span>       <span class="co"># positive effect of CB_cover on log(topa)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>true_theta <span class="ot">&lt;-</span> <span class="dv">5</span>              <span class="co"># dispersion parameter for the negative binomial</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sim_dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="dv">1</span><span class="sc">:</span>n_sites,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">CB_cover =</span> <span class="fu">runif</span>(n_sites, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">40</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mu =</span> <span class="fu">exp</span>(true_intercept <span class="sc">+</span> true_cb_effect <span class="sc">*</span> CB_cover),</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">pres.topa =</span> <span class="fu">rnegbin</span>(n_sites, <span class="at">mu =</span> mu, <span class="at">theta =</span> true_theta)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Now fit the same model you’d fit to the real data:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m_sim <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(pres.topa <span class="sc">~</span> CB_cover, <span class="at">data =</span> sim_dat)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_sim)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="what-recovers-the-truth-means-here" class="level2" data-number="29.2">
-<h2 data-number="29.2" class="anchored" data-anchor-id="what-recovers-the-truth-means-here"><span class="header-section-number">29.2</span> What “recovers the truth” means here</h2>
-<p>You’re not expecting the fitted coefficient to exactly equal <code>0.03</code> — with 49 sites and real sampling noise, it won’t. What you’re checking is:</p>
+<p>The analysis skill from the last module produces a fitted model. What happens next — plotting it, writing it up — are different jobs with different failure modes, and giving them to separately scoped sub-agents rather than one agent holding everything at once tends to produce more consistent output.</p>
+<section id="splitting-the-task" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="splitting-the-task"><span class="header-section-number">30.1</span> Splitting the task</h2>
+<p>Instead of one agent doing modelling, plotting, and write-up in a single long session, delegate two narrower roles:</p>
 <ul>
-<li>The estimated <code>CB_cover</code> coefficient is positive and in a plausible range around the true value.</li>
-<li>The true value falls inside the 95% confidence interval most of the time — run the simulation a few times (or wrap it in a loop over, say, 200 replicates) and check the true effect falls inside the interval roughly 95% of the time, not 50% or 20%.</li>
-<li>The estimated <code>theta</code> is in the right ballpark of the true dispersion you simulated.</li>
+<li><strong>Plotting sub-agent</strong> — given only the fitted model object (not the raw data, not the modelling decisions behind it), produce a <code>ggplot</code> of predicted <code>pres.topa</code> against <code>CB_cover</code> with confidence intervals, using <code>visreg::visreg(m, "CB_cover", gg = TRUE)</code> as a starting point.</li>
+<li><strong>Methods-writing sub-agent</strong> — given only the model summary output (family, formula, dispersion, coefficients — not the raw dataset), write a two-sentence methods paragraph describing what was fitted and why.</li>
 </ul>
-<p>If any of those fail consistently, the problem isn’t your real data — it’s the pipeline itself (wrong family, a coding bug, a mis-specified formula), and you’ve found that out <em>before</em> it had a chance to quietly corrupt your interpretation of the real analysis.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt (plotting sub-agent)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prompt (plotting sub-agent)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is a fitted model object <code>m</code> (<code>MASS::glm.nb(pres.topa ~ CB_cover, data = fish_coral_cover_sites)</code>). Produce a ggplot of the predicted relationship with confidence intervals using <code>visreg</code>. Do not refit or modify the model.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Prompt (methods sub-agent)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Prompt (methods sub-agent)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is the <code>summary()</code> output of a fitted negative binomial GLM (formula, coefficients, dispersion parameter). Write a two-sentence methods paragraph suitable for a results section, stating the model family, the response and predictor, and why that family was chosen.</p>
+</div>
+</div>
 </section>
-<section id="handing-this-to-an-agent" class="level2" data-number="29.3">
-<h2 data-number="29.3" class="anchored" data-anchor-id="handing-this-to-an-agent"><span class="header-section-number">29.3</span> Handing this to an agent</h2>
-<p>This is a natural task to specify explicitly rather than hope an agent thinks to do it: add a step to your specification sheet (see <a href="../section-3-workflows/04-specification-sheets.html">Section 3</a>) that says something like “before fitting the model to the real data, simulate data with a known <code>CB_cover</code> effect and confirm the same model code recovers it, within a reasonable margin, before proceeding.” Agents default to the most familiar workflow — fit model, report results — unless you explicitly ask for the verification step in between.</p>
+<section id="why-scope-the-context-narrowly" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="why-scope-the-context-narrowly"><span class="header-section-number">30.2</span> Why scope the context narrowly</h2>
+<p>Handing the writing sub-agent only the model summary — not the full dataset or script history — isn’t just tidiness. An agent with the whole project in context will sometimes “helpfully” second-guess a modelling decision it wasn’t asked to review, or fold in details from an earlier draft that no longer apply. Narrowing what a sub-agent can see narrows what it can go wrong about.</p>
+<div class="tip">
+<p><strong>Tip:</strong> This is the same context-poisoning concern from <a href="../section-2-agents/09-when-agents-get-stuck.html">Section 2</a>, applied deliberately — a fresh, narrowly-scoped sub-agent can’t inherit a mistake from an earlier stage of the pipeline it never saw.</p>
+</div>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -519,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Change <code>true_cb_effect</code> to <code>0</code> in the simulation above (i.e.&nbsp;no real relationship between coral cover and topa) and refit the model. Does the fitted model correctly show a non-significant effect most of the time, or does it falsely detect an effect more often than you’d expect by chance?</p>
+<p>Run the two-sub-agent split above on the topa/coral-cover model, then run the same plotting-and-writing task with a single unscoped agent that has the whole project in context. Compare the two methods paragraphs and two plots — what’s different, and which would you trust more without checking further?</p>
 </div>
 </div>
 
@@ -929,13 +926,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-5-agentic-engineering/02-red-green-tdd.html" class="pagination-link" aria-label="Red-green TDD for data analysis">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span>
+      <a href="../section-5-customizing-agents/03-skill-for-analysis.html" class="pagination-link" aria-label="Writing a skill for analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-6-api-access/index.html" class="pagination-link" aria-label="Section 6: LLM access via API">
-        <span class="nav-page-text">Section 6: LLM access via API</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-6-agentic-engineering/index.html" class="pagination-link" aria-label="Section 6: Agentic engineering for data analysis">
+        <span class="nav-page-text">Section 6: Agentic engineering for data analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

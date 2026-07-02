@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>32&nbsp; Chat: multi-turn conversations – AI assistants for Scientific Coding</title>
+<title>28&nbsp; Claude Code skills as a worked example – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-6-api-access/04-diy-chatbot.html" rel="next">
-<link href="../section-6-api-access/02-how-api-access-works.html" rel="prev">
+<link href="../section-5-customizing-agents/03-skill-for-analysis.html" rel="next">
+<link href="../section-5-customizing-agents/01-what-is-customization.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -119,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-api-access/index.html">Section 6: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-6-api-access/03-chat-basics.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-customizing-agents/index.html">Section 5: Customizing agents</a></li><li class="breadcrumb-item"><a href="../section-5-customizing-agents/02-claude-code-skills-example.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -348,8 +313,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../section-5-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Agentic engineering for data analysis</span></a>
+            <a href="../section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 5: Customizing agents</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -357,28 +322,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+  <a href="../section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+  <a href="../section-5-customizing-agents/02-claude-code-skills-example.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-5-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  <a href="../section-5-customizing-agents/03-skill-for-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-5-customizing-agents/04-subagents-plotting-and-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../section-6-api-access/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 6: LLM access via API</span></a>
+            <a href="../section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -386,38 +357,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+  <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+  <a href="../section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+  <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 7: LLM access via API</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+  <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+  <a href="../section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+  <a href="../section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
     </ul>
@@ -433,15 +433,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#whats-actually-in-a-skill" id="toc-whats-actually-in-a-skill" class="nav-link active" data-scroll-target="#whats-actually-in-a-skill"><span class="header-section-number">28.1</span> What’s actually in a skill</a></li>
+  <li><a href="#other-systems-same-idea" id="toc-other-systems-same-idea" class="nav-link" data-scroll-target="#other-systems-same-idea"><span class="header-section-number">28.2</span> Other systems, same idea</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-api-access/index.html">Section 6: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-6-api-access/03-chat-basics.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-5-customizing-agents/index.html">Section 5: Customizing agents</a></li><li class="breadcrumb-item"><a href="../section-5-customizing-agents/02-claude-code-skills-example.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></h1>
+<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></h1>
 </div>
 
 
@@ -458,25 +465,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>So far we’ve sent one prompt and got one answer back. Often you want an ongoing conversation — to problem-solve, refine an answer, or just chat. This is easy with <code>ellmer</code> (fiddlier with plain Python or base R, so we’ll stick to ellmer here).</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_openrouter</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a helpful assistant who specialises in ecological statistics."</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"anthropic/claude-sonnet-4"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">api_args =</span> <span class="fu">list</span>(<span class="at">max_tokens =</span> <span class="dv">2000</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">live_console</span>(chat)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># live_browser(chat)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><code>live_console()</code> lets you chat right in the terminal. <code>live_browser()</code> opens a local browser window that feels a lot like ChatGPT’s interface.</p>
-<div class="tip">
-<p><strong>Tip:</strong> LLMs perform better when you put everything in one well-prepared initial prompt, rather than a multi-turn conversation. <a href="https://arxiv.org/abs/2505.06120">Responses to a problem split across multiple questions are less accurate than the same information given up front</a> — this holds across logic, coding and everything in between. I like to think of it as mansplaining: LLMs seem to have been (sub-consciously?) trained to prefer being told everything at once over having a back-and-forth.</p>
-</div>
-<p>This is the same “context poisoning” problem we ran into with agents in <a href="../section-2-agents/09-when-agents-get-stuck.html">Section 2</a>: once a wrong answer is sitting in the chat history, it’s hard to get the model to un-learn it within that thread. If a multi-turn conversation goes off the rails, the fix usually isn’t to keep correcting it — it’s to start a new chat with a clearer, more complete initial prompt.</p>
-<p>That said, it’s fine to use a chat as a genuine problem-solving partner when you’re not sure what you want yet. Just don’t mistake “figuring it out together” for “getting the best possible answer” — once you’ve got a plan, write one clear, detailed prompt to get the final version.</p>
+<p>Claude Code implements the skills idea directly: you write a folder with a short description and a set of instructions (optionally with helper scripts), drop it somewhere Claude Code looks for skills, and from then on you (or the agent itself) can invoke it by name — <code>/skill-name</code> — instead of retyping the instructions.</p>
+<section id="whats-actually-in-a-skill" class="level2" data-number="28.1">
+<h2 data-number="28.1" class="anchored" data-anchor-id="whats-actually-in-a-skill"><span class="header-section-number">28.1</span> What’s actually in a skill</h2>
+<p>A minimal skill is just a description plus instructions. Claude Code ships with several to see the pattern:</p>
+<ul>
+<li><code>pdf</code> — instructions and helper scripts for reading, splitting, merging, and manipulating PDF files.</li>
+<li><code>docx</code> — instructions for producing properly formatted Word documents (headings, tables of contents, page numbers).</li>
+<li><code>code-review</code> — a description of what to look for and how to report findings, so a review is consistent no matter who runs it or when.</li>
+</ul>
+<p>Each one solves the same problem: rather than the agent guessing “what does a good PDF-handling job look like” from scratch, or you re-explaining it, the instructions are written down once, named, and reused.</p>
+</section>
+<section id="other-systems-same-idea" class="level2" data-number="28.2">
+<h2 data-number="28.2" class="anchored" data-anchor-id="other-systems-same-idea"><span class="header-section-number">28.2</span> Other systems, same idea</h2>
+<p>Claude Code’s <code>/skill-name</code> mechanism is one concrete implementation. The general pattern — name, description, saved instructions, optionally bundled scripts — shows up under other names elsewhere: Roo Code’s custom modes (Section 2), a saved prompt template in a chat tool, or just a markdown file in your project that you paste into every session. The mechanism differs; the payoff (consistency, less retyping) doesn’t.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -487,11 +489,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Start a <code>live_console()</code> chat and ask “How could I test if fish abundance depends on coral cover?” over four separate turns (one clarifying detail per turn: response variable, sampling method, number of sites, that it’s count data). Then start a fresh chat and ask the same thing as one single, fully detailed prompt. Compare the two final answers.</p>
+<p>Sketch a one-paragraph description for a skill that fits and checks a GLM on count data — what would the description say so an agent knows when to reach for it, and what two or three instructions would you put inside? You don’t need to wire it up yet.</p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -896,13 +899,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-6-api-access/02-how-api-access-works.html" class="pagination-link" aria-label="How API access works with ellmer">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span>
+      <a href="../section-5-customizing-agents/01-what-is-customization.html" class="pagination-link" aria-label="What is agent customization?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-6-api-access/04-diy-chatbot.html" class="pagination-link" aria-label="DIY chatbot">
-        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-5-customizing-agents/03-skill-for-analysis.html" class="pagination-link" aria-label="Writing a skill for analysis">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

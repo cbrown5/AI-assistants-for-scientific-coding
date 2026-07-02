@@ -1,3 +1,3 @@
-# Section 5: Agentic engineering for data analysis {.unnumbered}
+# Section 6: Agentic engineering for data analysis {.unnumbered}
 
 Software engineers have spent decades building practices to catch mistakes before they ship. This section adapts three of those practices — verification principles, red-green test-driven development, and simulated data as a sanity check — for scientific data analysis done with AI assistance.

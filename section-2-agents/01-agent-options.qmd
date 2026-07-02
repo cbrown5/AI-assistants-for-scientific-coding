@@ -23,7 +23,7 @@ VSCode extensions that are "bring your own key" (BYOK) — you supply an API key
 Positron is Posit's new IDE (a fork of VSCode, built for data science). Its built-in assistant gives Copilot-like completion and chat, but as of writing supports fewer providers than the options above and is still on an early version number — expect it to keep changing.
 
 ::: {.tip}
-**Tip:** There's also a growing ecosystem of agents that run *from inside* R itself, rather than as an IDE extension — see [Large Language Model Tools for R](https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents) for an up-to-date list. We'll build the simplest possible version of one of these ourselves in [Section 6](../section-6-api-access/05-make-an-agent.qmd).
+**Tip:** There's also a growing ecosystem of agents that run *from inside* R itself, rather than as an IDE extension — see [Large Language Model Tools for R](https://luisdva.github.io/llmsr-book/r-pkgs.html#language-model-agents) for an up-to-date list. We'll build the simplest possible version of one of these ourselves in [Section 7](../section-7-api-access/05-make-an-agent.qmd).
 :::
 
 ::: {.callout-important title="Challenge" appearance="simple"}
