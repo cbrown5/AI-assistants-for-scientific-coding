@@ -4,7 +4,7 @@
 
 Inline completion is the gentlest introduction to AI-assisted coding, and probably how you're already using it if you've dabbled at all. You start typing, the assistant guesses what you meant to type next, and you hit `tab` to accept.
 
-GitHub Copilot calls itself an "AI programming assistant" or "AI pair programmer." I'll refer to it more generally as an LLM coding assistant, or just an Assistant — a term I'll also use for ChatGPT, Claude, Roo Code, Cline and others, since the field moves too fast to have settled on a standard name for this kind of software.
+GitHub Copilot calls itself an "AI programming assistant" or "AI pair programmer." I'll refer to it more generally as an LLM coding assistant, or just an Assistant — a term I'll also use for ChatGPT, Claude, Cline and others, since the field moves too fast to have settled on a standard name for this kind of software.
 
 An Assistant adds a layer between you and the LLM. It's quietly deciding what context to send, managing your context window, and often saving on cost — usually without telling you the system message, temperature, or token limits it's using. Keep that in mind: you're not talking directly to the model, you're talking through some software that's making its own decisions about what the model sees.
 

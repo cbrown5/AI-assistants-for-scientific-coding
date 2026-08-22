@@ -14,9 +14,15 @@ You've already met Copilot for inline completion, ask mode and edit mode in Sect
 
 A newer, terminal-based way to run Copilot agents, useful when you want to script or automate agent runs (for example, looping over several sub-directories with different prompts) rather than clicking through a chat window. Billed via your Copilot subscription rather than per-token API usage.
 
-## Roo Code / Cline
+## Cline
 
-VSCode extensions that are "bring your own key" (BYOK) — you supply an API key and pay per token. More expensive to run than a Copilot subscription for heavy use, but far more customisable: you can fully rewrite the system prompt, create custom modes, and (with Roo Code specifically) delegate sub-tasks to other agents in "orchestrator" mode. `system.md` in this repo is the actual system prompt Roo Code uses — worth a skim just to see how much detail goes into making an agent behave.
+A VSCode extension that is "bring your own key" (BYOK) — you supply an API key and pay per token. More expensive to run than a Copilot subscription for heavy use, but far more customisable: you can fully rewrite the system prompt and create custom modes for different kinds of work. It also runs as a JetBrains plugin and a command-line tool, if you'd rather not work from VSCode at all.
+
+::: {.callout-note title="A note on Roo Code" appearance="simple"}
+Earlier versions of this book, and the study described in [Section 3](../section-3-workflows/04-specification-sheets.qmd), used **Roo Code** — a popular fork of Cline with an "orchestrator" mode that could delegate sub-tasks to other agents. Roo Code discontinued its VSCode extension in May 2026 and moved to a hosted, source-available product that runs remotely rather than in your editor. The original extension is still openly licensed but is archived and no longer maintained, and its own shutdown notice points users back to Cline. So as of writing, **Cline is the main alternative at the moment** if you want a BYOK agent running locally in your editor, and it's what I use for the examples in this book. Where I discuss my study I've left the references to Roo Code as they are, because that's the software the study actually used.
+:::
+
+`system.md` in this repo is a real agent system prompt (Roo Code's, captured while it was still current) — worth a skim just to see how much detail goes into making an agent behave. Cline's is similar in structure and length.
 
 ## Positron Assistant
 

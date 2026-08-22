@@ -1,6 +1,6 @@
 # Your first agent example
 
-Time to run an agent end-to-end. In VSCode, open the chat panel and switch the mode from "Ask" or "Edit" to "Agent" (in other tools, look for an equivalent mode or model switch — Roo Code and Claude Code default to agent-style behaviour).
+Time to run an agent end-to-end. In VSCode, open the chat panel and switch the mode from "Ask" or "Edit" to "Agent" (in other tools, look for an equivalent mode or model switch — Cline and Claude Code default to agent-style behaviour).
 
 Make sure the [readme file for our example data](https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md) is saved in your project directory and open in your editor — that gives the agent the context it needs about variable names and the study before it starts.
 

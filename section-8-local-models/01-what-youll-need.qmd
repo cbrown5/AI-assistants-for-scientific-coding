@@ -32,8 +32,3 @@ ollama rm qwen2.5-coder       # delete a downloaded model from disk
 
 Full list: [CLI reference](https://docs.ollama.com/cli).
 
-Before starting on these, let's look at model choice.
-
-::: {.callout-important title="Challenge" appearance="simple"}
-TODO
-:::

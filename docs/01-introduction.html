@@ -422,10 +422,57 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 8: Running local models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/02-performance-and-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/03-choosing-a-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/05-agentic-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-8-local-models/06-processing-files-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
     </ul>
@@ -433,14 +480,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#the-jagged-frontier-of-llm-progress" id="toc-the-jagged-frontier-of-llm-progress" class="nav-link active" data-scroll-target="#the-jagged-frontier-of-llm-progress"><span class="header-section-number">2.1</span> The jagged frontier of LLM progress</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -465,8 +506,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><a href="https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&amp;ouid=107596646496267980935&amp;rtpof=true&amp;sd=true">Slides from the workshop presentation (on a google drive)</a></p>
-<section id="the-jagged-frontier-of-llm-progress" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-jagged-frontier-of-llm-progress"><span class="header-section-number">2.1</span> The jagged frontier of LLM progress</h2>
 <p>LLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.</p>
 <p>Since then AI companies have been optimising their training and development for coding and logic.</p>
 <p>There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Frontier models can solve <a href="https://www.swebench.com/">&gt;70% of tasks on this benchmark</a>.</p>
@@ -479,10 +518,14 @@ ul.task-list li input[type="checkbox"] {
 <p>The results also indicate the improvements that can be gained through better prompts (i.e.&nbsp;doubling in accuracy for GPT 4).</p>
 <p>The lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.</p>
 <p>For us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.</p>
-<p>In this book we’ll walk through some of the ways you can use LLMs to help you do statistics, data analysis and R coding (and a bit of python too), working through short self-paced modules built around a single running example dataset. There are a multitude of software and R package options. So many its bewildering. In the next module I’ll give you a few of the easiest set-up options available.</p>
+<p>I have had many experiences where the most powerful models of the day make trivial logic mistakes (e.g.&nbsp;Claude Fable, the current most powerful at writing). They can scaffold a complex workflow of multiple interacting steps, that handles data wrangling, analysis and plotting.</p>
+<p>But more often than not they get some core detail wrong. Such as the equation in the heart of your generalized linear model.</p>
+<p>What this tells me is that LLMs are great at programming, but not so crash hot at the scientific logic and reasoning.</p>
+<p>As a scientist and competent programmer, this is great news. I can offload a lot of the tedious and time- consuming set-up work required in scientific computing and focus on the parts that require real scientific judgement.</p>
+<p>In this book we’ll walk through many of the ways you can use LLMs to help you do statistics, data analysis and R coding (and a bit of python too), working through short self-paced modules built around ecological datasets.</p>
+<p>One of the biggest first hurdles is choosing among the multitude of AI assistant software and R package options. There are so many it is bewildering. In the next module I’ll give you a few of the easiest set-up options available.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

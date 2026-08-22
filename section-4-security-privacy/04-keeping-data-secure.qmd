@@ -18,7 +18,7 @@ It helps to generate simulated data with the same structure as your real data to
 
 ## Option 3: Ignore sensitive folders
 
-Some agents can be told to ignore specific folders — for example, a repository-level custom instruction to [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), or Roo Code's `.rooignore` file.
+Some agents can be told to ignore specific folders — for example, a repository-level custom instruction to [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), or Cline's `.clineignore` file.
 
 Remember prompts aren't 100% precise the way code is — there's still a chance the agent wanders in anyway. If something is genuinely sensitive, keep it elsewhere on your computer entirely, and check every action before approving it.
 

@@ -14,7 +14,7 @@ Each one solves the same problem: rather than the agent guessing "what does a go
 
 ## Other systems, same idea
 
-Claude Code's `/skill-name` mechanism is one concrete implementation. The general pattern — name, description, saved instructions, optionally bundled scripts — shows up under other names elsewhere: Roo Code's custom modes (Section 2), a saved prompt template in a chat tool, or just a markdown file in your project that you paste into every session. The mechanism differs; the payoff (consistency, less retyping) doesn't.
+Claude Code's `/skill-name` mechanism is one concrete implementation. The general pattern — name, description, saved instructions, optionally bundled scripts — shows up under other names elsewhere: Cline's custom modes (Section 2), a saved prompt template in a chat tool, or just a markdown file in your project that you paste into every session. The mechanism differs; the payoff (consistency, less retyping) doesn't.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
 Sketch a one-paragraph description for a skill that fits and checks a GLM on count data — what would the description say so an agent knows when to reach for it, and what two or three instructions would you put inside? You don't need to wire it up yet.

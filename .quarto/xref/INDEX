@@ -268,5 +268,26 @@
   },
   "section-7-api-access/06-lit-review-example.qmd": {
     "06-lit-review-example.html": "4f0cc490"
+  },
+  "section-8-local-models/index.qmd": {
+    "index.html": "0eacc53b"
+  },
+  "section-8-local-models/01-what-youll-need.qmd": {
+    "01-what-youll-need.html": "295553d5"
+  },
+  "section-8-local-models/02-performance-and-hardware.qmd": {
+    "02-performance-and-hardware.html": "ae14ac74"
+  },
+  "section-8-local-models/03-choosing-a-model.qmd": {
+    "03-choosing-a-model.html": "5758c5d7"
+  },
+  "section-8-local-models/04-autocomplete.qmd": {
+    "04-autocomplete.html": "2ee859ee"
+  },
+  "section-8-local-models/05-agentic-programming.qmd": {
+    "05-agentic-programming.html": "75c9c36e"
+  },
+  "section-8-local-models/06-processing-files-in-r.qmd": {
+    "06-processing-files-in-r.html": "2f54f6d0"
   }
 }
