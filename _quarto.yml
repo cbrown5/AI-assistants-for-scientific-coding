@@ -61,6 +61,14 @@ book:
         - section-7-api-access/04-diy-chatbot.qmd
         - section-7-api-access/05-make-an-agent.qmd
         - section-7-api-access/06-lit-review-example.qmd
+    - part: section-8-local-models/index.qmd
+      chapters:
+        - section-8-local-models/01-what-youll-need.qmd
+        - section-8-local-models/02-performance-and-hardware.qmd
+        - section-8-local-models/03-choosing-a-model.qmd
+        - section-8-local-models/04-autocomplete.qmd
+        - section-8-local-models/05-agentic-programming.qmd
+        - section-8-local-models/06-processing-files-in-r.qmd
     - 99-appendix.qmd
 
 bibliography: book.bib

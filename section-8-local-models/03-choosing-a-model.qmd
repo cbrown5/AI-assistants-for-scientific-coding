@@ -1,0 +1,19 @@
+# Choosing a model
+
+Some of these models are very large (use a lot of memory), and there's a fair bit of choice that needs to go into selecting the right model. Memory size roughly correlates with the number of parameters an LLM has (e.g. 7B, 14B). LLMs with more parameters are in general smarter, but you're going to need more RAM and a more powerful GPU to use them.
+
+When he tried Ollama, Chris was surprised that there are lots of quite good, relatively small models these days that will run on most modern laptops.
+
+Useful references for picking one:
+
+*   [Browse models](https://ollama.com/search) — filter by chat, coding, vision, embeddings and reasoning
+
+*   [Context length](https://docs.ollama.com/context-length) — how much text the model can take in at once
+
+*   [Ollama quickstart](https://docs.ollama.com/quickstart)
+
+Now let's look at a couple of applications of Ollama.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO
+:::

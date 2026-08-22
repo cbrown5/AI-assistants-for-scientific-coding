@@ -21,13 +21,13 @@ If you are using R then we will make use of: `install.packages(c("vegan", "ellme
 
 ### Preferred option for R users
 
-What I will be using, and what I prefer you to use is:
+What I use in the workshops I teach: 
 
-- The R program from the VS Code Integrated Development Environment (IDE)
+- The R program from either Positron or the the VS Code Integrated Development Environment (IDE)
 - Github Copilot
 - R Ellmer package, for which you'll need an API key to one of the LLM providers
 
-The challenges with the above options are that it can sometimes be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down!
+[Positron](https://positron.posit.co/) is easier to setup for R users than VS Code. Most of what you can do in VS Code can also be done in Positron, Positron just being a clone of the VS Code source code. The challenge with VS Code is that it can be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down for institutional security!
 
 If you chose this option you will need to follow instructions in this chapter for 'Getting an API key' (@sec-apikeys) (required for ellmer), 'Ellmer set-up' (@sec-ellmer),  VS code setup (@sec-vscodesetup) and 'Github Copilot set-up'  (@sec-githubcopilot).
 
@@ -39,11 +39,7 @@ Rstudio also has basic Github Copilot capablities. To use these (not essential f
 
 ### Option 3 for R users: Positron assistant
 
-[Positron](https://positron.posit.co/) is a new IDE from Posit (the creators of RStudio) that is designed for data science. It includes a built-in [AI assistant](https://positron.posit.co/assistant.html) that can help you with coding tasks.
-
-Positron is very similar to VScode, in fact the editor was originally a copy of VScode's source code. It is designed for R and Python, so for some people it may be easier to set-up than VScode.
-
-I've put it as option 3 for now as it is still on version 0.xxx (as of 2025-10-10), so there are still likely to be many changes to this software.
+[Positron](https://positron.posit.co/) includes a built-in [AI assistant](https://positron.posit.co/assistant.html) that can help you with coding tasks.
 
 Positron's assistant provides similar functionality to GitHub Copilot, including:
 
@@ -57,13 +53,11 @@ To use Positron with its AI assistant:
 2. Follow the instructions in the [Positron assistant documentation](https://positron.posit.co/assistant.html) to set up the AI assistant
 3. You'll need to configure your AI providers.
 
-As of writing (2025-10-10) it supports Github Copilot for code completion and chat and Anthropic for chat. So your providers are more limited than other options here.
-
 ### Python users
 
 I'm not a Python programmer, however, all the principles I'll teach also apply to Python. You can easily follow on with the examples in Python.
 
-You will need to have VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for [Python set-up](https://code.visualstudio.com/docs/python/python-tutorial).
+You will need to have Positron or VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for [Python set-up](https://code.visualstudio.com/docs/python/python-tutorial).
 
 Then follow the instructions for 'Github Copilot set-up' (@sec-githubcopilot).
 
@@ -83,15 +77,15 @@ Here are some of the software options I've looked at. Or if you've picked your o
 
 | Option                   | Best for                                                                 | Pros                                                                                                                                                                                                                                                                                                                                                                   | Cons                                                                                                         |
 |--------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| VScode with Github Copilot | Coders of all abilities who have a fixed budget or just want to try IDE integration | - Subscription based<br>- Capable free tier<br>- Editor integration (auto-complete style)<br>- Agent mode<br>- Multiple LLMs available<br>- Easy to use                                                                                                                                    | - VSCode can be hard to set-up for R users<br>- Less flexibility and customization than other agents<br>- The Github Copilot Agent is less automated than other agent software<br>- Limited choice of LLMs (unless you BYO API key) |
+| VScode or similar* with Github Copilot | Coders of all abilities who have a fixed budget or just want to try IDE integration | - Subscription based<br>- Basic free tier<br>- Editor integration (auto-complete style)<br>- Agent mode<br>- Multiple LLMs available<br>- Easy to use                                                                                                                                    | - VSCode can be hard to set-up for R users<br>- Less flexibility and customization than other agents<br>- The Github Copilot Agent is less automated than other agent software<br>- Limited choice of LLMs (unless you BYO API key) |
 | Ellmer R package         | R users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers. | - Works anywhere R works<br>- Unlimited flexibility<br>- BYO API key, can interact with any LLM<br>- Automate API calls to LLMs                                                                                                                    | - Only a basic prompt interface provided (you need to write it)                                              |
 | Gander R package         | Moderately experienced R users who don't want to leave RStudio.          | - Works with Rstudio<br>- Can see 'inside of' R objects, so knows your variable names<br>- Can customize how it works to optimize performance and cost<br>- BYO API key, can interact with any LLM                                                  | - Requires some experience with the R program<br>- Not as deeply integrated with Rstudio as Github Copilot is with VScode (doesn't have as many features as copilot) |
 | Aider                    | Experienced python programmers                                           | - Python based AI agent<br>- Interact with the agent via Python code<br>- Highly flexible, can use as an everyday coding assistant or to create bespoke agents<br>- Can edit files as well as run in agent mode                                     | - Not a straightforward prompt interface<br>- Requires Python coding experience                              |
-| VSCode with Roo Code     | Experienced programmers who want to fully automate coding workflows      | - Fully automated agents<br>- Multiple modes for different behaviours, e.g. architect versus code<br>- Orchestrate mode that can delegate to sub-agents and complete very complex tasks<br>- BYO API key<br>- System messages fully customizable for advanced scientific applications of agents<br>- One of the best performing and most popular agents | - VSCode can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing 'as you type' like copilot<br>- Not suitable for novice programmers |
-| VSCode with Cline         | Same as Roo Code. The user base for Cline is slightly larger. | - Fully automated agents<br>- Multiple modes for different behaviours<br>- BYO API key<br>- System messages customizable<br>- Large user base | - Less options for customizing the system prompt compared to Roo Code<br>- Not suitable for novice programmers |
+| VSCod or similar* with Roo Code     | Experienced programmers who want to fully automate coding workflows      | - Fully automated agents<br>- Multiple modes for different behaviours, e.g. architect versus code<br>- Orchestrate mode that can delegate to sub-agents and complete very complex tasks<br>- BYO API key<br>- System messages fully customizable for advanced scientific applications of agents<br>- One of the best performing and most popular agents | - VSCode can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing 'as you type' like copilot<br>- Not suitable for novice programmers |
+| VSCode or similar* with Cline         | Same as Roo Code. The user base for Cline is slightly larger. | - Fully automated agents<br>- Multiple modes for different behaviours<br>- BYO API key<br>- System messages customizable<br>- Large user base | - Less options for customizing the system prompt compared to Roo Code<br>- Not suitable for novice programmers |
 | Positron with Roo Code or Cline | R users who don't want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio. | - Possibly a bit easier to set-up R than with VScode<br>- Pros and cons are same as VScode with Roo Code or Cline | - New software<br>- Limited features and support |
 | Positron Assistant | R users who don't want to use VScode. Positron is a fork (copy) of VScode managed by Posit, the group who run RStudio. | - Possibly a bit easier to set-up R than with VScode<br>- Pros R friendly developer. Cons on version 0 so software will likely change | - New software<br>- Limited features to date |
-| Claude Code              | Users who want a subscription-based, terminal- and cloud-native agent that also runs on the web | - Fully automated agents, run from the terminal or a browser<br>- Strong track record on R and statistics tasks<br>- Subscription based, so cost is predictable<br>- Runs in isolated cloud sandboxes for web sessions | - Not deeply integrated with RStudio<br>- Newer to the R community, fewer worked examples out there yet |
+| Claude Code, Codex and similar              | Users who want a subscription-based, terminal- and cloud-native agent that also runs on the web | - Fully automated agents, run from the terminal or a browser<br>- Strong track record on R and statistics tasks<br>- Subscription based, so cost is predictable<br>- Runs in isolated cloud sandboxes for web sessions | - Not deeply integrated with RStudio<br>- Newer to the R community, fewer worked examples out there yet |
 
 There are many other (10s, 100s?) of coding assistants now available. Some prominent examples are Cursor and Windsurf. I haven't tried these, I understand they are similar to Github Copilot. Last time I checked none of them worked with Rstudio. We'll come back to Claude Code specifically in [Section 2](section-2-agents/01-agent-options.qmd), since it's really an agent rather than an inline-completion tool.
 
@@ -103,7 +97,7 @@ Now you need to choose your large language model provider. I'm currently using O
 
 You choose depends on what you want to do and your budget. Some providers offer a free tier. You'll need to web search for the latest info on this.
 
-For this workshop I **strongly recommend you get an OpenRouter API key**. This will give you the most flexibility to try different models and to find models that have free options.
+For this workshop I **strongly recommend you get an OpenRouter API key**. This will give you the most flexibility to try different models and to find models that have free options. Its a bit more expensive than buying tokens directly from the model's home provider, but gives you more flexibility. 
 
 Once you've chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.
 
@@ -117,7 +111,7 @@ The one caveat is that OpenRouter may not have access the the full capabilities 
 
 ## VSCode set-up for R users {#sec-vscodesetup}
 
-VScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.
+VScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it or one of its clones (like Positron) will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.
 
 Most of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I'll explain how to set-up VSCode (a popular IDE) so you can use Cline.
 

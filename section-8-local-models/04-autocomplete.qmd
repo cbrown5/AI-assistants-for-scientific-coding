@@ -1,0 +1,17 @@
+# Autocomplete and agentic coding
+
+Chris started with the [Qwen 2.5 Coder base](https://ollama.com/library/qwen2.5-coder), because he wanted to try using Ollama for autocomplete suggestions while coding.
+
+To get the model he just ran `ollama pull qwen2.5-coder:7b-base`. Then it downloaded from the internet. This took a while as the file is several gigabytes.
+
+He used the 'base' version as it seems to perform better for line completion. Other models are trained for back and forth chatting, so tend not to want to complete your sentences (which would be annoying in a chat interface!).
+
+So download that model, and then you're going to need another extension to help with the autocomplete. If you're using Visual Studio Code, you can install the [Continue extension](https://marketplace.visualstudio.com/items?itemName=Continue.continue) and then just follow [their instructions](https://docs.continue.dev/customize/model-providers/ollama) for connecting Continue to Ollama. Note that Continue has been acquired by the company Cursor and the actual extension may not be around for much longer. We can also use [Kilo Code](https://kilo.ai/docs/automate/extending/local-models) as an alternative extension that also supports local models.
+
+[Check their list of recommended models.](https://docs.continue.dev/customize/models)
+
+Other applications you might want to try out are the chat agents option in Continue. This will make changes to your scripts. The base model we used above won't work for this task, you will want a different model that is optimized for chat and agentic workflows. Usually these models are significantly larger.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO
+:::

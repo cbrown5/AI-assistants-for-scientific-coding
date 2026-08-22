@@ -1,0 +1,7 @@
+# Section 8: Running local models {.unnumbered}
+
+Chris had put off trying local models as the setup seemed too complex for him, but Scott convinced him to try it out. Chris did and says it was easier than he had thought. This section walks through the setup: installing Ollama, understanding the hardware you need, choosing a model, and then three applications — autocomplete, agentic coding, and processing text and literature in R.
+
+::: {.callout-note appearance="simple"}
+This section is adapted from ['Running local large language models not as difficult as you might think'](https://vitaexmachina.substack.com/p/running-local-large-language-models), jointly authored by Chris Brown, Scott Spillias, Carla Sbrocchi and Luis D. Verde Arregoitia.
+:::

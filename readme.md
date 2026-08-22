@@ -6,7 +6,7 @@
 
 ## v2 structure
 
-The book is now a set of short, self-paced modules (~10 min each) grouped into seven sections, following Introduction and Setup. Every module except Introduction and Setup ends with a Challenge callout. See `_quarto.yml` for the full chapter/part list.
+The book is now a set of short, self-paced modules (~10 min each) grouped into eight sections, following Introduction and Setup. Every module except Introduction and Setup ends with a Challenge callout. See `_quarto.yml` for the full chapter/part list.
 
 - Introduction, Setup (no quizzes)
 - Section 1: Line-by-line code completion
@@ -16,6 +16,7 @@ The book is now a set of short, self-paced modules (~10 min each) grouped into s
 - Section 5: Customizing agents
 - Section 6: Agentic engineering for data analysis
 - Section 7: LLM access via API
+- Section 8: Running local models
 
 ## Planned updates
 

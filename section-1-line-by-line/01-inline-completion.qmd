@@ -1,6 +1,6 @@
 # Inline code completion
 
-**Software requirements:** VScode with R or Python and a GitHub Copilot license + extension (or RStudio with Copilot enabled — see [Setup](../02-setup.qmd)).
+**Software requirements:** VScode with R or Python and a GitHub Copilot license + extension (or RStudio with Copilot enabled — see [Setup](../02-setup.qmd)). Alternatively, a local LLM with the Continue extension or similar. 
 
 Inline completion is the gentlest introduction to AI-assisted coding, and probably how you're already using it if you've dabbled at all. You start typing, the assistant guesses what you meant to type next, and you hit `tab` to accept.
 
@@ -14,7 +14,9 @@ Let's read in the benthic coral cover and fish count data we'll use throughout t
 library(tidyverse)
 library(readr)
 
-dat <- read_csv(url("https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"))
+dat <- read_csv(url(
+    "https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"
+))
 
 head(dat)
 summary(dat)
