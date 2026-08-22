@@ -56,3 +56,5 @@ Add more about positron and its setup
 
 ## Open LLM
 Read and update this section
+
+Try out then add Qwen2.5-Coder at 1.5B or 0.5B if you're CPU-only, larger with VRAM for autocomplete, try llama.vscode for tab completion
