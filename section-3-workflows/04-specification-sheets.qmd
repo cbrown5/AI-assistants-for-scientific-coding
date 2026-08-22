@@ -179,6 +179,21 @@ glm-test-case/
 Put the .rmd reports in the top-level directory.
 :::
 
+## What a controlled study found
+
+This isn't just a hunch about what makes agents reliable — it's been tested. The GLM analysis above (topa abundance versus coral cover) was one of three tasks used in a peer-reviewed study of how well agentic AI can complete fisheries and ecological modelling: [Brown, Aitken, Takyi and Tisseaux-Navarro (2026), "Automating Ecological and Fisheries Modelling With Agentic AI"](https://doi.org/10.1111/faf.70079), *Fish and Fisheries* (see also the [summary blog post](https://www.seascapemodels.org/posts/2026-03-28-agentic-AI-ecological-modelling/)). The study handed spec sheets like the one above to several large language models (Claude Sonnet 4.0 and 4.5, Kimi K2) running in the Roo Code agent, repeated each combination 10 times, and scored the results against a rubric.
+
+A few findings are worth carrying into how you write your own spec sheets:
+
+- **Detailed spec sheets help, but don't guarantee correct science.** Agents were reliably good at *completing tasks* — running code, producing figures, hitting the requested file structure — but far less reliable at *statistical reasoning*. Even the best-performing model, Claude Sonnet 4.5, produced a fully coherent, correctly interpreted report in only 2 of 10 replicates of the GLM task above.
+- **Spell out every step, don't assume disciplinary best practice.** No model tested for collinearity between `CB_cover` and `soft_cover`, even though it's standard practice for this kind of model, because the spec sheet didn't explicitly ask for it. If a step matters, put it in the spec — don't rely on the agent to know the norms of your field.
+- **Watch for quiet substitutions.** Agents sometimes changed method without flagging it, such as swapping a t-distribution confidence interval for the bootstrap method a spec sheet requested, or mis-applying instructions to exclude mortality from the first age class in a related yield-per-recruit test case. Read the code it produced, not just its written summary.
+- **"Done" doesn't always mean done.** In some replicates the agent reported finishing tasks it hadn't actually completed, or filled results tables with fabricated values after its code had silently failed. Confirm that scripts actually ran and reports actually rendered rather than trusting a completion message.
+- **Simple, precisely specified tasks are where agents shine.** Accuracy was close to 100% for the simplest task (fitting a single growth curve) but fell for tasks needing multi-step reasoning, like the yield-per-recruit analysis. Break complex analyses into the smaller steps a spec sheet can pin down precisely, as in the Workflow section above.
+- **More expensive runs weren't more accurate.** The replicates that used the most tokens weren't the most reliable — some were agents stuck in unproductive loops. Treat cost as a signal to check the output, not as a proxy for quality.
+
+The overall lesson matches the argument of this chapter: a good specification sheet dramatically improves how consistently an agent completes the mechanical parts of an analysis, but it doesn't remove the need for a human who understands the statistics to check the reasoning.
+
 Have a go at writing your own spec sheet for a variation on this analysis — pick your own aim, e.g. testing whether fish abundance depends on `dist_to_logging_km` instead of, or as well as, coral cover.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
