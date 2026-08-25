@@ -1,0 +1,40 @@
+/*-- scss:defaults --*/
+
+$body-bg: #ffffff;
+$body-color: #16324F;
+$link-color: #1C7293;
+
+$presentation-heading-color: #0B4F6C;
+$presentation-heading-font: "Cambria", Georgia, serif;
+
+$presentation-h2-font-size: 1.5em;
+
+/*-- scss:rules --*/
+
+// Section-divider slides ("# Setup", "# Section 1", ...) — apply the
+// .section-divider class to the level-1 heading, e.g. `# Setup {.section-divider}`
+.reveal section.section-divider {
+  background-color: #0B4F6C;
+}
+
+.reveal section.section-divider h1 {
+  color: #ffffff;
+}
+
+.reveal section.section-divider p {
+  color: #D7E8EE;
+  font-size: 0.9em;
+}
+
+// Nudge callout titles to match the deck's bold, spaced kicker style
+.reveal .callout-important {
+  border-left-color: #C2410C;
+}
+
+.reveal .callout-important .callout-title-container {
+  color: #C2410C;
+}
+
+.reveal .callout-tip {
+  border-left-color: #1C7293;
+}
