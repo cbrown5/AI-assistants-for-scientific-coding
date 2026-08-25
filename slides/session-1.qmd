@@ -1,0 +1,310 @@
+---
+title: "AI Assistants for Scientific Coding"
+subtitle: "Workshop Session 1 — Setup · Line-by-Line Completion · Agents"
+author: "Chris Brown"
+date: last-modified
+format:
+  revealjs:
+    theme: [simple, theme.scss]
+    slide-number: c/t
+    transition: fade
+    width: 1280
+    height: 720
+---
+
+## This session's roadmap
+
+1. **Setup** — Positron / VS Code + Copilot
+2. **Section 1** — Line-by-line completion
+3. **Section 2** — Agents
+4. **Afternoon** — your choice (see the end of this deck)
+
+::: {.callout-tip}
+Each activity is short — the book has full walkthroughs and a Challenge for every one.
+:::
+
+# Setup {.section-divider}
+
+Getting your tools ready
+
+## Set up your IDE
+
+*Positron or VS Code, plus GitHub Copilot*
+
+:::: {.columns}
+
+::: {.column width="58%"}
+1. Install Positron (easiest for R users) — or VS Code and its clones (Cursor, Windsurf)
+2. Install the GitHub Copilot extension and sign in with your GitHub account
+3. Using `ellmer` or Gander too? Get an API key — OpenRouter is the recommended default
+:::
+
+::: {.column width="42%"}
+::: {.callout-tip title="Tip"}
+R users: try Positron first. It's built on VS Code's own source, so almost everything here still applies — it's just the easiest of the family to get running.
+:::
+:::
+
+::::
+
+Full step-by-step instructions: the book's [Setup](../02-setup.qmd) chapter.
+
+## Activity — Find your way around
+
+**Goal:** spend a few minutes comparing your new IDE to RStudio, before we touch any AI tools.
+
+- Terminal / console — where R actually runs
+- Script editor — where you write and edit code
+- Environment / variables pane — the objects in your session
+- Plots or viewer pane — where figures appear
+- Extensions panel — where Copilot and other tools live
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Open a script, run a line of R, and find where your plot appears.
+:::
+
+::: {.notes}
+~5 minutes. No book chapter for this one — it's just orientation before we touch any AI tools.
+:::
+
+# Section 1 {.section-divider}
+
+Line-by-line completion with GitHub Copilot
+
+## What is line-by-line completion?
+
+- You type, and the assistant guesses what comes next
+- Press `Tab` to accept — or keep typing to ignore it
+- Best for small, targeted edits — mistakes are obvious immediately
+
+::: {.callout-tip}
+This is the "judicious" way to use AI: targeted, low-risk, and easy to verify as you go.
+:::
+
+[Section 1 overview →](../section-1-line-by-line/index.qmd)
+
+## Activity 1 — Inline completion
+
+**Goal:** load the reef dataset and tab-complete a plot without typing the code yourself.
+
+1. Load the benthic coral-cover & fish-count dataset
+2. Start a new line, type `gg…` and watch the suggestion appear
+3. Press `Tab` to accept, or keep typing to steer it
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Plot `CB_cover` against `dist_to_logging_km` without typing any variable names first — how many attempts before it uses the right columns?
+:::
+
+::: {.notes}
+~10 minutes. [Full module →](../section-1-line-by-line/01-inline-completion.qmd)
+:::
+
+## Activity 2 — Completion via comment creation
+
+**Goal:** write what you want in a comment, and let Copilot write the code underneath it.
+
+1. Write a one-line comment above the cursor
+2. Trigger the suggestion and press `Tab`
+3. Try templating a whole sequence of plots from comments alone
+
+::: {.callout-note title="Prompt"}
+```
+# Make a point plot of secchi against pres.topa
+```
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Produce a grouped summary of `secchi` and `pres.topa` by `flow` — comments only, no typed R code.
+:::
+
+::: {.notes}
+~10 minutes. [Full module →](../section-1-line-by-line/02-comment-driven-completion.qmd)
+:::
+
+## Gander — an RStudio-friendly alternative
+
+:::: {.columns}
+
+::: {.column width="55%"}
+- Stays inside RStudio — no need to switch IDE
+- Sees inside your R session, so it already knows your variable names and their types
+- Select code, hit your shortcut key, and type a prompt
+:::
+
+::: {.column width="45%"}
+::: {.callout-note title="Live demo"}
+"Make a ggplot of pres.topa against CB_cover, coloured by logged"
+
+"Add a stat_smooth to this plot"
+:::
+:::
+
+::::
+
+Best for moderately experienced R users who don't want to leave RStudio.
+
+::: {.notes}
+Live demo, ~5 minutes. [Details →](../section-1-line-by-line/05-gander.qmd) — set-up instructions are in [Setup](../02-setup.qmd#sec-gander).
+:::
+
+## Activity 3 — Next edit suggestions
+
+**Goal:** write one working example, then let Copilot help generalise it into a function.
+
+1. Write the code for a single case (e.g. one species)
+2. Turn on Next Edit Suggestions (the octocat icon, bottom right)
+3. Start wrapping it in a function — tab through each suggested edit
+
+::: {.callout-tip title="Why this matters"}
+This is the same discipline an agent needs from you: a clear spec, worked out on one concrete case before you automate it. Next stop: Section 2.
+:::
+
+::: {.notes}
+~10 minutes. [Full module →](../section-1-line-by-line/03-next-edit-suggestions.qmd)
+:::
+
+# Section 2 {.section-divider}
+
+Agents — from one line to a whole workflow
+
+## How agents work
+
+Agents run tools in a loop:
+
+1. **Prompt**
+2. **Model picks a tool**
+3. **Tool runs**
+4. **Result feeds back**
+
+… and repeats until the model responds with plain text instead of another tool call.
+
+::: {.callout-note}
+By default, agents ask permission before each tool use — a safety net, not a guarantee. We'll unpack the security trade-offs properly in Section 4.
+:::
+
+[Section 2 overview →](../section-2-agents/index.qmd)
+
+## Activity — Create an analysis with an agent
+
+**Goal:** hand the agent a real regression task, end to end — scripts, run, and plots.
+
+1. Switch your assistant to Agent mode
+2. Open the data readme so the agent has variable context
+3. Prompt it, then follow along — adjust or correct as it goes
+
+::: {.callout-note title="Prompt"}
+I want to do a regression of pres.topa on cb_cover. Create all the scripts I need, and run them to make plots of the predicted relationship.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Run the same prompt twice, in two separate sessions — did the agent pick the same GLM family both times?
+:::
+
+::: {.notes}
+~15 minutes. [Full module →](../section-2-agents/04-first-agent-example.qmd)
+:::
+
+## Prompting practice
+
+**Goal:** build the habits that keep an agent on track.
+
+- Content matters more than tone or wording
+- Attach context: data summaries, metadata, domain knowledge
+- Compare runs — same prompt, different agents or models
+
+::: {.callout-tip title="From the book"}
+"Arrr matey, I be wantin' a regression of pres.topa on cb_cover…" — a pirate-voiced prompt that got the job done exactly as well as a plain one. Don't overthink your style; the content is what carries.
+:::
+
+::: {.notes}
+~10 minutes. [More on prompting agents →](../section-2-agents/05-prompting-agents-part1.qmd) and [part 2](../section-2-agents/06-prompting-agents-part2.qmd).
+:::
+
+## Where that leaves us
+
+:::: {.columns}
+
+::: {.column width="33%"}
+**3** completion activities
+
+Inline, comments, and Gander
+:::
+
+::: {.column width="33%"}
+**1** full agent run
+
+A regression, end to end
+:::
+
+::: {.column width="33%"}
+**2** prompting practices
+
+Context, and content over style
+:::
+
+::::
+
+Every activity has more detail, screenshots, and a Challenge in the book — go back any time:
+[seascapemodels.org/AI-assistants-for-scientific-coding](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
+
+## Where could we go next?
+
+:::: {.columns}
+
+::: {.column width="33%"}
+**[Section 3 — AI in Workflows](../section-3-workflows/index.qmd)**
+
+Choose a statistical approach, plan it, then write the code
+
+**[Section 4 — Security & Privacy](../section-4-security-privacy/index.qmd)**
+
+The risks behind "approve everything," and safer defaults
+:::
+
+::: {.column width="33%"}
+**[Section 5 — Customizing Agents](../section-5-customizing-agents/index.qmd)**
+
+Turn what you learned into a reusable skill or sub-agent
+
+**[Section 6 — Agentic Engineering](../section-6-agentic-engineering/index.qmd)**
+
+Testing & verification habits borrowed from software engineering
+:::
+
+::: {.column width="33%"}
+**[Section 7 — LLM Access via API](../section-7-api-access/index.qmd)**
+
+Go under the chat window — build a tiny agent yourself
+
+**[Section 8 — Running Local Models](../section-8-local-models/index.qmd)**
+
+Models on your own machine, no API key required
+:::
+
+::::
+
+## A suggested afternoon path
+
+**A. Keep building the analysis** — Sections 3 + 6
+
+The natural next step from this morning's agent work — plan an approach, then apply verification habits.
+
+**B. Go deeper on safety** — Sections 4 + 5
+
+Lock in good habits before scaling up — security trade-offs, then packaging what you've learned.
+
+**C. Go under the hood** — Section 7
+
+Build a tiny agent yourself with `ellmer`, and see exactly what Copilot has been doing for you.
+
+::: {.callout-note}
+Section 8 (local models) is a good add-on for anyone without an API budget or working with sensitive data.
+:::
+
+# Thank you {.section-divider}
+
+Questions, or want to compare notes as you go? Let's talk.
+
+Book: [seascapemodels.org/AI-assistants-for-scientific-coding](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
+
+Example data: [github.com/cbrown5/example-ecological-data](https://github.com/cbrown5/example-ecological-data)
