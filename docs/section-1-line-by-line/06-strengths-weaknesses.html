@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Strengths and weaknesses of line-by-line completion – AI assistants for Scientific Coding</title>
+<title>9&nbsp; Strengths and weaknesses of line-by-line completion – AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -101,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">AI assistants for Scientific Coding</a> 
+      <a href="../">AI Assistants for Scientific Coding</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -153,13 +173,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-1-line-by-line/03-next-edit-suggestions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Start with ghost text</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Next edit suggestions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-1-line-by-line/04-copilot-settings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GitHub Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -180,11 +200,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-2-agents/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 2: Agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
@@ -245,11 +265,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-3-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 3: AI in workflows</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
@@ -280,11 +300,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 4: Security, data privacy and cloud agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
@@ -320,16 +340,16 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Customizing agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">Section 5: Customising agents</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customisation?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -356,11 +376,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
@@ -385,11 +405,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 7: LLM access via API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
@@ -432,11 +452,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 8: Running local models</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
@@ -458,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -478,7 +498,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text">Appendix — Code and data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -514,7 +540,7 @@ ul.task-list li input[type="checkbox"] {
 <p>You’ve now used inline completion, comment-driven completion, and Gander. Before we move on to agents in the next section, it’s worth stepping back and asking: when is the line-by-line approach the appropriate choice?</p>
 <p>I wrote about this at length in a post called <a href="https://www.seascapemodels.org/posts/2026-05-09-judicious-AI-use/">“Mitigating the risks of AI coding tools with judicious use for research tasks”</a>. The short version: being <em>judicious</em> with AI coding tools mitigates most of the risks that concern researchers — wasted time, electricity use, cybersecurity, and data privacy. By judicious I mean using a tool in a targeted way for a specific task where you already know it works well, and carefully preparing the context and prompt rather than just throwing AI at a poorly defined problem.</p>
 <p>Line-by-line completion is, by construction, judicious. It operates on one line or one small block at a time. The “context” it needs is just your open script (or, with Gander, your R environment). There’s no autonomous multi-step plan for it to wander off course on. If it gets something wrong, you see it immediately and reject the suggestion.</p>
-<p>That’s the strength. It’s also the weakness: line-by-line completion can’t hold a whole analysis in its head. It won’t notice that the model you fit three scripts ago used a different family than the one you’re fitting now. It can’t restructure a project, write a report, or decide whether a negative binomial or a Poisson GLM is the right call.</p>
+<p>That’s the strength. It’s also the weakness: line-by-line completion can’t hold a whole analysis in its head. It won’t notice that the model you fit three scripts ago used a different family than the one you’re fitting now. It can’t restructure a project, write a report, or decide whether a negative binomial or a Poisson GLM is the right call. For learning a new method, a more conversational setup can work better — LLM tutors have been used to accelerate method development in routine analytical workflows <span class="citation" data-cites="le_conversational_2025">(<a href="../references.html#ref-le_conversational_2025" role="doc-biblioref">Le et al. 2025</a>)</span>.</p>
 <p>Another benefit of line-by-line editing is it forces you to have a clear workflow and your ‘prompts’ are short (just the code in your file). This lets you use a cheaper, smaller model. Cheaper models use less energy, and a surgical approach — giving an assistant access to fewer files and less context — creates fewer security risks too (more on that in <a href="../section-4-security-privacy/index.html">Section 4</a>). So the same discipline that saves you time also tends to save electricity and reduce your security risks.</p>
 <p>The leading alternative to line-by-line editing is Agents, which we’re about to meet.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
@@ -531,9 +557,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">A well-known study by METR</a> found that professional software developers <em>thought</em> they’d go faster using AI tools, but on a set of real tasks they actually went slower. I think this problem is probably worse for researchers than for software developers. Developers have a comparatively easy way to verify success — the app either works or it doesn’t. Research is harder to verify, because by definition you’re doing something that hasn’t been done before; some fields take decades to confirm a result. That makes it easy to burn time “fixing up slop,” correcting mistakes, or rewriting an answer into your own style (if you’re tired of seeing the same “on the other hand” LLM sentence structure showing up in blogs and papers everywhere, you’re not alone).</p>
-<p>The trick is to experiment just enough to know at what points in your workflow AI genuinely helps, then put the hard mental work in up front — on your prompts and your context — rather than hoping a bigger model will compensate for a vague ask. I find its best to start this process with simpler tools, like line-by-line completion, before moving onto more complex tools, like agents.</p>
+<p>The trick is to experiment just enough to know at what points in your workflow AI genuinely helps, then put the hard mental work in up front — on your prompts and your context — rather than hoping a bigger model will compensate for a vague ask. I find it’s best to start this process with simpler tools, like line-by-line completion, before moving onto more complex tools, like agents.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
+Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
+</div>
+<div id="ref-le_conversational_2025" class="csl-entry" role="listitem">
+Le, An T. H., Thomas Shvekher, Lewis Nguyen, and Sergey N. Krylov. 2025. <span>“A <span>Conversational</span> <span>Large</span>-<span>Language</span>-<span>Model</span> <span>Tutor</span> That <span>Accelerates</span> <span>Machine</span>-<span>Learning</span> <span>Method</span> <span>Development</span> in <span>Routine</span> <span>Bioanalytical</span> <span>Workflows</span>.”</span> <em>ChemBioChem</em>, e202500678. <a href="https://doi.org/10.1002/cbic.202500678">https://doi.org/10.1002/cbic.202500678</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

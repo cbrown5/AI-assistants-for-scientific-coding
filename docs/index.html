@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Chris Brown">
-<meta name="dcterms.date" content="2025-08-30">
+<meta name="dcterms.date" content="2026-08-25">
 
-<title>AI assistants for Scientific Coding</title>
+<title>AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -102,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI assistants for Scientific Coding</a> 
+      <a href="./">AI Assistants for Scientific Coding</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -134,11 +154,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-1-line-by-line/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 1: Line-by-line code completion</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/01-inline-completion.html" class="sidebar-item-text sidebar-link">
@@ -154,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/03-next-edit-suggestions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Start with ghost text</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Next edit suggestions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/04-copilot-settings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GitHub Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -181,11 +201,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-2-agents/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 2: Agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
@@ -246,11 +266,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-3-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 3: AI in workflows</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
@@ -281,11 +301,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 4: Security, data privacy and cloud agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
@@ -321,16 +341,16 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Customizing agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">Section 5: Customising agents</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customisation?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,11 +377,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
@@ -386,11 +406,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 7: LLM access via API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
@@ -433,11 +453,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 8: Running local models</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
@@ -459,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -479,7 +499,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text">Appendix — Code and data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -512,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AI assistants for Scientific Coding</h1>
+<h1 class="title">AI Assistants for Scientific Coding</h1>
 </div>
 
 
@@ -529,7 +555,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2025</p>
+      <p class="date">August 25, 2026</p>
     </div>
   </div>
   
@@ -546,22 +572,20 @@ ul.task-list li input[type="checkbox"] {
 <p>If you are doing data analysis you are probably using language models (e.g.&nbsp;ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.</p>
 <p>I will cover:</p>
 <ul>
-<li><p>How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).</p></li>
-<li><p>Vibe coding and how future analysis workflows will change dramatically from today</p></li>
-<li><p>Best practice prompting techniques that can dramatically improve model performance for complex data analysis</p></li>
-<li><p>Applying language models to common environmental applications such as GLMs and multivariate statistics</p></li>
-<li><p>Issues including environmental impacts, copyright and ethics</p></li>
-<li><p>I’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.</p></li>
+<li>How to use different software tools, from simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).</li>
+<li>Best practice prompting techniques that can dramatically improve model performance for complex data analysis</li>
+<li>Applying language models to common environmental applications such as generalised linear models</li>
+<li>Security, data privacy and the limitations of these tools for scientific work</li>
 </ul>
-<p>The content I’ll teach is suitable for anyone using computing coding (e.g.&nbsp;R, Python) to do data analysis.</p>
+<p>The content I’ll teach is suitable for anyone using scientific computing (e.g.&nbsp;R, Python) to do data analysis.</p>
 <p>Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g.&nbsp;R or Python).</p>
 </section>
 <section id="citation-for-book" class="level2" data-number="0.2">
 <h2 data-number="0.2" class="anchored" data-anchor-id="citation-for-book"><span class="header-section-number">0.2</span> Citation for book</h2>
 <p>Please consider citing my accompanying article if you are using the advice in this book:</p>
-<p><strong>Citation: Brown, C.J. &amp; Spillias, S. (2026). Prompting large language models for quality ecological statistics. <em>Methods in Ecology and Evolution</em>. <a href="https://doi.org/10.1111/2041-210x.70267">https://doi.org/10.1111/2041-210x.70267</a></strong></p>
+<p><strong>Brown, C.J. &amp; Spillias, S. (2026). Prompting large language models for quality ecological statistics. <em>Methods in Ecology and Evolution</em>. [https://doi.org/10.1111/2041-210x.702670</strong> <span class="citation" data-cites="brown_prompting_2026">(<a href="references.html#ref-brown_prompting_2026" role="doc-biblioref">Brown and Spillias 2026</a>)</span></p>
 <p>If you are using the material on agents and specification sheets, the companion study is:</p>
-<p><strong>Citation: Brown, C.J., Aitken, J., Takyi, R. &amp; Tisseaux-Navarro, A. (2026). Automating Ecological and Fisheries Modelling With Agentic AI. <em>Fish and Fisheries</em>. <a href="https://doi.org/10.1111/faf.70079">https://doi.org/10.1111/faf.70079</a></strong></p>
+<p><strong>Brown, C.J., Aitken, J., Takyi, R. &amp; Tisseaux-Navarro, A. (2026). Automating Ecological and Fisheries Modelling With Agentic AI. <em>Fish and Fisheries</em>. [https://doi.org/10.1111/faf.700791</strong> <span class="citation" data-cites="brown_automating_2026">(<a href="references.html#ref-brown_automating_2026" role="doc-biblioref">Brown et al. 2026</a>)</span></p>
 </section>
 <section id="who-should-read-this-book" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</h2>
@@ -570,11 +594,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="is-the-book-up-to-date" class="level2" data-number="0.4">
 <h2 data-number="0.4" class="anchored" data-anchor-id="is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</h2>
 <p>The large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out <a href="https://luisdva.github.io/llmsr-book/before-start.html">Large Language Model tools for R</a> by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.</p>
-<p>Last update was 2026-08-25.</p>
+<p>This version of the book was last updated on the date shown at the top of this page.</p>
 </section>
 <section id="about-chris" class="level2" data-number="0.5">
 <h2 data-number="0.5" class="anchored" data-anchor-id="about-chris"><span class="header-section-number">0.5</span> About Chris</h2>
-<p>I’m an Associate Professor of Fisheries Science at University of Tasmania. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.</p>
+<p>I’m an Associate Professor of Fisheries Science at University of Tasmania. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to hundreds of people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.</p>
 </section>
 <section id="software-youll-need-for-this-workshop" class="level2" data-number="0.6">
 <h2 data-number="0.6" class="anchored" data-anchor-id="software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</h2>
@@ -582,7 +606,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="book-overview" class="level2" data-number="0.7">
 <h2 data-number="0.7" class="anchored" data-anchor-id="book-overview"><span class="header-section-number">0.7</span> Book overview</h2>
-<p>The book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections.</p>
+<p>The book is organised as short, self-paced modules, grouped into bigger sections.</p>
 <ul>
 <li><a href="./01-introduction.html">Introduction</a>: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.</li>
 <li><a href="./02-setup.html">Setup</a>: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.</li>
@@ -590,10 +614,10 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="./section-2-agents/index.html">Section 2: Agents</a>: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.</li>
 <li><a href="./section-3-workflows/index.html">Section 3: AI in workflows</a>: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.</li>
 <li><a href="./section-4-security-privacy/index.html">Section 4: Security, data privacy and cloud agents</a>: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.</li>
-<li><a href="./section-5-customizing-agents/index.html">Section 5: Customizing agents</a>: Skills and sub-agents — packaging reusable instructions and delegating specialized roles, worked through a GLM analysis, plotting, and methods write-up.</li>
+<li><a href="./section-5-customizing-agents/index.html">Section 5: Customising agents</a>: Skills and sub-agents — packaging reusable instructions and delegating specialised roles, worked through a GLM analysis, plotting, and methods write-up.</li>
 <li><a href="./section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a>: Tests and verification, red-green TDD, and using simulated data as a verification step.</li>
 <li><a href="./section-7-api-access/index.html">Section 7: LLM access via API</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
-<li><a href="./section-8-local-models/index.html">Section 8: Local LLMs</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
+<li><a href="./section-8-local-models/index.html">Section 8: Running local models</a>: installing Ollama, the hardware you’ll need, choosing a model, and three applications — autocomplete, agentic coding, and processing text and literature in R.</li>
 <li><a href="./99-appendix.html">Appendix — Code and data</a>: Code snippets, data access links and supporting scripts used in the book.</li>
 </ul>
 </section>
@@ -602,7 +626,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.</p>
 <section id="benthic-cover-surveys-and-fish-habitat" class="level3" data-number="0.8.1">
 <h3 data-number="0.8.1" class="anchored" data-anchor-id="benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</h3>
-<p>In this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by <a href="http://dx.doi.org/10.1016/j.biocon.2017.04.024">Hamilton et al.&nbsp;2017</a> who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.</p>
+<p>In this course we’ll be analysing benthic cover and fish survey data. These data were collected by divers doing standardised surveys on the reefs of Kia, Solomon Islands. These data were first published by <a href="http://dx.doi.org/10.1016/j.biocon.2017.04.024">Hamilton et al.&nbsp;2017</a> <span class="citation" data-cites="hamilton_logging_2017">(<a href="references.html#ref-hamilton_logging_2017" role="doc-biblioref">Hamilton et al. 2017</a>)</span>, who showed that logging of forests is causing sedimentation and impacting habitats of an important fishery species.</p>
 <p>In a follow-up study <a href="http://dx.doi.org/10.1111/cobi.13079">Brown and Hamilton 2018</a> developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.</p>
 </section>
 </section>
@@ -612,6 +636,20 @@ ul.task-list li input[type="checkbox"] {
 <p>Some sections are written by Claude where I think a topic is important to cover, but I have not had time to update/write them myself. However, I do due diligence editing on everything, to remove AI slop and check for accuracy.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-brown_automating_2026" class="csl-entry" role="listitem">
+Brown, Christopher J., Jasmine Aitken, Richard Takyi, and Andrés Tisseaux-Navarro. 2026. <span>“Automating <span>Ecological</span> and <span>Fisheries</span> <span>Modelling</span> <span>With</span> <span>Agentic</span> <span>AI</span>.”</span> <em>Fish and Fisheries</em>. <a href="https://doi.org/10.1111/faf.70079">https://doi.org/10.1111/faf.70079</a>.
+</div>
+<div id="ref-brown_prompting_2026" class="csl-entry" role="listitem">
+Brown, Christopher J., and Scott Spillias. 2026. <span>“Prompting Large Language Models for Quality Ecological Statistics.”</span> <em>Methods in Ecology and Evolution</em>. <a href="https://doi.org/10.1111/2041-210X.70267">https://doi.org/10.1111/2041-210X.70267</a>.
+</div>
+<div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
+Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
+</div>
+<div id="ref-hamilton_logging_2017" class="csl-entry" role="listitem">
+Hamilton, Richard J., Glenn R. Almany, Christopher J. Brown, John Pita, Nathan A. Peterson, and J. Howard Choat. 2017. <span>“Logging Degrades Nursery Habitat for an Iconic Coral Reef Fish.”</span> <em>Biological Conservation</em> 210: 273–80. <a href="https://doi.org/10.1016/j.biocon.2017.04.024">https://doi.org/10.1016/j.biocon.2017.04.024</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -1,26 +1,23 @@
 # What you'll need
 
-**Software requirements:** A desktop or laptop computer (more on hardware in the next module), the Ollama software, and at least one downloaded model.
+**Software requirements:**
 
-*   A desktop or laptop computer, more on hardware below.
-
-*   **Download the [Ollama](https://ollama.com/)** software
-
-*   **A large language model**, it's simple to use Ollama to download one.
-
-*   **Ideally, another piece of software that interacts with Ollama** — this can either be, say, [ellmer](https://ellmer.tidyverse.org/), the R package, which can make calls to Ollama, or it can be an extension like [Continue](https://www.continue.dev/), which lets you do agentic coding and autocomplete.
+- A desktop or laptop computer — more on hardware in the [next module](02-performance-and-hardware.qmd).
+- The [Ollama](https://ollama.com/) software.
+- **A large language model.** Ollama makes it simple to download one.
+- Ideally, another piece of software that talks to Ollama — either [ellmer](https://ellmer.tidyverse.org/), the R package, which can make calls to Ollama, or an editor extension like [Continue](https://www.continue.dev/), which gives you agentic coding and autocomplete.
 
 ## Ollama
 
-The main software you need to get is Ollama. Go to [ollama.com](https://ollama.com/) and download and install Ollama (you may need to seek IT approval if you are doing this on a work computer). Then you have several choices for [models](https://ollama.com/library) to download directly from Ollama These are open source models, and we recommend researching their webpage for which model would be best for the particular application you want to use Ollama for. More on this below.
+The main software you need to get is Ollama. Go to [ollama.com](https://ollama.com/) and download and install Ollama (you may need to seek IT approval if you are doing this on a work computer). Then you have several choices for [models](https://ollama.com/library) to download directly from Ollama. These are open source models — read the page for each one to work out which suits your application. There's more on choosing a model in a [later module](03-choosing-a-model.qmd).
 
-The way Ollama works is it sets up a localhost server. This is like a web server, where you would access a service from the internet, except the server runs locally on your computer. It just sits there waiting until you make a request of the LLM. Then what it's going to do is load a large language model into memory and pass that request to a locally run large language model.
+Ollama works by setting up a localhost server. This is like a web server that you would access over the internet, except it runs locally on your own computer. It just sits there waiting until you make a request of the LLM. Then what it's going to do is load a large language model into memory and pass that request to a locally run large language model.
 
 ## The commands you need
 
-Ollama comes with a clickable interface, but we find it more convenient to use the terminal. Here are some of the key commands.
+Ollama comes with a clickable interface, but I find it more convenient to use the terminal. Here are some of the key commands.
 
-```
+```bash
 ollama serve                  # start the server (the desktop app does this for you)
 ollama pull qwen2.5-coder     # download a model
 ollama run qwen2.5-coder      # chat with a model (downloads it first if you don't have it)
@@ -31,4 +28,8 @@ ollama rm qwen2.5-coder       # delete a downloaded model from disk
 ```
 
 Full list: [CLI reference](https://docs.ollama.com/cli).
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Install Ollama, then run `ollama pull qwen2.5-coder:1.5b` followed by `ollama run qwen2.5-coder:1.5b` and ask it an R question you know the answer to (note running this code will download a 1GB file). Then run `ollama ps` in a second terminal to see the model sitting in memory. How does the answer compare to what you'd get from a cloud model?
+:::
 

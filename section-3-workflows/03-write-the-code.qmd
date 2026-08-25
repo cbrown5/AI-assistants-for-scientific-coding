@@ -8,8 +8,8 @@ Once you're happy with the plan, it's time to implement it. There are roughly th
 
 Vibe coding isn't recommended for scientific projects — we'll come back to why in [Section 2](../section-2-agents/08-reviewing-agent-output.qmd) and [Section 6](../section-6-agentic-engineering/index.qmd).
 
-::: {.tip}
-**Tip:** Your README is the assistant's memory across chat sessions (where it would otherwise forget everything). Keep it updated as you go — it's also what future-you will thank you for.
+::: {.callout-tip appearance="simple"}
+Your README is the assistant's memory across chat sessions (where it would otherwise forget everything). Keep it updated as you go — it's also what future-you will thank you for.
 :::
 
 A few more tips for this stage:

@@ -1,10 +1,10 @@
 # How agents work
 
-Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). That's really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. We'll build a toy version of this loop ourselves with `ellmer` in [Section 7](../section-7-api-access/05-make-an-agent.qmd) — once you've built one, "agent" stops feeling like a mysterious term.
+Agents [run tools in a loop](https://simonwillison.net/2025/Sep/18/agents/). That's really the whole concept: the model responds, your software checks whether the response is a request to use a tool (read a file, run a command, edit some text), executes it if so, feeds the result back to the model as part of the conversation, and repeats. The loop ends when the model responds with plain text instead of another tool call. This loop is what makes it possible to automate multi-step data analysis rather than just generate snippets [@jansen_leveraging_2025]. We'll build a toy version of this loop ourselves with `ellmer` in [Section 7](../section-7-api-access/05-make-an-agent.qmd) — once you've built one, "agent" stops feeling like a mysterious term.
 
 Here's roughly how a statistical workflow looks with inline editing (Section 1) versus with an agent doing the same task:
 
-![](../resources/AI-agent-workflows.png)
+![Two workflow diagrams compared: inline editing, where you write each step and the assistant completes lines, versus an agent, which plans, writes, runs and revises the code in a loop.](../resources/AI-agent-workflows.png)
 
 The default behaviour for most agents is to ask your permission before running a tool. That's a safety feature — agents can write and run code, and they can also just get things wrong — so you get a chance to review each step before it happens. In practice, agents work fast enough that *you* become the bottleneck in the loop, not the model.
 
@@ -13,5 +13,5 @@ My own workflow mixes Copilot's editing features with a full agent (Cline or Cop
 Keep a markdown file updated as you go, so the agent stays on topic across sessions — a `README.md` works, and a growing number of agents look specifically for a file called `AGENTS.md` or `CLAUDE.md` for Anthropic's models. If the context in that file goes stale (say, it still mentions a package you've since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Look at the docs for whatever agent you have available and see if you can edit or add to the system prompt. What tools are currently listed and is it possible to change these options? 
+Look at the docs for whatever agent you have available and see if you can edit or add to the system prompt. What tools are currently listed and is it possible to change these options?
 :::

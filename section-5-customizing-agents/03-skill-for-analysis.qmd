@@ -1,18 +1,18 @@
 # Writing a skill for analysis
 
-Let's turn the spec sheet from [Section 3](../section-3-workflows/04-specification-sheets.qmd) into something reusable. The spec sheet answered "how do I analyze topa vs. coral cover, this one time." A skill answers "how do I analyze *any* count-response GLM on this kind of survey data, every time."
+Let's turn the spec sheet from [Section 3](../section-3-workflows/04-specification-sheets.qmd) into something reusable. The spec sheet answered "how do I analyse topa vs. coral cover, this one time." A skill answers "how do I analyse *any* count-response GLM on this kind of survey data, every time."
 
 ## From spec sheet to skill
 
 The spec sheet's modelling section was specific to one prompt:
 
-::: {.callout-note title="Spec sheet (one-off)"}
+::: {.callout-note title="Spec sheet (one-off)" appearance="simple"}
 We will use generalized linear models... Topa abundance is probably over-dispersed, so we will need to use a negative binomial family... `MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)`
 :::
 
-A skill generalizes the *procedure*, not the specific variable names:
+A skill generalises the *procedure*, not the specific variable names:
 
-::: {.callout-note title="Skill: count-data-glm"}
+::: {.callout-note title="Skill: count-data-glm" appearance="simple"}
 **Description:** Use when fitting a GLM to a count response (abundance, counts, occurrences) that may be overdispersed.
 
 **Instructions:**

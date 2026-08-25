@@ -1,17 +1,19 @@
-# Autocomplete and agentic coding
+# Autocomplete with a local model
 
-I started with the [Qwen 2.5 Coder base](https://ollama.com/library/qwen2.5-coder), because he wanted to try using Ollama for autocomplete suggestions while coding.
+I started with the [Qwen 2.5 Coder base](https://ollama.com/library/qwen2.5-coder), because I wanted to try using Ollama for autocomplete suggestions while coding.
 
-To get the model he just ran `ollama pull qwen2.5-coder:7b-base`. Then it downloaded from the internet. This took a while as the file is several gigabytes.
+To get the model I just ran `ollama pull qwen2.5-coder:7b-base`. Then it downloaded from the internet. This took a while as the file is several gigabytes.
 
-He used the 'base' version as it seems to perform better for line completion. Other models are trained for back and forth chatting, so tend not to want to complete your sentences (which would be annoying in a chat interface!).
+I used the 'base' version as it seems to perform better for line completion. Other models are trained for back and forth chatting, so tend not to want to complete your sentences (which would be annoying in a chat interface!).
 
-So download that model, and then you're going to need another extension to help with the autocomplete. If you're using Visual Studio Code, you can install the [Continue extension](https://marketplace.visualstudio.com/items?itemName=Continue.continue) and then just follow [their instructions](https://docs.continue.dev/customize/model-providers/ollama) for connecting Continue to Ollama. Note that Continue has been acquired by the company Cursor and the actual extension may not be around for much longer. We can also use [Kilo Code](https://kilo.ai/docs/automate/extending/local-models) as an alternative extension that also supports local models.
+So download that model, and then you're going to need another extension to help with the autocomplete. If you're using VS Code, you can install the [Continue extension](https://marketplace.visualstudio.com/items?itemName=Continue.continue) and then just follow [their instructions](https://docs.continue.dev/customize/model-providers/ollama) for connecting Continue to Ollama. Note that Continue was acquired by Cursor, so check the extension is still maintained before relying on it. [Kilo Code](https://kilo.ai/docs/automate/extending/local-models) is an alternative extension that also supports local models. 
+
+Note that Continue will conflict with Github Copilot, so disable autocompletions with Copilot if you are using them.
 
 [Check their list of recommended models.](https://docs.continue.dev/customize/models)
 
-Other applications you might want to try out are the chat agents option in Continue. This will make changes to your scripts. The base model we used above won't work for this task, you will want a different model that is optimized for chat and agentic workflows. Usually these models are significantly larger.
+Other applications you might want to try out are the chat agents option in Continue. This will make changes to your scripts. The base model we used above won't work for this task, you will want a different model that is optimised for chat and agentic workflows. Usually these models are significantly larger.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Go back to Section 1 on line-by-line completion, but this time try using the Continue extension to do the tasks. How does the performance compare to copilot, in terms of speed and accuracy? 
+Go back to Section 1 on line-by-line completion, but this time try using the Continue extension to do the tasks. How does the performance compare to Copilot, in terms of speed and accuracy?
 :::

@@ -2,20 +2,58 @@
 
 Another application of local LLMs is processing text through the LLM. If you're doing this in R, it's relatively simple to set up, just use the ellmer package to chat with the model. ellmer will link to Ollama via its API (application programming interface), and then you can send text to that API to have ellmer process it through the LLM.
 
-You don't have to use R. There is software written in many languages for accessing Ollama programmatically, including python, javascript and bash.
+You don't have to use R. There is software written in many languages for accessing Ollama programmatically, including Python, JavaScript and bash.
 
-We've written previously about using [ellmer to batch process text files](https://www.seascapemodels.org/posts/2025-03-15-LMs-in-R-with-ellmer/index.html), such as if you want to automate the extraction of meta-data from papers for a literature review. The main difference is you would use `chat_ollama` to send text to the model.
+Section 8 covers using [ellmer to batch process text files](../section-7-api-access/06-lit-review-example.qmd), such as if you want to automate the extraction of meta-data from papers for a literature review. 
 
-One thing to keep in mind when using Ollama for scientific workflows, is that the default commands provided above will download the 4 bit [quantized](https://huggingface.co/docs/optimum/concept_guides/quantization) versions of the LLMs. Quantization roughly means rounding some of the numbers in the massive matrices of weights that make up an LLM's neural networks. This saves memory, but reduces precision.
+If you want to use a local model, the main difference is you would use `chat_ollama` to send text to the model.
 
-In our experience, for text-processing tasks the difference in different quantizations is negligible, but needs reporting when writing up results.
+One thing to keep in mind when using Ollama for scientific workflows, is that the default commands provided above will download the 4 bit [quantised](https://huggingface.co/docs/optimum/concept_guides/quantization) versions of the LLMs. Quantization roughly means rounding some of the numbers in the massive matrices of weights that make up an LLM's neural networks. This saves memory, but reduces precision.
 
-We hope this quick guide helps those who are curious about local models. We are interested to hear from readers about your experiences with local LLMs and what applications you are using them for.
+In my experience the choice of quantisation makes little difference for text-processing tasks, but you should report which one you used when writing up results.
 
-::: {.tip}
-**Note:** Ollama as a wrapper for llama.cpp is considered [problematic](https://sleepingrobots.com/dreams/stop-using-ollama/) by some. In R we can use other bindings to the llama.cpp library for local inference of large language models (LLMs), such as the [llamaR](https://github.com/Zabis13/llamaR) package by Yuri Baramykov.
+The setup is short. Point ellmer at your local Ollama server and use it exactly as you would a cloud model:
+
+```r
+library(ellmer)
+
+abstract <- "The loss of nursery habitats is widely believed to contribute disproportionally to declines in abundance and productivity of fish populations. However, it has been difficult to establish links between the processes threatening nurseries and changes in population demography. Here we show that juvenile bumphead parrotfish (Bolbometopon muricatum), an iconic coral reef species that is globally threatened, depend on a highly specific micro-habitat that is vulnerable to sedimentation from logging operations. We conducted surveys on fringing reefs in Solomon Islands. Surveys covered reefs around an island that has been selectively logged, and an island where there has been no logging. B. muricatum juveniles were restricted to shallow lagoonal reefs that fringed mangrove forested shorelines and had a high proportion of live branching corals, with the smallest settlers found in Acropora aspera and Acropora micropthalma colonies that were occupied by damselfish. Statistical path models indicated a 24 times decline in juvenile abundance near logging operations due to the mediating effect of habitat loss, and a possible direct effect of sedimentation on abundance. Our study shows that sedimentation can pose a significant threat to near-shore coral reef fish and highlights the role of nursery habitats in sustaining recruitment to reef fish populations. "
+
+chat <- chat_ollama(
+  model = "qwen2.5-coder:7b",
+  system_prompt = "You extract structured metadata from ecology abstracts."
+)
+
+chat$chat(paste("Which species and sample size are reported in this abstract? ", 
+abstract))
+```
+
+Because the model runs on your own machine, nothing in that abstract leaves your computer — which is the whole point of using a local model for sensitive or unpublished material. 
+
+You can also extract structured data like we did in the Section 8 example 
+
+```r
+chat <- chat_ollama(
+    model = "qwen2.5-coder:7b",
+    system_prompt = "You extract structured metadata from ecology abstracts."
+)
+
+paper_stats <- type_object(
+    sample_size = type_number("Sample size of the study"),
+    year_of_study = type_number("Year data was collected"),
+    species = type_string("Latin binomial of species in the study")
+)
+
+fish_study <- chat$chat_structured(abstract, type = paper_stats)
+fish_study
+```
+
+When I ran the above it accurately got the species name, but hallucinated the sample size and year, which were not in the abstract. An important lesson in model shortcomings. The prompt could be improved by giving the LLM an option for 'no answer given'. 
+
+::: {.callout-note appearance="simple"}
+Ollama as a wrapper for llama.cpp is considered [problematic](https://sleepingrobots.com/dreams/stop-using-ollama/) by some. In R you can use other bindings to the llama.cpp library for local inference of large language models (LLMs), such as the [llamaR](https://github.com/Zabis13/llamaR) package by Yuri Baramykov.
 :::
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO
+Use `chat_ollama()` to send a paragraph of text to a local model and ask it to return a one-sentence summary. Then run the same prompt twice more. How consistent are the three answers — and what does that tell you about relying on an LLM for extraction without a verification step?
 :::

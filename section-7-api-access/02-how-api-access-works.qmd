@@ -20,6 +20,13 @@ An API lets different software programs talk to each other. Large language model
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+Model names change often. We'll set them once here and reuse them for the rest of the section, so there's only one place to update when a model is retired:
+
+```{r}
+cheap_model <- "anthropic/claude-3.5-haiku"   # small, fast, inexpensive
+strong_model <- "anthropic/claude-sonnet-4"   # more capable, more expensive
+```
+
 ::: {.panel-tabset group="language"}
 
 ### R - Ellmer
@@ -27,9 +34,9 @@ knitr::opts_chunk$set(eval = FALSE)
 library(ellmer)
 
 chat <- chat_openrouter(
-  system_prompt = "You are a helpful assistant.",
-  model = "anthropic/claude-3.5-haiku",
-  api_args = list(max_tokens = 50)
+    system_prompt = "You are a helpful assistant.",
+    model = cheap_model,
+    api_args = list(max_tokens = 50)
 )
 chat$chat("Ecologists like to eat ")
 ```
@@ -55,39 +62,40 @@ response = requests.post(
 data = response.json()
 data['choices'][0]['message']['content']
 ```
+
 :::
 
 Notice the model doesn't just complete your sentence — it answers as an assistant instead. That's the **system prompt** at work: a stronger directive than your user prompt, which sets the overall behaviour of the chat. In most chat interfaces (like Copilot) you never see the system prompt, the provider sets it for you.
 
-::: {.tip}
-**Tip:** It is generally more effective to tell the LLM **what to do** rather than **what not to do** — same as with people.
+::: {.callout-tip appearance="simple"}
+It is generally more effective to tell the LLM **what to do** rather than **what not to do** — same as with people.
 :::
 
 Try overriding the default assistant behaviour with your own system prompt:
 
 ```{r}
 chat <- chat_openrouter(
-  system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
-  model = "anthropic/claude-3.5-haiku",
-  api_args = list(max_tokens = 50)
+    system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
+    model = cheap_model,
+    api_args = list(max_tokens = 50)
 )
 chat$chat("Ecologists like to eat ")
 ```
 
 ## Temperature and top_k
 
-`temperature` controls the randomness of token predictions — lower (near 0) is more deterministic, higher (near 2) is more creative and unpredictable. `top_k` restricts the model to choosing among a smaller set of likely next tokens; `top_k = 1` gives the most predictable output.
+`temperature` controls the randomness of token predictions — lower (near 0) is more deterministic, higher is more creative and unpredictable. The valid range depends on the provider: Anthropic models accept 0–1, while some others go to 2, so check before you push it high. `top_k` restricts the model to choosing among a smaller set of likely next tokens; `top_k = 1` gives the most predictable output.
 
 ```{r}
 chat_temp <- chat_openrouter(
-  system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only.",
-  model = "anthropic/claude-3.5-haiku",
-  api_args = list(max_tokens = 50, temperature = 0, top_k = 1)
+    system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only.",
+    model = cheap_model,
+    api_args = list(max_tokens = 50, temperature = 0, top_k = 1)
 )
 chat_temp$chat("Marine ecologists like to eat ")
 ```
 
-Try it again with `temperature = 2` and no `top_k` (or a very high one). Low temperature/top_k gives you consistent, "safe" completions; higher values give more varied, sometimes less coherent ones.
+Try it again with `temperature = 1` and no `top_k` (or a very high one). Low temperature/top_k gives you consistent, "safe" completions; higher values give more varied, sometimes less coherent ones.
 
 ## Navigating OpenRouter
 
@@ -95,7 +103,7 @@ The [Models page](https://openrouter.ai/models) lists everything available — c
 
 ## Comparing model complexity
 
-`anthropic/claude-3.5-haiku` has far fewer parameters than `anthropic/claude-sonnet-4` — haiku is much cheaper (roughly 80c per million input tokens vs $3 for sonnet at time of writing) but less capable on nuanced tasks.
+`anthropic/claude-3.5-haiku` is a smaller and cheaper model than `anthropic/claude-sonnet-4` — haiku is much cheaper (roughly 80c per million input tokens vs $3 for sonnet at time of writing) but less capable on nuanced tasks.
 
 ## Understanding context windows
 
@@ -114,5 +122,5 @@ Occasionally you'll get an HTTP error instead of a response. A few common ones f
 [Full list of error codes here](https://openrouter.ai/docs/api-reference/errors).
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Run the same completion prompt three times with `temperature = 0, top_k = 1`, then three times with `temperature = 1.5` and no `top_k`. Compare how much the outputs vary between runs at each setting.
+Run the same completion prompt three times with `temperature = 0, top_k = 1`, then three times with `temperature = 1` and no `top_k`. Compare how much the outputs vary between runs at each setting.
 :::

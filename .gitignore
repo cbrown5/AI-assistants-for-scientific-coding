@@ -1,7 +1,17 @@
-/.quarto/
-
+.quarto/
 **/*.quarto_ipynb
-
 .DS_Store
 
-.quarto/
+# Quarto build artefacts rendered beside sources instead of into docs/
+*.html
+!docs/**/*.html
+*.tex
+*.knit.md
+_book/
+
+# R
+.Rproj.user/
+.Rhistory
+.Renviron
+
+/.quarto/

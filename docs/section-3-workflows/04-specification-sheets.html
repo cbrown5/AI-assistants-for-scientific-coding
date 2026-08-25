@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Specification sheets – AI assistants for Scientific Coding</title>
+<title>22&nbsp; Specification sheets – AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -101,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">AI assistants for Scientific Coding</a> 
+      <a href="../">AI Assistants for Scientific Coding</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,11 +188,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-1-line-by-line/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 1: Line-by-line code completion</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-1-line-by-line/01-inline-completion.html" class="sidebar-item-text sidebar-link">
@@ -153,13 +208,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-1-line-by-line/03-next-edit-suggestions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Start with ghost text</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Next edit suggestions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-1-line-by-line/04-copilot-settings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GitHub Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -180,11 +235,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-2-agents/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 2: Agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
@@ -280,11 +335,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 4: Security, data privacy and cloud agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
@@ -320,16 +375,16 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Customizing agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">Section 5: Customising agents</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customisation?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -356,11 +411,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
@@ -385,11 +440,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 7: LLM access via API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
@@ -432,11 +487,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 8: Running local models</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
@@ -458,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -478,7 +533,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text">Appendix — Code and data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -496,7 +557,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-readme-template" id="toc-the-readme-template" class="nav-link" data-scroll-target="#the-readme-template"><span class="header-section-number">22.3</span> The README template</a></li>
   <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><span class="header-section-number">22.4</span> Metadata</a></li>
   <li><a href="#a-full-worked-spec-sheet" id="toc-a-full-worked-spec-sheet" class="nav-link" data-scroll-target="#a-full-worked-spec-sheet"><span class="header-section-number">22.5</span> A full worked spec sheet</a></li>
-  <li><a href="#what-a-controlled-study-found" id="toc-what-a-controlled-study-found" class="nav-link" data-scroll-target="#what-a-controlled-study-found"><span class="header-section-number">23.6</span> What a controlled study found</a></li>
+  <li><a href="#what-a-controlled-study-found" id="toc-what-a-controlled-study-found" class="nav-link" data-scroll-target="#what-a-controlled-study-found"><span class="header-section-number">22.6</span> What a controlled study found</a></li>
   </ul>
 </nav>
     </div>
@@ -550,38 +611,38 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-readme-template" class="level2" data-number="22.3">
 <h2 data-number="22.3" class="anchored" data-anchor-id="the-readme-template"><span class="header-section-number">22.3</span> The README template</h2>
-<pre><code># PROJECT TITLE
-
-## Summary
-
-## Aims
-
-## Data methodology
-
-## Analysis methodology
-
-## Tech context
-- We will use the R program
-- tidyverse packages for data manipulation
-- ggplot2 for data visualization
-
-Keep your scripts short and modular to facilitate debugging. Don't complete
-all of the steps below in one script. Finish scripts where it makes sense
-and save intermediate datasets.
-
-## Steps
-As you go tick off the steps below.
-
-[ ] Wrangle data
-[ ] Fit regression
-[ ] Plot verification
-[ ] ...
-
-## Data
-Include meta-data here and file paths.
-
-## Directory structure
-(as above)</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PROJECT TITLE</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Summary</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Aims</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Data methodology</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Analysis methodology</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Tech context</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> We will use the R program</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> tidyverse packages <span class="cf">for</span> data manipulation</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> ggplot2 <span class="cf">for</span> data visualization</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Keep your scripts short and modular to facilitate debugging. Don<span class="st">'t complete</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">all of the steps below in one script. Finish scripts where it makes sense</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">and save intermediate datasets.</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">## Steps</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">As you go tick off the steps below.</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">[ ] Wrangle data</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">[ ] Fit regression</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">[ ] Plot verification</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">[ ] ...</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">## Data</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">Include meta-data here and file paths.</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">## Directory structure</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">(as above)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="metadata" class="level2" data-number="22.4">
 <h2 data-number="22.4" class="anchored" data-anchor-id="metadata"><span class="header-section-number">22.4</span> Metadata</h2>
@@ -652,7 +713,7 @@ Include meta-data here and file paths.
 <section id="a-full-worked-spec-sheet" class="level2" data-number="22.5">
 <h2 data-number="22.5" class="anchored" data-anchor-id="a-full-worked-spec-sheet"><span class="header-section-number">22.5</span> A full worked spec sheet</h2>
 <p>Here’s a complete example, written the way I’d actually hand it to an agent. Notice it fully answers all four parts of the README template above, and is specific about packages, model structure, and even namespace conventions — not just “do a GLM.”</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Prompt">
+<div class="callout callout-style-simple callout-note callout-titled" title="Prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -661,37 +722,27 @@ Include meta-data here and file paths.
 <span class="screen-reader-only">Note</span>Prompt
 </div>
 </div>
-<section id="analysis-of-fish-dependence-on-coral-habitat" class="level1 callout-body-container callout-body" data-number="23">
-<h1 data-number="23"><span class="header-section-number">23</span> Analysis of fish dependence on coral habitat</h1>
-<section id="introduction" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">23.1</span> Introduction</h2>
-<p>This project will ask how abundance of fish juveniles depends on coral cover. The fish we are interested in is <em>Bolbometopon muricatum</em>, the bumphead parrotfish. Also known as ‘topa’ in the local language of our study region. We will analyze survey data from 49 sites, that includes benthic cover surveys and surveys fish abundance at the same locations. We are studying its juvenile habitat.</p>
-</section>
-<section id="aims-of-the-analysis" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="aims-of-the-analysis"><span class="header-section-number">23.2</span> Aims of the analysis</h2>
+<div class="callout-body-container callout-body">
+<p><strong>Analysis of fish dependence on coral habitat</strong></p>
+<p><strong>Introduction</strong> This project will ask how abundance of fish juveniles depends on coral cover. The fish we are interested in is <em>Bolbometopon muricatum</em>, the bumphead parrotfish. Also known as ‘topa’ in the local language of our study region. We will analyse survey data from 49 sites, that includes benthic cover surveys and surveys of fish abundance at the same locations. We are studying its juvenile habitat.</p>
+<p><strong>Aims of the analysis</strong></p>
 <ol type="1">
 <li>Does fish abundance depend on branching coral cover?</li>
 <li>What is the direction and strength of the relationship between fish abundance and branching coral cover?</li>
 <li>Does fish abundance depend on soft coral cover?</li>
 </ol>
-</section>
-<section id="data-methodology" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="data-methodology"><span class="header-section-number">23.3</span> Data methodology</h2>
+<p><strong>Data methodology</strong></p>
 <p>The data was collected with the point intersect transect method. Divers swam along transects. There were several transects per site. Along each transect they dropped points and recorded the type of benthic organism (in categories) on that point. Percentage cover for one organism type can then be calculated as the number of points with that organism divided by the total number of points on that transect. In our data we have percent cover of branching corals and percent cover of soft corals. Transects were averaged to give a single value for each site. At each site divers also counted the number of juvenile ‘topa’ along dive transects of the same length.</p>
-</section>
-<section id="analysis-methodology" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="analysis-methodology"><span class="header-section-number">23.4</span> Analysis methodology</h2>
-<p>We will use generalized linear models to analyze the relationship between topa and the two coral cover types. Topa abundance is probably over-dispersed, so we will need to use a negative binomial family. We will use R and the MASS package:</p>
+<p><strong>Analysis methodology</strong></p>
+<p>We will use generalized linear models to analyse the relationship between topa and the two coral cover types. Topa abundance is probably over-dispersed, so we will need to use a negative binomial family. We will use R and the MASS package:</p>
 <p><code>MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)</code></p>
 <p>To obtain a final model we should do model selection, starting with a full model then working towards simpler models. We will use likelihood ratio tests to compare models, e.g:</p>
-<pre><code>m1 &lt;- MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)
-m2 &lt;- MASS::glm.nb(pres.topa ~ CB_cover + soft_cover, data = fish_coral_cover_sites)
-anova(m1, m2, test = "Chisq")</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(pres.topa <span class="sc">~</span> CB_cover<span class="sc">*</span>soft_cover, <span class="at">data =</span> fish_coral_cover_sites)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(pres.topa <span class="sc">~</span> CB_cover <span class="sc">+</span> soft_cover, <span class="at">data =</span> fish_coral_cover_sites)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1, m2, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Proceed with m2 if the interaction term is not significant, otherwise proceed with m1.</p>
 <p>On completion of model selection, do model diagnostics: check residuals and the dispersion parameter, save as png files. Write a diagnostics report as an Rmarkdown file.</p>
-</section>
-<section id="instructions-for-the-agent" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="instructions-for-the-agent"><span class="header-section-number">23.5</span> Instructions for the agent</h2>
+<p><strong>Instructions for the agent</strong></p>
 <p>The agent will produce a report that answers the above questions. The report will include a description of the data, the methods used for analysis, and the results of the analysis. The code will be written as R scripts. Each script should be modular and save intermediate results as datafiles and figures. The final report must be written in Rmarkdown format. The figures will be imported using markdown syntax, e.g.&nbsp;<code>![](outputs/plots/figure1.png)</code>. Don’t use R code for figures in the markdown report. Summary tables should be imported from .csv files and created using the <code>knitr::kable()</code> function in Rmarkdown. The report must include:</p>
 <ul>
 <li>Study aims</li>
@@ -706,49 +757,34 @@ anova(m1, m2, test = "Chisq")</code></pre>
 </ul></li>
 </ul>
 <p>The agent must also produce diagnostic plots and a separate report on model diagnostics.</p>
-<section id="tech-context" class="level3" data-number="23.5.1">
-<h3 data-number="23.5.1" class="anchored" data-anchor-id="tech-context"><span class="header-section-number">23.5.1</span> Tech context</h3>
-<ul>
-<li>We will use the R program</li>
-<li>tidyverse packages for data manipulation</li>
-<li>ggplot2 for data visualization</li>
-<li>use <code>theme_set(theme_classic())</code> for plots</li>
-<li>Use the <code>MASS</code> package for the negative binomial model, however don’t load it globally with <code>library(MASS)</code>, instead use <code>MASS::glm.nb()</code> to avoid namespace conflicts.</li>
-<li>Use <code>visreg</code> package for plotting model effects and confidence intervals, e.g.&nbsp;<code>visreg::visreg(m2, "CB_cover", "soft_cover", gg=TRUE, scale = 'linear')</code></li>
-</ul>
+<p><strong>Tech context</strong> - We will use the R program - tidyverse packages for data manipulation - ggplot2 for data visualization - use <code>theme_set(theme_classic())</code> for plots - Use the <code>MASS</code> package for the negative binomial model, however don’t load it globally with <code>library(MASS)</code>, instead use <code>MASS::glm.nb()</code> to avoid namespace conflicts. - Use <code>visreg</code> package for plotting model effects and confidence intervals, e.g.&nbsp;<code>visreg::visreg(m2, "CB_cover", "soft_cover", gg=TRUE, scale = 'linear')</code></p>
 <p>Keep your scripts short and modular to facilitate debugging. Don’t complete all of the steps below in one script. Finish scripts where it makes sense and save intermediate datasets.</p>
 <p>When using Rscript to run R scripts in terminal put quotes around the file, e.g.&nbsp;<code>Rscript "1_model.R"</code></p>
-</section>
-<section id="workflow" class="level3" data-number="23.5.2">
-<h3 data-number="23.5.2" class="anchored" data-anchor-id="workflow"><span class="header-section-number">23.5.2</span> Workflow</h3>
+<p><strong>Workflow</strong></p>
 <ol type="1">
 <li>Create a todo list and keep track of progress</li>
-<li>Data processing including standardizing coral variables by number of points</li>
+<li>Data processing including standardising coral variables by number of points</li>
 <li>Model selection and verification, produce diagnostic plots</li>
 <li>Model diagnostic plots markdown report</li>
 <li>Create plots of predictions from the final model</li>
 <li>Write report in markdown format</li>
 </ol>
-</section>
-<section id="directory-structure" class="level3" data-number="23.5.3">
-<h3 data-number="23.5.3" class="anchored" data-anchor-id="directory-structure"><span class="header-section-number">23.5.3</span> Directory structure</h3>
-<pre><code>glm-test-case/
-├── data/
-├── fish-coral.csv
-├── glm-readme.md
-├── initial-prompt.md
-├── outputs/
-│   └── plots/
-└── scripts/</code></pre>
+<p><strong>Directory structure</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>glm<span class="sc">-</span>test<span class="sc">-</span>case<span class="sc">/</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>├── data<span class="sc">/</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>├── fish<span class="sc">-</span>coral.csv</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>├── glm<span class="sc">-</span>readme.md</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>├── initial<span class="sc">-</span>prompt.md</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>├── outputs<span class="sc">/</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>│   └── plots<span class="sc">/</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>└── scripts<span class="sc">/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Put the .rmd reports in the top-level directory.</p>
-</section>
-</section>
-</section>
+</div>
 </div>
 </section>
-<section id="what-a-controlled-study-found" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="what-a-controlled-study-found"><span class="header-section-number">23.6</span> What a controlled study found</h2>
-<p>This isn’t just a hunch about what makes agents reliable — it’s been tested. The GLM analysis above (topa abundance versus coral cover) was one of three tasks used in a peer-reviewed study of how well agentic AI can complete fisheries and ecological modelling: <a href="https://doi.org/10.1111/faf.70079">Brown, Aitken, Takyi and Tisseaux-Navarro (2026), “Automating Ecological and Fisheries Modelling With Agentic AI”</a>, <em>Fish and Fisheries</em> (see also the <a href="https://www.seascapemodels.org/posts/2026-03-28-agentic-AI-ecological-modelling/">summary blog post</a>). The study handed spec sheets like the one above to several large language models (Claude Sonnet 4.0 and 4.5, Kimi K2) running in the Roo Code agent, repeated each combination 10 times, and scored the results against a rubric. (Roo Code has since discontinued its VSCode extension — see the note in <a href="../section-2-agents/01-agent-options.html">Section 2</a> — but the findings are about how you write the spec sheet, not which extension runs it.)</p>
+<section id="what-a-controlled-study-found" class="level2" data-number="22.6">
+<h2 data-number="22.6" class="anchored" data-anchor-id="what-a-controlled-study-found"><span class="header-section-number">22.6</span> What a controlled study found</h2>
+<p>This isn’t just a hunch about what makes agents reliable — it’s been tested. The GLM analysis above (topa abundance versus coral cover) was one of three tasks used in a peer-reviewed study of how well agentic AI can complete fisheries and ecological modelling: <a href="https://doi.org/10.1111/faf.70079">Brown, Aitken, Takyi and Tisseaux-Navarro (2026), “Automating Ecological and Fisheries Modelling With Agentic AI”</a>, <em>Fish and Fisheries</em> <span class="citation" data-cites="brown_automating_2026">(<a href="../references.html#ref-brown_automating_2026" role="doc-biblioref">Brown et al. 2026</a>)</span> (see also the <a href="https://www.seascapemodels.org/posts/2026-03-28-agentic-AI-ecological-modelling/">summary blog post</a>). The study handed spec sheets like the one above to several large language models (Claude Sonnet 4.0 and 4.5, Kimi K2) running in the Roo Code agent, repeated each combination 10 times, and scored the results against a rubric. (Roo Code has since discontinued its VS Code extension — see the note in <a href="../section-2-agents/01-agent-options.html">Section 2</a> — but the findings are about how you write the spec sheet, not which extension runs it.)</p>
 <p>A few findings are worth carrying into how you write your own spec sheets:</p>
 <ul>
 <li><strong>Detailed spec sheets help, but don’t guarantee correct science.</strong> Agents were reliably good at <em>completing tasks</em> — running code, producing figures, hitting the requested file structure — but far less reliable at <em>statistical reasoning</em>. Even the best-performing model, Claude Sonnet 4.5, produced a fully coherent, correctly interpreted report in only 2 of 10 replicates of the GLM task above.</li>
@@ -759,7 +795,6 @@ anova(m1, m2, test = "Chisq")</code></pre>
 <li><strong>More expensive runs weren’t more accurate.</strong> The replicates that used the most tokens weren’t the most reliable — some were agents stuck in unproductive loops. Treat cost as a signal to check the output, not as a proxy for quality.</li>
 </ul>
 <p>The overall lesson matches the argument of this chapter: a good specification sheet dramatically improves how consistently an agent completes the mechanical parts of an analysis, but it doesn’t remove the need for a human who understands the statistics to check the reasoning.</p>
-<p>Have a go at writing your own spec sheet for a variation on this analysis — pick your own aim, e.g.&nbsp;testing whether fish abundance depends on <code>dist_to_logging_km</code> instead of, or as well as, coral cover.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -775,6 +810,14 @@ anova(m1, m2, test = "Chisq")</code></pre>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-brown_automating_2026" class="csl-entry" role="listitem">
+Brown, Christopher J., Jasmine Aitken, Richard Takyi, and Andrés Tisseaux-Navarro. 2026. <span>“Automating <span>Ecological</span> and <span>Fisheries</span> <span>Modelling</span> <span>With</span> <span>Agentic</span> <span>AI</span>.”</span> <em>Fish and Fisheries</em>. <a href="https://doi.org/10.1111/faf.70079">https://doi.org/10.1111/faf.70079</a>.
+</div>
+<div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
+Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

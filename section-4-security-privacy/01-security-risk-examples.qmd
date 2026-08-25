@@ -24,7 +24,7 @@ Agents that run locally are a bigger risk than a chat window, because they can p
 
 Sandboxing — constraining what files and network access an agent can reach — helps, but currently takes real technical effort to set up properly, and may be out of reach if you're on a locked-down university machine. We'll look at a concrete sandboxing example next.
 
-Agents you run inside VSCode are generally safe, but not 100% safe. Most are explicitly instructed not to change your working directory — but instructions to an LLM are guidelines, not guarantees. I've regularly seen Copilot's agent try to `cd` in the terminal anyway (in my experience, an innocent attempt to get a better view of the project) — but I never approve it, because I can't always tell innocent from not just from the confirmation dialog.
+Agents you run inside VS Code are generally safe, but not 100% safe. Most are explicitly instructed not to change your working directory — but instructions to an LLM are guidelines, not guarantees. I've regularly seen Copilot's agent try to `cd` in the terminal anyway (in my experience, an innocent attempt to get a better view of the project) — but I never approve it, because I can't always tell innocent from not just from the confirmation dialog.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
 Think through a task you might ask an agent to do with the benthic/fish project (e.g. "search for the latest best-practice method for count data, then update my analysis and push the changes to GitHub"). Which of the three trifecta conditions does that task tick off, and at what point?

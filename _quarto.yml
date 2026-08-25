@@ -3,10 +3,12 @@ project:
   output-dir: docs
 
 book:
-  title: "AI assistants for Scientific Coding"
+  title: "AI Assistants for Scientific Coding"
   author: "Chris Brown"
-  date: "2025-08-30"
+  date: "2026-08-25"
   page-navigation: true
+  sidebar:
+    collapse-level: 1
   chapters:
     - index.qmd
     - 01-introduction.qmd
@@ -71,8 +73,11 @@ book:
         - section-8-local-models/05-agentic-programming.qmd
         - section-8-local-models/06-processing-files-in-r.qmd
     - 99-appendix.qmd
+    - references.qmd
 
 bibliography: book.bib
+nocite: |
+  @connolly_improved_2021
 
 format:
   html:

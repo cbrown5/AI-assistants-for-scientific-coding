@@ -2,13 +2,13 @@
 
 Before we run our first agent, it's worth pausing on why the permission-before-tool-use model exists. An agent that can write and run code on your computer can, in principle, do anything you could do from a terminal — including things you didn't ask for.
 
-Most agents ask you to confirm before running a tool, precisely because of this. But, stopping to read every agent request significantly slows down the speed of development, and mostly defeats the point of using an agent. 
+Most agents ask you to confirm before running a tool, precisely because of this. But, stopping to read every agent request significantly slows down the speed of development, and mostly defeats the point of using an agent.
 
-One way to avoid security risks is to carefully check every command. 
+One way to avoid security risks is to carefully check every command.
 
-I've regularly seen Copilot's agent try to `cd` into a different directory in the terminal, despite explicit instructions not to — usually an innocent attempt to get a better view of the project, but I never approve it. 
+I've regularly seen Copilot's agent try to `cd` into a different directory in the terminal, despite explicit instructions not to — usually an innocent attempt to get a better view of the project, but I never approve it.
 
-Agents can innocently make mistakes. This is rare, but its possible that an agent can mistakenly wipe all the files on their users computers. 
+Agents can innocently make mistakes. This is rare, but it's possible that an agent can mistakenly wipe all the files on its user's computer.
 
 ## Lethal trifecta
 
@@ -18,18 +18,18 @@ The deeper risk is what's called the **lethal trifecta**: an agent that can read
 Next time an agent asks permission to run a tool, pause before clicking approve and ask yourself: could this tool call read something untrusted, access something private, or send information externally? Note which (if any) of the three applies.
 :::
 
-## Improving agent security 
+## Improving agent security
 
-There are protections you can use to improve agent safety. But its important to be aware that no current system is perfect. We explore these protections in more detail in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd).
+There are protections you can use to improve agent safety. But it's important to be aware that no current system is perfect. We explore these protections in more detail in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd).
 
-But a brief summary here. 
+But a brief summary here.
 
-The first is to check commands before approving them, though that slows down progress significantly. It is good to to this at least at first, to get a feel for what the agent is doing. 
+The first is to check commands before approving them, though that slows down progress significantly. It is good to do this at least at first, to get a feel for what the agent is doing.
 
-The challenge with checking commands is that agents are writing code you may not understand. They will commonly be using bash or unix commands to read files, search files, access files and so forth. So what can you do to try and keep their use safer? 
+The challenge with checking commands is that agents are writing code you may not understand. They will commonly be using bash or unix commands to read files, search files, access files and so forth. So what can you do to try and keep their use safer?
 
-A second option is to use 'Auto' mode, which is available with some agents (e.g. Claude Code). With Auto mode a separate agent reviews all commands. It slows progress a little bit, but its still automated. Anthropic claim this picks up more problems than your average programmer would if they are trying to keep up with each tool request. 
+A second option is to use 'Auto' mode, which is available with some agents (e.g. Claude Code). With Auto mode a separate agent reviews all commands. It slows progress a little bit, but it's still automated. Anthropic claim this picks up more problems than your average programmer would if they are trying to keep up with each tool request.
 
-A next option is to use some form of sandbox, which keeps the agent locked in an isolated environment. They can be a bit tricky to set up, and we look at these in more detail in [Section 4](../section-4-security-privacy/03-bash-sandbox-example.qmd). 
+A next option is to use some form of sandbox, which keeps the agent locked in an isolated environment. They can be a bit tricky to set up, and we look at these in more detail in [Section 4](../section-4-security-privacy/03-bash-sandbox-example.qmd).
 
-Even safer than a sandbox is to run the agent on someone elses computer or server. For instance, we will look at [Claude Code for Web](section-4-security-privacy/02-claude-code-web-example.qmd), which is an agent that runs on a remote server. It can even evaluate python code (but unfortunately not R code at the moment). 
+Even safer than a sandbox is to run the agent on someone elses computer or server. For instance, we will look at [Claude Code for Web](../section-4-security-privacy/02-claude-code-web-example.qmd), which is an agent that runs on a remote server. It can even evaluate python code (but unfortunately not R code at the moment).

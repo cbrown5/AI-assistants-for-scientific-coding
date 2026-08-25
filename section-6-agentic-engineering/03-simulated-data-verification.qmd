@@ -8,7 +8,6 @@ Let's simulate count data with the same structure as `pres.topa ~ CB_cover`, but
 
 ```{r eval=FALSE}
 library(tidyverse)
-library(MASS)
 
 set.seed(42)
 n_sites <- 49
@@ -23,7 +22,7 @@ sim_dat <- tibble(
 ) %>%
   mutate(
     mu = exp(true_intercept + true_cb_effect * CB_cover),
-    pres.topa = rnegbin(n_sites, mu = mu, theta = true_theta)
+    pres.topa = MASS::rnegbin(n_sites, mu = mu, theta = true_theta)
   )
 ```
 
