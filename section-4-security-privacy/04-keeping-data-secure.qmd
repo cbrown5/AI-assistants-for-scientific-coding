@@ -2,6 +2,8 @@
 
 Any prompt you send to an LLM provider goes to that company's servers. So it's worth being deliberate about what you include in your prompts — the data you send is covered by that provider's privacy policy, not yours. Some subscription products (e.g. an institutional Copilot licence) claim to keep your data private; public consumer products tend to retain the right to use whatever you type as a prompt. If you put your best research ideas into a public chatbot, it's plausible those ideas resurface, in some form, to a different user asking something similar later.
 
+We explore [data privacy risks in more detail in an upcoming study](section-4-security-privacy/04-keeping-data-secure.qmd). My collaborator, James Smith, has even developed an R package [confideR](https://github.com/smithja16/confideR), which you can run to audit potential data privacy risks in your current R session. 
+
 Before using an LLM on data you didn't collect entirely yourself, check the IP and ethical constraints that apply — human survey data in particular may come with restrictions on sending it to a foreign server, or on revealing any of it to a third party at all, LLM or otherwise.
 
 If your data is sensitive, you have a few real options.

@@ -15,9 +15,10 @@ book:
       chapters:
         - section-1-line-by-line/01-inline-completion.qmd
         - section-1-line-by-line/02-comment-driven-completion.qmd
-        - section-1-line-by-line/03-copilot-settings.qmd
-        - section-1-line-by-line/04-gander.qmd
-        - section-1-line-by-line/05-strengths-weaknesses.qmd
+        - section-1-line-by-line/03-next-edit-suggestions.qmd
+        - section-1-line-by-line/04-copilot-settings.qmd
+        - section-1-line-by-line/05-gander.qmd
+        - section-1-line-by-line/06-strengths-weaknesses.qmd
     - part: section-2-agents/index.qmd
       chapters:
         - section-2-agents/01-agent-options.qmd

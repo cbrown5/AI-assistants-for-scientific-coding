@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Strengths and weaknesses of line-by-line completion – AI assistants for Scientific Coding</title>
+<title>8&nbsp; Gander: R package for code completion – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-2-agents/index.html" rel="next">
-<link href="../section-1-line-by-line/04-gander.html" rel="prev">
+<link href="../section-1-line-by-line/06-strengths-weaknesses.html" rel="next">
+<link href="../section-1-line-by-line/04-copilot-settings.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/05-strengths-weaknesses.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/05-gander.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,20 +152,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-1-line-by-line/03-copilot-settings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
+  <a href="../section-1-line-by-line/03-next-edit-suggestions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Next edit suggestions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-1-line-by-line/04-gander.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></span></a>
+  <a href="../section-1-line-by-line/04-copilot-settings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-1-line-by-line/05-strengths-weaknesses.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></span></a>
+  <a href="../section-1-line-by-line/05-gander.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-1-line-by-line/06-strengths-weaknesses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></span></a>
   </div>
 </li>
       </ul>
@@ -182,55 +188,55 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Agent options</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/02-how-agents-work.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">How agents work</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">How agents work</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/03-security-risks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Security risks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Security and data privacy risks</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/04-first-agent-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Your first agent example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Your first agent example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/05-prompting-agents-part1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Prompting agents I: giving context</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Prompting agents I: giving context</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/06-prompting-agents-part2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Prompting agents II: web search and specification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Prompting agents II: web search and specification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/07-updating-existing-scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Updating existing scripts with agents</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Updating existing scripts with agents</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/08-reviewing-agent-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Reviewing agent output</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Reviewing agent output</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-2-agents/09-when-agents-get-stuck.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">When agents get stuck</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">When agents get stuck</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,25 +253,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Step 1: Select a statistical approach</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Step 1: Select a statistical approach</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-3-workflows/02-plan-implementation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Step 2: Plan implementation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Step 2: Plan implementation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-3-workflows/03-write-the-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Step 3: Write the code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Step 3: Write the code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-3-workflows/04-specification-sheets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Specification sheets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Specification sheets</span></span></a>
   </div>
 </li>
       </ul>
@@ -282,31 +288,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Security risk examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Security risk examples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/02-claude-code-web-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Claude Code for web example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Claude Code for web example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/03-bash-sandbox-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Bash sandbox example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Bash sandbox example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/04-keeping-data-secure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Keeping data secure from the cloud</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Keeping data secure from the cloud</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-4-security-privacy/05-limitations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Limitations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Limitations</span></span></a>
   </div>
 </li>
       </ul>
@@ -323,25 +329,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/02-claude-code-skills-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Claude Code skills as a worked example</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/03-skill-for-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Writing a skill for analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-5-customizing-agents/04-subagents-plotting-and-methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Sub-agents for plotting and writing methods</span></span></a>
   </div>
 </li>
       </ul>
@@ -358,19 +364,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
   </div>
 </li>
       </ul>
@@ -387,37 +393,84 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Section 8: Running local models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/02-performance-and-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/03-choosing-a-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/05-agentic-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-8-local-models/06-processing-files-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
   </div>
 </li>
     </ul>
@@ -439,9 +492,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/05-strengths-weaknesses.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a></li><li class="breadcrumb-item"><a href="../section-1-line-by-line/05-gander.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></h1>
 </div>
 
 
@@ -458,13 +511,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>You’ve now used inline completion, comment-driven completion, and Gander. Before we move on to agents in the next section, it’s worth stepping back and asking: what is this line-by-line approach actually good for, and where does it run out of road?</p>
-<p>I wrote about this at length in a post called <a href="https://www.seascapemodels.org/posts/2026-05-09-judicious-AI-use/">“Mitigating the risks of AI coding tools with judicious use for research tasks”</a>, after giving a talk to an environmental science coding club. The short version: being <em>judicious</em> with AI coding tools mitigates most of the risks that concern researchers — wasted time, electricity use, cybersecurity, and data privacy. By judicious I mean using a tool in a targeted way for a specific task where you already know it works well, and carefully preparing the context and prompt rather than just throwing AI at a poorly defined problem.</p>
-<p>Line-by-line completion is, almost by construction, judicious. It operates on one line or one small block at a time. The “context” it needs is just your open script (or, with Gander, your R environment). There’s no autonomous multi-step plan for it to wander off course on. If it gets something wrong, you see it immediately and reject the suggestion — the blast radius of a bad completion is one line.</p>
-<p>That’s the strength. It’s also the weakness: line-by-line completion can’t hold a whole analysis in its head. It won’t notice that the model you fit three scripts ago used a different family than the one you’re fitting now. It can’t restructure a project, write a report, or decide whether a negative binomial or a Poisson GLM is the right call — all of which is coming in later sections when we look at agents and workflows.</p>
-<p>There’s a well-known finding here worth flagging: the METR study found that professional software developers <em>thought</em> they’d go faster using AI tools, but on a set of real tasks they actually went slower. I think this problem is probably worse for researchers than for software developers. Developers have a comparatively easy way to verify success — the app either works or it doesn’t. Research is harder to verify, because by definition you’re doing something that hasn’t been done before; some fields take decades to confirm a result. That makes it easy to burn time “fixing up slop,” correcting mistakes, or rewriting an answer into your own style (if you’re tired of seeing the same “on the other hand” LLM sentence structure showing up in blogs and papers everywhere, you’re not alone).</p>
-<p>The trick, as I put it in that post, is to experiment just enough to know at what points in your workflow AI genuinely helps, then put the hard mental work in up front — on your prompts and your context — rather than hoping a bigger model will compensate for a vague ask. Throwing an enormous frontier model at a poorly defined problem isn’t judicious use, no matter how capable the model is.</p>
-<p>There’s a side-benefit to being judicious that’s easy to miss: a clear workflow with carefully prepared prompts often lets a cheaper, smaller model perform just as well as the best one available. Cheaper models use less energy, and a surgical approach — giving an assistant access to fewer files and less context — creates fewer security risks too (more on that in <a href="../section-4-security-privacy/index.html">Section 4</a>). So the same discipline that saves you time also tends to save electricity and reduce your attack surface. Line-by-line completion, used well, is naturally on the judicious end of that spectrum. Agents, which we’re about to meet, are powerful precisely because they give up some of that built-in restraint — which is exactly why they need more deliberate handling.</p>
+<p>If you’re an RStudio user and don’t want to leave it for VScode, <a href="https://simonpcouch.github.io/gander/articles/gander.html">Gander</a> is the closest thing to Copilot’s inline completion you’ll get. Posit’s own announcement is worth a skim too: <a href="https://posit.co/blog/introducing-gander/">Introducing Gander</a>.</p>
+<p>Gander’s trick is that it can see <em>inside</em> your R session. Where Copilot is guessing your variable names from text in open scripts, Gander can look at the actual objects in your environment — so it already knows what columns are in <code>dat</code> without you telling it.</p>
+<p>If you haven’t already, follow the <a href="../02-setup.html#sec-gander">Gander set-up instructions</a> in Setup before continuing.</p>
+<p>Once it’s working, try this: load the benthic data, select a blank line, hit your Gander shortcut, and type a prompt like:</p>
+<pre><code>Make a ggplot of pres.topa against CB_cover, coloured by logged</code></pre>
+<p>Because Gander can see <code>dat</code> directly, it should get the variable names and their types right on the first try — a nice contrast with the tab-completion experience from the previous modules, where you often had to spell things out yourself.</p>
+<p>Try a few more prompts, selecting existing code first and asking Gander to modify it:</p>
+<pre><code>Add a stat_smooth to this plot</code></pre>
+<pre><code>Convert this ggplot to use theme_classic()</code></pre>
+<div class="tip">
+<p><strong>Tip:</strong> Because Gander can see your R objects, it uses more tokens per request than plain code completion. The <a href="https://simonpcouch.github.io/gander/articles/gander.html">Gander documentation</a> has options for controlling how much of your environment gets sent, which is worth reading if you’re watching your API costs.</p>
+</div>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -475,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Think of one coding task in the last week where an inline completion or Gander suggestion saved you real time, and one where you ended up spending more time fixing or rewriting what it gave you than if you’d written it yourself. What was different about the two tasks?</p>
+<p>Select the <code>dat %&gt;% group_by(logged) %&gt;% summarize(...)</code> code from the previous module and ask Gander to add a third summary column for <code>secchi</code>. Compare how confidently it picks the right column compared to when you did the same task with comment-driven completion.</p>
 </div>
 </div>
 
@@ -884,13 +942,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-1-line-by-line/04-gander.html" class="pagination-link" aria-label="Gander: R package for code completion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Gander: R package for code completion</span></span>
+      <a href="../section-1-line-by-line/04-copilot-settings.html" class="pagination-link" aria-label="GH Copilot settings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-2-agents/index.html" class="pagination-link" aria-label="Section 2: Agents">
-        <span class="nav-page-text">Section 2: Agents</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-1-line-by-line/06-strengths-weaknesses.html" class="pagination-link" aria-label="Strengths and weaknesses of line-by-line completion">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Strengths and weaknesses of line-by-line completion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

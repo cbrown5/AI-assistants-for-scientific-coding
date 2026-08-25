@@ -27,9 +27,9 @@ What I use in the workshops I teach:
 - Github Copilot
 - R Ellmer package, for which you'll need an API key to one of the LLM providers
 
-[Positron](https://positron.posit.co/) is easier to setup for R users than VS Code. Most of what you can do in VS Code can also be done in Positron, Positron just being a clone of the VS Code source code. The challenge with VS Code is that it can be difficult to connect R and VScode. Comprehensive instructions are below. You may need IT help, especially if your computer is locked down for institutional security!
+[Positron](https://positron.posit.co/) is easier to setup for R users than VS Code. Most of what you can do in VS Code can also be done in Positron, Positron just being a clone of the VS Code source code. So try Positron first. If you can't use Positron for some reason, comprehensive instructions for VS Code and R are below in (@sec-vscodesetup) and. You may need IT help, especially if your computer is locked down for institutional security!
 
-If you chose this option you will need to follow instructions in this chapter for 'Getting an API key' (@sec-apikeys) (required for ellmer), 'Ellmer set-up' (@sec-ellmer),  VS code setup (@sec-vscodesetup) and 'Github Copilot set-up'  (@sec-githubcopilot).
+If you chose this option you will need to follow instructions in this chapter for 'Getting an API key' (@sec-apikeys) (required for ellmer), 'Ellmer set-up' (@sec-ellmer) and 'Github Copilot set-up'  (@sec-githubcopilot).
 
 ### Option 2 for R users
 
@@ -69,23 +69,130 @@ You don't need an ellmer equivalent because most of the LLM providers already pr
 
 There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See @sec-otheroptions.
 
-As a fall-back, you can follow this course via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.
+As a fall-back, you can follow this book via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.
 
 ## Software options summary
 
 Here are some of the software options I've looked at. Or if you've picked your option from the above list, just jump ahead to the required sections.
 
-**A note on 'VS Code and clones':** VS Code is the most widely used IDE for this kind of work, and several other editors are built directly on its source code, so they behave almost identically and run the same extensions. These clones include [Positron](https://positron.posit.co/) (managed by Posit, the group behind RStudio, and generally the easiest of them to set up for R), Cursor and Windsurf. Wherever the table says 'VS Code and clones', any of these will do — pick whichever you find easiest to install.
+**A note on 'VS Code and clones':** VS Code is the most widely used IDE for this kind of work, and several other editors are built directly on its source code, so they behave almost identically and run the same extensions. These clones include [Positron](https://positron.posit.co/) (managed by Posit, the group behind RStudio, and generally the easiest of them to set up for R), Cursor and Windsurf. Wherever an option below says 'VS Code and clones', any of these will do — pick whichever you find easiest to install. For most R users this will be Positron. 
 
-| Option                   | Best for                                                                 | Pros                                                                                                                                                                                                                                                                                                                                                                   | Cons                                                                                                         |
-|--------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| VS Code and clones with Github Copilot | Coders of all abilities who have a fixed budget or just want to try IDE integration | - Subscription based<br>- Basic free tier<br>- Editor integration (auto-complete style)<br>- Agent mode<br>- Multiple LLMs available<br>- Easy to use                                                                                                                                    | - Can be hard to set-up for R users<br>- Less flexibility and customization than other agents<br>- The Github Copilot Agent is less automated than other agent software<br>- Limited choice of LLMs (unless you BYO API key)<br>- Plans subject to sudden changes (usually reduced model availability as costs rise) |
-| Ellmer R package         | R users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers. | - Works anywhere R works<br>- Unlimited flexibility<br>- BYO API key, can interact with any LLM<br>- Automate API calls to LLMs                                                                                                                    | - Only a basic prompt interface provided (you need to write it)                                              |
-| Gander R package         | Moderately experienced R users who don't want to leave RStudio.          | - Works with Rstudio<br>- Can see 'inside of' R objects, so knows your variable names<br>- Can customize how it works to optimize performance and cost<br>- BYO API key, can interact with any LLM                                                  | - Requires some experience with the R program<br>- Not as deeply integrated with Rstudio as Github Copilot is with VS Code (doesn't have as many features as copilot) |
-| Aider                    | Experienced python programmers                                           | - Python based AI agent<br>- Interact with the agent via Python code<br>- Highly flexible, can use as an everyday coding assistant or to create bespoke agents<br>- Can edit files as well as run in agent mode                                     | - Not a straightforward prompt interface<br>- Requires Python coding experience                              |
-| VS Code and clones with Cline         | Experienced programmers who want to fully automate coding workflows | - Fully automated agents<br>- Multiple modes for different behaviours, e.g. plan versus act<br>- BYO API key<br>- System messages customizable for advanced scientific applications of agents<br>- Large user base | - Can be hard to set-up for R users<br>- Can get more expensive<br>- Does not do inline code editing 'as you type' like copilot<br>- Not suitable for novice programmers |
-| Positron Assistant | R users who want an assistant built in to their IDE, rather than added as an extension. | - R friendly developer (Posit, the group who run RStudio)<br>- Set-up is simpler than adding a third-party extension | - New software, still on version 0, so it will likely change<br>- Limited features to date |
-| Claude Code, Codex and similar              | Users who want a subscription-based, terminal- and cloud-native agent that also runs on the web | - Fully automated agents, run from the terminal or a browser<br>- Strong track record on R and statistics tasks<br>- Subscription based, so cost is predictable<br>- Runs in isolated cloud sandboxes for web sessions | - Not deeply integrated with RStudio<br>- Newer to the R community, fewer worked examples out there yet |
+### VS Code and clones with Github Copilot
+
+**Best for:** Coders of all abilities who have a fixed budget or just want to try IDE integration.
+
+Pros:
+
+- Subscription based
+- Basic free tier
+- Editor integration (auto-complete style)
+- Agent mode
+- Multiple LLMs available
+- Easy to use
+
+Cons:
+
+- Less flexibility and customization than other agents
+- The Github Copilot Agent is less automated than other agent software
+- Limited choice of LLMs (unless you BYO API key)
+- Plans subject to sudden changes (usually reduced model availability as token costs rise)
+
+### Ellmer R package
+
+**Best for:** R users who want to create their own chat bots, or integrate LLMs into their code and shiny apps. For example, to extract data from a large corpus of papers.
+
+Pros:
+
+- Works anywhere R works
+- Unlimited flexibility
+- BYO API key, can interact with any LLM
+- Automate API calls to LLMs
+
+Cons:
+
+- Only a basic prompt interface provided (you need to write it)
+
+### Gander R package
+
+**Best for:** Moderately experienced R users who don't want to leave RStudio.
+
+Pros:
+
+- Works with Rstudio
+- Can see 'inside of' R objects, so knows your variable names
+- Can customize how it works to optimize performance and cost
+- BYO API key, can interact with any LLM
+
+Cons:
+
+- Requires some experience with the R program
+- Not as deeply integrated with Rstudio as Github Copilot is with VS Code (doesn't have as many features as copilot)
+
+### Aider
+
+**Best for:** Experienced python programmers.
+
+Pros:
+
+- Python based AI agent
+- Interact with the agent via Python code
+- Highly flexible, can use as an everyday coding assistant or to create bespoke agents
+- Can edit files as well as run in agent mode
+
+Cons:
+
+- Not a straightforward prompt interface
+- Requires Python coding experience
+
+### VS Code and clones with Cline
+
+**Best for:** Experienced programmers who want to fully automate coding workflows.
+
+Pros:
+
+- Fully automated agents
+- Multiple modes for different behaviours, e.g. plan versus act
+- BYO API key
+- System messages customizable for advanced scientific applications of agents
+- Large user base
+
+Cons:
+
+- Can be hard to set-up for R users
+- Can get more expensive
+- Does not do inline code editing 'as you type' like copilot
+- Not suitable for novice programmers
+
+### Positron Assistant
+
+**Best for:** R users who want an assistant built in to their IDE, rather than added as an extension.
+
+Pros:
+
+- R friendly developer (Posit, the group who run RStudio)
+- Set-up is simpler than adding a third-party extension
+
+Cons:
+
+- New software, still on version 0, so it will likely change
+- Limited features to date
+- BYO API Key, so costs are currently higher than buying access directly from the LLM companies, who often discount token costs (at least in the short term, may not last). 
+
+### Claude Code, Codex and similar
+
+**Best for:** Users who want a subscription-based, terminal- and cloud-native agent that also runs on the web.
+
+Pros:
+
+- Fully automated agents, run from the terminal or a browser
+- Strong track record on R and statistics tasks
+- Subscription based, so cost is predictable
+- Runs in isolated cloud sandboxes for web sessions
+
+Cons:
+
+- Not deeply integrated with RStudio
+- Newer to the R community, fewer worked examples out there yet
 
 There are many other (10s, 100s?) of coding assistants now available. I haven't tried most of them. Last time I checked none of them worked with Rstudio. We'll come back to Claude Code specifically in [Section 2](section-2-agents/01-agent-options.qmd), since it's really an agent rather than an inline-completion tool.
 
@@ -97,7 +204,7 @@ Now you need to choose your large language model provider. I'm currently using O
 
 You choose depends on what you want to do and your budget. Some providers offer a free tier. You'll need to web search for the latest info on this.
 
-For this workshop I **strongly recommend you get an OpenRouter API key**. This will give you the most flexibility to try different models and to find models that have free options. Its a bit more expensive than buying tokens directly from the model's home provider, but gives you more flexibility. 
+For this workshop I **recommend you get an OpenRouter API key**. This will give you the most flexibility to try different models and to find models that have free options. Its a bit more expensive than buying tokens directly from the model's home provider, but gives you more flexibility. 
 
 Once you've chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.
 
@@ -108,6 +215,56 @@ The one caveat is that OpenRouter may not have access the the full capabilities 
 - [Sign-up here to get an API key for OpenRouter to access LLMs from 100s of providers](https://accounts.openrouter.ai/sign-up)
 - [Sign-up here to get an API key for Anthropic's LLMs](https://console.anthropic.com/login)
 - [Sign-up here to get an API key for OpenAI's LLMs](https://auth.openai.com/log-in)
+
+## Github Copilot set-up  {#sec-githubcopilot}
+
+Once you have VSCode just [follow the simple steps here](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code). Note if you already have a Github account make sure you have your login information handy.
+
+## Ellmer set-up  {#sec-ellmer}
+
+First, you need to get an API key from the provider, see step above on 'Getting an API key'.
+
+Then, you need to add the key to your .Renviron file:
+
+`usethis::edit_r_environ()`
+
+Then type in your key like this:
+
+OPENROUTER_API_KEY="xxxxxx"
+
+If you are using open AI it would be like this:
+
+OPENAI_API_KEY="xxxxxx"
+
+i.e. use the appropriate name for the provider you are using.
+
+Then restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).
+
+## Gander: Rstudio friendly alternative to copilot  {#sec-gander}
+
+[Gander lets you select code in Rstudio and edit it directly through calls to an LLM](https://simonpcouch.github.io/gander/articles/gander.html). Posit's own announcement post is a good short read too: [Introducing Gander](https://posit.co/blog/introducing-gander/).
+
+Follow the steps to set-up Ellmer first.
+
+Then you can `install.packages(gander)`
+
+Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type:
+`usethis::edit_r_profile()`
+
+Now set the option for your LLM, e.g.
+
+`options(.gander_chat = ellmer::chat_anthropic())`
+or
+`options(.gander_chat = ellmer::chat_openai())`
+
+Now add a keyboard short-cut to use Gander. Go to the 'Tools' menu at the top, click 'Add-ins', 'Browse Add-ins', then click the 'Keyboard shortcuts' button. Find the row for Gander (probably at the bottom), click in the second column for 'Shortcut' and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click 'Cancel' once you've set the shortcut key ('Cancel' as we don't want to run Gander right now).
+
+If for some reason the shortcut key won't you can also `gander::gander_addin()` at anytime from R.
+
+Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like 'make this code more fun') and hit enter to test it does something.
+
+I recommend reading the gander reference as there are ways you can [customize it to know your data but also save on tokens](https://simonpcouch.github.io/gander/articles/gander.html). We'll use Gander for code completion in [Section 1](section-1-line-by-line/04-gander.qmd).
+
 
 ## VSCode set-up for R users {#sec-vscodesetup}
 
@@ -199,7 +356,7 @@ This is just a list of issues I've had and how I've solved them.
 
 *Shortcut keys* (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code.
 
-### Installing radian (optional)
+### Installing radian (optional but recommended)
 
 Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc... and allows multi-line editing in the terminal.
 
@@ -209,61 +366,13 @@ Then go to the terminal and find the path where radian is installed (e.g. `which
 
 Now open your settings in VScode (cmd-,) and search for 'rterm' (stands for 'R Terminal', don't change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting 'R: Bracketed Paste' and make sure it is enabled.
 
-## Github Copilot set-up  {#sec-githubcopilot}
-
-Once you have VSCode just [follow the simple steps here](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code). Note if you already have a Github account make sure you have your login information handy.
-
-## Ellmer set-up  {#sec-ellmer}
-
-First, you need to get an API key from the provider, see step above on 'Getting an API key'.
-
-Then, you need to add the key to your .Renviron file:
-
-`usethis::edit_r_environ()`
-
-Then type in your key like this:
-
-OPENROUTER_API_KEY="xxxxxx"
-
-If you are using open AI it would be like this:
-
-OPENAI_API_KEY="xxxxxx"
-
-i.e. use the appropriate name for the provider you are using.
-
-Then restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).
-
-## Gander: Rstudio friendly alternative to copilot  {#sec-gander}
-
-[Gander lets you select code in Rstudio and edit it directly through calls to an LLM](https://simonpcouch.github.io/gander/articles/gander.html). Posit's own announcement post is a good short read too: [Introducing Gander](https://posit.co/blog/introducing-gander/).
-
-Follow the steps to set-up Ellmer first.
-
-Then you can `install.packages(gander)`
-
-Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type:
-`usethis::edit_r_profile()`
-
-Now set the option for your LLM, e.g.
-
-`options(.gander_chat = ellmer::chat_anthropic())`
-or
-`options(.gander_chat = ellmer::chat_openai())`
-
-Now add a keyboard short-cut to use Gander. Go to the 'Tools' menu at the top, click 'Add-ins', 'Browse Add-ins', then click the 'Keyboard shortcuts' button. Find the row for Gander (probably at the bottom), click in the second column for 'Shortcut' and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click 'Cancel' once you've set the shortcut key ('Cancel' as we don't want to run Gander right now).
-
-If for some reason the shortcut key won't you can also `gander::gander_addin()` at anytime from R.
-
-Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like 'make this code more fun') and hit enter to test it does something.
-
-I recommend reading the gander reference as there are ways you can [customize it to know your data but also save on tokens](https://simonpcouch.github.io/gander/articles/gander.html). We'll use Gander for code completion in [Section 1](section-1-line-by-line/04-gander.qmd).
 
 ## Installing other gen AI VSCode extensions  {#sec-otheroptions}
 
-e.g. if you want to try Cline.
+e.g. if you want to try Cline, Claude Code or Codex
 
-1. Open the Extensions view in VScode (Ctrl+Shift+X)
-2. Search for the genAI assistant of your choice. I'm using Cline currently.
+1. Open the Extensions view in Positron or VScode (Ctrl+Shift+X)
+2. Search for the genAI assistant of your choice. I'm using Cline and Claude Code currently.
 3. Select the extension
 4. Click the "Install" button
 5. The extension icon (e.g. a robot if using Cline) should appear in the VScode sidebar (left side).

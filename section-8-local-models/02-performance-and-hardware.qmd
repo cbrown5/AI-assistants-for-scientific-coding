@@ -17,5 +17,5 @@ GPUs and CPUs are what do the inference. They take your prompt and process it to
 GPU setups differ with different brands of computers. For instance, a mid-range Macbook will be sufficient to run basic models. For windows machines, you will want to have a performance NVidia GPU. Developers are aggressively compressing and quantizing local models to help us run decent local models on memory-constrained machines, and hopefully good coding assistants will soon perform similarly to cloud-hosted frontier models on the consumer grade laptops most of us use.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO
+Find out how much RAM, GPU and CPU power your computer has. 
 :::

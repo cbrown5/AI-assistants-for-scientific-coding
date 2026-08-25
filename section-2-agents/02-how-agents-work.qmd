@@ -10,8 +10,8 @@ The default behaviour for most agents is to ask your permission before running a
 
 My own workflow mixes Copilot's editing features with a full agent (Cline or Copilot's agent mode): I start a project by writing a detailed prompt or README (see [Section 3](../section-3-workflows/02-plan-implementation.qmd)), then let the agent scaffold the project and make a first attempt at the code.
 
-Keep a markdown file updated as you go, so the agent stays on topic across sessions — a `README.md` works, and a growing number of agents look specifically for a file called `AGENTS.md`. If the context in that file goes stale (say, it still mentions a package you've since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.
+Keep a markdown file updated as you go, so the agent stays on topic across sessions — a `README.md` works, and a growing number of agents look specifically for a file called `AGENTS.md` or `CLAUDE.md` for Anthropic's models. If the context in that file goes stale (say, it still mentions a package you've since decided not to use), the agent will keep defaulting back to it — so out-of-date instructions are worse than none.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-Open `system.md` in this repo — a real agent system prompt (Roo Code's, captured while that extension was still maintained; Cline's is similar). Find the section that lists its available tools. How many of them map onto the simple "read a file / write a file / run a command" set we'll build in Section 7?
+Look at the docs for whatever agent you have available and see if you can edit or add to the system prompt. What tools are currently listed and is it possible to change these options? 
 :::

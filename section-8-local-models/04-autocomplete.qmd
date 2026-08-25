@@ -1,6 +1,6 @@
 # Autocomplete and agentic coding
 
-Chris started with the [Qwen 2.5 Coder base](https://ollama.com/library/qwen2.5-coder), because he wanted to try using Ollama for autocomplete suggestions while coding.
+I started with the [Qwen 2.5 Coder base](https://ollama.com/library/qwen2.5-coder), because he wanted to try using Ollama for autocomplete suggestions while coding.
 
 To get the model he just ran `ollama pull qwen2.5-coder:7b-base`. Then it downloaded from the internet. This took a while as the file is several gigabytes.
 
@@ -13,5 +13,5 @@ So download that model, and then you're going to need another extension to help 
 Other applications you might want to try out are the chat agents option in Continue. This will make changes to your scripts. The base model we used above won't work for this task, you will want a different model that is optimized for chat and agentic workflows. Usually these models are significantly larger.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
-TODO
+Go back to Section 1 on line-by-line completion, but this time try using the Continue extension to do the tasks. How does the performance compare to copilot, in terms of speed and accuracy? 
 :::
