@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Brown">
-<meta name="dcterms.date" content="2025-08-30">
 
-<title>AI assistants for Scientific Coding</title>
+<title>2&nbsp; Introduction – AI assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-introduction.html" rel="next">
+<link href="./02-setup.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -85,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-introduction.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,13 +113,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -492,18 +491,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">0.1</span> Summary</a></li>
-  <li><a href="#citation-for-book" id="toc-citation-for-book" class="nav-link" data-scroll-target="#citation-for-book"><span class="header-section-number">0.2</span> Citation for book</a></li>
-  <li><a href="#who-should-read-this-book" id="toc-who-should-read-this-book" class="nav-link" data-scroll-target="#who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</a></li>
-  <li><a href="#is-the-book-up-to-date" id="toc-is-the-book-up-to-date" class="nav-link" data-scroll-target="#is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</a></li>
-  <li><a href="#about-chris" id="toc-about-chris" class="nav-link" data-scroll-target="#about-chris"><span class="header-section-number">0.5</span> About Chris</a></li>
-  <li><a href="#software-youll-need-for-this-workshop" id="toc-software-youll-need-for-this-workshop" class="nav-link" data-scroll-target="#software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</a></li>
-  <li><a href="#book-overview" id="toc-book-overview" class="nav-link" data-scroll-target="#book-overview"><span class="header-section-number">0.7</span> Book overview</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">0.8</span> Data</a>
-  <ul class="collapse">
-  <li><a href="#benthic-cover-surveys-and-fish-habitat" id="toc-benthic-cover-surveys-and-fish-habitat" class="nav-link" data-scroll-target="#benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</a></li>
-  </ul></li>
-  <li><a href="#how-the-book-was-written" id="toc-how-the-book-was-written" class="nav-link" data-scroll-target="#how-the-book-was-written"><span class="header-section-number">0.9</span> How the book was written</a></li>
+  <li><a href="#what-we-found-when-we-tested-llms-on-ecological-statistics" id="toc-what-we-found-when-we-tested-llms-on-ecological-statistics" class="nav-link active" data-scroll-target="#what-we-found-when-we-tested-llms-on-ecological-statistics"><span class="header-section-number">2.1</span> What we found when we tested LLMs on ecological statistics</a></li>
+  <li><a href="#what-happens-when-you-let-the-agent-run-the-whole-analysis" id="toc-what-happens-when-you-let-the-agent-run-the-whole-analysis" class="nav-link" data-scroll-target="#what-happens-when-you-let-the-agent-run-the-whole-analysis"><span class="header-section-number">2.2</span> What happens when you let the agent run the whole analysis</a></li>
+  <li><a href="#what-this-means-for-how-you-work" id="toc-what-this-means-for-how-you-work" class="nav-link" data-scroll-target="#what-this-means-for-how-you-work"><span class="header-section-number">2.3</span> What this means for how you work</a></li>
   </ul>
 </nav>
     </div>
@@ -512,26 +502,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AI assistants for Scientific Coding</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Chris Brown </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -541,75 +519,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="summary" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">0.1</span> Summary</h2>
-<p>If you are doing data analysis you are probably using language models (e.g.&nbsp;ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.</p>
-<p>I will cover:</p>
-<ul>
-<li><p>How to use different software tools from the simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).</p></li>
-<li><p>Vibe coding and how future analysis workflows will change dramatically from today</p></li>
-<li><p>Best practice prompting techniques that can dramatically improve model performance for complex data analysis</p></li>
-<li><p>Applying language models to common environmental applications such as GLMs and multivariate statistics</p></li>
-<li><p>Issues including environmental impacts, copyright and ethics</p></li>
-<li><p>I’ll also make space for an interactive discussion of people’s concerns about AI, but also the opportunities.</p></li>
-</ul>
-<p>The content I’ll teach is suitable for anyone using computing coding (e.g.&nbsp;R, Python) to do data analysis.</p>
-<p>Examples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g.&nbsp;R or Python).</p>
+<p><a href="https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&amp;ouid=107596646496267980935&amp;rtpof=true&amp;sd=true">Slides from the workshop presentation (on a google drive)</a></p>
+<p>LLMs were created to write text. But it soon became apparent that they excel at writing programming code in many different languages.</p>
+<p>Since then AI companies have been optimising their training and development for coding and logic.</p>
+<p>There are a series of standardized tests that are used to compare quality of LLMs. Common evaluation tests are the SWE benchmark which looks at the ability of LLMs to autonomously create bug fixes. Frontier models can solve <a href="https://www.swebench.com/">&gt;70% of tasks on this benchmark</a>.</p>
+<p>Their progress on math and logic is a bit more controversial. It seems like some of the math benchmarks (like AIME annual tests for top 5% highschool students) <a href="https://epoch.ai/frontiermath/the-benchmark">are saturated as LLMs are scoring close to 100% on these tests.</a>. So newer tests of unsolved maths problems are being developed.</p>
+<p>However, others are finding that the ability of <a href="https://garymarcus.substack.com/p/reports-of-llms-mastering-math-have">LLMs on math and logic are overstated</a>, perhaps because the LLMs have been trained on the questions and the answers. Its also clear that AI companies have a strong financial incentive to find ways (real and otherwise) of improving on the benchmarks. Are the moment there is tough competition to be ‘industry leaders’ and grab market share with impressive results on benchmarks.</p>
+<p>Either way, it does seem that the current areas of progress are programming, math and logic.</p>
+<p>Evaluations on statistics and the R software are less common. So my collaborators and I ran our own. Two of those studies are now published, and the advice in this book is built on what we found.</p>
+<section id="what-we-found-when-we-tested-llms-on-ecological-statistics" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-we-found-when-we-tested-llms-on-ecological-statistics"><span class="header-section-number">2.1</span> What we found when we tested LLMs on ecological statistics</h2>
+<p>The first study asked how much the prompt matters: <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210x.70267">Brown &amp; Spillias (2026) “Prompting large language models for quality ecological statistics”</a> in <em>Methods in Ecology and Evolution</em> (see also the <a href="https://www.seascapemodels.org/posts/2026-03-17-prompting-llms-stats-paper-published/">summary blog post</a>). We ran repeatable evaluations in R, replicating each prompt 10 times across multiple LLMs. The short version: LLMs can help you do better statistics, but only if you ask well.</p>
+<p>A few results stood out.</p>
+<p><strong>Specificity matters enormously for test selection.</strong> We compared four prompts for choosing a statistical test for an ecological dataset, ranging from “How do I test the relationship between two continuous variables?” to a detailed prompt specifying variable types, sample size, and study design. The generic prompt never suggested count models (the appropriate family for fish abundance data). The detailed prompt guaranteed them, regardless of which LLM we used.</p>
+<p><strong>Detailed prompts make agent-generated code more consistent.</strong> We asked the Github Copilot agent to write an entire analysis workflow from two different prompts — one brief, one detailed. We then ran multivariate ordination on the resulting code to measure how similar the 10 replicates were to each other. The detailed prompt produced much tighter clusters — the agent kept using the same functions, variable names, and structure. Inconsistent code is harder to review, which matters if you’re trying to catch statistical errors.</p>
+<p><strong>Being specific overcomes weaker models.</strong> When we tasked LLMs with writing R code to calculate a distance matrix, the detailed prompt got the right answer 90–100% of the time across all models. The brief prompt mostly failed — except for GPT-5 Codex, which guessed correctly 9/10 times. Good prompts effectively compensated for using a smaller, cheaper model.</p>
+<p>These findings match the earlier published evaluations. <a href="https://arxiv.org/abs/2406.07815">An evaluation (published 2025) of several models, including GPT-4 as the most up-to-date model</a>, found accuracy at suggesting the correct statistical test of between 8% and 90%. In general LLMs were good at choosing descriptive statistics (accuracy of up to 90% for GPT-4). Whereas when choosing inferential tests accuracy was much less impressive - GPT-4 scored between 20% and 43% accuracy on questions for which a contingency table was the correct answer. The results also indicate the improvements that can be gained through better prompts (i.e.&nbsp;doubling in accuracy for GPT 4).</p>
 </section>
-<section id="citation-for-book" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="citation-for-book"><span class="header-section-number">0.2</span> Citation for book</h2>
-<p>Please consider citing my accompanying article if you are using the advice in this book:</p>
-<p><strong>Citation: Brown, C.J. &amp; Spillias, S. (2026). Prompting large language models for quality ecological statistics. <em>Methods in Ecology and Evolution</em>. <a href="https://doi.org/10.1111/2041-210x.70267">https://doi.org/10.1111/2041-210x.70267</a></strong></p>
-<p>If you are using the material on agents and specification sheets, the companion study is:</p>
-<p><strong>Citation: Brown, C.J., Aitken, J., Takyi, R. &amp; Tisseaux-Navarro, A. (2026). Automating Ecological and Fisheries Modelling With Agentic AI. <em>Fish and Fisheries</em>. <a href="https://doi.org/10.1111/faf.70079">https://doi.org/10.1111/faf.70079</a></strong></p>
+<section id="what-happens-when-you-let-the-agent-run-the-whole-analysis" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="what-happens-when-you-let-the-agent-run-the-whole-analysis"><span class="header-section-number">2.2</span> What happens when you let the agent run the whole analysis</h2>
+<p>Our second study went further and handed the entire modelling job to an agent: <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70079">Brown et al.&nbsp;(2026) “Automating Ecological and Fisheries Modelling With Agentic AI”</a> in <em>Fish and Fisheries</em>, which is open access (and there’s a <a href="https://www.seascapemodels.org/posts/2026-03-28-agentic-AI-ecological-modelling/">summary blog post</a> too).</p>
+<p>Agentic AI tools can write and run code, fix their own errors, and produce a formatted report with figures. We wanted to know whether that translates into reliable ecological modelling, so we ran a test: three fisheries tasks, four AI models, ten independent runs each, scored against a rubric covering accuracy, code quality and report quality.</p>
+<p>We found agents can be genuinely useful, but only if you know how to use them well and only if you know enough about the analysis to catch what they miss.</p>
+<p>Two findings shaped how this book is written. First, <strong>agents default to the most common method in their training data</strong>, which may not be appropriate for your question — and even when you tell them otherwise they may not comply.</p>
+<p>Second, <strong>agents don’t check the things you didn’t ask them to check</strong>. None of our agents checked for collinearity between predictors in the GLM, even though it’s standard practice. We deliberately left it out of the specification to see if they’d do it anyway. The GLMs ran fine and the results looked coherent, but there was in fact strong collinearity between the predictors.</p>
+<p>The error type that concerns me most is professionally formatted output containing logical errors. A coding syntax error is immediately obvious. A methodological shortcut embedded in otherwise clean output may be invisible unless you already know what the answer should look like. Inexperienced researchers will use these tools to produce analyses they cannot evaluate, and experienced researchers may get overconfident and not check results thoroughly enough.</p>
 </section>
-<section id="who-should-read-this-book" class="level2" data-number="0.3">
-<h2 data-number="0.3" class="anchored" data-anchor-id="who-should-read-this-book"><span class="header-section-number">0.3</span> Who should read this book?</h2>
-<p>The book is for: anyone who currently uses R, from intermittent users to experienced professionals. The book is not suitable for those that need an introduction to R and I’ll assume students know at least what R does and are able to do tasks like read in data and create plots. If you need an introduction to R then I recommend you learn it without AI first.</p>
-</section>
-<section id="is-the-book-up-to-date" class="level2" data-number="0.4">
-<h2 data-number="0.4" class="anchored" data-anchor-id="is-the-book-up-to-date"><span class="header-section-number">0.4</span> Is the book up to date?</h2>
-<p>The large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out <a href="https://luisdva.github.io/llmsr-book/before-start.html">Large Language Model tools for R</a> by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.</p>
-<p>Last update was 2026-08-25.</p>
-</section>
-<section id="about-chris" class="level2" data-number="0.5">
-<h2 data-number="0.5" class="anchored" data-anchor-id="about-chris"><span class="header-section-number">0.5</span> About Chris</h2>
-<p>I’m an Associate Professor of Fisheries Science at University of Tasmania. I specialise in data analysis and modelling, skills I use to better inform environmental decision makers. R takes me many places and I’ve worked with marine ecosystems from tuna fisheries to mangrove forests. I’m an experienced teacher of R. I have taught R to 100s people over the years, from the basics to sophisticated modelling and for everyone from undergraduates to my own supervisors.</p>
-</section>
-<section id="software-youll-need-for-this-workshop" class="level2" data-number="0.6">
-<h2 data-number="0.6" class="anchored" data-anchor-id="software-youll-need-for-this-workshop"><span class="header-section-number">0.6</span> Software you’ll need for this workshop</h2>
-<p>You will need some time to set up the software. You may also need IT help if your computer is locked down. See <a href="./02-setup.html">Setup</a> for more detailed instructions.</p>
-</section>
-<section id="book-overview" class="level2" data-number="0.7">
-<h2 data-number="0.7" class="anchored" data-anchor-id="book-overview"><span class="header-section-number">0.7</span> Book overview</h2>
-<p>The book is organised as short, self-paced modules — each about 10 minutes — grouped into bigger sections.</p>
-<ul>
-<li><a href="./01-introduction.html">Introduction</a>: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.</li>
-<li><a href="./02-setup.html">Setup</a>: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.</li>
-<li><a href="./section-1-line-by-line/index.html">Section 1: Line-by-line code completion</a>: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.</li>
-<li><a href="./section-2-agents/index.html">Section 2: Agents</a>: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.</li>
-<li><a href="./section-3-workflows/index.html">Section 3: AI in workflows</a>: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.</li>
-<li><a href="./section-4-security-privacy/index.html">Section 4: Security, data privacy and cloud agents</a>: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.</li>
-<li><a href="./section-5-customizing-agents/index.html">Section 5: Customizing agents</a>: Skills and sub-agents — packaging reusable instructions and delegating specialized roles, worked through a GLM analysis, plotting, and methods write-up.</li>
-<li><a href="./section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a>: Tests and verification, red-green TDD, and using simulated data as a verification step.</li>
-<li><a href="./section-7-api-access/index.html">Section 7: LLM access via API</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
-<li><a href="./section-8-local-models/index.html">Section 8: Local LLMs</a>: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.</li>
-<li><a href="./99-appendix.html">Appendix — Code and data</a>: Code snippets, data access links and supporting scripts used in the book.</li>
-</ul>
-</section>
-<section id="data" class="level2" data-number="0.8">
-<h2 data-number="0.8" class="anchored" data-anchor-id="data"><span class="header-section-number">0.8</span> Data</h2>
-<p>We’ll load all data files directly via URL in the workshop notes. So no need to download any data now. Details on data attribution are below.</p>
-<section id="benthic-cover-surveys-and-fish-habitat" class="level3" data-number="0.8.1">
-<h3 data-number="0.8.1" class="anchored" data-anchor-id="benthic-cover-surveys-and-fish-habitat"><span class="header-section-number">0.8.1</span> Benthic cover surveys and fish habitat</h3>
-<p>In this course we’ll be analyzing benthic cover and fish survey data. These data were collected by divers doing standardized surveys on the reefs of Kia, Solomon Islands. These data were first publshed by <a href="http://dx.doi.org/10.1016/j.biocon.2017.04.024">Hamilton et al.&nbsp;2017</a> who showed that logging of forests is causing sedimentation and impact habitats of an important fishery species.</p>
-<p>In a follow-up study <a href="http://dx.doi.org/10.1111/cobi.13079">Brown and Hamilton 2018</a> developed a Bayesian model that estimates the size of the footprint of pollution from logging on reefs.</p>
-</section>
-</section>
-<section id="how-the-book-was-written" class="level2" data-number="0.9">
-<h2 data-number="0.9" class="anchored" data-anchor-id="how-the-book-was-written"><span class="header-section-number">0.9</span> How the book was written</h2>
-<p>The book is a mixture of my original writing, voice dictation and Claude’s writing. I’ve written new sections and repurposed my own blog posts, papers and workshop notes for use here. I also often voice dictate using a speech-to-text app, then use Claude to clean that dictation up for the page.</p>
-<p>Some sections are written by Claude where I think a topic is important to cover, but I have not had time to update/write them myself. However, I do due diligence editing on everything, to remove AI slop and check for accuracy.</p>
+<section id="what-this-means-for-how-you-work" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="what-this-means-for-how-you-work"><span class="header-section-number">2.3</span> What this means for how you work</h2>
+<p>The lesson is two-fold. Just because LLMs excel at some tasks doesn’t mean they will excel at others. Second, good prompting strategies pay off.</p>
+<p>For us in the niche R world there is also another lesson. The LLMs should be good at helping us implement analyses (ie write the R code). However, they are less reliable as statisticians who can guide us on the scientific question of what type of analysis to do.</p>
+<p>I have had many experiences where the most powerful models of the day make trivial logic mistakes (e.g.&nbsp;Claude Fable, the current most powerful at writing). They can scaffold a complex workflow of multiple interacting steps, that handles data wrangling, analysis and plotting.</p>
+<p>But more often than not they get some core detail wrong. Such as the equation in the heart of your generalized linear model.</p>
+<p>What this tells me is that LLMs are great at programming, but not so crash hot at the scientific logic and reasoning.</p>
+<p>As a scientist and competent programmer, this is great news. I can offload a lot of the tedious and time- consuming set-up work required in scientific computing and focus on the parts that require real scientific judgement.</p>
+<p>Statistical expertise is still required. You need to know enough to evaluate whether the LLM’s suggestions are appropriate, check that code is scientifically valid (not just syntactically correct), and understand what the results mean. Novices who lack that background are more likely to write poor prompts and less likely to catch bad advice.</p>
+<p>In this book we’ll walk through many of the ways you can use LLMs to help you do statistics, data analysis and R coding (and a bit of python too), working through short self-paced modules built around ecological datasets. The workflow we recommend in the prompting paper breaks LLM-assisted analysis into three stages, with separate prompts for each — choosing the statistical approach, planning the implementation, then writing the code — and that structure runs through <a href="./section-3-workflows/index.html">Section 3</a> of this book.</p>
+<p>One of the biggest first hurdles is choosing among the multitude of AI assistant software and R package options. There are so many it is bewildering. In the next module I’ll give you a few of the easiest set-up options available.</p>
 
 
 </section>
@@ -1017,10 +963,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Summary">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-introduction.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-setup.html" class="pagination-link" aria-label="Setup">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

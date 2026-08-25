@@ -1,0 +1,19 @@
+# When agents get stuck
+
+Agents try to debug their own errors, but they can get stuck in a loop doing it. A common one: trying to run `Rscript` from the terminal to execute a full script, on a computer where `Rscript` isn't on the system `PATH`. Fixing that is an IT-flavoured detour outside the scope of this book, but the practical workaround is to give the agent the full path explicitly in a custom instruction — e.g. "use `Rscript.exe` at `C:/Program Files/R/bin/Rscript.exe`" — rather than letting it keep guessing.
+
+## Context poisoning
+
+The deeper version of "getting stuck" isn't an error message, it's a wrong answer that's already in the conversation. If an agent doesn't have enough information, it won't say so — it'll answer anyway (what people often loosely call "hallucinating"). Once that wrong answer sits in the chat thread, it's genuinely hard to get the model to un-learn it there. Telling it "no, that's wrong, try again" inside the same conversation is fighting the poisoned context, not fixing it.
+
+The reliable fix is almost always to start over: open a new chat and write a clearer, more complete prompt from scratch, rather than trying to patch a conversation that's gone sideways.
+
+This compounds in bigger projects. As more gets crammed into the context window, small mistakes get harder to spot and root out. An old, superseded script with a subtly wrong line of code can make it into an agent's index and keep influencing its suggestions long after you thought you'd abandoned that approach — until you delete the file and the index catches up. That's one more reason to use git properly, rather than keeping several versions of the "same" script lying around your project directory.
+
+::: {.tip}
+**Tip:** If an agent keeps recommending the same broken fix over and over, that's the tool-use equivalent of the inline-completion "stuck in a loop" problem from Section 1 — the fix is the same too: stop, and change the input rather than repeating the same request.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Deliberately give an agent an incomplete or slightly wrong instruction about the benthic/fish data (e.g. call `CB_cover` something it isn't), let it produce a wrong answer, then try correcting it within the same chat. Then start a fresh chat with a corrected prompt instead. Compare how much friction each approach took.
+:::

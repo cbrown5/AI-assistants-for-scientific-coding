@@ -1,0 +1,34 @@
+# Chat: multi-turn conversations
+
+So far we've sent one prompt and got one answer back. Often you want an ongoing conversation — to problem-solve, refine an answer, or just chat. This is easy with `ellmer` (fiddlier with plain Python or base R, so we'll stick to ellmer here).
+
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+```{r}
+library(ellmer)
+
+chat <- chat_openrouter(
+  system_prompt = "You are a helpful assistant who specialises in ecological statistics.",
+  model = "anthropic/claude-sonnet-4",
+  api_args = list(max_tokens = 2000)
+)
+
+live_console(chat)
+# live_browser(chat)
+```
+
+`live_console()` lets you chat right in the terminal. `live_browser()` opens a local browser window that feels a lot like ChatGPT's interface.
+
+::: {.tip}
+**Tip:** LLMs perform better when you put everything in one well-prepared initial prompt, rather than a multi-turn conversation. [Responses to a problem split across multiple questions are less accurate than the same information given up front](https://arxiv.org/abs/2505.06120) — this holds across logic, coding and everything in between. I like to think of it as mansplaining: LLMs seem to have been (sub-consciously?) trained to prefer being told everything at once over having a back-and-forth.
+:::
+
+This is the same "context poisoning" problem we ran into with agents in [Section 2](../section-2-agents/09-when-agents-get-stuck.qmd): once a wrong answer is sitting in the chat history, it's hard to get the model to un-learn it within that thread. If a multi-turn conversation goes off the rails, the fix usually isn't to keep correcting it — it's to start a new chat with a clearer, more complete initial prompt.
+
+That said, it's fine to use a chat as a genuine problem-solving partner when you're not sure what you want yet. Just don't mistake "figuring it out together" for "getting the best possible answer" — once you've got a plan, write one clear, detailed prompt to get the final version.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Start a `live_console()` chat and ask "How could I test if fish abundance depends on coral cover?" over four separate turns (one clarifying detail per turn: response variable, sampling method, number of sites, that it's count data). Then start a fresh chat and ask the same thing as one single, fully detailed prompt. Compare the two final answers.
+:::

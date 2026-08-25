@@ -1,0 +1,66 @@
+# Step 2: Plan implementation
+
+Repeat after me: *I will keep my data analysis code neat and organized.* Say it three times if you have to.
+
+If you're like most of us, you code as you go, and end up with one script that runs 1000+ lines from data import through wrangling, visuals, modelling, verification and plotting. The worst version of this I've seen is a script that doesn't even execute top-to-bottom — students telling me "run lines 60-70, then go back to line 20 and it should work..."
+
+Have you ever gone back into an old project to fix something and found it a struggle to work out what you did? That's a problem for an AI assistant too — you're filling its context window with irrelevant junk, and it's going to have a much harder time giving you good advice. Organised code is good for future-you, good for other scientists reading your code, good for reproducibility, *and* good for getting better help from an assistant.
+
+It's more upfront work, but the time it saves later — including in your prompting — more than makes up for it. The assistant can even help you get organised, if you ask it to.
+
+## Directory structure
+
+There's no single correct layout, the important thing is to have *a* consistent one. Here's mine:
+
+```
+my-project/
+├── README.md
+├── .gitignore
+├── Scripts/       # R code
+│   ├── 01_data-prep.R
+│   ├── 02_data-analysis.R
+│   └── 03_plots.R
+├── Shared/
+│   ├── Outputs/
+│   │   ├── Figures/
+│   │   ├── data-prep/
+│   │   └── model-objects/
+│   ├── Data/
+│   └── Manuscripts/
+└── Private/
+```
+
+Add more nesting for a complex project (e.g. one with both spatial and non-spatial data), but keep individual scripts short and single-purpose.
+
+## The README as agent memory
+
+Your README.md is the project's memory — for you *and* for the assistant. Think of it as a standing prompt: it's easy to attach to any request, or paste into a web chat, and it means the assistant has consistent context across sessions (where it would otherwise start from nothing every time).
+
+Write it thinking about what a new collaborator (human or AI) would need to know:
+
+- Folder structure
+- Variable names and metadata
+- Code organisation conventions
+- Code style preferences (e.g. "use `MASS::glm.nb()`, don't `library(MASS)` globally")
+
+::: {.tip}
+**Tip:** The README is doing double duty as the agent's memory across sessions. Keep it updated as the project evolves, and it'll also help you (or a collaborator) pick the project back up months or years later.
+:::
+
+Once you have a README with your aims, data methodology, and tech context filled in, planning is often as simple as:
+
+::: {.callout-note title="Prompt"}
+Help me plan R code to implement this analysis.
+:::
+
+or
+
+::: {.callout-note title="Prompt"}
+Help me plan the workflow and scripts to implement this analysis.
+:::
+
+Iterate on the plan with the assistant until you're happy, before moving on to actually writing code in the next module. The full worked example — a complete specification sheet for the topa/coral-cover case study — is coming up later in this section.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Sketch a directory structure and a one-paragraph README for a new project that asks whether `pres.topa` depends on both `CB_cover` and `dist_to_logging_km`. Then ask an assistant to critique your plan before you implement anything.
+:::

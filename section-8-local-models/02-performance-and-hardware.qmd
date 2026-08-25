@@ -1,0 +1,21 @@
+# Performance and hardware
+
+Now its important to understand the difference between hard-disk memory, RAM, GPUs and CPUs.
+
+Hard-disk memory is where data is stored long term. You need enough of this just to download the model file. This is unlikely to be a constraint for downloading a model, unless your computers memory is really chockers.
+
+Common LLM choices range from about 8GB up to terabytes. You will need at least 10GB of free hard-disk memory to download a basic coding assistant model.
+
+RAM is the accessible memory where Ollama (and other programs) hold data so its ready for quick access. The local LLM needs to fit in your RAM for Ollama to do inference with it. If the LLM is using most of your RAM it may still work, but not you will find other software on your computer slows down or breaks while the model is in use, because it can't use that RAM.
+
+For a basic 7 billion parameter model ('7B') you will need 8GB RAM minimum. But practically you will want 16GB+ for responses to be fast enough and to allow you to use other software simultaneously.
+
+Ollama only holds an LLM in RAM while it's in use. By default Ollama unloads it after five minutes of inactivity, or use the `stop` command to get it out of RAM sooner.
+
+GPUs and CPUs are what do the inference. They take your prompt and process it to produce text/images/audio. Hopefully you have a computer with a decent GPU, this is much faster. Read more on [Hardware support](https://docs.ollama.com/gpu) if you are not sure.
+
+GPU setups differ with different brands of computers. For instance, a mid-range Macbook will be sufficient to run basic models. For windows machines, you will want to have a performance NVidia GPU. Developers are aggressively compressing and quantizing local models to help us run decent local models on memory-constrained machines, and hopefully good coding assistants will soon perform similarly to cloud-hosted frontier models on the consumer grade laptops most of us use.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Find out how much RAM, GPU and CPU power your computer has. 
+:::

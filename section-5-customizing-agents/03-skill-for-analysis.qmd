@@ -1,0 +1,29 @@
+# Writing a skill for analysis
+
+Let's turn the spec sheet from [Section 3](../section-3-workflows/04-specification-sheets.qmd) into something reusable. The spec sheet answered "how do I analyze topa vs. coral cover, this one time." A skill answers "how do I analyze *any* count-response GLM on this kind of survey data, every time."
+
+## From spec sheet to skill
+
+The spec sheet's modelling section was specific to one prompt:
+
+::: {.callout-note title="Spec sheet (one-off)"}
+We will use generalized linear models... Topa abundance is probably over-dispersed, so we will need to use a negative binomial family... `MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)`
+:::
+
+A skill generalizes the *procedure*, not the specific variable names:
+
+::: {.callout-note title="Skill: count-data-glm"}
+**Description:** Use when fitting a GLM to a count response (abundance, counts, occurrences) that may be overdispersed.
+
+**Instructions:**
+1. Check the response variable's mean vs. variance — if variance notably exceeds the mean, use `MASS::glm.nb()` instead of `glm(family = poisson)`.
+2. Start from a full model with all hypothesised predictors and interactions, then simplify using likelihood ratio tests (`anova(m1, m2, test = "Chisq")`), dropping non-significant interactions first.
+3. After selecting a final model, check the dispersion parameter and residual diagnostics before reporting results — never report a model that hasn't been checked.
+4. Don't `library(MASS)` globally; call `MASS::glm.nb()` directly to avoid namespace conflicts.
+:::
+
+Notice this skill doesn't mention `pres.topa` or `CB_cover` anywhere — that's the difference between a spec sheet (a project's context) and a skill (a repeatable procedure). You still attach the project-specific data and variable names each time; the skill just supplies the modelling judgment calls so you don't have to restate them.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Save the skill above (or your own version) and run it against `fish-coral-cover-sites.csv` in two separate agent sessions, asking it to fit `pres.topa ~ CB_cover`. Compare the two runs — does the skill produce the same family and same simplification choices both times? Compare this to the same-prompt-twice test from [Section 2](../section-2-agents/04-first-agent-example.qmd) and [Section 3](../section-3-workflows/03-write-the-code.qmd) — did packaging the instructions as a skill reduce the variation you saw there?
+:::

@@ -1,0 +1,21 @@
+# API keys
+
+**Software requirements:** R (ideally with `ellmer` installed) or Python, and an API key with a provider — ideally OpenRouter.
+
+Everything in this section works by talking to an LLM provider's API directly, rather than through a chat app or an assistant like Copilot. To do that you need an API key — think of it like a password that lets your code send prompts to a provider on your behalf.
+
+If you haven't already, follow ['Getting an API key'](../02-setup.qmd#sec-apikeys) and ['Ellmer set-up'](../02-setup.qmd#sec-ellmer) in Setup. The short version:
+
+1. Sign up with a provider — I recommend [OpenRouter](https://accounts.openrouter.ai/sign-up) for this section, since it gives you access to models from many providers with one key.
+2. Buy a small amount of credit (a few dollars will get you a long way through this book's examples).
+3. Save the key to your `.Renviron` file (`usethis::edit_r_environ()`), as `OPENROUTER_API_KEY="xxxxxx"`, then restart R.
+
+`ellmer` will automatically find the key so long as you use the standard environment variable name for your provider — see `?ellmer::chat_openrouter` (or `chat_xxx` for whichever provider you're using).
+
+::: {.tip}
+**Tip:** The sign-up page for an API key is often a completely different webpage to the one you use for a subscription product like ChatGPT Plus or Claude Code. Don't assume they're the same account.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Confirm your key is working without ever typing it into a script: run `library(ellmer); chat_openrouter()$chat("Say hello")` in a fresh R session and check it returns a response. If it fails, the problem is almost always the environment variable name or a missing restart of R.
+:::

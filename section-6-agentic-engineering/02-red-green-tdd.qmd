@@ -1,0 +1,36 @@
+# Red-green TDD for data analysis
+
+Test-driven development, in its classic software form, goes: write a failing test first (red), write the minimum code to make it pass (green), then clean up. The point isn't the tests themselves, it's the discipline it forces — you have to decide what "correct" means *before* you write the code that's supposed to produce it, rather than writing the code first and hoping it's right.
+
+That discipline transfers to data analysis surprisingly well, even though "correct" is fuzzier here than in software. You won't be testing that a function returns the right integer — you'll be testing that a pipeline behaves the way you already know it should, on data where you already know the answer.
+
+## What "red" looks like for an analysis
+
+Before asking an agent to build the full GLM pipeline for `pres.topa ~ CB_cover`, write the check that a correct pipeline needs to pass. For example:
+
+```{r eval=FALSE}
+# red: this will fail, because model_fit.R doesn't exist yet
+source("scripts/model_fit.R")
+
+testthat::test_that("model output has the columns we expect", {
+  testthat::expect_true(all(c("term", "estimate", "std.error") %in% names(model_summary)))
+})
+
+testthat::test_that("CB_cover has a positive estimated effect", {
+  testthat::expect_gt(model_summary$estimate[model_summary$term == "CB_cover"], 0)
+})
+```
+
+Run it. It fails — there's no `model_fit.R` yet, and no `model_summary` object. That's red, and that's the point: you've written down what "done" means before any code exists to satisfy it.
+
+## Getting to green
+
+Now hand the agent the spec sheet from [Section 3](../section-3-workflows/04-specification-sheets.qmd) *plus* this test file, and ask it to write `scripts/model_fit.R` so the test passes. This changes what the agent is optimising for — instead of "write code that runs," it's "write code that makes this specific, falsifiable claim true." That's a much narrower and more checkable target, and it's much harder for a plausible-looking-but-wrong analysis to sneak through it.
+
+## Why the direction of a coefficient is a good first test
+
+Notice the second test above isn't checking a p-value or an exact number — it's checking the *sign* of an effect you already have strong prior reason to expect (branching coral cover should have a positive relationship with juvenile topa abundance, per Hamilton et al. 2017). That's a deliberately weak, easy-to-state claim, which is exactly the right level for a first test — you're not trying to encode the whole analysis in assertions, just the parts you're confident enough about to write down as a checkable fact.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Write a red test that asserts the negative binomial dispersion parameter (`theta`) from `MASS::glm.nb(pres.topa ~ CB_cover, data = dat)` is greater than 0 and less than, say, 50 (a sanity range, not a precise prediction). Confirm it's red before the model exists, then have an agent implement the model and confirm it goes green.
+:::

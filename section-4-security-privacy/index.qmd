@@ -1,0 +1,3 @@
+# Section 4: Security, data privacy and cloud agents {.unnumbered}
+
+Agents that can read files, browse the web and run code on your computer are powerful and risky. This section works through concrete security risk examples, a Claude Code for web example, a bash sandbox example, and practical advice for keeping your data secure when cloud-hosted agents are involved — plus a frank look at the limitations of all of the above.

@@ -1,0 +1,3 @@
+# Section 2: Agents {.unnumbered}
+
+Here we move up a gear from line-by-line completion to agents — LLMs that run tools in a loop to complete a task with less hand-holding. You'll meet the main agent options, see how they work under the hood, confront the security trade-offs head-on, run your first agent on the benthic reef data, and build up a set of prompting habits for keeping an agent on track.

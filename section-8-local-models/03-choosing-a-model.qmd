@@ -1,0 +1,19 @@
+# Choosing a model
+
+Some of these models are very large (use a lot of memory), and there's a fair bit of choice that needs to go into selecting the right model. Memory size roughly correlates with the number of parameters an LLM has (e.g. 7B, 14B). LLMs with more parameters are in general smarter, but you're going to need more RAM and a more powerful GPU to use them.
+
+There are however, many relatively small models these days that will run on most modern laptops.
+
+Useful references for picking one:
+
+*   [Browse models](https://ollama.com/search) — filter by chat, coding, vision, embeddings and reasoning
+
+*   [Context length](https://docs.ollama.com/context-length) — how much text the model can take in at once
+
+*   [Ollama quickstart](https://docs.ollama.com/quickstart)
+
+Now let's look at a couple of applications of Ollama.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Try these commands in your terminal to download and run one of two LLMs via Ollama : `ollama run qwen2.5-coder:1.5b` (about 1GB file will download) or `ollama run qwen2.5-coder:7b` (about a 7GB file will download). Or feel free to use the Ollama chat interface if you prefer. Once its running, ask some questions about R code, like "how do I make a plot in ggplot" and read the output carefully to consider if the answer is accurate. You can even try running the code it produces to check for errors. 
+:::

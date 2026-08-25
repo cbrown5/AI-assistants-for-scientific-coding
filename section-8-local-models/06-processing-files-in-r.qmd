@@ -1,0 +1,21 @@
+# Processing files and literature in R
+
+Another application of local LLMs is processing text through the LLM. If you're doing this in R, it's relatively simple to set up, just use the ellmer package to chat with the model. ellmer will link to Ollama via its API (application programming interface), and then you can send text to that API to have ellmer process it through the LLM.
+
+You don't have to use R. There is software written in many languages for accessing Ollama programmatically, including python, javascript and bash.
+
+We've written previously about using [ellmer to batch process text files](https://www.seascapemodels.org/posts/2025-03-15-LMs-in-R-with-ellmer/index.html), such as if you want to automate the extraction of meta-data from papers for a literature review. The main difference is you would use `chat_ollama` to send text to the model.
+
+One thing to keep in mind when using Ollama for scientific workflows, is that the default commands provided above will download the 4 bit [quantized](https://huggingface.co/docs/optimum/concept_guides/quantization) versions of the LLMs. Quantization roughly means rounding some of the numbers in the massive matrices of weights that make up an LLM's neural networks. This saves memory, but reduces precision.
+
+In our experience, for text-processing tasks the difference in different quantizations is negligible, but needs reporting when writing up results.
+
+We hope this quick guide helps those who are curious about local models. We are interested to hear from readers about your experiences with local LLMs and what applications you are using them for.
+
+::: {.tip}
+**Note:** Ollama as a wrapper for llama.cpp is considered [problematic](https://sleepingrobots.com/dreams/stop-using-ollama/) by some. In R we can use other bindings to the llama.cpp library for local inference of large language models (LLMs), such as the [llamaR](https://github.com/Zabis13/llamaR) package by Yuri Baramykov.
+:::
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO
+:::

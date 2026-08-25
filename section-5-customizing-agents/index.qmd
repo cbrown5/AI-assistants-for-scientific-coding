@@ -1,0 +1,3 @@
+# Section 5: Customizing agents {.unnumbered}
+
+By now you've got an agent doing useful work and you know the security trade-offs of letting it run. The next question is how to make that behavior repeatable — packaging what you've learned into a **skill** the agent can call by name, or splitting a task across specialized **sub-agents** — rather than re-explaining the same thing from scratch every session. We'll build both around the same running example: fitting, plotting, and writing up the topa/coral-cover GLM.

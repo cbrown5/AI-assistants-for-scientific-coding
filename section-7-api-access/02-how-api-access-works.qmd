@@ -1,0 +1,118 @@
+# How API access works with ellmer
+
+Calling LLMs programmatically via an API is a powerful step up from chat interfaces. First, it gives you control: chat software like ChatGPT or Copilot manages your interaction for you, quietly adding context (potentially from your chat history), so it's hard to know exactly how the model is being prompted. With direct API access, you control exactly what goes to the LLM. Second, accessing it from R or Python code lets you automate calls — which is how we'll build agents and literature-review tools later in this section.
+
+## What is an Application Programming Interface?
+
+An API lets different software programs talk to each other. Large language models need serious compute to run, so rather than hosting one yourself (which is possible, but not what we'll cover here) we'll send prompts over the internet to a Provider — a server run by a company like OpenAI or Anthropic, or an aggregator like OpenRouter — and get the response back.
+
+**How an API call works:**
+
+1. Your code sends a request to the API endpoint (a web address).
+2. The request includes your prompt, model choice, and parameters.
+3. The provider's service processes the request.
+4. It sends back a structured response with the model's output.
+5. Your code uses that response however you like.
+
+## Your first API call
+
+```{r eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+::: {.panel-tabset group="language"}
+
+### R - Ellmer
+```{r}
+library(ellmer)
+
+chat <- chat_openrouter(
+  system_prompt = "You are a helpful assistant.",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+```
+
+### Python
+```{python}
+import requests, json, os
+from dotenv import load_dotenv
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
+response = requests.post(
+  url="https://openrouter.ai/api/v1/chat/completions",
+  headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+  data=json.dumps({
+    "model": "anthropic/claude-3.5-haiku",
+    "messages": [
+      {"role": "system", "content": "You are a helpful assistant."},
+      {"role": "user", "content": "Ecologists like to eat "}
+    ]
+  })
+)
+data = response.json()
+data['choices'][0]['message']['content']
+```
+:::
+
+Notice the model doesn't just complete your sentence — it answers as an assistant instead. That's the **system prompt** at work: a stronger directive than your user prompt, which sets the overall behaviour of the chat. In most chat interfaces (like Copilot) you never see the system prompt, the provider sets it for you.
+
+::: {.tip}
+**Tip:** It is generally more effective to tell the LLM **what to do** rather than **what not to do** — same as with people.
+:::
+
+Try overriding the default assistant behaviour with your own system prompt:
+
+```{r}
+chat <- chat_openrouter(
+  system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don't provide any explanation, don't reiterate the text the user provides",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50)
+)
+chat$chat("Ecologists like to eat ")
+```
+
+## Temperature and top_k
+
+`temperature` controls the randomness of token predictions — lower (near 0) is more deterministic, higher (near 2) is more creative and unpredictable. `top_k` restricts the model to choosing among a smaller set of likely next tokens; `top_k = 1` gives the most predictable output.
+
+```{r}
+chat_temp <- chat_openrouter(
+  system_prompt = "Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only.",
+  model = "anthropic/claude-3.5-haiku",
+  api_args = list(max_tokens = 50, temperature = 0, top_k = 1)
+)
+chat_temp$chat("Marine ecologists like to eat ")
+```
+
+Try it again with `temperature = 2` and no `top_k` (or a very high one). Low temperature/top_k gives you consistent, "safe" completions; higher values give more varied, sometimes less coherent ones.
+
+## Navigating OpenRouter
+
+The [Models page](https://openrouter.ai/models) lists everything available — click a model to copy its id string for the `model = ` argument. A single model may be served by multiple providers; OpenRouter picks one automatically, but its docs explain how to pin a specific provider (useful if you have data-security or ethical reasons to avoid particular ones). The [docs page](https://openrouter.ai/docs/quickstart) has the full parameter reference, usually with Python examples — an assistant can translate these to R for you if needed.
+
+## Comparing model complexity
+
+`anthropic/claude-3.5-haiku` has far fewer parameters than `anthropic/claude-sonnet-4` — haiku is much cheaper (roughly 80c per million input tokens vs $3 for sonnet at time of writing) but less capable on nuanced tasks.
+
+## Understanding context windows
+
+The context window is the amount of text (input plus output) a model can consider at once — typically 100-200K tokens, though some models now offer 1M+. We'll come back to this once we start building longer prompts and agents.
+
+## API errors
+
+Occasionally you'll get an HTTP error instead of a response. A few common ones from OpenRouter:
+
+- **400** — something's wrong in your request.
+- **401** — invalid API key.
+- **402** — you're out of credit.
+- **408** — timeout, your request may be too large or your connection too slow.
+- **429** — you're being rate-limited (calling too much, too fast).
+
+[Full list of error codes here](https://openrouter.ai/docs/api-reference/errors).
+
+::: {.callout-important title="Challenge" appearance="simple"}
+Run the same completion prompt three times with `temperature = 0, top_k = 1`, then three times with `temperature = 1.5` and no `top_k`. Compare how much the outputs vary between runs at each setting.
+:::

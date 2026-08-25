@@ -1,0 +1,4108 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={AI assistants for Scientific Coding},
+  pdfauthor={Chris Brown},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{AI assistants for Scientific Coding}
+\author{Chris Brown}
+\date{2025-08-30}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\bookmarksetup{startatroot}
+
+\chapter{Summary}\label{summary}
+
+If you are doing data analysis you are probably using language models
+(e.g.~ChatGPT) to help you write code, but are you using them in the
+most effective way? Language models have different biases to humans and
+so make different types of errors. This book will cover how to use
+language models to learn scientific computing and conduct reliable
+environmental analyses. The book is reference material for a 1-day
+workshop I teach.
+
+I will cover:
+
+\begin{itemize}
+\item
+  How to use different software tools from the simple interfaces like
+  ChatGPT to advanced tools that can run and test code by themselves and
+  keep going until the analysis is complete (and even written up).
+\item
+  Vibe coding and how future analysis workflows will change dramatically
+  from today
+\item
+  Best practice prompting techniques that can dramatically improve model
+  performance for complex data analysis
+\item
+  Applying language models to common environmental applications such as
+  GLMs and multivariate statistics
+\item
+  Issues including environmental impacts, copyright and ethics
+\item
+  I'll also make space for an interactive discussion of people's
+  concerns about AI, but also the opportunities.
+\end{itemize}
+
+The content I'll teach is suitable for anyone using computing coding
+(e.g.~R, Python) to do data analysis.
+
+Examples will be in marine conservation science using the R language,
+but the methods are general to any field. The AI software is also
+general to any programming language and we won't be doing much actual
+coding (the AI does that!) so readers can follow along in other
+languages if they prefer. To follow the practical applications you will
+need to have some experience in scientific computing (e.g.~R or Python).
+
+\section{Citation for book}\label{citation-for-book}
+
+Please consider citing my accompanying article if you are using the
+advice in this book, currently in pre-print form:
+
+\textbf{Citation: Brown \& Spillias (2025). Prompting large language
+models for quality ecological statistics. Pre-print.
+https://doi.org/10.32942/X2CS80}
+
+Generative AI software for coding is changing fast. So this book will
+keep changing as I update it to reflect new developments. It does not
+make sense to publish it as a fixed book. The general guidelines for
+prompting, which have a longer shelf-life are captured in the article.
+So please cite that to support my work.
+
+\section{Who should read this book?}\label{who-should-read-this-book}
+
+The book is for: anyone who currently uses R, from intermittent users to
+experienced professionals. The workshop is not suitable for those that
+need an introduction to R and I'll assume students know at least what R
+does and are able to do tasks like read in data and create plots.
+
+Important This book isn't for people who need an introduction to R or
+Python. I'll assume students know at least how to do tasks like read in
+data and create plots in Python or R. To use these AI tools effectively
+you absolutely have to understand how scientific computing works first.
+If you need an introduction to R then I recommend you learn it without
+AI first.
+
+\section{Is the book up to date?}\label{is-the-book-up-to-date}
+
+The large language model industry is changing rapidly. I'll periodically
+update this book to keep up with developments. I also recommend checking
+out \href{https://luisdva.github.io/llmsr-book/before-start.html}{Large
+Language Model tools for R} by Luis D. Verde Arregoitia. This is a
+living list of tools and R packages for using LLMs.
+
+\section{About Chris}\label{about-chris}
+
+I'm an Associate Professor of Fisheries Science at University of
+Tasmania and an Australian Research Council Future Fellow. I specialise
+in data analysis and modelling, skills I use to better inform
+environmental decision makers. R takes me many places and I've worked
+with marine ecosystems from tuna fisheries to mangrove forests. I'm an
+experienced teacher of R. I have taught R to 100s people over the years,
+from the basics to sophisticated modelling and for everyone from
+undergraduates to my own supervisors.
+
+\section{Software you'll need for this
+workshop}\label{software-youll-need-for-this-workshop}
+
+Save some time for setting up the software, there is a bit to it. You
+may also need IT help if your computer is locked down. See
+\href{02-setup.qmd}{Setup} for more detailed instructions.
+
+\section{Book overview}\label{book-overview}
+
+The book is organised as short, self-paced modules --- each about 10
+minutes --- grouped into bigger sections. Every module except
+Introduction and Setup ends with a Challenge to try yourself. Note the
+book is still under construction and it's a fast moving space, so the
+content needs constant updating.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{01-introduction.qmd}{Introduction}: Strengths, weaknesses and
+  common failure modes of language models when used for programming and
+  data analysis.
+\item
+  \href{02-setup.qmd}{Setup}: Step‑by‑step software installation,
+  recommended environments (R, Python, editors), and brief
+  troubleshooting tips.
+\item
+  \href{section-1-line-by-line/index.qmd}{Section 1: Line-by-line code
+  completion}: Inline completions, comment-driven code, Copilot
+  settings, Gander, and a discussion of the strengths and weaknesses of
+  this approach.
+\item
+  \href{section-2-agents/index.qmd}{Section 2: Agents}: Agent options,
+  how agents work, security risks, a first agent example, and a series
+  of modules on prompting and working with agents.
+\item
+  \href{section-3-workflows/index.qmd}{Section 3: AI in workflows}: My
+  suggested three-step workflow --- select a statistical approach, plan
+  implementation, write the code --- plus specification sheets.
+\item
+  \href{section-4-security-privacy/index.qmd}{Section 4: Security, data
+  privacy and cloud agents}: Concrete security risk examples, Claude
+  Code for web, bash sandboxing, keeping data secure from the cloud, and
+  limitations.
+\item
+  \href{section-5-agentic-engineering/index.qmd}{Section 5: Agentic
+  engineering for data analysis}: Tests and verification, red-green TDD,
+  and using simulated data as a verification step.
+\item
+  \href{section-6-api-access/index.qmd}{Section 6: LLM access via API}:
+  API keys, how ellmer talks to a provider, chat, a DIY chatbot,
+  building your own minimal agent, and a literature review example.
+\item
+  \href{99-appendix.qmd}{Appendix --- Code and data}: Code snippets,
+  data access links and supporting scripts used in the book.
+\end{itemize}
+
+\section{Data}\label{data}
+
+We'll load all data files directly via URL in the workshop notes. So no
+need to download any data now. Details on data attribution are below.
+
+\subsection{Benthic cover surveys and fish
+habitat}\label{benthic-cover-surveys-and-fish-habitat}
+
+In this course we'll be analyzing benthic cover and fish survey data.
+These data were collected by divers doing standardized surveys on the
+reefs of Kia, Solomon Islands. These data were first publshed by
+\href{http://dx.doi.org/10.1016/j.biocon.2017.04.024}{Hamilton et
+al.~2017} who showed that logging of forests is causing sedimentation
+and impact habitats of an important fishery species.
+
+In a follow-up study \href{http://dx.doi.org/10.1111/cobi.13079}{Brown
+and Hamilton 2018} developed a Bayesian model that estimates the size of
+the footprint of pollution from logging on reefs.
+
+\bookmarksetup{startatroot}
+
+\chapter{Introduction}\label{introduction}
+
+\href{https://docs.google.com/presentation/d/1BYfAjU4NPaIQ9CNSRlIVZJpJGof3moS9/edit?usp=drive_link&ouid=107596646496267980935&rtpof=true&sd=true}{Slides
+from the workshop presentation (on a google drive)}
+
+\section{The jagged frontier of LLM
+progress}\label{the-jagged-frontier-of-llm-progress}
+
+LLMs were created to write text. But it soon became apparent that they
+excel at writing programming code in many different languages.
+
+Since then AI companies have been optimising their training and
+development for coding and logic.
+
+There are a series of standardized tests that are used to compare
+quality of LLMs. Common evaluation tests are the SWE benchmark which
+looks at the ability of LLMs to autonomously create bug fixes. Frontier
+models can solve \href{https://www.swebench.com/}{\textgreater70\% of
+tasks on this benchmark}.
+
+Their progress on math and logic is a bit more controversial. It seems
+like some of the math benchmarks (like AIME annual tests for top 5\%
+highschool students)
+\href{https://epoch.ai/frontiermath/the-benchmark}{are saturated as LLMs
+are scoring close to 100\% on these tests.}. So newer tests of unsolved
+maths problems are being developed.
+
+However, others are finding that the ability of
+\href{https://garymarcus.substack.com/p/reports-of-llms-mastering-math-have}{LLMs
+on math and logic are overstated}, perhaps because the LLMs have been
+trained on the questions and the answers. Its also clear that AI
+companies have a strong financial incentive to find ways (real and
+otherwise) of improving on the benchmarks. Are the moment there is tough
+competition to be `industry leaders' and grab market share with
+impressive results on benchmarks.
+
+Either way, it does seem that the current areas of progress are
+programming, math and logic.
+
+Evaluations on statistics and the R software are less common.
+
+The limited evaluations of LLMs on their ability to identify the correct
+statistical procedure are less impressive than other benchmarks.
+\href{https://arxiv.org/abs/2406.07815}{An evaluation (published 2025)
+of several models, including GPT-4 as the most up-to-date model}, found
+accuracy at suggesting the correct statistical test of between 8\% and
+90\%.
+
+In general LLMs were good at choosing descriptive statistics (accuracy
+of up to 90\% for GPT-4). Whereas when choosing inferential tests
+accuracy was much less impressive - GPT-4 scored between 20\% and 43\%
+accuracy on questions for which a contingency table was the correct
+answer.
+
+The results also indicate the improvements that can be gained through
+better prompts (i.e.~doubling in accuracy for GPT 4).
+
+The lesson is two-fold. Just because LLMs excel at some tasks doesn't
+mean they will excel at others. Second, good prompting strategies pay
+off.
+
+For us in the niche R world there is also another lesson. The LLMs
+should be good at helping us implement analyses (ie write the R code).
+However, they are less reliable as statisticians who can guide us on the
+scientific question of what type of analysis to do.
+
+In this book we'll walk through some of the ways you can use LLMs to
+help you do statistics, data analysis and R coding (and a bit of python
+too), working through short self-paced modules built around a single
+running example dataset. There are a multitude of software and R package
+options. So many its bewildering. In the next module I'll give you a few
+of the easiest set-up options available.
+
+\bookmarksetup{startatroot}
+
+\chapter{Setup}\label{setup}
+
+There's lots of options for AI coding assistant software. What you use
+will depend on:
+
+\begin{itemize}
+\tightlist
+\item
+  Whether you are using R or Python
+\item
+  Your level of coding experience
+\item
+  Your IT capabilities for setting up software
+\item
+  What you budget for AI is
+\end{itemize}
+
+Below I've provided instructions for some of the options. These
+certainly aren't comprehensive.
+
+There are a multitude of other R package options beyond what I cover
+below, which are covered in
+\href{https://luisdva.github.io/llmsr-book/index.html}{Large Language
+Model Tools for R} by Luis D. Verde Arregoitia (in English and Spanish).
+
+I recommend following this page from a computer, not a mobile device.
+The right hand menu will show and has the navigation pane so you can
+jump to the section that's relevant to your set-up needs.
+
+\section{R packages}\label{r-packages}
+
+If you are using R then we will make use of:
+\texttt{install.packages(c("vegan",\ "ellmer","tidyverse")}. For Python
+users you can follow along most examples without these, this isn't an R
+training course, its a course on using AI to assist with coding.
+
+\section{Options for AI software}\label{options-for-ai-software}
+
+\subsection{Preferred option for R
+users}\label{preferred-option-for-r-users}
+
+What I will be using, and what I prefer you to use is:
+
+\begin{itemize}
+\tightlist
+\item
+  The R program from the VS Code Integrated Development Environment
+  (IDE)
+\item
+  Github Copilot
+\item
+  R Ellmer package, for which you'll need an API key to one of the LLM
+  providers
+\end{itemize}
+
+The challenges with the above options are that it can sometimes be
+difficult to connect R and VScode. Comprehensive instructions are below.
+You may need IT help, especially if your computer is locked down!
+
+If you chose this option you will need to follow instructions in this
+chapter for `Getting an API key' (Section~\ref{sec-apikeys}) (required
+for ellmer), `Ellmer set-up' (Section~\ref{sec-ellmer}), VS code setup
+(Section~\ref{sec-vscodesetup}) and `Github Copilot set-up'
+(Section~\ref{sec-githubcopilot}).
+
+\subsection{Option 2 for R users}\label{option-2-for-r-users}
+
+Use Rstudio with R. You will need \texttt{ellmer} and \texttt{gander}
+packages. See instructions below for `Getting an API key'
+(Section~\ref{sec-apikeys}), `Ellmer set-up' (Section~\ref{sec-ellmer})
+and `Gander: Rstudio friendly alternative to copilot'
+(Section~\ref{sec-gander}).
+
+Rstudio also has basic Github Copilot capablities. To use these (not
+essential for the workshop) get a copilot account
+(Section~\ref{sec-githubcopilot}) then in Rstudio go to `Tools'
+-\textgreater{} `Global Options' -\textgreater{} `Copilot' and enable it
+(follow instructions for entering password to setup).
+
+\subsection{Option 3 for R users: Positron
+assistant}\label{option-3-for-r-users-positron-assistant}
+
+\href{https://positron.posit.co/}{Positron} is a new IDE from Posit (the
+creators of RStudio) that is designed for data science. It includes a
+built-in \href{https://positron.posit.co/assistant.html}{AI assistant}
+that can help you with coding tasks.
+
+Positron is very similar to VScode, in fact the editor was originally a
+copy of VScode's source code. It is designed for R and Python, so for
+some people it may be easier to set-up than VScode.
+
+I've put it as option 3 for now as it is still on version 0.xxx (as of
+2025-10-10), so there are still likely to be many changes to this
+software.
+
+Positron's assistant provides similar functionality to GitHub Copilot,
+including:
+
+\begin{itemize}
+\tightlist
+\item
+  Code completion and suggestions
+\item
+  Natural language to code generation
+\item
+  Code explanation and documentation
+\end{itemize}
+
+To use Positron with its AI assistant:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download and install Positron from https://positron.posit.co/
+\item
+  Follow the instructions in the
+  \href{https://positron.posit.co/assistant.html}{Positron assistant
+  documentation} to set up the AI assistant
+\item
+  You'll need to configure your AI providers.
+\end{enumerate}
+
+As of writing (2025-10-10) it supports Github Copilot for code
+completion and chat and Anthropic for chat. So your providers are more
+limited than other options here.
+
+\subsection{Python users}\label{python-users}
+
+I'm not a Python programmer, however, all the principles I'll teach also
+apply to Python. You can easily follow on with the examples in Python.
+
+You will need to have VSCode with Github Copilot. So I recommend you get
+the VScode software, then follow these instructions for
+\href{https://code.visualstudio.com/docs/python/python-tutorial}{Python
+set-up}.
+
+Then follow the instructions for `Github Copilot set-up'
+(Section~\ref{sec-githubcopilot}).
+
+I also recommend you get an API key with OpenRouter
+(Section~\ref{sec-apikeys}).
+
+You don't need an ellmer equivalent because most of the LLM providers
+already provide Python code on their webpages.
+
+\subsection{Options 4+}\label{options-4}
+
+There are innumerable AI coding assistants now available. Feel free to
+BYO if you are using one that you are already comfortable with. However,
+I strongly recommend using a tool with IDE integration (meaning it can
+edit your R/Python scripts directly). See
+Section~\ref{sec-otheroptions}.
+
+As a fall-back, you can follow this course via ChatGPT or Copilot, but
+it will lots of cutting and pasting. Not the integrated experience I
+want you to have.
+
+\section{Software options summary}\label{software-options-summary}
+
+Here are some of the software options I've looked at. Or if you've
+picked your option from the above list, just jump ahead to the required
+sections.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0456}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1298}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.6316}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1930}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Option
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Best for
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Pros
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cons
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+VScode with Github Copilot & Coders of all abilities who have a fixed
+budget or just want to try IDE integration & - Subscription based-
+Capable free tier- Editor integration (auto-complete style)- Agent mode-
+Multiple LLMs available- Easy to use & - VSCode can be hard to set-up
+for R users- Less flexibility and customization than other agents- The
+Github Copilot Agent is less automated than other agent software-
+Limited choice of LLMs (unless you BYO API key) \\
+Ellmer R package & R users who want to create their own chat bots, or
+integrate LLMs into their code and shiny apps. For example, to extract
+data from a large corpus of papers. & - Works anywhere R works-
+Unlimited flexibility- BYO API key, can interact with any LLM- Automate
+API calls to LLMs & - Only a basic prompt interface provided (you need
+to write it) \\
+Gander R package & Moderately experienced R users who don't want to
+leave RStudio. & - Works with Rstudio- Can see `inside of' R objects, so
+knows your variable names- Can customize how it works to optimize
+performance and cost- BYO API key, can interact with any LLM & -
+Requires some experience with the R program- Not as deeply integrated
+with Rstudio as Github Copilot is with VScode (doesn't have as many
+features as copilot) \\
+Aider & Experienced python programmers & - Python based AI agent-
+Interact with the agent via Python code- Highly flexible, can use as an
+everyday coding assistant or to create bespoke agents- Can edit files as
+well as run in agent mode & - Not a straightforward prompt interface-
+Requires Python coding experience \\
+VSCode with Roo Code & Experienced programmers who want to fully
+automate coding workflows & - Fully automated agents- Multiple modes for
+different behaviours, e.g.~architect versus code- Orchestrate mode that
+can delegate to sub-agents and complete very complex tasks- BYO API key-
+System messages fully customizable for advanced scientific applications
+of agents- One of the best performing and most popular agents & - VSCode
+can be hard to set-up for R users- Can get more expensive- Does not do
+inline code editing `as you type' like copilot- Not suitable for novice
+programmers \\
+VSCode with Cline & Same as Roo Code. The user base for Cline is
+slightly larger. & - Fully automated agents- Multiple modes for
+different behaviours- BYO API key- System messages customizable- Large
+user base & - Less options for customizing the system prompt compared to
+Roo Code- Not suitable for novice programmers \\
+Positron with Roo Code or Cline & R users who don't want to use VScode.
+Positron is a fork (copy) of VScode managed by Posit, the group who run
+RStudio. & - Possibly a bit easier to set-up R than with VScode- Pros
+and cons are same as VScode with Roo Code or Cline & - New software-
+Limited features and support \\
+Positron Assistant & R users who don't want to use VScode. Positron is a
+fork (copy) of VScode managed by Posit, the group who run RStudio. & -
+Possibly a bit easier to set-up R than with VScode- Pros R friendly
+developer. Cons on version 0 so software will likely change & - New
+software- Limited features to date \\
+Claude Code & Users who want a subscription-based, terminal- and
+cloud-native agent that also runs on the web & - Fully automated agents,
+run from the terminal or a browser- Strong track record on R and
+statistics tasks- Subscription based, so cost is predictable- Runs in
+isolated cloud sandboxes for web sessions & - Not deeply integrated with
+RStudio- Newer to the R community, fewer worked examples out there
+yet \\
+\end{longtable}
+
+There are many other (10s, 100s?) of coding assistants now available.
+Some prominent examples are Cursor and Windsurf. I haven't tried these,
+I understand they are similar to Github Copilot. Last time I checked
+none of them worked with Rstudio. We'll come back to Claude Code
+specifically in \href{section-2-agents/01-agent-options.qmd}{Section 2},
+since it's really an agent rather than an inline-completion tool.
+
+\section{Getting an API key}\label{sec-apikeys}
+
+An API key is like a password that allows the AI assistant (e.g.~roo
+code) to send your prompt to a large language model. Your key should be
+kept private. Usually you'll have to buy some credits. These allow you
+to send prompts to the LLM. You'll be paying per prompt.
+
+Now you need to choose your large language model provider. I'm currently
+using OpenRouter and Anthropic, which have a diversity of models for
+generating text, code and reading images. Do some web searching to find
+out the latest info on providers and models.
+
+You choose depends on what you want to do and your budget. Some
+providers offer a free tier. You'll need to web search for the latest
+info on this.
+
+For this workshop I \textbf{strongly recommend you get an OpenRouter API
+key}. This will give you the most flexibility to try different models
+and to find models that have free options.
+
+Once you've chosen a provider, create an account and follow their
+instructions for creating an API key. You will probably also need to buy
+some credit to use the model.
+
+The one caveat is that OpenRouter may not have access the the full
+capabilities of all LLMs. For example, when Sonnet 3.7 came out you
+could get vision capabilities via an Anthropic API key but not with an
+OpenRouter API key.
+
+\textbf{Important} the sign-up for getting an API key is often through a
+different webpage to the sign-up you may be using for subscription based
+AI tools (e.g.~Claude Code or ChatGPT). Here are a couple of key links:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://accounts.openrouter.ai/sign-up}{Sign-up here to get an
+  API key for OpenRouter to access LLMs from 100s of providers}
+\item
+  \href{https://console.anthropic.com/login}{Sign-up here to get an API
+  key for Anthropic's LLMs}
+\item
+  \href{https://auth.openai.com/log-in}{Sign-up here to get an API key
+  for OpenAI's LLMs}
+\end{itemize}
+
+\section{VSCode set-up for R users}\label{sec-vscodesetup}
+
+VScode has many extensions that let you create and run entire workflows
+via using prompts to a large language model. Its not widely used in the
+R community yet, but I expect it will be soon. You can create your
+entire R project, interpret the results and write a draft of your
+findings without writing any R code.
+
+Most of these tools are not available (as of writing) in RStudio, or
+have only limited functionality. So you need to use a different IDE
+(Integrated Development Environment) to run your R code. Here I'll
+explain how to set-up VSCode (a popular IDE) so you can use Cline.
+
+\subsection{Software requirements}\label{software-requirements}
+
+To set up VScode for R and Cline, you'll need:
+
+\begin{itemize}
+\tightlist
+\item
+  R programming language
+\item
+  VScode text editor
+\item
+  R extension for VScode
+\item
+  Cline AI assistant extension for VScode
+\end{itemize}
+
+Note that if you computer is controlled centrally by an IT department,
+you may need to request admin access to install software, or email IT
+and ask for them to come and help you.
+
+\subsection{Install R}\label{install-r}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Go to the official R project website: https://www.r-project.org/
+\item
+  Click the ``download R'' link in the Getting Started section
+\item
+  Choose a CRAN mirror close to your location
+\item
+  Download the appropriate R installer for your operating system
+\item
+  Run the installer and follow the prompts to complete installation
+\end{enumerate}
+
+\subsection{R packages}\label{r-packages-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open R or RStudio
+\item
+  Install language server \texttt{install.packages("languageserver")}
+\item
+  Install httpgd \texttt{install.packages("httpgd")} (this helps improve
+  plots in VScode). NOTE that httpgd seems to often be removed from
+  CRAN, then come back again, I'm not sure why\ldots{} If you are having
+  trouble you can try install from a different repo, see instructions
+  here: https://community.r-multiverse.org/httpgd
+\end{enumerate}
+
+\subsection{Install VScode}\label{install-vscode}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Go to the official VScode website: https://code.visualstudio.com/
+\item
+  Click the big blue ``Download'' button
+\item
+  Download the appropriate VScode installer for your operating system
+\item
+  Run the installer and follow the prompts
+\item
+  Launch VScode once installation is complete
+\end{enumerate}
+
+\subsection{Install R extension}\label{install-r-extension}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open VScode
+\item
+  Open the Extensions view in VScode (click the boxes on left hand side)
+\item
+  Search for ``R'' in the extensions marketplace
+\item
+  Select the ``R'' extension published by REditorSupport
+\item
+  Click the ``Install'' button
+\item
+  Restart VScode after installation if prompted
+\end{enumerate}
+
+\href{https://code.visualstudio.com/docs/languages/r}{More info on
+vscode and R here}
+
+\subsection{Connect R and VScode}\label{connect-r-and-vscode}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open a new terminal in VScode (Terminal \textgreater{} New Terminal)
+\item
+  Check that R is installed by running: \texttt{R\ -\/-version}
+\item
+  Type \texttt{R} to open the R console in the terminal
+\item
+  Now open any R script in VS code (File \textgreater{} Open)
+\item
+  Run some R code to check that VS code can connect to R in the
+  terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play
+  button in the top right of the script editor.
+\end{enumerate}
+
+If R is not found then open extensions (left hand side, boxes icon),
+filter by `enabled' then click the R extension. Now click the cog icon
+in the R extension and select `settings' from the dropdown. Search for
+`rpath'. Check that it has the correct path to R on your computer. Also
+update `rterm' with the same path. You can find the path by opening a
+terminal and typing \texttt{which\ R} (on mac) or in a windows terminal
+\texttt{where\ R}.
+
+One way to fine out where R is installed on your computer is to open
+Rstudio, go to `Tools' -\textgreater{} `General' then under the field `R
+version' it will have the path to your R version that may look like
+this: `C:\Users\myname\AppData\Progams\R\R-4.5.0'
+
+Copy that path from Rstudio. Then go back to the VScode settings and
+paste it into the `rpath' and `rterm' settings. You will also need to
+add the \texttt{R.exe} on the end like this:
+`C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe'
+
+Now open an R script and run it (e.g.~press cmd/cntrl-enter). If
+everything is connected R will open and it will run the script. If its
+not working you'll get an error pop-up. Go back and check the steps
+above.
+
+If you copied it on windows you may also need to reverse the slashes,
+like I have above.
+
+While you have the extension settings open search for `httgp' and make
+sure \texttt{Plot:\ Use\ Httpgd} is enabled.
+
+\subsection{Issues and tips for VScode with
+R}\label{issues-and-tips-for-vscode-with-r}
+
+This is just a list of issues I've had and how I've solved them.
+
+\emph{Plotting} If your R plots look weird (like tiny font), make sure
+httpgp is enabled. Go back to steps above and see how to do that.
+
+\emph{Viewing data} There are various extensions for viewing csv and
+excel files. It is worth looking into these so that when you do
+\texttt{View(dat)} in R you get a nice table. Some also allow editing.
+
+\emph{Getting help to install software} My computer is somewhat locked
+down by IT, so getting this set-up was a bit fiddly and required a few
+requests to IT to install software.
+
+\emph{R markdown} There are options in the R extension settings for how
+to knit markdown. You may need to configure these if you want to knit
+markdown docs from VScode. If you are having trouble knitting markdown
+it may mean that the path to pandoc is not set correctly.
+\href{https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d}{There
+is some helpful instructions here}
+
+\emph{R terminal crashes} If I run too much R code at once (like
+selecting a big block then running) the terminal tends to crash.
+Initially I see a little highlighted box saying `PTY HOST'. Then I need
+to close all the terminals (with the bin icon) and start again. Try
+radian if this is a problem. You can also code run line-by-line or
+source whole scripts from the terminal (which works fine). I tried
+debugging this by increasing the buffer but to on avail.
+
+\emph{Shortcut keys} (on osx) cmd-/ to comment uncomment lines.
+cmd-shift-p to open the command palette, cmd-b to open the file
+explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to
+open terminal in new window, cntrl-shift-` to open a new terminal in vs
+code.
+
+\subsection{Installing radian
+(optional)}\label{installing-radian-optional}
+
+Radian is a terminal editor that is a bit nicer than the base R one. It
+does autocomplete in the terminal (like Rstudio does in the console),
+colours code/brackets etc\ldots{} and allows multi-line editing in the
+terminal.
+
+To set this up, install radian (you need python to do this). More
+\href{https://github.com/randy3k/radian?tab=readme-ov-file}{instructions
+here}.
+
+Then go to the terminal and find the path where radian is installed
+(e.g.~\texttt{which\ radian} on mac or \texttt{where\ radian} on
+windows).
+
+Now open your settings in VScode (cmd-,) and search for `rterm' (stands
+for `R Terminal', don't change the rpath which we set just before). Add
+the path to radian to the rterm setting. Also search for the setting `R:
+Bracketed Paste' and make sure it is enabled.
+
+\section{Github Copilot set-up}\label{sec-githubcopilot}
+
+Once you have VSCode just
+\href{https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan\#visual-studio-and-vs-code}{follow
+the simple steps here}. Note if you already have a Github account make
+sure you have your login information handy.
+
+\section{Ellmer set-up}\label{sec-ellmer}
+
+First, you need to get an API key from the provider, see step above on
+`Getting an API key'.
+
+Then, you need to add the key to your .Renviron file:
+
+\texttt{usethis::edit\_r\_environ()}
+
+Then type in your key like this:
+
+OPENROUTER\_API\_KEY=``xxxxxx''
+
+If you are using open AI it would be like this:
+
+OPENAI\_API\_KEY=``xxxxxx''
+
+i.e.~use the appropriate name for the provider you are using.
+
+Then restart R. ellmer will automatically find your key so long as you
+use the recommended environment variable names. See
+?ellmer::chat\_openrouter (or chat\_xxx where xxx is whatever provider
+you are using).
+
+\section{Gander: Rstudio friendly alternative to
+copilot}\label{sec-gander}
+
+\href{https://simonpcouch.github.io/gander/articles/gander.html}{Gander
+lets you select code in Rstudio and edit it directly through calls to an
+LLM}. Posit's own announcement post is a good short read too:
+\href{https://posit.co/blog/introducing-gander/}{Introducing Gander}.
+
+Follow the steps to set-up Ellmer first.
+
+Then you can \texttt{install.packages(gander)}
+
+Now, you need to do two steps before Gander will work. First you need to
+add your default LLM to the .Rprofile so Gander knows what LLM to use
+type: \texttt{usethis::edit\_r\_profile()}
+
+Now set the option for your LLM, e.g.
+
+\texttt{options(.gander\_chat\ =\ ellmer::chat\_anthropic())} or
+\texttt{options(.gander\_chat\ =\ ellmer::chat\_openai())}
+
+Now add a keyboard short-cut to use Gander. Go to the `Tools' menu at
+the top, click `Add-ins', `Browse Add-ins', then click the `Keyboard
+shortcuts' button. Find the row for Gander (probably at the bottom),
+click in the second column for `Shortcut' and type your keyboard
+shortcut. I used cmd-i (or cntrl-i). Then click `Cancel' once you've set
+the shortcut key (`Cancel' as we don't want to run Gander right now).
+
+If for some reason the shortcut key won't you can also
+\texttt{gander::gander\_addin()} at anytime from R.
+
+Now to check it works, open an R project and select a line of R code.
+Press your shortcut keys. A box should pop up. Type a prompt (like `make
+this code more fun') and hit enter to test it does something.
+
+I recommend reading the gander reference as there are ways you can
+\href{https://simonpcouch.github.io/gander/articles/gander.html}{customize
+it to know your data but also save on tokens}. We'll use Gander for code
+completion in \href{section-1-line-by-line/04-gander.qmd}{Section 1}.
+
+\section{Installing other gen AI VSCode
+extensions}\label{sec-otheroptions}
+
+e.g.~if you want to try Roo Code or Cline.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the Extensions view in VScode (Ctrl+Shift+X)
+\item
+  Search for the genAI assistant of your choice. I'm use Roo Code
+  currently. Cline is another popular choice.
+\item
+  Select the extension
+\item
+  Click the ``Install'' button
+\item
+  The extension icon (e.g.~a Roo if using Roo Code) should appear in the
+  VScode sidebar (left side).
+\end{enumerate}
+
+You'll have to navigate the extensions menus to input your API key. It
+won't work without an API key that gives you access to an LLM. e.g.~for
+Roo Code:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click on the extension icon (e.g.~a roo for roo code or robot for
+  cline) on the left hand side
+\item
+  Click the cog (if the settings don't open automatically)
+\item
+  Select your API provider and cut and paste the API key into the box.
+\end{enumerate}
+
+\part{Section 1: Line-by-line code completion}
+
+In this section you'll use AI coding assistants the way most people
+start: as a smarter autocomplete, one line at a time. You'll try inline
+completions, comment-driven code generation, tune your Copilot settings,
+meet Gander as an RStudio-friendly alternative, and finish with an
+honest discussion of when this lightweight approach is enough --- and
+when it isn't.
+
+\chapter{Inline code completion}\label{inline-code-completion}
+
+\textbf{Software requirements:} VScode with R or Python and a GitHub
+Copilot license + extension (or RStudio with Copilot enabled --- see
+\hyperref[setup]{Setup}).
+
+Inline completion is the gentlest introduction to AI-assisted coding,
+and probably how you're already using it if you've dabbled at all. You
+start typing, the assistant guesses what you meant to type next, and you
+hit \texttt{tab} to accept.
+
+GitHub Copilot calls itself an ``AI programming assistant'' or ``AI pair
+programmer.'' I'll refer to it more generally as an LLM coding
+assistant, or just an Assistant --- a term I'll also use for ChatGPT,
+Claude, Roo Code, Cline and others, since the field moves too fast to
+have settled on a standard name for this kind of software.
+
+An Assistant adds a layer between you and the LLM. It's quietly deciding
+what context to send, managing your context window, and often saving on
+cost --- usually without telling you the system message, temperature, or
+token limits it's using. Keep that in mind: you're not talking directly
+to the model, you're talking through some software that's making its own
+decisions about what the model sees.
+
+Let's read in the benthic coral cover and fish count data we'll use
+throughout this book:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/cbrown5/example{-}ecological{-}data/refs/heads/main/data/benthic{-}reefs{-}and{-}fish/fish{-}coral{-}cover{-}sites.csv"}\NormalTok{))}
+
+\FunctionTok{head}\NormalTok{(dat)}
+\FunctionTok{summary}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+More
+\href{https://github.com/cbrown5/example-ecological-data/blob/main/data/benthic-reefs-and-fish/readme.md}{details
+on this data are available here}.
+
+Now start a new line and try create a ggplot of \texttt{secchi} (a
+measure of water clarity --- higher values mean clearer water) and
+\texttt{pres.topa} (count of topa, the bumphead parrotfish). Start
+typing \texttt{gg} and see what happens.
+
+You should get a recommendation for a ggplot. But it won't know the
+variable names, because completion is guessing from your script (and any
+other open scripts), not from the data itself.
+
+\textbf{Tip:} Sometimes the assistant gets stuck in a loop and keeps
+recommending the same line. To break it out of the loop try typing
+something new.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Clear a new script, load \texttt{dat}, and try tab-completing a ggplot
+of \texttt{CB\_cover} against \texttt{dist\_to\_logging\_km} without
+typing any variable names yourself first. Note how many attempts it
+takes before the completion uses the correct column names.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Using comments to trigger inline
+code}\label{using-comments-to-trigger-inline-code}
+
+Code completion is predicting your next line from your script (and any
+other open scripts) --- it won't know your variable names unless you've
+provided them somewhere. One way is to keep a readme.md open with your
+metadata in it. Another, which tends to work more reliably, is to write
+a comment describing what you want directly above where you're typing:
+
+\begin{verbatim}
+# Make a point plot of secchi against pres.topa
+gg...
+\end{verbatim}
+
+That should get you the right ggplot. Using the actual variable names in
+your comment is more precise and helps the assistant guess correctly ---
+this is the same ``be specific'' principle that shows up everywhere in
+this book, just applied one line at a time.
+
+You can also put key variable names in a comment block at the top of
+your script, so every completion after that has them in view.
+
+Another way to use this is to not write any R at all --- just write a
+series of comments and let the assistant fill in the code. Try
+templating a series of plots like this:
+
+\begin{verbatim}
+# Make a point plot of secchi against pres.topa with a stat_smooth
+
+# Plot logged (two categories) and pres.topa as a boxplot
+
+# Plot CB_cover (branching coral cover) against secchi
+\end{verbatim}
+
+\textbf{Tip:} Remember one way to improve prompts is to be more
+specific. Using the correct variable names helps, whether you're
+prompting a chat window or just a code comment.
+
+Now go back through and click under each comment to trigger the
+suggestions.
+
+This strategy is especially handy in data wrangling. As a simple
+example, try producing this grouped summary using comments only:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(logged) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean\_topa =} \FunctionTok{mean}\NormalTok{(pres.topa),}
+                \AttributeTok{mean\_CB =} \FunctionTok{mean}\NormalTok{(CB\_cover))}
+\end{Highlighting}
+\end{Shaded}
+
+To get there I'd write something like:
+
+\begin{verbatim}
+    # group dat by logged
+    # summarize pres.topa and CB_cover
+\end{verbatim}
+
+If you've already documented the variable names above (in a readme or a
+comment block), you can often be lazier and less precise here and still
+get a correct completion.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Using comments only (no R code typed by you), get the assistant to
+produce a summary table of mean \texttt{secchi} and mean
+\texttt{pres.topa} grouped by \texttt{flow}. Then try the same task with
+the variable names left out of your comments --- compare how many
+attempts it takes.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{GH Copilot settings}\label{gh-copilot-settings}
+
+Click the octocat icon in the bottom right corner of VScode to fine-tune
+how Copilot behaves. There's more in here than you'd expect, and a few
+settings are worth knowing about deliberately rather than discovering by
+accident.
+
+\section{Configure code completions}\label{configure-code-completions}
+
+You can enable or disable inline completions for a specific file type or
+for everything. Sometimes they get in the way --- I turn mine off when
+writing \texttt{.qmd} documents like this one, where I don't want
+R-flavoured completions popping up in prose.
+
+\section{Next edit suggestions}\label{next-edit-suggestions}
+
+Off by default. When enabled, Copilot suggests changes anywhere in your
+document, not just at the cursor. This is handy when editing an existing
+file --- for example, if you rename a variable in one place, it will
+often suggest the same rename everywhere else it appears. Hit
+\texttt{tab} to cycle through the suggestions.
+
+\section{Indexing}\label{indexing}
+
+Copilot automatically indexes the scripts and documents in your active
+directory so it can search them faster and give more accurate
+completions. This is convenient, but worth knowing about for
+data-privacy reasons too --- as soon as you open VScode, Copilot is
+reading some of your files (it's hard to tell exactly what) to build
+that index in the cloud. You can disable indexing from the octocat menu
+if that's a concern; we'll come back to data privacy in more depth in
+\href{../section-4-security-privacy/04-keeping-data-secure.qmd}{Section
+4}.
+
+\section{Premium requests bar}\label{premium-requests-bar}
+
+This is also where you can see how many ``premium requests'' you've used
+this month. Some LLMs are billed as \texttt{0x} (unlimited under your
+plan) and others as \texttt{1x} (one full premium request) --- worth
+checking before you burn through a monthly allowance on a model you
+didn't need.
+
+\section{LLM choice}\label{llm-choice}
+
+Click the model choice menu (bottom of the chat window) to see what's
+available --- this will depend on your Copilot plan. In general there
+isn't much formal evaluation of R coding or statistics specifically
+(there's much more for Python), but from my own use I've found the
+Claude Sonnet models the most reliable for R code and tool use (Edit or
+Agent mode). GPT models are also solid, but in my experience make more
+mistakes in Edit and Agent mode --- including occasionally deleting text
+you wanted to keep --- and tend to be a little ``lazier,'' explaining
+what to do rather than just doing it.
+
+Play around with the same prompt on different models so you can compare
+performance for yourself; don't just take my word for it, this changes
+with every model release.
+
+\section{Bring Your Own API Key
+(BYOK)}\label{bring-your-own-api-key-byok}
+
+You can add your own API key to Copilot to access other models on a
+pay-per-use basis. Click the model menu, then ``Manage models,'' and
+follow the prompts. You'll also need an OpenAI API key specifically if
+you want vision capabilities (attaching images as context).
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Ask the same question in Copilot chat --- ``How could I test if fish
+abundance depends on coral cover?'' --- using two different models from
+the model menu. Compare the two answers: do they suggest the same
+statistical approach?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Gander: R package for code
+completion}\label{gander-r-package-for-code-completion}
+
+If you're an RStudio user and don't want to leave it for VScode,
+\href{https://simonpcouch.github.io/gander/articles/gander.html}{Gander}
+is the closest thing to Copilot's inline completion you'll get. Posit's
+own announcement is worth a skim too:
+\href{https://posit.co/blog/introducing-gander/}{Introducing Gander}.
+
+Gander's trick is that it can see \emph{inside} your R session. Where
+Copilot is guessing your variable names from text in open scripts,
+Gander can look at the actual objects in your environment --- so it
+already knows what columns are in \texttt{dat} without you telling it.
+
+If you haven't already, follow the \hyperref[sec-gander]{Gander set-up
+instructions} in Setup before continuing.
+
+Once it's working, try this: load the benthic data, select a blank line,
+hit your Gander shortcut, and type a prompt like:
+
+\begin{verbatim}
+Make a ggplot of pres.topa against CB_cover, coloured by logged
+\end{verbatim}
+
+Because Gander can see \texttt{dat} directly, it should get the variable
+names and their types right on the first try --- a nice contrast with
+the tab-completion experience from the previous modules, where you often
+had to spell things out yourself.
+
+Try a few more prompts, selecting existing code first and asking Gander
+to modify it:
+
+\begin{verbatim}
+Add a stat_smooth to this plot
+\end{verbatim}
+
+\begin{verbatim}
+Convert this ggplot to use theme_classic()
+\end{verbatim}
+
+\textbf{Tip:} Because Gander can see your R objects, it uses more tokens
+per request than plain code completion. The
+\href{https://simonpcouch.github.io/gander/articles/gander.html}{Gander
+documentation} has options for controlling how much of your environment
+gets sent, which is worth reading if you're watching your API costs.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Select the
+\texttt{dat\ \%\textgreater{}\%\ group\_by(logged)\ \%\textgreater{}\%\ summarize(...)}
+code from the previous module and ask Gander to add a third summary
+column for \texttt{secchi}. Compare how confidently it picks the right
+column compared to when you did the same task with comment-driven
+completion.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Strengths and weaknesses of line-by-line
+completion}\label{strengths-and-weaknesses-of-line-by-line-completion}
+
+You've now used inline completion, comment-driven completion, and
+Gander. Before we move on to agents in the next section, it's worth
+stepping back and asking: what is this line-by-line approach actually
+good for, and where does it run out of road?
+
+I wrote about this at length in a post called
+\href{https://www.seascapemodels.org/posts/2026-05-09-judicious-AI-use/}{``Mitigating
+the risks of AI coding tools with judicious use for research tasks''},
+after giving a talk to an environmental science coding club. The short
+version: being \emph{judicious} with AI coding tools mitigates most of
+the risks that concern researchers --- wasted time, electricity use,
+cybersecurity, and data privacy. By judicious I mean using a tool in a
+targeted way for a specific task where you already know it works well,
+and carefully preparing the context and prompt rather than just throwing
+AI at a poorly defined problem.
+
+Line-by-line completion is, almost by construction, judicious. It
+operates on one line or one small block at a time. The ``context'' it
+needs is just your open script (or, with Gander, your R environment).
+There's no autonomous multi-step plan for it to wander off course on. If
+it gets something wrong, you see it immediately and reject the
+suggestion --- the blast radius of a bad completion is one line.
+
+That's the strength. It's also the weakness: line-by-line completion
+can't hold a whole analysis in its head. It won't notice that the model
+you fit three scripts ago used a different family than the one you're
+fitting now. It can't restructure a project, write a report, or decide
+whether a negative binomial or a Poisson GLM is the right call --- all
+of which is coming in later sections when we look at agents and
+workflows.
+
+There's a well-known finding here worth flagging: the METR study found
+that professional software developers \emph{thought} they'd go faster
+using AI tools, but on a set of real tasks they actually went slower. I
+think this problem is probably worse for researchers than for software
+developers. Developers have a comparatively easy way to verify success
+--- the app either works or it doesn't. Research is harder to verify,
+because by definition you're doing something that hasn't been done
+before; some fields take decades to confirm a result. That makes it easy
+to burn time ``fixing up slop,'' correcting mistakes, or rewriting an
+answer into your own style (if you're tired of seeing the same ``on the
+other hand'' LLM sentence structure showing up in blogs and papers
+everywhere, you're not alone).
+
+The trick, as I put it in that post, is to experiment just enough to
+know at what points in your workflow AI genuinely helps, then put the
+hard mental work in up front --- on your prompts and your context ---
+rather than hoping a bigger model will compensate for a vague ask.
+Throwing an enormous frontier model at a poorly defined problem isn't
+judicious use, no matter how capable the model is.
+
+There's a side-benefit to being judicious that's easy to miss: a clear
+workflow with carefully prepared prompts often lets a cheaper, smaller
+model perform just as well as the best one available. Cheaper models use
+less energy, and a surgical approach --- giving an assistant access to
+fewer files and less context --- creates fewer security risks too (more
+on that in \href{../section-4-security-privacy/index.qmd}{Section 4}).
+So the same discipline that saves you time also tends to save
+electricity and reduce your attack surface. Line-by-line completion,
+used well, is naturally on the judicious end of that spectrum. Agents,
+which we're about to meet, are powerful precisely because they give up
+some of that built-in restraint --- which is exactly why they need more
+deliberate handling.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Think of one coding task in the last week where an inline completion or
+Gander suggestion saved you real time, and one where you ended up
+spending more time fixing or rewriting what it gave you than if you'd
+written it yourself. What was different about the two tasks?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\part{Section 2: Agents}
+
+Here we move up a gear from line-by-line completion to agents --- LLMs
+that run tools in a loop to complete a task with less hand-holding.
+You'll meet the main agent options, see how they work under the hood,
+confront the security trade-offs head-on, run your first agent on the
+benthic reef data, and build up a set of prompting habits for keeping an
+agent on track.
+
+\chapter{Agent options}\label{agent-options}
+
+An agent is an assistant that can act autonomously across multiple steps
+--- writing code, running it, reading the result, and deciding what to
+do next --- rather than completing one line or answering one question.
+Here's the current landscape, in rough order of how you'd likely meet
+them.
+
+\section{Claude Code}\label{claude-code}
+
+Claude Code is a subscription-based agent that runs from your terminal,
+an IDE extension, or --- as we'll see in
+\href{../section-4-security-privacy/02-claude-code-web-example.qmd}{Section
+4} --- entirely in the cloud via a web interface. It reads and edits
+files, runs shell commands, and can work through a multi-step task with
+minimal supervision if you let it. In my own experience and in the
+\href{https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70079}{formal
+test-case evaluations Scott Spillias and I ran}, Claude models have had
+a strong track record on R and statistics tasks specifically, which
+matters more to us here than general coding benchmarks tuned around
+software engineering.
+
+\section{VSCode with GitHub Copilot's agent
+mode}\label{vscode-with-github-copilots-agent-mode}
+
+You've already met Copilot for inline completion, ask mode and edit mode
+in Section 1. Agent mode is the same tool, but let loose across your
+terminal and file system with tools it can call on its own. We'll run
+our first example with it in the next module.
+
+\section{GitHub Copilot CLI}\label{github-copilot-cli}
+
+A newer, terminal-based way to run Copilot agents, useful when you want
+to script or automate agent runs (for example, looping over several
+sub-directories with different prompts) rather than clicking through a
+chat window. Billed via your Copilot subscription rather than per-token
+API usage.
+
+\section{Roo Code / Cline}\label{roo-code-cline}
+
+VSCode extensions that are ``bring your own key'' (BYOK) --- you supply
+an API key and pay per token. More expensive to run than a Copilot
+subscription for heavy use, but far more customisable: you can fully
+rewrite the system prompt, create custom modes, and (with Roo Code
+specifically) delegate sub-tasks to other agents in ``orchestrator''
+mode. \texttt{system.md} in this repo is the actual system prompt Roo
+Code uses --- worth a skim just to see how much detail goes into making
+an agent behave.
+
+\section{Positron Assistant}\label{positron-assistant}
+
+Positron is Posit's new IDE (a fork of VSCode, built for data science).
+Its built-in assistant gives Copilot-like completion and chat, but as of
+writing supports fewer providers than the options above and is still on
+an early version number --- expect it to keep changing.
+
+\textbf{Tip:} There's also a growing ecosystem of agents that run
+\emph{from inside} R itself, rather than as an IDE extension --- see
+\href{https://luisdva.github.io/llmsr-book/r-pkgs.html\#language-model-agents}{Large
+Language Model Tools for R} for an up-to-date list. We'll build the
+simplest possible version of one of these ourselves in
+\href{../section-6-api-access/05-make-an-agent.qmd}{Section 6}.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Pick two agent options from this list that you have access to. Give both
+the same prompt: ``Read fish-coral-cover-sites.csv and make a ggplot of
+pres.topa against CB\_cover.'' Compare not just the output, but how much
+you had to intervene along the way.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{How agents work}\label{how-agents-work}
+
+Agents \href{https://simonwillison.net/2025/Sep/18/agents/}{run tools in
+a loop}. That's really the whole concept: the model responds, your
+software checks whether the response is a request to use a tool (read a
+file, run a command, edit some text), executes it if so, feeds the
+result back to the model as part of the conversation, and repeats. The
+loop ends when the model responds with plain text instead of another
+tool call. We'll build a toy version of this loop ourselves with
+\texttt{ellmer} in
+\href{../section-6-api-access/05-make-an-agent.qmd}{Section 6} --- once
+you've built one, ``agent'' stops feeling like a mysterious term.
+
+Here's roughly how a statistical workflow looks with inline editing
+(Section 1) versus with an agent doing the same task:
+
+\pandocbounded{\includegraphics[keepaspectratio]{section-2-agents/../resources/AI-agent-workflows.png}}
+
+The default behaviour for most agents is to ask your permission before
+running a tool. That's a safety feature --- agents can write and run
+code, and they can also just get things wrong --- so you get a chance to
+review each step before it happens. In practice, agents work fast enough
+that \emph{you} become the bottleneck in the loop, not the model.
+
+My own workflow mixes Copilot's editing features with a full agent (Roo
+Code or Copilot's agent mode): I start a project by writing a detailed
+prompt or README (see
+\href{../section-3-workflows/02-plan-implementation.qmd}{Section 3}),
+then let the agent scaffold the project and make a first attempt at the
+code.
+
+Keep a markdown file updated as you go, so the agent stays on topic
+across sessions --- a \texttt{README.md} works, and a growing number of
+agents look specifically for a file called \texttt{AGENTS.md}. If the
+context in that file goes stale (say, it still mentions a package you've
+since decided not to use), the agent will keep defaulting back to it ---
+so out-of-date instructions are worse than none.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Open \texttt{system.md} in this repo --- the actual system prompt Roo
+Code uses. Find the section that lists its available tools. How many of
+them map onto the simple ``read a file / write a file / run a command''
+set we'll build in Section 6?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Security risks}\label{security-risks}
+
+Before we run our first agent, it's worth pausing on why the
+permission-before-tool-use model exists. An agent that can write and run
+code on your computer can, in principle, do anything you could do from a
+terminal --- including things you didn't ask for.
+
+Most agents ask you to confirm before running a tool, precisely because
+of this. But instructions given to an LLM are more like guidelines than
+guarantees. I've regularly seen Copilot's agent try to \texttt{cd} into
+a different directory in the terminal, despite explicit instructions not
+to --- usually an innocent attempt to get a better view of the project,
+but I never approve it, because I can't always tell the difference
+between innocent and not from the confirmation dialog alone.
+
+The deeper risk is what's called the \textbf{lethal trifecta}: an agent
+that can read untrusted content, access private data, and communicate
+externally, all at once. If an agent reads something from the web that
+contains a hidden malicious instruction, and it also has access to your
+files and a way to send information out (the terminal, git, a webpage it
+can write), that instruction can act on your behalf without you
+approving anything that looked dangerous at the time. We'll unpack this
+properly with a concrete example in
+\href{../section-4-security-privacy/01-security-risk-examples.qmd}{Section
+4} --- for now, just note that ``the agent asked permission before
+running a tool'' is a safety net, not a guarantee, and it gets thinner
+the more capabilities you hand an agent at once.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Next time an agent asks permission to run a tool, pause before clicking
+approve and ask yourself: could this tool call read something untrusted,
+access something private, or send information externally? Note which (if
+any) of the three applies.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Your first agent example}\label{your-first-agent-example}
+
+Time to run an agent end-to-end. In VSCode, open the chat panel and
+switch the mode from ``Ask'' or ``Edit'' to ``Agent'' (in other tools,
+look for an equivalent mode or model switch --- Roo Code and Claude Code
+default to agent-style behaviour).
+
+Make sure the
+\href{https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md}{readme
+file for our example data} is saved in your project directory and open
+in your editor --- that gives the agent the context it needs about
+variable names and the study before it starts.
+
+Now prompt it with something like:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+I want to do a regression of pres.topa on cb\_cover. Create all the
+scripts I need to do this, as well as run the scripts to make plots of
+the predicted relationship between the variables
+
+\end{tcolorbox}
+
+Then follow along with the conversation, adjusting or correcting as it
+goes. Everyone's result will look a little different --- that's normal,
+and worth comparing notes on if you're doing this alongside others.
+
+\textbf{Tip:} There's no single ``optimal'' prompt, only better and
+worse ones. Often the best way to write is the way you're most
+comfortable writing --- you'll get more out of your own thinking that
+way, and the agent performs about the same either way.
+
+Here's proof of that last point --- an alternative phrasing of the same
+prompt:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Arrr matey, I be wantin' to run a regression of pres.topa on cb\_cover.
+Hoist all the scripts I need for this voyage, and chart the plots of the
+predicted relationship between these variables!
+
+\end{tcolorbox}
+
+(That one definitely doesn't follow the ``be clear and specific''
+guidance --- but it got the job done anyway. Don't overthink your prompt
+style; the content matters more than the tone.)
+
+\section{Writing it up}\label{writing-it-up}
+
+If you want to keep going, ask agent mode to write up the results as an
+Rmd or qmd file. It'll use the tables and figures it generated to
+interpret them --- and if your model has vision capabilities, it can
+look at the plots it created too. As always: don't take anything for
+granted, check the write-up matches what you'd conclude yourself.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Run the same regression prompt twice, in two separate agent sessions.
+Compare the two scripts --- did the agent make the same choice of GLM
+family both times (Poisson vs.~negative binomial), and did it check for
+overdispersion either time without being asked?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Prompting agents I: giving
+context}\label{prompting-agents-i-giving-context}
+
+We covered the general principle of attaching data and domain knowledge
+back in
+\href{../section-3-workflows/01-select-statistical-approach.qmd}{Section
+3}, when the question was ``which statistical method?'' The same
+principle applies just as strongly once you're running a multi-step
+agent --- arguably more so, because an agent that's missing context
+won't just give you a mediocre answer, it'll go and \emph{implement} a
+mediocre answer across several files.
+
+\section{Attaching data summaries}\label{attaching-data-summaries}
+
+Large datasets can be awkward to attach directly --- they eat up the
+context window. Some agents (Copilot's agent mode included) will
+automatically truncate a large data frame if you attach it, but it's
+more reliable to ask the agent to generate its own summary first:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Write a script that creates a smaller version of the benthic data that
+has only the first six rows of data
+
+\end{tcolorbox}
+
+Then attach that small summary (or the metadata readme) to your actual
+analysis prompt.
+
+\section{Attaching domain knowledge}\label{attaching-domain-knowledge}
+
+If you're emulating a specific paper or method, convert it to markdown
+and attach it --- a webpage tool like
+\href{https://tools.simonwillison.net/jina-reader}{Jina Reader} works
+well for this. Package vignettes and stats tutorial blogs are also good
+sources; keep a running list handy for when you need them.
+
+\textbf{Tip:} Be careful with anything you didn't write yourself before
+attaching it to an agent session --- check it doesn't contain hidden
+instructions. More on why in
+\href{../section-4-security-privacy/01-security-risk-examples.qmd}{Section
+4}.
+
+\section{Writing a metadata summary with the agent
+itself}\label{writing-a-metadata-summary-with-the-agent-itself}
+
+You can get the agent to help write this context, rather than writing it
+all yourself:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Write a summary of the meta-data for this database in a new markdown
+file {[}attach the csv{]}
+
+\end{tcolorbox}
+
+Read over what it produces and correct anything wrong before you rely on
+it --- an inaccurate metadata file is worse than none, because it'll
+confidently mislead every subsequent agent session that reads it.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Ask an agent to write a metadata markdown file summarising
+\texttt{fish-coral-cover-sites.csv}, then check it against the
+\href{https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/readme.md}{real
+metadata readme}. Note anything it got wrong or left out.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Prompting agents II: web search and
+specification}\label{prompting-agents-ii-web-search-and-specification}
+
+\section{Web search}\label{web-search}
+
+Some agents (and most chat platforms --- ChatGPT, Copilot in Teams) can
+search the web to help build a tutorial or find a method for your
+specific problem, which you can then attach as context to your actual
+analysis session:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Research the peer-reviewed academic literature to find the most robust
+methods for analysing ecological count data.
+
+\end{tcolorbox}
+
+You'll get better results with reasoning/thinking modes enabled where
+available --- these cost more to run (so are often paid-tier only), but
+read the reasoning trace if you can see it, since it tells you
+\emph{how} the model decided what to search for, which matters for
+judging whether to trust the answer. Web-search prompts also don't like
+being long --- keep them short and specific, unlike the detailed
+spec-sheet prompts we'll see next. We'll cover programmatic web search
+(calling it via API rather than a chat UI) in
+\href{../section-6-api-access/index.qmd}{Section 6}.
+
+\section{From context to
+specification}\label{from-context-to-specification}
+
+Everything in this module and the last one --- data summaries, metadata,
+domain knowledge, web research --- is really just an assortment of
+context you're assembling before you prompt. The next logical step is to
+stop assembling it ad hoc and write it all down in one place: a
+\textbf{specification sheet}. Instead of prompting an agent with
+``create an academic paper about fish and coral using this data'' (which
+will produce something plausible-looking and full of inaccuracies), you
+write out your aims, data collection methodology and desired analysis in
+advance --- and hand the agent something it can actually execute well.
+
+We'll build a complete, real specification sheet --- the one I actually
+use for the topa/coral-cover case study --- in
+\href{../section-3-workflows/04-specification-sheets.qmd}{Section 3}.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Try the web-search prompt above (or an equivalent) in a chat platform
+with search enabled. Read the reasoning trace if one is shown, and note
+one thing about \emph{how} it decided what to search for that you
+wouldn't have known just from the final answer.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Updating existing scripts with
+agents}\label{updating-existing-scripts-with-agents}
+
+So far we've mostly looked at agents creating new code. Just as often,
+you'll want one to modify code you already have --- this is edit mode's
+job (or an agent's file-editing tool, if you're beyond Copilot
+specifically).
+
+Open a script with some plots in it and try:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Create a pairs plot for all continuous variables
+
+\end{tcolorbox}
+
+\textbf{Tip:} Sometimes you can't undo an edit once it's made. Get into
+the habit of committing to git before \emph{and} after a round of agent
+edits --- that way you always have a clean point to roll back to.
+
+Edit mode writes prose as well as code. Try it on documentation: open
+your README, type:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Document what this script does in the readme.
+
+\end{tcolorbox}
+
+and drag your script into the chat alongside it. Review what it wrote
+--- accept it, ask for changes, or edit it yourself afterward.
+
+\section{Why so much code?}\label{why-so-much-code}
+
+You'll likely notice assistants tend to ``over-engineer'' R scripts ---
+a common example is wrapping every \texttt{library()} call in an
+\texttt{if\ (!requireNamespace(...))} check before loading it. We don't
+know the system prompt behind most of these tools, but given their
+primary market is professional software engineers, it's a reasonable
+guess that robustness-focused instructions are baked in somewhere. If
+you don't want this style, say so explicitly in your README ---
+e.g.~``keep implementation simple, this is a one-off analysis script,
+not a package.''
+
+\section{Staying on track}\label{staying-on-track}
+
+Left unattended --- accept, accept, accept, without reading --- an agent
+can wander into rabbit holes: superfluous analyses, or even incorrect
+statistics that look plausible. My recommended discipline:
+
+\begin{itemize}
+\tightlist
+\item
+  Use git, so you can always roll back.
+\item
+  Read the suggested edits before accepting them.
+\item
+  \textbf{Never} edit a file yourself while an agent is mid-edit on it.
+  Most editing tools locate where to insert changes by matching text in
+  the file --- if you change the file underneath them, the next edit can
+  land in the wrong place.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Commit your project to git, then ask an agent to refactor one of your
+plotting scripts for the benthic/fish data to use a shared
+\texttt{theme\_classic()} across all plots. Read the diff before
+accepting, and note anything it changed that you didn't ask for.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Reviewing agent output}\label{reviewing-agent-output}
+
+You can accept every suggestion an agent makes without reading it ---
+this is what people mean by ``vibe coding.'' It's fine for prototyping a
+throwaway idea or a low-stakes app. It's a bad fit for anything you plan
+to publish, because the whole point of vibe coding is that you
+\emph{haven't} verified it's correct --- and unlike an app that visibly
+works or doesn't, a subtly wrong statistical analysis can look
+completely fine right up until someone tries to reproduce it.
+
+Here's the part that doesn't change no matter how good the tooling gets:
+\textbf{you own the content you create with an assistant, and you're
+responsible for it.} You couldn't blame an LLM if you had to retract a
+paper because of an incorrect analysis, any more than you could blame a
+calculator.
+
+\section{What to actually check}\label{what-to-actually-check}
+
+Before accepting an agent's output, it's worth having a habit, not just
+good intentions:
+
+\begin{itemize}
+\tightlist
+\item
+  Does the statistical approach match what you decided in
+  \href{../section-3-workflows/01-select-statistical-approach.qmd}{Section
+  3} --- or did it quietly substitute something more familiar to it?
+\item
+  Did it check assumptions it should have (overdispersion, residual
+  patterns) or just fit the model and move on?
+\item
+  Are there extra analyses or files you didn't ask for? Agents sometimes
+  pad out a task with things that look thorough but weren't requested.
+\item
+  Does the code match the style and packages your README specified, or
+  did it default back to its own preferences?
+\end{itemize}
+
+This isn't about distrust for its own sake --- it's the same posture
+you'd bring to checking a research assistant's work, human or otherwise.
+The difference with an agent is that it will never tell you it's unsure,
+so the checking has to be entirely on your side.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Take the script an agent produced for you in an earlier module (the
+regression of \texttt{pres.topa} on \texttt{CB\_cover}, or the pairs
+plot). Read it line by line and find one thing you'd change --- a
+package choice, a default argument, an assumption it didn't check.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{When agents get stuck}\label{when-agents-get-stuck}
+
+Agents try to debug their own errors, but they can get stuck in a loop
+doing it. A common one: trying to run \texttt{Rscript} from the terminal
+to execute a full script, on a computer where \texttt{Rscript} isn't on
+the system \texttt{PATH}. Fixing that is an IT-flavoured detour outside
+the scope of this book, but the practical workaround is to give the
+agent the full path explicitly in a custom instruction --- e.g.~``use
+\texttt{Rscript.exe} at \texttt{C:/Program\ Files/R/bin/Rscript.exe}''
+--- rather than letting it keep guessing.
+
+\section{Context poisoning}\label{context-poisoning}
+
+The deeper version of ``getting stuck'' isn't an error message, it's a
+wrong answer that's already in the conversation. If an agent doesn't
+have enough information, it won't say so --- it'll answer anyway (what
+people often loosely call ``hallucinating''). Once that wrong answer
+sits in the chat thread, it's genuinely hard to get the model to
+un-learn it there. Telling it ``no, that's wrong, try again'' inside the
+same conversation is fighting the poisoned context, not fixing it.
+
+The reliable fix is almost always to start over: open a new chat and
+write a clearer, more complete prompt from scratch, rather than trying
+to patch a conversation that's gone sideways.
+
+This compounds in bigger projects. As more gets crammed into the context
+window, small mistakes get harder to spot and root out. An old,
+superseded script with a subtly wrong line of code can make it into an
+agent's index and keep influencing its suggestions long after you
+thought you'd abandoned that approach --- until you delete the file and
+the index catches up. That's one more reason to use git properly, rather
+than keeping several versions of the ``same'' script lying around your
+project directory.
+
+\textbf{Tip:} If an agent keeps recommending the same broken fix over
+and over, that's the tool-use equivalent of the inline-completion
+``stuck in a loop'' problem from Section 1 --- the fix is the same too:
+stop, and change the input rather than repeating the same request.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Deliberately give an agent an incomplete or slightly wrong instruction
+about the benthic/fish data (e.g.~call \texttt{CB\_cover} something it
+isn't), let it produce a wrong answer, then try correcting it within the
+same chat. Then start a fresh chat with a corrected prompt instead.
+Compare how much friction each approach took.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\part{Section 3: AI in workflows}
+
+A good analysis workflow separates deciding \emph{what} to do from
+\emph{how} to code it. This section walks through my suggested
+three-step workflow --- select a statistical approach, plan the
+implementation, then write the code --- as three short modules, followed
+by a module on specification sheets that ties the whole thing together
+with a full worked example.
+
+\chapter{Step 1: Select a statistical
+approach}\label{step-1-select-a-statistical-approach}
+
+LLM prompting works best when you already have a clear idea of your goal
+and the workflow needed to reach it. We saw the general principle back
+in prompting fundamentals: break your problem into smaller parts. For
+data analysis, that means treating each of these as a separate step
+rather than blurring them together:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Select a statistical approach} --- decide what kind of
+  analysis answers your question.
+\item
+  \textbf{Plan the implementation} --- design the code structure and
+  project layout (next module).
+\item
+  \textbf{Write the code} --- implement the analysis (the module after
+  that).
+\end{enumerate}
+
+LLMs perform differently across these steps. They're strong at code
+generation and implementation planning, but noticeably less reliable at
+picking the right statistical approach or interpreting subtle results.
+Treating each step separately --- rather than asking an agent to do all
+three at once --- keeps you making the decisions that need a human, and
+stops you making them ``on the fly'' inside a big vibe-coded session.
+
+\section{Choosing the method, before the
+code}\label{choosing-the-method-before-the-code}
+
+Identify the analysis you want before thinking about how to code it.
+Once you have an approach, then look at what packages implement it.
+
+The limited formal evaluations of LLMs on statistics so far have found
+the biggest accuracy gains for prompts that:
+
+\begin{itemize}
+\tightlist
+\item
+  Include domain knowledge in the prompt.
+\item
+  Include the data, or a summary of it, in the prompt.
+\item
+  Combine domain knowledge with chain-of-thought reasoning
+  (chain-of-thought on its own doesn't help much).
+\end{itemize}
+
+Larger, more recent models also tend to do better --- worth trying a
+current frontier model (e.g.~Claude Sonnet or Opus, or GPT-5) if you
+have access, even if you use a cheaper model for the bulk of your work.
+
+\textbf{Tip:} LLMs default to the most obvious, well-known statistical
+approach. If you want something more creative or better matched to your
+specific problem, you need to work a bit harder --- for example:
+``Suggest methods for this analysis, taking inspiration from different
+disciplines such as medicine, psychology and climate research.''
+
+\section{Attaching data and domain
+knowledge}\label{attaching-data-and-domain-knowledge}
+
+Attaching data (or a summary of it) is proven to improve statistical
+recommendations --- the model can see actual column names and value
+ranges rather than guessing. For a large dataset, ask the assistant to
+generate a small summary first (e.g.~``write a script that creates a
+version of the benthic data with only the first six rows'') rather than
+attaching the whole thing.
+
+Domain knowledge helps just as much. If there's a paper you're trying to
+emulate, convert it to markdown (e.g.~via
+\href{https://tools.simonwillison.net/jina-reader}{Jina Reader}) and
+attach that. Good sources: stats tutorial blogs, package vignettes, and
+documentation --- keep a running list handy.
+
+\textbf{Tip:} If you consulted a human statistician, they'd ask you a
+lot of questions before answering. An LLM won't --- it'll just answer,
+whether or not it has enough context. If you asked me ``how do I see if
+fish are related to coral cover?'' with that little information, I
+wouldn't jump straight to an answer. The LLM will. Come prepared with
+the context it needs, rather than expecting it to ask.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Ask an assistant ``How could I test if fish abundance depends on coral
+cover?'' with no context attached. Then ask again, this time attaching a
+six-row summary of the \texttt{fish-coral-cover-sites.csv} data and a
+one-sentence description of the sampling design. Compare the specificity
+of the two answers.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Step 2: Plan implementation}\label{step-2-plan-implementation}
+
+Repeat after me: \emph{I will keep my data analysis code neat and
+organized.} Say it three times if you have to.
+
+If you're like most of us, you code as you go, and end up with one
+script that runs 1000+ lines from data import through wrangling,
+visuals, modelling, verification and plotting. The worst version of this
+I've seen is a script that doesn't even execute top-to-bottom ---
+students telling me ``run lines 60-70, then go back to line 20 and it
+should work\ldots{}''
+
+Have you ever gone back into an old project to fix something and found
+it a struggle to work out what you did? That's a problem for an AI
+assistant too --- you're filling its context window with irrelevant
+junk, and it's going to have a much harder time giving you good advice.
+Organised code is good for future-you, good for other scientists reading
+your code, good for reproducibility, \emph{and} good for getting better
+help from an assistant.
+
+It's more upfront work, but the time it saves later --- including in
+your prompting --- more than makes up for it. The assistant can even
+help you get organised, if you ask it to.
+
+\section{Directory structure}\label{directory-structure}
+
+There's no single correct layout, the important thing is to have
+\emph{a} consistent one. Here's mine:
+
+\begin{verbatim}
+my-project/
+├── README.md
+├── .gitignore
+├── Scripts/       # R code
+│   ├── 01_data-prep.R
+│   ├── 02_data-analysis.R
+│   └── 03_plots.R
+├── Shared/
+│   ├── Outputs/
+│   │   ├── Figures/
+│   │   ├── data-prep/
+│   │   └── model-objects/
+│   ├── Data/
+│   └── Manuscripts/
+└── Private/
+\end{verbatim}
+
+Add more nesting for a complex project (e.g.~one with both spatial and
+non-spatial data), but keep individual scripts short and single-purpose.
+
+\section{The README as agent memory}\label{the-readme-as-agent-memory}
+
+Your README.md is the project's memory --- for you \emph{and} for the
+assistant. Think of it as a standing prompt: it's easy to attach to any
+request, or paste into a web chat, and it means the assistant has
+consistent context across sessions (where it would otherwise start from
+nothing every time).
+
+Write it thinking about what a new collaborator (human or AI) would need
+to know:
+
+\begin{itemize}
+\tightlist
+\item
+  Folder structure
+\item
+  Variable names and metadata
+\item
+  Code organisation conventions
+\item
+  Code style preferences (e.g.~``use \texttt{MASS::glm.nb()}, don't
+  \texttt{library(MASS)} globally'')
+\end{itemize}
+
+\textbf{Tip:} The README is doing double duty as the agent's memory
+across sessions. Keep it updated as the project evolves, and it'll also
+help you (or a collaborator) pick the project back up months or years
+later.
+
+Once you have a README with your aims, data methodology, and tech
+context filled in, planning is often as simple as:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Help me plan R code to implement this analysis.
+
+\end{tcolorbox}
+
+or
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+Help me plan the workflow and scripts to implement this analysis.
+
+\end{tcolorbox}
+
+Iterate on the plan with the assistant until you're happy, before moving
+on to actually writing code in the next module. The full worked example
+--- a complete specification sheet for the topa/coral-cover case study
+--- is coming up later in this section.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Sketch a directory structure and a one-paragraph README for a new
+project that asks whether \texttt{pres.topa} depends on both
+\texttt{CB\_cover} and \texttt{dist\_to\_logging\_km}. Then ask an
+assistant to critique your plan before you implement anything.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Step 3: Write the code}\label{step-3-write-the-code}
+
+Once you're happy with the plan, it's time to implement it. There are
+roughly three levels of automation, in increasing order:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Manual, assistant-assisted} --- write the code yourself, using
+  inline completion and edit mode (Section 1) for the fiddly bits.
+\item
+  \textbf{Agent-assisted} --- instruct an agent to complete tasks from
+  your README, checking in and editing as you go (see
+  \hyperref[section-2-agents]{Section 2} for more on agents).
+\item
+  \textbf{Full ``vibe coding''} --- ask an agent to complete the task
+  and accept every suggestion without reading it.
+\end{enumerate}
+
+Vibe coding isn't recommended for scientific projects --- we'll come
+back to why in \hyperref[reviewing-agent-output]{Section 2} and
+\href{../section-5-agentic-engineering/index.qmd}{Section 5}.
+
+\textbf{Tip:} Your README is the assistant's memory across chat sessions
+(where it would otherwise forget everything). Keep it updated as you go
+--- it's also what future-you will thank you for.
+
+A few more tips for this stage:
+
+\begin{itemize}
+\tightlist
+\item
+  Attach data or domain knowledge as you go, whenever the assistant
+  can't get it from the README alone.
+\item
+  Get the assistant to write tests for your data pipeline --- checking
+  joins worked properly, and that you didn't duplicate or drop rows.
+  We'll build this out properly in
+  \href{../section-5-agentic-engineering/index.qmd}{Section 5}.
+\end{itemize}
+
+\section{Suggested workflows}\label{suggested-workflows}
+
+\textbf{For an analysis that's new to you:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Read the literature to find the appropriate analysis for your question
+  and data.
+\item
+  Once you've narrowed the options, find useful domain knowledge ---
+  vignettes, manuals, blogs with suitable R examples.
+\item
+  Set up a new project folder with the directory structure and README
+  from the previous module.
+\item
+  Use an assistant to implement the analysis, attaching data summaries
+  and domain knowledge for the best prompts.
+\end{enumerate}
+
+\textbf{For an analysis you already know well:} much the same, minus the
+literature search --- you already know what you want. Keep saving useful
+domain knowledge when you come across it, so it's on hand next time.
+
+\section{Iterating}\label{iterating}
+
+Ecological modelling is a creative art with rules --- the rules are the
+scientific method, the medium is math, logic and code. Think of AI as
+part of that creative process, not a replacement for it.
+
+Use an assistant to generate multiple complete attempts at your project,
+then compare them for ideas, refining your prompt as you go. It's a tool
+in your belt, not a replacement for talking to colleagues, reading
+widely, or staring at the ocean while you think something through.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Ask an agent to implement a
+\texttt{pres.topa\ \textasciitilde{}\ CB\_cover} negative binomial GLM
+twice, from the same README, in two separate runs. Compare the two
+scripts it produces --- do they make the same modelling choices?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Specification sheets}\label{specification-sheets}
+
+The three steps in this section --- select an approach, plan the
+implementation, write the code --- come together most powerfully in a
+single document: a \textbf{specification sheet}. It's the README concept
+from the previous module, taken all the way, and it's the single most
+effective thing you can hand an agent before turning it loose on real
+analysis.
+
+\section{Case study: bumphead parrotfish, ``Topa,'' in Solomon
+Islands}\label{case-study-bumphead-parrotfish-topa-in-solomon-islands}
+
+Since this is the fullest worked example in the book, it's worth knowing
+the story behind our running dataset. Bumphead parrotfish
+(\emph{Bolbometopon muricatum}) are an enigmatic tropical species ---
+adults have a large forehead bump used to display and fight during
+breeding. They travel in schools, bite off chunks of coral to eat the
+algae on it, and literally excrete clean sand as a result. Their size,
+schooling habit and late maturity make them vulnerable to overfishing,
+and \href{https://doi.org/10.1007/s00338-019-01801-z}{many populations
+are in decline}.
+
+Until the mid-2010s, nobody knew where juveniles settled. In Kia
+province, Solomon Islands, Rick Hamilton (The Nature Conservancy) led
+surveys of nearshore reef habitat --- motivated by local community
+concern that ``topa'' (the local name) were declining --- and divers
+swam standardised transects across 49 sites, despite the presence of
+crocodiles in the mangroves. They only ever found juvenile topa hiding
+in branching coral. Around the same time, logging in the region was
+bulldozing mangrove ``log ponds'' to move logs to barges, causing
+sediment runoff that can smother coral habitat.
+
+These surveys were first published by
+\href{http://dx.doi.org/10.1016/j.biocon.2017.04.024}{Hamilton et
+al.~2017}, with a follow-up Bayesian pollution-footprint model in
+\href{http://dx.doi.org/10.1111/cobi.13079}{Brown and Hamilton 2018}.
+The data and original analysis code are on
+\href{https://github.com/cbrown5/BenthicLatent}{GitHub}; we use a
+simplified version throughout this book, with thanks to Rick Hamilton
+for making it available.
+
+\section{Project organisation}\label{project-organisation}
+
+Set up each new project in its own folder, initialise git, and keep
+scripts short and modular (one for data prep, one for modelling, and so
+on):
+
+\begin{verbatim}
+my-project/
+├── README.md
+├── .gitignore
+├── Scripts/
+│   ├── 01_data-prep.R
+│   ├── 02_data-analysis.R
+│   └── 03_plots.R
+├── Shared/
+│   ├── Outputs/
+│   │   ├── Figures/
+│   │   ├── data-prep/
+│   │   └── model-objects/
+│   ├── Data/
+│   └── Manuscripts/
+└── Private/
+\end{verbatim}
+
+\section{The README template}\label{the-readme-template}
+
+\begin{verbatim}
+# PROJECT TITLE
+
+## Summary
+
+## Aims
+
+## Data methodology
+
+## Analysis methodology
+
+## Tech context
+- We will use the R program
+- tidyverse packages for data manipulation
+- ggplot2 for data visualization
+
+Keep your scripts short and modular to facilitate debugging. Don't complete
+all of the steps below in one script. Finish scripts where it makes sense
+and save intermediate datasets.
+
+## Steps
+As you go tick off the steps below.
+
+[ ] Wrangle data
+[ ] Fit regression
+[ ] Plot verification
+[ ] ...
+
+## Data
+Include meta-data here and file paths.
+
+## Directory structure
+(as above)
+\end{verbatim}
+
+\section{Metadata}\label{metadata}
+
+\textbf{fish-coral-cover-sites.csv}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site} & Unique site ID \\
+\texttt{reef.ID} & Unique reef ID \\
+\texttt{pres.topa} & Number of topa (bumphead) counted \\
+\texttt{pres.habili} & Number of habili (\emph{Cheilinus}) counted \\
+\texttt{secchi} & Horizontal secchi depth (m); higher = clearer water \\
+\texttt{flow} & ``Strong'' or ``Mild'' tidal flow at the site \\
+\texttt{logged} & ``Logged'' or ``Not logged'' --- whether the site is
+in a region with logging \\
+\texttt{coordx}, \texttt{coordy} & Coordinates, UTM zone 57S \\
+\texttt{CB\_cover} & PIT points recording branching coral cover \\
+\texttt{soft\_cover} & PIT points recording soft coral cover \\
+\texttt{n\_pts} & Total PIT points at the site (for normalising cover to
+percent) \\
+\texttt{dist\_to\_logging\_km} & Linear distance to nearest log pond
+(km) \\
+\end{longtable}
+
+\section{A full worked spec sheet}\label{a-full-worked-spec-sheet}
+
+Here's a complete example, written the way I'd actually hand it to an
+agent. Notice it fully answers all four parts of the README template
+above, and is specific about packages, model structure, and even
+namespace conventions --- not just ``do a GLM.''
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, leftrule=.75mm, breakable, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, toprule=.15mm, rightrule=.15mm, left=2mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Prompt}, opacityback=0, arc=.35mm, toptitle=1mm, titlerule=0mm, opacitybacktitle=0.6, colback=white]
+
+\chapter{Analysis of fish dependence on coral
+habitat}\label{analysis-of-fish-dependence-on-coral-habitat}
+
+\section{Introduction}\label{introduction-1}
+
+This project will ask how abundance of fish juveniles depends on coral
+cover. The fish we are interested in is \emph{Bolbometopon muricatum},
+the bumphead parrotfish. Also known as `topa' in the local language of
+our study region. We will analyze survey data from 49 sites, that
+includes benthic cover surveys and surveys fish abundance at the same
+locations. We are studying its juvenile habitat.
+
+\section{Aims of the analysis}\label{aims-of-the-analysis}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Does fish abundance depend on branching coral cover?
+\item
+  What is the direction and strength of the relationship between fish
+  abundance and branching coral cover?
+\item
+  Does fish abundance depend on soft coral cover?
+\end{enumerate}
+
+\section{Data methodology}\label{data-methodology}
+
+The data was collected with the point intersect transect method. Divers
+swam along transects. There were several transects per site. Along each
+transect they dropped points and recorded the type of benthic organism
+(in categories) on that point. Percentage cover for one organism type
+can then be calculated as the number of points with that organism
+divided by the total number of points on that transect. In our data we
+have percent cover of branching corals and percent cover of soft corals.
+Transects were averaged to give a single value for each site. At each
+site divers also counted the number of juvenile `topa' along dive
+transects of the same length.
+
+\section{Analysis methodology}\label{analysis-methodology}
+
+We will use generalized linear models to analyze the relationship
+between topa and the two coral cover types. Topa abundance is probably
+over-dispersed, so we will need to use a negative binomial family. We
+will use R and the MASS package:
+
+\texttt{MASS::glm.nb(pres.topa\ \textasciitilde{}\ CB\_cover*soft\_cover,\ data\ =\ fish\_coral\_cover\_sites)}
+
+To obtain a final model we should do model selection, starting with a
+full model then working towards simpler models. We will use likelihood
+ratio tests to compare models, e.g:
+
+\begin{verbatim}
+m1 <- MASS::glm.nb(pres.topa ~ CB_cover*soft_cover, data = fish_coral_cover_sites)
+m2 <- MASS::glm.nb(pres.topa ~ CB_cover + soft_cover, data = fish_coral_cover_sites)
+anova(m1, m2, test = "Chisq")
+\end{verbatim}
+
+Proceed with m2 if the interaction term is not significant, otherwise
+proceed with m1.
+
+On completion of model selection, do model diagnostics: check residuals
+and the dispersion parameter, save as png files. Write a diagnostics
+report as an Rmarkdown file.
+
+\section{Instructions for the agent}\label{instructions-for-the-agent}
+
+The agent will produce a report that answers the above questions. The
+report will include a description of the data, the methods used for
+analysis, and the results of the analysis. The code will be written as R
+scripts. Each script should be modular and save intermediate results as
+datafiles and figures. The final report must be written in Rmarkdown
+format. The figures will be imported using markdown syntax,
+e.g.~\texttt{!{[}{]}(outputs/plots/figure1.png)}. Don't use R code for
+figures in the markdown report. Summary tables should be imported from
+.csv files and created using the \texttt{knitr::kable()} function in
+Rmarkdown. The report must include:
+
+\begin{itemize}
+\tightlist
+\item
+  Study aims
+\item
+  Data methodology
+\item
+  Analysis methodology
+\item
+  Results
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Model selection and verification
+  \item
+    Model fit statistics
+  \item
+    Plots of predicted fish abundance (log-link scale) based on the
+    final model, with confidence intervals
+  \item
+    Relevant statistics (r2, p-values, etc.)
+  \end{itemize}
+\end{itemize}
+
+The agent must also produce diagnostic plots and a separate report on
+model diagnostics.
+
+\subsection{Tech context}\label{tech-context}
+
+\begin{itemize}
+\tightlist
+\item
+  We will use the R program
+\item
+  tidyverse packages for data manipulation
+\item
+  ggplot2 for data visualization
+\item
+  use \texttt{theme\_set(theme\_classic())} for plots
+\item
+  Use the \texttt{MASS} package for the negative binomial model, however
+  don't load it globally with \texttt{library(MASS)}, instead use
+  \texttt{MASS::glm.nb()} to avoid namespace conflicts.
+\item
+  Use \texttt{visreg} package for plotting model effects and confidence
+  intervals,
+  e.g.~\texttt{visreg::visreg(m2,\ "CB\_cover",\ "soft\_cover",\ gg=TRUE,\ scale\ =\ \textquotesingle{}linear\textquotesingle{})}
+\end{itemize}
+
+Keep your scripts short and modular to facilitate debugging. Don't
+complete all of the steps below in one script. Finish scripts where it
+makes sense and save intermediate datasets.
+
+When using Rscript to run R scripts in terminal put quotes around the
+file, e.g.~\texttt{Rscript\ "1\_model.R"}
+
+\subsection{Workflow}\label{workflow}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a todo list and keep track of progress
+\item
+  Data processing including standardizing coral variables by number of
+  points
+\item
+  Model selection and verification, produce diagnostic plots
+\item
+  Model diagnostic plots markdown report
+\item
+  Create plots of predictions from the final model
+\item
+  Write report in markdown format
+\end{enumerate}
+
+\subsection{Directory structure}\label{directory-structure-1}
+
+\begin{verbatim}
+glm-test-case/
+├── data/
+├── fish-coral.csv
+├── glm-readme.md
+├── initial-prompt.md
+├── outputs/
+│   └── plots/
+└── scripts/
+\end{verbatim}
+
+Put the .rmd reports in the top-level directory.
+
+\end{tcolorbox}
+
+Have a go at writing your own spec sheet for a variation on this
+analysis --- pick your own aim, e.g.~testing whether fish abundance
+depends on \texttt{dist\_to\_logging\_km} instead of, or as well as,
+coral cover.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Write your own ``Aims'' and ``Analysis methodology'' sections for a spec
+sheet that tests whether \texttt{pres.topa} depends on
+\texttt{dist\_to\_logging\_km}. Hand the full spec sheet to an agent and
+see how closely its plan matches what you had in mind before you wrote
+it.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\part{Section 4: Security, data privacy and cloud agents}
+
+Agents that can read files, browse the web and run code on your computer
+are powerful and risky. This section works through concrete security
+risk examples, a Claude Code for web example, a bash sandbox example,
+and practical advice for keeping your data secure when cloud-hosted
+agents are involved --- plus a frank look at the limitations of all of
+the above.
+
+\chapter{Security risk examples}\label{security-risk-examples}
+
+We touched on the lethal trifecta briefly in
+\hyperref[security-risks]{Section 2} --- now let's walk through it
+properly.
+
+\section{The lethal trifecta}\label{the-lethal-trifecta}
+
+Never let an agent do all three of these at the same time:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Read unverified material from the web (even material you downloaded
+  earlier).
+\item
+  Have access to sensitive data --- including your personal data, API
+  keys, and your research data.
+\item
+  Upload information to the web --- including creating webpages or
+  pushing commits to GitHub.
+\end{enumerate}
+
+\href{https://simonwillison.net/2025/Aug/9/bay-area-ai/}{The Lethal
+Trifecta for prompt injection attacks} (coined by Simon Willison) is:
+access to private data, ability to communicate externally, and exposure
+to untrusted content.
+
+If an agent can read untrusted sources, those sources might contain
+hidden malicious instructions --- text designed to be read by an LLM,
+not a human, telling it to do something you didn't ask for. That
+instruction could convince the agent to send your data somewhere, or
+write malicious code that runs on your computer.
+
+\section{How easily you can cross the
+line}\label{how-easily-you-can-cross-the-line}
+
+It's deceptively easy to tick off all three conditions without noticing.
+Say you ask ChatGPT to write a blog post based on a web search. Chat
+platforms often retain your past conversation history, which might
+contain personal information --- that's condition 2 ticked, alongside
+condition 1 (the web search). Now say the web search turns up a page
+with hidden instructions telling the model to embed your personal data
+in the post --- say, in image alt text. Once you publish that post,
+you've ticked condition 3 as well, and the trifecta is complete.
+
+\section{Why agents on your computer are
+riskier}\label{why-agents-on-your-computer-are-riskier}
+
+Agents that run locally are a bigger risk than a chat window, because
+they can plausibly satisfy all three conditions most of the time. Any
+agent that can write code can write code that talks to the internet
+(that includes R). Most agents can change their working directory, so
+they can explore files well outside what you intended. Most now have web
+search built in. The trifecta is sitting right there.
+
+Sandboxing --- constraining what files and network access an agent can
+reach --- helps, but currently takes real technical effort to set up
+properly, and may be out of reach if you're on a locked-down university
+machine. We'll look at a concrete sandboxing example next.
+
+Agents you run inside VSCode are generally safe, but not 100\% safe.
+Most are explicitly instructed not to change your working directory ---
+but instructions to an LLM are guidelines, not guarantees. I've
+regularly seen Copilot's agent try to \texttt{cd} in the terminal anyway
+(in my experience, an innocent attempt to get a better view of the
+project) --- but I never approve it, because I can't always tell
+innocent from not just from the confirmation dialog.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Think through a task you might ask an agent to do with the benthic/fish
+project (e.g.~``search for the latest best-practice method for count
+data, then update my analysis and push the changes to GitHub''). Which
+of the three trifecta conditions does that task tick off, and at what
+point?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Claude Code for web example}\label{claude-code-for-web-example}
+
+Claude Code doesn't only run on your own machine --- it also runs
+entirely in the cloud, through a web interface, with no local install at
+all. That's a meaningfully different security posture to everything else
+in this book so far, so it's worth understanding concretely rather than
+in the abstract.
+
+\section{What's actually happening}\label{whats-actually-happening}
+
+When you start a Claude Code for web session, the agent runs inside an
+isolated, ephemeral container in the cloud, not on your laptop.
+Practically, that means:
+
+\begin{itemize}
+\tightlist
+\item
+  The repository is freshly cloned into the container when the session
+  starts --- the agent never touches your local filesystem or any other
+  project you have open.
+\item
+  Outbound network access is governed by a network policy you choose
+  when the environment is created (for example, restricted to specific
+  package registries, or more open). This is a real control, not just a
+  suggestion in a system prompt --- it's enforced at the infrastructure
+  level.
+\item
+  The container is reclaimed once the session ends or goes idle for a
+  while. Anything you want to keep has to be committed and pushed before
+  that happens --- there's no persistent local state to fall back on.
+\item
+  GitHub access (viewing PRs, pushing branches, commenting on issues)
+  goes through an explicit integration, scoped to specific repositories
+  you've authorised --- the agent can't reach arbitrary repos just
+  because it can reach one.
+\end{itemize}
+
+\section{Why this changes the trifecta
+calculation}\label{why-this-changes-the-trifecta-calculation}
+
+Revisit the lethal trifecta from the previous module. Running an agent
+in an isolated cloud container doesn't remove any of the three
+conditions outright --- it can still read untrusted web content, it
+still has access to whatever's in the repo it was given, and it can
+still push code or comment on GitHub. But it does shrink the blast
+radius of condition 2 considerably: there's no access to your personal
+files, your other projects, your browser history, or anything else on
+your actual computer. If something goes wrong, the damage is contained
+to that one cloned repo and whatever the network policy allowed it to
+reach --- not your whole machine.
+
+That's a genuinely useful trade-off for exactly the kind of task this
+book is about: pointing an agent at one specific analysis project, with
+one specific dataset, and letting it work with less supervision than
+you'd give an agent running locally on your main machine.
+
+\section{Trying it yourself}\label{trying-it-yourself}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Push your project (e.g.~the topa/coral-cover analysis from earlier
+  sections) to a GitHub repository.
+\item
+  Start a Claude Code for web session against that repository, and
+  choose a network policy appropriate to the task --- the most
+  restrictive one that still lets the agent do what you need.
+\item
+  Give it a specification-sheet-style prompt (see
+  \hyperref[specification-sheets]{Section 3}) rather than a vague one
+  --- the same ``over-explain up front'' advice applies just as much
+  here as anywhere else in this book.
+\item
+  Review the diff it produces before merging anything, exactly as you
+  would for a local agent session (see
+  \hyperref[reviewing-agent-output]{Reviewing agent output}).
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Run the same specification-sheet prompt from Section 3 in a Claude Code
+for web session, choosing the most restrictive network policy that still
+lets it complete the task. Note what it couldn't do that a locally-run
+agent could --- and whether that restriction ever actually got in the
+way.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Bash sandbox example}\label{bash-sandbox-example}
+
+A sandbox restricts what an agent's shell commands can actually reach
+--- which files, and which parts of the network --- independent of
+whatever the agent's own instructions say it should or shouldn't do.
+It's a control enforced by your computer, not a polite request written
+into a system prompt, which is exactly why it matters: instructions to
+an LLM are guidelines, sandboxes are not.
+
+\section{A simple sandbox with
+Docker}\label{a-simple-sandbox-with-docker}
+
+If you have Docker installed, one accessible way to sandbox an agent's
+shell access is to run it inside a container with no network access and
+only your project folder mounted:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{ run }\AttributeTok{{-}{-}rm} \AttributeTok{{-}it} \DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}{-}network}\NormalTok{ none }\DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}v} \StringTok{"}\VariableTok{$(}\BuiltInTok{pwd}\VariableTok{)}\StringTok{"}\NormalTok{:/workspace:rw }\DataTypeTok{\textbackslash{}}
+  \AttributeTok{{-}w}\NormalTok{ /workspace }\DataTypeTok{\textbackslash{}}
+\NormalTok{  rocker/tidyverse }\DataTypeTok{\textbackslash{}}
+\NormalTok{  bash}
+\end{Highlighting}
+\end{Shaded}
+
+What this buys you:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{-\/-network\ none} means nothing running inside the container
+  can reach the internet at all --- no accidental data exfiltration, no
+  fetching a malicious script, no \texttt{curl}.
+\item
+  \texttt{-v\ "\$(pwd)":/workspace} mounts only your current project
+  directory into the container. Anything outside it (your home folder,
+  other projects, credentials elsewhere on disk) simply isn't visible
+  from inside.
+\item
+  \texttt{-\/-rm} throws the container away when you're done, so nothing
+  about the session persists beyond what you explicitly saved into
+  \texttt{/workspace}.
+\end{itemize}
+
+Point your agent's shell tool at this container instead of your normal
+terminal, and even if it's tricked into running something malicious,
+there's nothing to steal and nowhere to send it.
+
+\section{The trade-off}\label{the-trade-off}
+
+No network access also means no \texttt{install.packages()}, no
+downloading the benthic/fish data via \texttt{read\_csv(url(...))}, and
+no web search. In practice you'll want to build an image with the R
+packages and data you need already baked in, or allow network access
+only to specific package registries rather than turning it off
+completely --- most container runtimes support an allowlist rather than
+a strict on/off switch, though the details depend on your platform.
+
+\section{Lighter-weight alternatives}\label{lighter-weight-alternatives}
+
+If Docker feels like overkill, a restricted OS-level user account with
+read-only permissions on everything except your project's output folder
+achieves a weaker but still useful version of the same idea. On Linux,
+tools like \texttt{firejail} can restrict a single process's filesystem
+and network access without a full container. None of these are a
+substitute for reading what an agent is about to do --- they're a
+backstop for when something slips through anyway.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Try running an agent's shell tool inside the Docker sandbox above (or an
+equivalent restricted setup) on the topa/coral-cover project. Confirm
+for yourself that a command like \texttt{curl\ https://example.com}
+genuinely fails from inside the sandbox, and note what you had to
+pre-install in the image to still get your analysis working.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Keeping data secure from the
+cloud}\label{keeping-data-secure-from-the-cloud}
+
+Any prompt you send to an LLM provider goes to that company's servers.
+So it's worth being deliberate about what you include in your prompts
+--- the data you send is covered by that provider's privacy policy, not
+yours. Some subscription products (e.g.~an institutional Copilot
+licence) claim to keep your data private; public consumer products tend
+to retain the right to use whatever you type as a prompt. If you put
+your best research ideas into a public chatbot, it's plausible those
+ideas resurface, in some form, to a different user asking something
+similar later.
+
+Before using an LLM on data you didn't collect entirely yourself, check
+the IP and ethical constraints that apply --- human survey data in
+particular may come with restrictions on sending it to a foreign server,
+or on revealing any of it to a third party at all, LLM or otherwise.
+
+If your data is sensitive, you have a few real options.
+
+\section{Option 1: A locally hosted
+LLM}\label{option-1-a-locally-hosted-llm}
+
+Run a model on your own computer instead of calling out to a provider.
+We won't cover the setup here, but it's worth knowing this exists.
+Locally hosted models are fine for simpler tasks if you have reasonably
+capable hardware (a decent GPU helps a lot); they won't match the top
+hosted models on harder tasks, and can be slower to respond.
+
+\section{Option 2: Keep data separate from code
+development}\label{option-2-keep-data-separate-from-code-development}
+
+Use the LLM to help write the code that analyses your data, but never
+give it the data or the results. I'd recommend keeping sensitive data in
+a directory entirely outside your project folder, so an agent can't
+stumble into it by accident --- and double-check the agent isn't feeding
+its own analysis output back into a prompt, which would leak the same
+information a different way.
+
+It helps to generate simulated data with the same structure as your real
+data to use for code development --- you get a working pipeline with
+zero privacy risk, and (as a bonus) a built-in verification step, which
+we'll come back to properly in
+\href{../section-5-agentic-engineering/03-simulated-data-verification.qmd}{Section
+5}. There's an R package called \texttt{fakedataR} aimed at exactly this
+kind of synthetic-data generation for privacy purposes --- I haven't put
+it through its paces yet, so treat that as a pointer to investigate
+rather than a recommendation, and check its current state before relying
+on it.
+
+\section{Option 3: Ignore sensitive
+folders}\label{option-3-ignore-sensitive-folders}
+
+Some agents can be told to ignore specific folders --- for example, a
+repository-level custom instruction to
+\href{https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot}{GitHub
+Copilot}, or Roo Code's \texttt{.rooignore} file.
+
+Remember prompts aren't 100\% precise the way code is --- there's still
+a chance the agent wanders in anyway. If something is genuinely
+sensitive, keep it elsewhere on your computer entirely, and check every
+action before approving it.
+
+\section{Option 4: A no-data-retention
+provider}\label{option-4-a-no-data-retention-provider}
+
+OpenRouter has a ``no data retention'' toggle in your profile, which
+filters the providers it routes to down to ones with a no-retention
+policy. Worth checking whether your provider of choice offers something
+equivalent.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+For a hypothetical version of the topa/coral-cover project where the GPS
+coordinates (\texttt{coordx}, \texttt{coordy}) had to stay confidential
+(e.g.~to protect an endangered species location), pick which of the four
+options above you'd use, and explain what you'd tell an agent's README
+to keep it from ever seeing those two columns.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Limitations}\label{limitations}
+
+None of the safeguards in this section --- permission prompts,
+sandboxes, no-data-retention providers, ignore files --- add up to a
+guarantee. It's worth being honest about that rather than letting a
+security module leave you falsely reassured.
+
+Sandboxes constrain what an agent's tools can reach, but setting one up
+properly still takes real technical effort, and may simply be out of
+reach if you're working on a locked-down university machine without
+admin rights. A \texttt{.rooignore} or repository custom instruction
+reduces the chance an agent wanders into a sensitive folder, but a
+prompt is not a guarantee the way a filesystem permission is --- there's
+always some chance it goes there anyway. Running Claude Code for web in
+an isolated container shrinks the blast radius of a mistake, but the
+agent can still read whatever's in the repo you gave it, and still push
+whatever it wrote.
+
+So the practical posture, even after applying everything in this
+section, is the same one we've come back to throughout the book: watch
+what your agent is doing, and think carefully about what data it can
+access and what untrusted sources it's been given before you hand over
+the keys. Layered defences reduce risk, they don't remove it --- and the
+layer that catches the mistake the sandbox didn't anticipate is usually
+you, reading the diff before you approve it.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Pick one security measure from this section (sandboxing, a
+no-data-retention provider, an ignore file, or the isolated-container
+approach). Describe one concrete way it could still fail to protect you,
+even when set up correctly.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\part{Section 5: Agentic engineering for data analysis}
+
+Software engineers have spent decades building practices to catch
+mistakes before they ship. This section adapts three of those practices
+--- verification principles, red-green test-driven development, and
+simulated data as a sanity check --- for scientific data analysis done
+with AI assistance.
+
+\chapter{Tests, verification and output-checking
+principles}\label{tests-verification-and-output-checking-principles}
+
+Software engineers have spent decades building habits to catch mistakes
+before they ship --- tests, code review, continuous integration. Most of
+that toolkit assumes you have a clear, checkable definition of
+``correct'': the app either logs the user in or it doesn't. Data
+analysis rarely gives you that luxury. A GLM with the wrong family, a
+join that silently drops rows, or a plot with the axes mislabeled can
+all look completely fine to the eye and still be wrong. That's exactly
+the gap this section tries to close: borrowing engineering verification
+habits, adapted for the fact that ``correct'' in a scientific analysis
+is a fuzzier target than ``correct'' in software.
+
+\section{Why this matters more with
+agents}\label{why-this-matters-more-with-agents}
+
+An agent will happily produce a script, run it, and report success ---
+``success'' here just means the code executed without an error, which is
+a much weaker claim than ``the analysis is right.'' A model that fits
+without warnings can still have the wrong distributional family; a join
+that runs without an error can still have silently duplicated or dropped
+rows. None of that shows up as a red error message. It shows up in
+numbers that are subtly wrong.
+
+\section{General principles}\label{general-principles}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Check row counts before and after every join or filter.} If
+  \texttt{nrow()} changes in a way you didn't expect, something merged
+  wrong --- usually a many-to-many join you thought was one-to-one.
+\item
+  \textbf{Sanity-check summary statistics against what you already
+  know.} If you expect \texttt{pres.topa} to range from 0 to maybe 20
+  per site, and your summary shows a max of 4000, that's a decimal point
+  or a units error, not a real finding.
+\item
+  \textbf{Ask the agent to write a check, not just the analysis.}
+  ``Write a script that confirms every \texttt{site} value in the fish
+  data has exactly one matching row in the benthic data'' is a specific,
+  verifiable request an agent can act on directly.
+\item
+  \textbf{Verification plots are cheap insurance.} A histogram of a
+  response variable, a plot of raw data before modelling, and a residual
+  plot after --- take seconds to produce and often catch what a model
+  summary table alone won't.
+\item
+  \textbf{Read the diagnostics, don't just generate them.} Asking an
+  agent for diagnostic plots and then not looking at them defeats the
+  purpose --- this is the same discipline as
+  \hyperref[reviewing-agent-output]{reviewing agent output} in Section
+  2, applied specifically to statistical assumptions.
+\end{itemize}
+
+\section{A concrete habit}\label{a-concrete-habit}
+
+Before you trust any agent-produced analysis of the benthic/fish data,
+get in the habit of asking for (and reading) at least these three
+things:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A row-count check across every join.
+\item
+  A histogram or summary of the response variable (\texttt{pres.topa})
+  before modelling.
+\item
+  A residual or dispersion diagnostic after modelling.
+\end{enumerate}
+
+The next two modules build this into something more structured: writing
+the check \emph{before} the analysis exists (red-green TDD), and using
+simulated data with a known answer as a verification target.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Ask an agent to join \texttt{fish-coral-cover-sites.csv} to a second
+copy of itself on \texttt{site} (simulating a many-to-many join
+mistake), then write a check that would have caught the row-count
+blowup. Confirm the check actually fails on the bad join and passes on a
+correct one-to-one join.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Red-green TDD for data
+analysis}\label{red-green-tdd-for-data-analysis}
+
+Test-driven development, in its classic software form, goes: write a
+failing test first (red), write the minimum code to make it pass
+(green), then clean up. The point isn't the tests themselves, it's the
+discipline it forces --- you have to decide what ``correct'' means
+\emph{before} you write the code that's supposed to produce it, rather
+than writing the code first and hoping it's right.
+
+That discipline transfers to data analysis surprisingly well, even
+though ``correct'' is fuzzier here than in software. You won't be
+testing that a function returns the right integer --- you'll be testing
+that a pipeline behaves the way you already know it should, on data
+where you already know the answer.
+
+\section{What ``red'' looks like for an
+analysis}\label{what-red-looks-like-for-an-analysis}
+
+Before asking an agent to build the full GLM pipeline for
+\texttt{pres.topa\ \textasciitilde{}\ CB\_cover}, write the check that a
+correct pipeline needs to pass. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# red: this will fail, because model\_fit.R doesn\textquotesingle{}t exist yet}
+\FunctionTok{source}\NormalTok{(}\StringTok{"scripts/model\_fit.R"}\NormalTok{)}
+
+\NormalTok{testthat}\SpecialCharTok{::}\FunctionTok{test\_that}\NormalTok{(}\StringTok{"model output has the columns we expect"}\NormalTok{, \{}
+\NormalTok{  testthat}\SpecialCharTok{::}\FunctionTok{expect\_true}\NormalTok{(}\FunctionTok{all}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"term"}\NormalTok{, }\StringTok{"estimate"}\NormalTok{, }\StringTok{"std.error"}\NormalTok{) }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(model\_summary)))}
+\NormalTok{\})}
+
+\NormalTok{testthat}\SpecialCharTok{::}\FunctionTok{test\_that}\NormalTok{(}\StringTok{"CB\_cover has a positive estimated effect"}\NormalTok{, \{}
+\NormalTok{  testthat}\SpecialCharTok{::}\FunctionTok{expect\_gt}\NormalTok{(model\_summary}\SpecialCharTok{$}\NormalTok{estimate[model\_summary}\SpecialCharTok{$}\NormalTok{term }\SpecialCharTok{==} \StringTok{"CB\_cover"}\NormalTok{], }\DecValTok{0}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+Run it. It fails --- there's no \texttt{model\_fit.R} yet, and no
+\texttt{model\_summary} object. That's red, and that's the point: you've
+written down what ``done'' means before any code exists to satisfy it.
+
+\section{Getting to green}\label{getting-to-green}
+
+Now hand the agent the spec sheet from
+\hyperref[specification-sheets]{Section 3} \emph{plus} this test file,
+and ask it to write \texttt{scripts/model\_fit.R} so the test passes.
+This changes what the agent is optimising for --- instead of ``write
+code that runs,'' it's ``write code that makes this specific,
+falsifiable claim true.'' That's a much narrower and more checkable
+target, and it's much harder for a plausible-looking-but-wrong analysis
+to sneak through it.
+
+\section{Why the direction of a coefficient is a good first
+test}\label{why-the-direction-of-a-coefficient-is-a-good-first-test}
+
+Notice the second test above isn't checking a p-value or an exact number
+--- it's checking the \emph{sign} of an effect you already have strong
+prior reason to expect (branching coral cover should have a positive
+relationship with juvenile topa abundance, per Hamilton et al.~2017).
+That's a deliberately weak, easy-to-state claim, which is exactly the
+right level for a first test --- you're not trying to encode the whole
+analysis in assertions, just the parts you're confident enough about to
+write down as a checkable fact.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Write a red test that asserts the negative binomial dispersion parameter
+(\texttt{theta}) from
+\texttt{MASS::glm.nb(pres.topa\ \textasciitilde{}\ CB\_cover,\ data\ =\ dat)}
+is greater than 0 and less than, say, 50 (a sanity range, not a precise
+prediction). Confirm it's red before the model exists, then have an
+agent implement the model and confirm it goes green.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Using simulated data as a verification
+step}\label{using-simulated-data-as-a-verification-step}
+
+Here's a verification trick that's standard practice in statistics but
+rarely makes it into an agent's default workflow: before you trust a
+model fit to your real data, fit it to \emph{simulated} data where you
+already know the true answer, because you generated it yourself. If the
+pipeline can't recover a relationship you built in on purpose, there's
+no reason to trust it on data where you don't know the answer.
+
+\section{Simulating fake topa counts}\label{simulating-fake-topa-counts}
+
+Let's simulate count data with the same structure as
+\texttt{pres.topa\ \textasciitilde{}\ CB\_cover}, but with a coral-cover
+effect we chose ourselves:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(MASS)}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+\NormalTok{n\_sites }\OtherTok{\textless{}{-}} \DecValTok{49}
+
+\NormalTok{true\_intercept }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(}\DecValTok{2}\NormalTok{)     }\CommentTok{\# \textasciitilde{}2 topa at zero coral cover, on the log scale}
+\NormalTok{true\_cb\_effect }\OtherTok{\textless{}{-}} \FloatTok{0.03}       \CommentTok{\# positive effect of CB\_cover on log(topa)}
+\NormalTok{true\_theta }\OtherTok{\textless{}{-}} \DecValTok{5}              \CommentTok{\# dispersion parameter for the negative binomial}
+
+\NormalTok{sim\_dat }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{site =} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n\_sites,}
+  \AttributeTok{CB\_cover =} \FunctionTok{runif}\NormalTok{(n\_sites, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{40}\NormalTok{)}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{mu =} \FunctionTok{exp}\NormalTok{(true\_intercept }\SpecialCharTok{+}\NormalTok{ true\_cb\_effect }\SpecialCharTok{*}\NormalTok{ CB\_cover),}
+    \AttributeTok{pres.topa =} \FunctionTok{rnegbin}\NormalTok{(n\_sites, }\AttributeTok{mu =}\NormalTok{ mu, }\AttributeTok{theta =}\NormalTok{ true\_theta)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+Now fit the same model you'd fit to the real data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m\_sim }\OtherTok{\textless{}{-}}\NormalTok{ MASS}\SpecialCharTok{::}\FunctionTok{glm.nb}\NormalTok{(pres.topa }\SpecialCharTok{\textasciitilde{}}\NormalTok{ CB\_cover, }\AttributeTok{data =}\NormalTok{ sim\_dat)}
+\FunctionTok{summary}\NormalTok{(m\_sim)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{What ``recovers the truth'' means
+here}\label{what-recovers-the-truth-means-here}
+
+You're not expecting the fitted coefficient to exactly equal
+\texttt{0.03} --- with 49 sites and real sampling noise, it won't. What
+you're checking is:
+
+\begin{itemize}
+\tightlist
+\item
+  The estimated \texttt{CB\_cover} coefficient is positive and in a
+  plausible range around the true value.
+\item
+  The true value falls inside the 95\% confidence interval most of the
+  time --- run the simulation a few times (or wrap it in a loop over,
+  say, 200 replicates) and check the true effect falls inside the
+  interval roughly 95\% of the time, not 50\% or 20\%.
+\item
+  The estimated \texttt{theta} is in the right ballpark of the true
+  dispersion you simulated.
+\end{itemize}
+
+If any of those fail consistently, the problem isn't your real data ---
+it's the pipeline itself (wrong family, a coding bug, a mis-specified
+formula), and you've found that out \emph{before} it had a chance to
+quietly corrupt your interpretation of the real analysis.
+
+\section{Handing this to an agent}\label{handing-this-to-an-agent}
+
+This is a natural task to specify explicitly rather than hope an agent
+thinks to do it: add a step to your specification sheet (see
+\hyperref[specification-sheets]{Section 3}) that says something like
+``before fitting the model to the real data, simulate data with a known
+\texttt{CB\_cover} effect and confirm the same model code recovers it,
+within a reasonable margin, before proceeding.'' Agents default to the
+most familiar workflow --- fit model, report results --- unless you
+explicitly ask for the verification step in between.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Change \texttt{true\_cb\_effect} to \texttt{0} in the simulation above
+(i.e.~no real relationship between coral cover and topa) and refit the
+model. Does the fitted model correctly show a non-significant effect
+most of the time, or does it falsely detect an effect more often than
+you'd expect by chance?
+
+\end{minipage}%
+\end{tcolorbox}
+
+\part{Section 6: LLM access via API}
+
+Under every assistant and agent is an API call. This section takes you
+underneath the chat window: getting an API key, understanding how ellmer
+talks to a provider, building a simple chat and a DIY chatbot, then
+building your own minimal coding agent from scratch, and finally
+applying all of it to a literature review example.
+
+\chapter{API keys}\label{api-keys}
+
+\textbf{Software requirements:} R (ideally with \texttt{ellmer}
+installed) or Python, and an API key with a provider --- ideally
+OpenRouter.
+
+Everything in this section works by talking to an LLM provider's API
+directly, rather than through a chat app or an assistant like Copilot.
+To do that you need an API key --- think of it like a password that lets
+your code send prompts to a provider on your behalf.
+
+If you haven't already, follow \hyperref[sec-apikeys]{`Getting an API
+key'} and \hyperref[sec-ellmer]{`Ellmer set-up'} in Setup. The short
+version:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sign up with a provider --- I recommend
+  \href{https://accounts.openrouter.ai/sign-up}{OpenRouter} for this
+  section, since it gives you access to models from many providers with
+  one key.
+\item
+  Buy a small amount of credit (a few dollars will get you a long way
+  through this book's examples).
+\item
+  Save the key to your \texttt{.Renviron} file
+  (\texttt{usethis::edit\_r\_environ()}), as
+  \texttt{OPENROUTER\_API\_KEY="xxxxxx"}, then restart R.
+\end{enumerate}
+
+\texttt{ellmer} will automatically find the key so long as you use the
+standard environment variable name for your provider --- see
+\texttt{?ellmer::chat\_openrouter} (or \texttt{chat\_xxx} for whichever
+provider you're using).
+
+\textbf{Tip:} The sign-up page for an API key is often a completely
+different webpage to the one you use for a subscription product like
+ChatGPT Plus or Claude Code. Don't assume they're the same account.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Confirm your key is working without ever typing it into a script: run
+\texttt{library(ellmer);\ chat\_openrouter()\$chat("Say\ hello")} in a
+fresh R session and check it returns a response. If it fails, the
+problem is almost always the environment variable name or a missing
+restart of R.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{How API access works with
+ellmer}\label{how-api-access-works-with-ellmer}
+
+Calling LLMs programmatically via an API is a powerful step up from chat
+interfaces. First, it gives you control: chat software like ChatGPT or
+Copilot manages your interaction for you, quietly adding context
+(potentially from your chat history), so it's hard to know exactly how
+the model is being prompted. With direct API access, you control exactly
+what goes to the LLM. Second, accessing it from R or Python code lets
+you automate calls --- which is how we'll build agents and
+literature-review tools later in this section.
+
+\section{What is an Application Programming
+Interface?}\label{what-is-an-application-programming-interface}
+
+An API lets different software programs talk to each other. Large
+language models need serious compute to run, so rather than hosting one
+yourself (which is possible, but not what we'll cover here) we'll send
+prompts over the internet to a Provider --- a server run by a company
+like OpenAI or Anthropic, or an aggregator like OpenRouter --- and get
+the response back.
+
+\textbf{How an API call works:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Your code sends a request to the API endpoint (a web address).
+\item
+  The request includes your prompt, model choice, and parameters.
+\item
+  The provider's service processes the request.
+\item
+  It sends back a structured response with the model's output.
+\item
+  Your code uses that response however you like.
+\end{enumerate}
+
+\section{Your first API call}\label{your-first-api-call}
+
+\subsection{R - Ellmer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ellmer)}
+
+\NormalTok{chat }\OtherTok{\textless{}{-}} \FunctionTok{chat\_openrouter}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"You are a helpful assistant."}\NormalTok{,}
+  \AttributeTok{model =} \StringTok{"anthropic/claude{-}3.5{-}haiku"}\NormalTok{,}
+  \AttributeTok{api\_args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{max\_tokens =} \DecValTok{50}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{chat}\NormalTok{(}\StringTok{"Ecologists like to eat "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ requests, json, os}
+\ImportTok{from}\NormalTok{ dotenv }\ImportTok{import}\NormalTok{ load\_dotenv}
+\NormalTok{load\_dotenv()}
+
+\NormalTok{api\_key }\OperatorTok{=}\NormalTok{ os.getenv(}\StringTok{"OPENROUTER\_API\_KEY"}\NormalTok{)}
+\NormalTok{response }\OperatorTok{=}\NormalTok{ requests.post(}
+\NormalTok{  url}\OperatorTok{=}\StringTok{"https://openrouter.ai/api/v1/chat/completions"}\NormalTok{,}
+\NormalTok{  headers}\OperatorTok{=}\NormalTok{\{}\StringTok{"Authorization"}\NormalTok{: }\SpecialStringTok{f"Bearer }\SpecialCharTok{\{}\NormalTok{api\_key}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{, }\StringTok{"Content{-}Type"}\NormalTok{: }\StringTok{"application/json"}\NormalTok{\},}
+\NormalTok{  data}\OperatorTok{=}\NormalTok{json.dumps(\{}
+    \StringTok{"model"}\NormalTok{: }\StringTok{"anthropic/claude{-}3.5{-}haiku"}\NormalTok{,}
+    \StringTok{"messages"}\NormalTok{: [}
+\NormalTok{      \{}\StringTok{"role"}\NormalTok{: }\StringTok{"system"}\NormalTok{, }\StringTok{"content"}\NormalTok{: }\StringTok{"You are a helpful assistant."}\NormalTok{\},}
+\NormalTok{      \{}\StringTok{"role"}\NormalTok{: }\StringTok{"user"}\NormalTok{, }\StringTok{"content"}\NormalTok{: }\StringTok{"Ecologists like to eat "}\NormalTok{\}}
+\NormalTok{    ]}
+\NormalTok{  \})}
+\NormalTok{)}
+\NormalTok{data }\OperatorTok{=}\NormalTok{ response.json()}
+\NormalTok{data[}\StringTok{\textquotesingle{}choices\textquotesingle{}}\NormalTok{][}\DecValTok{0}\NormalTok{][}\StringTok{\textquotesingle{}message\textquotesingle{}}\NormalTok{][}\StringTok{\textquotesingle{}content\textquotesingle{}}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Notice the model doesn't just complete your sentence --- it answers as
+an assistant instead. That's the \textbf{system prompt} at work: a
+stronger directive than your user prompt, which sets the overall
+behaviour of the chat. In most chat interfaces (like Copilot) you never
+see the system prompt, the provider sets it for you.
+
+\textbf{Tip:} It is generally more effective to tell the LLM
+\textbf{what to do} rather than \textbf{what not to do} --- same as with
+people.
+
+Try overriding the default assistant behaviour with your own system
+prompt:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chat }\OtherTok{\textless{}{-}} \FunctionTok{chat\_openrouter}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only. Don\textquotesingle{}t provide any explanation, don\textquotesingle{}t reiterate the text the user provides"}\NormalTok{,}
+  \AttributeTok{model =} \StringTok{"anthropic/claude{-}3.5{-}haiku"}\NormalTok{,}
+  \AttributeTok{api\_args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{max\_tokens =} \DecValTok{50}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{chat}\NormalTok{(}\StringTok{"Ecologists like to eat "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Temperature and top\_k}\label{temperature-and-top_k}
+
+\texttt{temperature} controls the randomness of token predictions ---
+lower (near 0) is more deterministic, higher (near 2) is more creative
+and unpredictable. \texttt{top\_k} restricts the model to choosing among
+a smaller set of likely next tokens; \texttt{top\_k\ =\ 1} gives the
+most predictable output.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chat\_temp }\OtherTok{\textless{}{-}} \FunctionTok{chat\_openrouter}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"Complete the sentences the user provides you. Continue from where the user left off. Provide one answer only."}\NormalTok{,}
+  \AttributeTok{model =} \StringTok{"anthropic/claude{-}3.5{-}haiku"}\NormalTok{,}
+  \AttributeTok{api\_args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{max\_tokens =} \DecValTok{50}\NormalTok{, }\AttributeTok{temperature =} \DecValTok{0}\NormalTok{, }\AttributeTok{top\_k =} \DecValTok{1}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{chat\_temp}\SpecialCharTok{$}\FunctionTok{chat}\NormalTok{(}\StringTok{"Marine ecologists like to eat "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Try it again with \texttt{temperature\ =\ 2} and no \texttt{top\_k} (or
+a very high one). Low temperature/top\_k gives you consistent, ``safe''
+completions; higher values give more varied, sometimes less coherent
+ones.
+
+\section{Navigating OpenRouter}\label{navigating-openrouter}
+
+The \href{https://openrouter.ai/models}{Models page} lists everything
+available --- click a model to copy its id string for the
+\texttt{model\ =} argument. A single model may be served by multiple
+providers; OpenRouter picks one automatically, but its docs explain how
+to pin a specific provider (useful if you have data-security or ethical
+reasons to avoid particular ones). The
+\href{https://openrouter.ai/docs/quickstart}{docs page} has the full
+parameter reference, usually with Python examples --- an assistant can
+translate these to R for you if needed.
+
+\section{Comparing model complexity}\label{comparing-model-complexity}
+
+\texttt{anthropic/claude-3.5-haiku} has far fewer parameters than
+\texttt{anthropic/claude-sonnet-4} --- haiku is much cheaper (roughly
+80c per million input tokens vs \$3 for sonnet at time of writing) but
+less capable on nuanced tasks.
+
+\section{Understanding context
+windows}\label{understanding-context-windows}
+
+The context window is the amount of text (input plus output) a model can
+consider at once --- typically 100-200K tokens, though some models now
+offer 1M+. We'll come back to this once we start building longer prompts
+and agents.
+
+\section{API errors}\label{api-errors}
+
+Occasionally you'll get an HTTP error instead of a response. A few
+common ones from OpenRouter:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{400} --- something's wrong in your request.
+\item
+  \textbf{401} --- invalid API key.
+\item
+  \textbf{402} --- you're out of credit.
+\item
+  \textbf{408} --- timeout, your request may be too large or your
+  connection too slow.
+\item
+  \textbf{429} --- you're being rate-limited (calling too much, too
+  fast).
+\end{itemize}
+
+\href{https://openrouter.ai/docs/api-reference/errors}{Full list of
+error codes here}.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Run the same completion prompt three times with
+\texttt{temperature\ =\ 0,\ top\_k\ =\ 1}, then three times with
+\texttt{temperature\ =\ 1.5} and no \texttt{top\_k}. Compare how much
+the outputs vary between runs at each setting.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Chat: multi-turn
+conversations}\label{chat-multi-turn-conversations}
+
+So far we've sent one prompt and got one answer back. Often you want an
+ongoing conversation --- to problem-solve, refine an answer, or just
+chat. This is easy with \texttt{ellmer} (fiddlier with plain Python or
+base R, so we'll stick to ellmer here).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ellmer)}
+
+\NormalTok{chat }\OtherTok{\textless{}{-}} \FunctionTok{chat\_openrouter}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"You are a helpful assistant who specialises in ecological statistics."}\NormalTok{,}
+  \AttributeTok{model =} \StringTok{"anthropic/claude{-}sonnet{-}4"}\NormalTok{,}
+  \AttributeTok{api\_args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{max\_tokens =} \DecValTok{2000}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{live\_console}\NormalTok{(chat)}
+\CommentTok{\# live\_browser(chat)}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{live\_console()} lets you chat right in the terminal.
+\texttt{live\_browser()} opens a local browser window that feels a lot
+like ChatGPT's interface.
+
+\textbf{Tip:} LLMs perform better when you put everything in one
+well-prepared initial prompt, rather than a multi-turn conversation.
+\href{https://arxiv.org/abs/2505.06120}{Responses to a problem split
+across multiple questions are less accurate than the same information
+given up front} --- this holds across logic, coding and everything in
+between. I like to think of it as mansplaining: LLMs seem to have been
+(sub-consciously?) trained to prefer being told everything at once over
+having a back-and-forth.
+
+This is the same ``context poisoning'' problem we ran into with agents
+in \hyperref[when-agents-get-stuck]{Section 2}: once a wrong answer is
+sitting in the chat history, it's hard to get the model to un-learn it
+within that thread. If a multi-turn conversation goes off the rails, the
+fix usually isn't to keep correcting it --- it's to start a new chat
+with a clearer, more complete initial prompt.
+
+That said, it's fine to use a chat as a genuine problem-solving partner
+when you're not sure what you want yet. Just don't mistake ``figuring it
+out together'' for ``getting the best possible answer'' --- once you've
+got a plan, write one clear, detailed prompt to get the final version.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Start a \texttt{live\_console()} chat and ask ``How could I test if fish
+abundance depends on coral cover?'' over four separate turns (one
+clarifying detail per turn: response variable, sampling method, number
+of sites, that it's count data). Then start a fresh chat and ask the
+same thing as one single, fully detailed prompt. Compare the two final
+answers.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{DIY chatbot}\label{diy-chatbot}
+
+Let's put what we've learned together and build a purpose-built chatbot.
+I've written a detailed system prompt for a chat bot that specialises in
+helping with statistics --- I call it Bilby. We'll read the system
+prompt from GitHub, then use it in a chat session.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ellmer)}
+
+\NormalTok{stats\_bot }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_file}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/cbrown5/AI{-}assistants{-}for{-}scientific{-}coding/refs/heads/main/resources/DIY{-}stats{-}bot{-}system.md"}\NormalTok{))}
+
+\NormalTok{chat\_stats }\OtherTok{\textless{}{-}} \FunctionTok{chat\_openrouter}\NormalTok{(}
+  \AttributeTok{system\_prompt =}\NormalTok{ stats\_bot,}
+  \AttributeTok{model =} \StringTok{"anthropic/claude{-}sonnet{-}4"}\NormalTok{,}
+  \AttributeTok{api\_args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{max\_tokens =} \DecValTok{5000}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{chat\_stats}\SpecialCharTok{$}\FunctionTok{chat}\NormalTok{(}\StringTok{"Who are you?"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Tip:} How many of you started using
+\texttt{DIY-stats-bot-system.md} without reading it first? Did you find
+the easter egg in the prompt? For security, you should \textbf{always}
+read a prompt before running it --- we'll see in
+\hyperref[section-4-security-data-privacy-and-cloud-agents]{Section 4}
+that agents can be given tools that let them run code on your computer,
+and it's easy to imagine a malicious prompt misusing those.
+
+Try asking it a few different statistical questions and see how it
+responds --- does it stay in character? Does it push back on a poorly
+specified question the way a human statistician would?
+
+\section{Multi-turn with the stats
+bot}\label{multi-turn-with-the-stats-bot}
+
+You can also drop straight into \texttt{live\_console(chat\_stats)} (see
+the previous module) if you want an ongoing conversation with Bilby
+rather than one-off questions.
+
+\section{Improving the stats bot}\label{improving-the-stats-bot}
+
+Make a local copy of the system prompt and edit it. You can write it to
+file with your own R code, or just copy the text directly from
+\href{https://raw.githubusercontent.com/cbrown5/AI-assistants-for-scientific-coding/refs/heads/main/resources/DIY-stats-bot-system.md}{the
+file on GitHub}. Some ideas:
+
+\begin{itemize}
+\tightlist
+\item
+  Make it a vehement Bayesian who abhors frequentist statistics.
+\item
+  Give it mode-specific instructions, e.g.~always suggesting appropriate
+  verification plots.
+\item
+  Try different temperatures.
+\item
+  Add your own easter egg.
+\end{itemize}
+
+\textbf{Tip:} Adjectives, CAPITALS and \texttt{*markdown*} emphasis can
+all help a model follow your instructions more closely. I used
+``abhors'' and ``vehement'' above on purpose.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Edit the stats bot's system prompt so that it always recommends a
+verification step (like a residual plot or a simulated-data check ---
+see \hyperref[section-5-agentic-engineering-for-data-analysis]{Section
+5}) alongside any modelling advice it gives for the topa/coral-cover
+data. Test it with the question ``How should I model pres.topa as a
+function of CB\_cover?''
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Make an agent: simple read-and-write
+agent}\label{make-an-agent-simple-read-and-write-agent}
+
+By now the word ``agent'' has come up a lot --- Copilot's agent mode,
+Roo Code, Claude Code. It's tempting to imagine something mysterious
+going on inside them. It isn't. As Hadley Wickham put it in a recent
+post,
+\href{https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in}{``A
+coding agent is six functions in a trenchcoat''}: strip away the
+marketing and a coding agent is a handful of plain functions --- read a
+file, write a file, run a shell command --- wired up to an LLM that gets
+to call them in a loop. Everything else (the fancy chat UI, the
+permission prompts, the diff viewer) is scaffolding around that simple
+core.
+
+We already saw the general shape of this loop back in
+\hyperref[how-agents-work]{Section 2}: the model responds, your software
+inspects the response, runs whatever tool was requested, and feeds the
+result back --- round and round until the model decides it's done. Let's
+build the smallest possible version of that ourselves, in R, using
+\texttt{ellmer}'s tool-calling support.
+
+\section{Three tools}\label{three-tools}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ellmer)}
+
+\NormalTok{read\_file\_tool }\OtherTok{\textless{}{-}} \FunctionTok{tool}\NormalTok{(}
+  \ControlFlowTok{function}\NormalTok{(path) }\FunctionTok{paste}\NormalTok{(}\FunctionTok{readLines}\NormalTok{(path, }\AttributeTok{warn =} \ConstantTok{FALSE}\NormalTok{), }\AttributeTok{collapse =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{),}
+  \StringTok{"Read the full contents of a text file and return it as a string."}\NormalTok{,}
+  \AttributeTok{path =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"Relative path to the file to read"}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{write\_file\_tool }\OtherTok{\textless{}{-}} \FunctionTok{tool}\NormalTok{(}
+  \ControlFlowTok{function}\NormalTok{(path, content) \{}
+    \FunctionTok{writeLines}\NormalTok{(content, path)}
+    \FunctionTok{paste}\NormalTok{(}\StringTok{"Wrote"}\NormalTok{, }\FunctionTok{nchar}\NormalTok{(content), }\StringTok{"characters to"}\NormalTok{, path)}
+\NormalTok{  \},}
+  \StringTok{"Write content to a file, creating or overwriting it."}\NormalTok{,}
+  \AttributeTok{path =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"Relative path to the file to write"}\NormalTok{),}
+  \AttributeTok{content =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"The full content to write to the file"}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{run\_command\_tool }\OtherTok{\textless{}{-}} \FunctionTok{tool}\NormalTok{(}
+  \ControlFlowTok{function}\NormalTok{(command) \{}
+    \FunctionTok{paste}\NormalTok{(}\FunctionTok{system}\NormalTok{(command, }\AttributeTok{intern =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{collapse =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \},}
+  \StringTok{"Run a shell command in the current working directory and return its output."}\NormalTok{,}
+  \AttributeTok{command =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"The shell command to run, e.g. \textquotesingle{}Rscript myscript.R\textquotesingle{}"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+That's the whole toolbox. Nothing here is agent-specific --- they're
+just ordinary R functions wrapped with \texttt{ellmer::tool()}, which
+describes each one and its arguments so the LLM knows when and how to
+call them.
+
+\section{Wiring them to a chat}\label{wiring-them-to-a-chat}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chat }\OtherTok{\textless{}{-}} \FunctionTok{chat\_anthropic}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"You are a careful coding agent. You have tools to read files,}
+\StringTok{  write files, and run shell commands in the current project directory. Use}
+\StringTok{  Rscript to run R scripts, e.g. \textasciigrave{}Rscript \textquotesingle{}my{-}script.R\textquotesingle{}\textasciigrave{}. Explain what you did}
+\StringTok{  after each tool use."}
+\NormalTok{)}
+
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{register\_tool}\NormalTok{(read\_file\_tool)}
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{register\_tool}\NormalTok{(write\_file\_tool)}
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{register\_tool}\NormalTok{(run\_command\_tool)}
+
+\NormalTok{chat}\SpecialCharTok{$}\FunctionTok{chat}\NormalTok{(}\StringTok{"Read fish{-}coral{-}cover{-}sites.csv, then write a one{-}paragraph summary}
+\StringTok{of its columns to a new file called summary.md"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This is the trick worth noticing: \texttt{chat\$chat()} already runs the
+loop for you. Internally, ellmer sends your prompt, checks whether the
+model's response is a tool call, executes it if so, sends the result
+back as part of the conversation, and repeats --- automatically ---
+until the model responds with plain text instead of a tool call. You
+don't write the \texttt{while} loop yourself; ellmer's tool support
+\emph{is} the loop. That's really all Roo Code, Copilot's agent mode, or
+Claude Code are doing under the hood, just with many more tools, a
+permission-prompt UI wrapped around each call, and a much more elaborate
+system prompt (see \texttt{system.md} in this repo for a full example
+--- the system prompt Roo Code actually uses).
+
+\section{Making it safer}\label{making-it-safer}
+
+Our toy agent above will happily run \emph{any} shell command it's asked
+to, including ones that touch the network or delete files. Real agents
+guard this with permission prompts before every tool call (which is why
+Copilot and Claude Code ask you to confirm each step) or with an
+allow/deny list of specific commands. If you wanted to harden this toy
+version, the cheapest fix is to check \texttt{command} inside
+\texttt{run\_command\_tool} before executing it --- for instance,
+refusing to run anything containing \texttt{rm}, \texttt{curl}, or
+\texttt{git\ push}.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Add a fourth tool, \texttt{list\_files}, that returns the files in the
+current directory (\texttt{list.files()}). Register it with your chat,
+then ask the agent to ``List the files here, then read whichever one
+looks like it contains the coral and fish survey data.'' See whether it
+picks \texttt{fish-coral-cover-sites.csv} correctly.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\chapter{Literature review example}\label{literature-review-example}
+
+Let's use \texttt{ellmer} to pull structured data out of a PDF --- a
+small taste of what a programmatic literature review looks like. I'll
+try summarising my own
+\href{https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.13056}{paper
+on turtle fishing}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{content\_pdf\_url}\NormalTok{(}\StringTok{"https://conbio.onlinelibrary.wiley.com/doi/epdf/10.1111/conl.13056"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This fails with a 403 --- the server is blocking the request, correctly
+guessing I'm calling the PDF programmatically. Downloading the PDF
+manually and reading it locally works fine instead:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mypdf }\OtherTok{\textless{}{-}} \FunctionTok{content\_pdf\_file}\NormalTok{(}\StringTok{"pdf{-}examples/Brown\_etal2024 national scale turtle mortality.pdf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now set up a chat and ask for structured data using \texttt{ellmer}'s
+\texttt{type\_object()} helpers:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chat }\OtherTok{\textless{}{-}} \FunctionTok{chat\_anthropic}\NormalTok{(}
+  \AttributeTok{system\_prompt =} \StringTok{"You are a research assistant who specializes in extracting structured data from scientific papers."}\NormalTok{,}
+  \AttributeTok{model =} \StringTok{"claude{-}3{-}5{-}haiku{-}20241022"}\NormalTok{,}
+  \AttributeTok{max\_tokens =} \DecValTok{1000}
+\NormalTok{)}
+
+\NormalTok{paper\_stats }\OtherTok{\textless{}{-}} \FunctionTok{type\_object}\NormalTok{(}
+  \AttributeTok{sample\_size =} \FunctionTok{type\_number}\NormalTok{(}\StringTok{"Sample size of the study"}\NormalTok{),}
+  \AttributeTok{year\_of\_study =} \FunctionTok{type\_number}\NormalTok{(}\StringTok{"Year data was collected"}\NormalTok{),}
+  \AttributeTok{method =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"Summary of statistical method, one paragraph max"}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{turtle\_study }\OtherTok{\textless{}{-}}\NormalTok{ chat}\SpecialCharTok{$}\FunctionTok{extract\_data}\NormalTok{(mypdf, }\AttributeTok{type =}\NormalTok{ paper\_stats)}
+\NormalTok{turtle\_study}\SpecialCharTok{$}\NormalTok{sample\_size}
+\NormalTok{turtle\_study}\SpecialCharTok{$}\NormalTok{year\_of\_study}
+\NormalTok{turtle\_study}\SpecialCharTok{$}\NormalTok{method}
+\end{Highlighting}
+\end{Shaded}
+
+It works --- but check it carefully. In my case the ``sample size'' it
+returned was actually a model output (an estimated number of turtles
+caught), not the survey's real sample size. This paper reports several
+different sample sizes depending on which method you're looking at, so
+the prompt needs sharpening if you want it consistently right,
+especially before batch-processing many papers.
+
+\section{Batch processing}\label{batch-processing}
+
+Wrap the extraction in a function and apply it across several abstracts:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{process\_abstract }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(file\_path, chat) \{}
+\NormalTok{  abstract\_text }\OtherTok{\textless{}{-}} \FunctionTok{readLines}\NormalTok{(file\_path, }\AttributeTok{warn =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{  chat}\SpecialCharTok{$}\FunctionTok{extract\_data}\NormalTok{(abstract\_text, }\AttributeTok{type =}\NormalTok{ paper\_stats)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+To reduce hallucinated answers when the abstract doesn't contain the
+information, mark fields optional:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{paper\_stats }\OtherTok{\textless{}{-}} \FunctionTok{type\_object}\NormalTok{(}
+  \AttributeTok{sample\_size =} \FunctionTok{type\_number}\NormalTok{(}\StringTok{"Number of surveys conducted to estimate turtle catch"}\NormalTok{, }\AttributeTok{required =} \ConstantTok{FALSE}\NormalTok{),}
+  \AttributeTok{turtles\_caught =} \FunctionTok{type\_number}\NormalTok{(}\StringTok{"Estimate for number of turtles caught"}\NormalTok{, }\AttributeTok{required =} \ConstantTok{FALSE}\NormalTok{),}
+  \AttributeTok{year\_of\_study =} \FunctionTok{type\_number}\NormalTok{(}\StringTok{"Year data was collected"}\NormalTok{, }\AttributeTok{required =} \ConstantTok{FALSE}\NormalTok{),}
+  \AttributeTok{region =} \FunctionTok{type\_string}\NormalTok{(}\StringTok{"Country or geographic region of the study"}\NormalTok{, }\AttributeTok{required =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{)}
+
+\NormalTok{abstract\_files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\AttributeTok{path =} \StringTok{"pdf{-}examples"}\NormalTok{, }\AttributeTok{pattern =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.txt$"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(abstract\_files, }\ControlFlowTok{function}\NormalTok{(file) }\FunctionTok{process\_abstract}\NormalTok{(file, chat))}
+\FunctionTok{names}\NormalTok{(results) }\OtherTok{\textless{}{-}} \FunctionTok{basename}\NormalTok{(abstract\_files)}
+\NormalTok{results}
+\end{Highlighting}
+\end{Shaded}
+
+Even with \texttt{required\ =\ FALSE} I still saw hallucinated answers
+--- a year that was simply wrong for one study. Switching to Claude
+Sonnet (a more capable model) fixed some but not all of these. This is a
+genuinely hard problem, not a one-line fix.
+
+\section{Reflections}\label{reflections}
+
+\textbf{Cost} is usually the least of your worries --- this whole
+exercise, including testing, cost under 1c. Extracting from hundreds of
+methods sections is plausibly under \$100. Cost only gets uncertain if
+you're iterating a lot on prompts, or feeding in full papers rather than
+abstracts.
+
+\textbf{Getting clean text in} is the bigger challenge --- downloading
+PDFs is slow, and paywalled HTML is often worse. HTML is preferable when
+you can get it, because tags already give you some structure.
+
+\textbf{Validation matters more than ever} --- if your review covers
+1000 papers, plan to manually check a sample (say 100) and report the
+accuracy you found, the same as you would for any other measurement
+instrument.
+
+\textbf{You still need to read the papers.} A lit review is more than
+extracted numbers --- if you only use AI extraction you're vulnerable to
+the \href{https://www.nature.com/articles/s41586-024-07146-0}{`illusion
+of understanding'}. This tool is best suited to well-defined, narrow
+extraction tasks across consistently structured papers (e.g.~pulling
+model types out of 500 species distribution model papers), not as a
+substitute for reading broadly.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, rightrule=.15mm, left=2mm, leftrule=.75mm, breakable, opacityback=0, arc=.35mm, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Challenge}\vspace{3mm}
+
+Define a \texttt{paper\_stats} object tailored to extracting the
+response variable, predictor variables, and statistical family used,
+from an abstract about an ecological count-data analysis (real or
+invented). Run it on two abstracts and manually check whether the
+extracted family (e.g.~Poisson, negative binomial) is actually correct.
+
+\end{minipage}%
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter{Appendix --- Code and data}\label{appendix-code-and-data}
+
+Code snippets, data access links and supporting scripts used throughout
+the book.
+
+
+
+
+\end{document}

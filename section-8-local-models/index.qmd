@@ -1,0 +1,3 @@
+# Section 8: Running local models {.unnumbered}
+
+This section walks through the setup for local models: installing Ollama, understanding the hardware you need, choosing a model, and then three applications — autocomplete, agentic coding, and processing text and literature in R.

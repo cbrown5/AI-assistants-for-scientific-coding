@@ -1,0 +1,5 @@
+# Appendix — Code and data
+
+<!-- source: 14-appendix.qmd (reuse as-is) -->
+
+Code snippets, data access links and supporting scripts used throughout the book.

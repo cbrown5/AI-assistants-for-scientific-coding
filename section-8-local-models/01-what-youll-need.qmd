@@ -1,0 +1,34 @@
+# What you'll need
+
+**Software requirements:** A desktop or laptop computer (more on hardware in the next module), the Ollama software, and at least one downloaded model.
+
+*   A desktop or laptop computer, more on hardware below.
+
+*   **Download the [Ollama](https://ollama.com/)** software
+
+*   **A large language model**, it's simple to use Ollama to download one.
+
+*   **Ideally, another piece of software that interacts with Ollama** — this can either be, say, [ellmer](https://ellmer.tidyverse.org/), the R package, which can make calls to Ollama, or it can be an extension like [Continue](https://www.continue.dev/), which lets you do agentic coding and autocomplete.
+
+## Ollama
+
+The main software you need to get is Ollama. Go to [ollama.com](https://ollama.com/) and download and install Ollama (you may need to seek IT approval if you are doing this on a work computer). Then you have several choices for [models](https://ollama.com/library) to download directly from Ollama These are open source models, and we recommend researching their webpage for which model would be best for the particular application you want to use Ollama for. More on this below.
+
+The way Ollama works is it sets up a localhost server. This is like a web server, where you would access a service from the internet, except the server runs locally on your computer. It just sits there waiting until you make a request of the LLM. Then what it's going to do is load a large language model into memory and pass that request to a locally run large language model.
+
+## The commands you need
+
+Ollama comes with a clickable interface, but we find it more convenient to use the terminal. Here are some of the key commands.
+
+```
+ollama serve                  # start the server (the desktop app does this for you)
+ollama pull qwen2.5-coder     # download a model
+ollama run qwen2.5-coder      # chat with a model (downloads it first if you don't have it)
+ollama list                   # see which models you've already downloaded
+ollama ps                     # see which models are currently loaded in memory
+ollama stop qwen2.5-coder     # unload a model from memory now
+ollama rm qwen2.5-coder       # delete a downloaded model from disk
+```
+
+Full list: [CLI reference](https://docs.ollama.com/cli).
+

@@ -1,0 +1,17 @@
+# Agentic programming
+
+Agents write code, run code, look at the results, update the code and keep going until they decide to finish the task.
+
+It is possible to do agentic coding with local LLMs, but you will need a really good consumer grade computer that can handle much bigger models than used for autocomplete or chatting.
+
+See this [post](https://simonpcouch.com/blog/2026-04-16-local-agents-2/) by Simon Couch on driving coding agents on a laptop using local models such as variants of Qwen 3.5 and Gemma 4.
+
+Qwen 3.8 (27B) is also [getting great reviews for agentic coding](https://simonwillison.net/2026/Aug/16/qwen-38-27b/). That blogger has found it works ok with both a 128GB M5 Max MacBook Pro and an NVIDIA DGX Spark (about $16,000 and $9000 AUD respectively at post publication).
+
+The good news is that clever people are finding new ways to compress and use these LLMs such that they run faster on smaller computers.
+
+Note there are some cybersecurity issues with agents because they run code on your computer. You want to be careful that you know what you're doing before you start using agents, and get permission from your work if you're using them on your work computer.
+
+::: {.callout-important title="Challenge" appearance="simple"}
+TODO
+:::
