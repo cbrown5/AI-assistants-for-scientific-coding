@@ -1,6 +1,6 @@
 # Literature review example
 
-Let's use `ellmer` to pull structured data out of a PDF — a small taste of what a programmatic literature review looks like. I'll try summarising my own [paper on turtle fishing](https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.13056).
+Let's use `ellmer` to pull structured data out of a PDF — a small taste of what a programmatic literature review looks like. This is an active area: LLMs have been tested for extracting ecological information from papers [@gougherty_testing_2024] and for synthesising information on potential pest controllers [@scheepens_large_2024], both with mixed but promising accuracy. I'll try summarising my own [paper on turtle fishing](https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.13056).
 
 ```{r eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
@@ -10,7 +10,7 @@ knitr::opts_chunk$set(eval = FALSE)
 x <- content_pdf_url("https://conbio.onlinelibrary.wiley.com/doi/epdf/10.1111/conl.13056")
 ```
 
-This fails with a 403 — the server is blocking the request, correctly guessing I'm calling the PDF programmatically. Downloading the PDF manually and reading it locally works fine instead:
+This fails with a 403 — the server is blocking the request, correctly guessing I'm calling the PDF programmatically. Downloading the PDF manually and reading it locally works fine instead. Save the PDF into a `pdf-examples/` folder in your project, then point at it:
 
 ```{r}
 mypdf <- content_pdf_file("pdf-examples/Brown_etal2024 national scale turtle mortality.pdf")
@@ -19,19 +19,21 @@ mypdf <- content_pdf_file("pdf-examples/Brown_etal2024 national scale turtle mor
 Now set up a chat and ask for structured data using `ellmer`'s `type_object()` helpers:
 
 ```{r}
-chat <- chat_anthropic(
-  system_prompt = "You are a research assistant who specializes in extracting structured data from scientific papers.",
-  model = "claude-3-5-haiku-20241022",
-  max_tokens = 1000
+cheap_model <- "anthropic/claude-3.5-haiku"
+
+chat <- chat_openrouter(
+    system_prompt = "You are a research assistant who specialises in extracting structured data from scientific papers.",
+    model = cheap_model,
+    api_args = list(max_tokens = 1000)
 )
 
 paper_stats <- type_object(
-  sample_size = type_number("Sample size of the study"),
-  year_of_study = type_number("Year data was collected"),
-  method = type_string("Summary of statistical method, one paragraph max")
+    sample_size = type_number("Sample size of the study"),
+    year_of_study = type_number("Year data was collected"),
+    method = type_string("Summary of statistical method, one paragraph max")
 )
 
-turtle_study <- chat$extract_data(mypdf, type = paper_stats)
+turtle_study <- chat$chat_structured(mypdf, type = paper_stats)
 turtle_study$sample_size
 turtle_study$year_of_study
 turtle_study$method
@@ -41,12 +43,12 @@ It works — but check it carefully. In my case the "sample size" it returned wa
 
 ## Batch processing
 
-Wrap the extraction in a function and apply it across several abstracts:
+Wrap the extraction in a function and apply it across several abstracts. Save each abstract as a `.txt` file in the same `pdf-examples/` folder:
 
 ```{r}
 process_abstract <- function(file_path, chat) {
-  abstract_text <- readLines(file_path, warn = FALSE)
-  chat$extract_data(abstract_text, type = paper_stats)
+    abstract_text <- readLines(file_path, warn = FALSE)
+    chat$chat_structured(abstract_text, type = paper_stats)
 }
 ```
 
@@ -54,10 +56,10 @@ To reduce hallucinated answers when the abstract doesn't contain the information
 
 ```{r}
 paper_stats <- type_object(
-  sample_size = type_number("Number of surveys conducted to estimate turtle catch", required = FALSE),
-  turtles_caught = type_number("Estimate for number of turtles caught", required = FALSE),
-  year_of_study = type_number("Year data was collected", required = FALSE),
-  region = type_string("Country or geographic region of the study", required = FALSE)
+    sample_size = type_number("Number of surveys conducted to estimate turtle catch", required = FALSE),
+    turtles_caught = type_number("Estimate for number of turtles caught", required = FALSE),
+    year_of_study = type_number("Year data was collected", required = FALSE),
+    region = type_string("Country or geographic region of the study", required = FALSE)
 )
 
 abstract_files <- list.files(path = "pdf-examples", pattern = "\\.txt$", full.names = TRUE)
@@ -76,7 +78,7 @@ Even with `required = FALSE` I still saw hallucinated answers — a year that wa
 
 **Validation matters more than ever** — if your review covers 1000 papers, plan to manually check a sample (say 100) and report the accuracy you found, the same as you would for any other measurement instrument.
 
-**You still need to read the papers.** A lit review is more than extracted numbers — if you only use AI extraction you're vulnerable to the ['illusion of understanding'](https://www.nature.com/articles/s41586-024-07146-0). This tool is best suited to well-defined, narrow extraction tasks across consistently structured papers (e.g. pulling model types out of 500 species distribution model papers), not as a substitute for reading broadly.
+**You still need to read the papers.** A lit review is more than extracted numbers — if you only use AI extraction you're vulnerable to the ['illusion of understanding'](https://www.nature.com/articles/s41586-024-07146-0) [@messeri_artificial_2024]. This tool is best suited to well-defined, narrow extraction tasks across consistently structured papers (e.g. pulling model types out of 500 species distribution model papers), not as a substitute for reading broadly.
 
 ::: {.callout-important title="Challenge" appearance="simple"}
 Define a `paper_stats` object tailored to extracting the response variable, predictor variables, and statistical family used, from an abstract about an ecological count-data analysis (real or invented). Run it on two abstracts and manually check whether the extracted family (e.g. Poisson, negative binomial) is actually correct.

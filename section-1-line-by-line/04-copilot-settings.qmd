@@ -1,6 +1,6 @@
-# GH Copilot settings
+# GitHub Copilot settings
 
-Click the octocat icon in the bottom right corner of VScode to fine-tune how Copilot behaves. There's more in here than you'd expect, and a few settings are worth knowing about deliberately rather than discovering by accident.
+Click the octocat icon in the bottom right corner of VS Code to fine-tune how Copilot behaves. There's more in here than you'd expect, and a few settings are worth knowing about deliberately rather than discovering by accident.
 
 ## Configure code completions
 
@@ -12,7 +12,7 @@ Off by default. When enabled, Copilot suggests changes anywhere in your document
 
 ## Indexing
 
-Copilot automatically indexes the scripts and documents in your active directory so it can search them faster and give more accurate completions. This is convenient, but worth knowing about for data-privacy reasons too — as soon as you open VScode, Copilot is reading some of your files (it's hard to tell exactly what) to build that index in the cloud. You can disable indexing from the octocat menu if that's a concern; we'll come back to data privacy in more depth in [Section 4](../section-4-security-privacy/04-keeping-data-secure.qmd).
+Copilot automatically indexes the scripts and documents in your active directory so it can search them faster and give more accurate completions. This is convenient, but worth knowing about for data-privacy reasons too — as soon as you open VS Code, Copilot is reading some of your files (it's hard to tell exactly what) to build that index in the cloud. You can disable indexing from the octocat menu if that's a concern; we'll come back to data privacy in more depth in [Section 4](../section-4-security-privacy/04-keeping-data-secure.qmd).
 
 ## Premium requests bar
 

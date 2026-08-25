@@ -2,7 +2,7 @@
 
 Code completion is predicting your next line from your script (and any other open scripts) — it won't know your variable names unless you've provided them somewhere. One way is to keep a readme.md open with your metadata in it. Another, which tends to work more reliably, is to write a comment describing what you want directly above where you're typing:
 
-```
+```r
 # Make a point plot of secchi against pres.topa
 gg...
 ```
@@ -13,7 +13,7 @@ You can also put key variable names in a comment block at the top of your script
 
 Another way to use this is to not write any R at all — just write a series of comments and let the assistant fill in the code. Try templating a series of plots like this:
 
-```
+```r
 # Make a point plot of secchi against pres.topa with a stat_smooth
 
 # Plot logged (two categories) and pres.topa as a boxplot
@@ -21,8 +21,8 @@ Another way to use this is to not write any R at all — just write a series of 
 # Plot CB_cover (branching coral cover) against secchi
 ```
 
-::: {.tip}
-**Tip:** Remember one way to improve prompts is to be more specific. Using the correct variable names helps, whether you're prompting a chat window or just a code comment.
+::: {.callout-tip appearance="simple"}
+Remember one way to improve prompts is to be more specific. Using the correct variable names helps, whether you're prompting a chat window or just a code comment.
 :::
 
 Now go back through and click under each comment to trigger the suggestions.
@@ -38,7 +38,7 @@ dat %>%
 
 To get there I'd write something like:
 
-```
+```r
     # group dat by logged
     # summarize pres.topa and CB_cover
 ```

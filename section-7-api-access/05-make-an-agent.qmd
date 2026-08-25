@@ -43,7 +43,10 @@ That's the whole toolbox. Nothing here is agent-specific — they're just ordina
 ## Wiring them to a chat
 
 ```{r}
-chat <- chat_anthropic(
+strong_model <- "anthropic/claude-sonnet-4"
+
+chat <- chat_openrouter(
+  model = strong_model,
   system_prompt = "You are a careful coding agent. You have tools to read files,
   write files, and run shell commands in the current project directory. Use
   Rscript to run R scripts, e.g. `Rscript 'my-script.R'`. Explain what you did
@@ -58,7 +61,7 @@ chat$chat("Read fish-coral-cover-sites.csv, then write a one-paragraph summary
 of its columns to a new file called summary.md")
 ```
 
-This is the trick worth noticing: `chat$chat()` already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model's response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don't write the `while` loop yourself; ellmer's tool support *is* the loop. That's really all Cline, Copilot's agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see `system.md` in this repo for a full example of a real agent system prompt).
+This is the trick worth noticing: `chat$chat()` already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model's response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don't write the `while` loop yourself; ellmer's tool support *is* the loop. That's really all Cline, Copilot's agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see `resources/DIY-stats-bot-system.md` in this repo for a full example of a system prompt).
 
 ## Making it safer
 

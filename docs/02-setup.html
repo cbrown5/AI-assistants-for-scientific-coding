@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Setup – AI assistants for Scientific Coding</title>
+<title>3&nbsp; Setup – AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -101,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="./index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI assistants for Scientific Coding</a> 
+      <a href="./">AI Assistants for Scientific Coding</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,11 +153,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-1-line-by-line/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 1: Line-by-line code completion</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/01-inline-completion.html" class="sidebar-item-text sidebar-link">
@@ -153,13 +173,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/03-next-edit-suggestions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Start with ghost text</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Next edit suggestions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-1-line-by-line/04-copilot-settings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GH Copilot settings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">GitHub Copilot settings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -180,11 +200,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-2-agents/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 2: Agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-2-agents/01-agent-options.html" class="sidebar-item-text sidebar-link">
@@ -245,11 +265,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-3-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 3: AI in workflows</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-3-workflows/01-select-statistical-approach.html" class="sidebar-item-text sidebar-link">
@@ -280,11 +300,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-4-security-privacy/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 4: Security, data privacy and cloud agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-4-security-privacy/01-security-risk-examples.html" class="sidebar-item-text sidebar-link">
@@ -320,16 +340,16 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./section-5-customizing-agents/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Section 5: Customizing agents</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+ <span class="menu-text">Section 5: Customising agents</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-5-customizing-agents/01-what-is-customization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customization?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">What is agent customisation?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -356,11 +376,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-6-agentic-engineering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 6: Agentic engineering for data analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
@@ -385,11 +405,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-7-api-access/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 7: LLM access via API</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
@@ -432,11 +452,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./section-8-local-models/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Section 8: Running local models</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
@@ -458,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete and agentic coding</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -478,7 +498,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./99-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Appendix — Code and data</span></span></a>
+ <span class="menu-text">Appendix — Code and data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
@@ -502,7 +528,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#software-options-summary" id="toc-software-options-summary" class="nav-link" data-scroll-target="#software-options-summary"><span class="header-section-number">3.3</span> Software options summary</a>
   <ul class="collapse">
-  <li><a href="#vs-code-and-clones-with-github-copilot" id="toc-vs-code-and-clones-with-github-copilot" class="nav-link" data-scroll-target="#vs-code-and-clones-with-github-copilot"><span class="header-section-number">3.3.1</span> VS Code and clones with Github Copilot</a></li>
+  <li><a href="#vs-code-and-clones-with-github-copilot" id="toc-vs-code-and-clones-with-github-copilot" class="nav-link" data-scroll-target="#vs-code-and-clones-with-github-copilot"><span class="header-section-number">3.3.1</span> VS Code and clones with GitHub Copilot</a></li>
   <li><a href="#ellmer-r-package" id="toc-ellmer-r-package" class="nav-link" data-scroll-target="#ellmer-r-package"><span class="header-section-number">3.3.2</span> Ellmer R package</a></li>
   <li><a href="#gander-r-package" id="toc-gander-r-package" class="nav-link" data-scroll-target="#gander-r-package"><span class="header-section-number">3.3.3</span> Gander R package</a></li>
   <li><a href="#aider" id="toc-aider" class="nav-link" data-scroll-target="#aider"><span class="header-section-number">3.3.4</span> Aider</a></li>
@@ -511,21 +537,21 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#claude-code-codex-and-similar" id="toc-claude-code-codex-and-similar" class="nav-link" data-scroll-target="#claude-code-codex-and-similar"><span class="header-section-number">3.3.7</span> Claude Code, Codex and similar</a></li>
   </ul></li>
   <li><a href="#sec-apikeys" id="toc-sec-apikeys" class="nav-link" data-scroll-target="#sec-apikeys"><span class="header-section-number">3.4</span> Getting an API key</a></li>
-  <li><a href="#sec-githubcopilot" id="toc-sec-githubcopilot" class="nav-link" data-scroll-target="#sec-githubcopilot"><span class="header-section-number">3.5</span> Github Copilot set-up</a></li>
+  <li><a href="#sec-githubcopilot" id="toc-sec-githubcopilot" class="nav-link" data-scroll-target="#sec-githubcopilot"><span class="header-section-number">3.5</span> GitHub Copilot set-up</a></li>
   <li><a href="#sec-ellmer" id="toc-sec-ellmer" class="nav-link" data-scroll-target="#sec-ellmer"><span class="header-section-number">3.6</span> Ellmer set-up</a></li>
-  <li><a href="#sec-gander" id="toc-sec-gander" class="nav-link" data-scroll-target="#sec-gander"><span class="header-section-number">3.7</span> Gander: Rstudio friendly alternative to copilot</a></li>
-  <li><a href="#sec-vscodesetup" id="toc-sec-vscodesetup" class="nav-link" data-scroll-target="#sec-vscodesetup"><span class="header-section-number">3.8</span> VSCode set-up for R users</a>
+  <li><a href="#sec-gander" id="toc-sec-gander" class="nav-link" data-scroll-target="#sec-gander"><span class="header-section-number">3.7</span> Gander: RStudio friendly alternative to Copilot</a></li>
+  <li><a href="#sec-vscodesetup" id="toc-sec-vscodesetup" class="nav-link" data-scroll-target="#sec-vscodesetup"><span class="header-section-number">3.8</span> VS Code set-up for R users</a>
   <ul class="collapse">
   <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements"><span class="header-section-number">3.8.1</span> Software requirements</a></li>
   <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r"><span class="header-section-number">3.8.2</span> Install R</a></li>
   <li><a href="#r-packages-1" id="toc-r-packages-1" class="nav-link" data-scroll-target="#r-packages-1"><span class="header-section-number">3.8.3</span> R packages</a></li>
-  <li><a href="#install-vscode" id="toc-install-vscode" class="nav-link" data-scroll-target="#install-vscode"><span class="header-section-number">3.8.4</span> Install VScode</a></li>
+  <li><a href="#install-vs-code" id="toc-install-vs-code" class="nav-link" data-scroll-target="#install-vs-code"><span class="header-section-number">3.8.4</span> Install VS Code</a></li>
   <li><a href="#install-r-extension" id="toc-install-r-extension" class="nav-link" data-scroll-target="#install-r-extension"><span class="header-section-number">3.8.5</span> Install R extension</a></li>
-  <li><a href="#connect-r-and-vscode" id="toc-connect-r-and-vscode" class="nav-link" data-scroll-target="#connect-r-and-vscode"><span class="header-section-number">3.8.6</span> Connect R and VScode</a></li>
-  <li><a href="#issues-and-tips-for-vscode-with-r" id="toc-issues-and-tips-for-vscode-with-r" class="nav-link" data-scroll-target="#issues-and-tips-for-vscode-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VScode with R</a></li>
+  <li><a href="#connect-r-and-vs-code" id="toc-connect-r-and-vs-code" class="nav-link" data-scroll-target="#connect-r-and-vs-code"><span class="header-section-number">3.8.6</span> Connect R and VS Code</a></li>
+  <li><a href="#issues-and-tips-for-vs-code-with-r" id="toc-issues-and-tips-for-vs-code-with-r" class="nav-link" data-scroll-target="#issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VS Code with R</a></li>
   <li><a href="#installing-radian-optional-but-recommended" id="toc-installing-radian-optional-but-recommended" class="nav-link" data-scroll-target="#installing-radian-optional-but-recommended"><span class="header-section-number">3.8.8</span> Installing radian (optional but recommended)</a></li>
   </ul></li>
-  <li><a href="#sec-otheroptions" id="toc-sec-otheroptions" class="nav-link" data-scroll-target="#sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VSCode extensions</a></li>
+  <li><a href="#sec-otheroptions" id="toc-sec-otheroptions" class="nav-link" data-scroll-target="#sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VS Code extensions</a></li>
   </ul>
 </nav>
     </div>
@@ -563,7 +589,7 @@ ul.task-list li input[type="checkbox"] {
 <p>I recommend following this page from a computer, not a mobile device. The right hand menu will show and has the navigation pane so you can jump to the section that’s relevant to your set-up needs.</p>
 <section id="r-packages" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">3.1</span> R packages</h2>
-<p>If you are using R then we will make use of: <code>install.packages(c("vegan", "ellmer","tidyverse")</code>. For Python users you can follow along most examples without these, this isn’t an R training course, its a course on using AI to assist with coding.</p>
+<p>If you are using R then we will make use of: <code>install.packages(c("vegan", "ellmer", "tidyverse"))</code>. For Python users you can follow along most examples without these, this isn’t an R training course, it’s a course on using AI to assist with coding.</p>
 </section>
 <section id="options-for-ai-software" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="options-for-ai-software"><span class="header-section-number">3.2</span> Options for AI software</h2>
@@ -571,17 +597,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="preferred-option-for-r-users"><span class="header-section-number">3.2.1</span> Preferred option for R users</h3>
 <p>What I use in the workshops I teach:</p>
 <ul>
-<li>The R program from either Positron or the the VS Code Integrated Development Environment (IDE)</li>
-<li>Github Copilot</li>
+<li>The R program from either Positron or the VS Code Integrated Development Environment (IDE)</li>
+<li>GitHub Copilot</li>
 <li>R Ellmer package, for which you’ll need an API key to one of the LLM providers</li>
 </ul>
-<p><a href="https://positron.posit.co/">Positron</a> is easier to setup for R users than VS Code. Most of what you can do in VS Code can also be done in Positron, Positron just being a clone of the VS Code source code. So try Positron first. If you can’t use Positron for some reason, comprehensive instructions for VS Code and R are below in (<a href="#sec-vscodesetup" class="quarto-xref"><span>Section 3.8</span></a>) and. You may need IT help, especially if your computer is locked down for institutional security!</p>
-<p>If you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>) (required for ellmer), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.6</span></a>) and ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>).</p>
+<p><a href="https://positron.posit.co/">Positron</a> is easier to setup for R users than VS Code. Most of what you can do in VS Code can also be done in Positron, Positron just being a clone of the VS Code source code. So try Positron first. If you can’t use Positron for some reason, comprehensive instructions for VS Code and R are below in (<a href="#sec-vscodesetup" class="quarto-xref"><span>Section 3.8</span></a>). You may need IT help, especially if your computer is locked down for institutional security!</p>
+<p>If you chose this option you will need to follow instructions in this chapter for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>) (required for ellmer), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.6</span></a>) and ‘GitHub Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>).</p>
 </section>
 <section id="option-2-for-r-users" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="option-2-for-r-users"><span class="header-section-number">3.2.2</span> Option 2 for R users</h3>
-<p>Use Rstudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.6</span></a>) and ‘Gander: Rstudio friendly alternative to copilot’ (<a href="#sec-gander" class="quarto-xref"><span>Section 3.7</span></a>).</p>
-<p>Rstudio also has basic Github Copilot capablities. To use these (not essential for the workshop) get a copilot account (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>) then in Rstudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).</p>
+<p>Use RStudio with R. You will need <code>ellmer</code> and <code>gander</code> packages. See instructions below for ‘Getting an API key’ (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>), ‘Ellmer set-up’ (<a href="#sec-ellmer" class="quarto-xref"><span>Section 3.6</span></a>) and ‘Gander: RStudio friendly alternative to Copilot’ (<a href="#sec-gander" class="quarto-xref"><span>Section 3.7</span></a>).</p>
+<p>RStudio also has basic GitHub Copilot capabilities. To use these (not essential for the workshop) get a Copilot account (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>) then in RStudio go to ‘Tools’ -&gt; ‘Global Options’ -&gt; ‘Copilot’ and enable it (follow instructions for entering password to setup).</p>
 </section>
 <section id="option-3-for-r-users-positron-assistant" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="option-3-for-r-users-positron-assistant"><span class="header-section-number">3.2.3</span> Option 3 for R users: Positron assistant</h3>
@@ -602,15 +628,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="python-users" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="python-users"><span class="header-section-number">3.2.4</span> Python users</h3>
 <p>I’m not a Python programmer, however, all the principles I’ll teach also apply to Python. You can easily follow on with the examples in Python.</p>
-<p>You will need to have Positron or VSCode with Github Copilot. So I recommend you get the VScode software, then follow these instructions for <a href="https://code.visualstudio.com/docs/python/python-tutorial">Python set-up</a>.</p>
-<p>Then follow the instructions for ‘Github Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>).</p>
+<p>You will need to have Positron or VS Code with GitHub Copilot. So I recommend you get the VS Code software, then follow these instructions for <a href="https://code.visualstudio.com/docs/python/python-tutorial">Python set-up</a>.</p>
+<p>Then follow the instructions for ‘GitHub Copilot set-up’ (<a href="#sec-githubcopilot" class="quarto-xref"><span>Section 3.5</span></a>).</p>
 <p>I also recommend you get an API key with OpenRouter (<a href="#sec-apikeys" class="quarto-xref"><span>Section 3.4</span></a>).</p>
 <p>You don’t need an ellmer equivalent because most of the LLM providers already provide Python code on their webpages.</p>
 </section>
 <section id="options-4" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="options-4"><span class="header-section-number">3.2.5</span> Options 4+</h3>
 <p>There are innumerable AI coding assistants now available. Feel free to BYO if you are using one that you are already comfortable with. However, I strongly recommend using a tool with IDE integration (meaning it can edit your R/Python scripts directly). See <a href="#sec-otheroptions" class="quarto-xref"><span>Section 3.9</span></a>.</p>
-<p>As a fall-back, you can follow this book via ChatGPT or Copilot, but it will lots of cutting and pasting. Not the integrated experience I want you to have.</p>
+<p>As a fall-back, you can follow this book via ChatGPT or Copilot, but it will involve lots of cutting and pasting. Not the integrated experience I want you to have.</p>
 </section>
 </section>
 <section id="software-options-summary" class="level2" data-number="3.3">
@@ -618,7 +644,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Here are some of the software options I’ve looked at. Or if you’ve picked your option from the above list, just jump ahead to the required sections.</p>
 <p><strong>A note on ‘VS Code and clones’:</strong> VS Code is the most widely used IDE for this kind of work, and several other editors are built directly on its source code, so they behave almost identically and run the same extensions. These clones include <a href="https://positron.posit.co/">Positron</a> (managed by Posit, the group behind RStudio, and generally the easiest of them to set up for R), Cursor and Windsurf. Wherever an option below says ‘VS Code and clones’, any of these will do — pick whichever you find easiest to install. For most R users this will be Positron.</p>
 <section id="vs-code-and-clones-with-github-copilot" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="vs-code-and-clones-with-github-copilot"><span class="header-section-number">3.3.1</span> VS Code and clones with Github Copilot</h3>
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="vs-code-and-clones-with-github-copilot"><span class="header-section-number">3.3.1</span> VS Code and clones with GitHub Copilot</h3>
 <p><strong>Best for:</strong> Coders of all abilities who have a fixed budget or just want to try IDE integration.</p>
 <p>Pros:</p>
 <ul>
@@ -631,8 +657,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Cons:</p>
 <ul>
-<li>Less flexibility and customization than other agents</li>
-<li>The Github Copilot Agent is less automated than other agent software</li>
+<li>Less flexibility and customisation than other agents</li>
+<li>The GitHub Copilot Agent is less automated than other agent software</li>
 <li>Limited choice of LLMs (unless you BYO API key)</li>
 <li>Plans subject to sudden changes (usually reduced model availability as token costs rise)</li>
 </ul>
@@ -657,15 +683,15 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Best for:</strong> Moderately experienced R users who don’t want to leave RStudio.</p>
 <p>Pros:</p>
 <ul>
-<li>Works with Rstudio</li>
+<li>Works with RStudio</li>
 <li>Can see ‘inside of’ R objects, so knows your variable names</li>
-<li>Can customize how it works to optimize performance and cost</li>
+<li>Can customise how it works to optimise performance and cost</li>
 <li>BYO API key, can interact with any LLM</li>
 </ul>
 <p>Cons:</p>
 <ul>
 <li>Requires some experience with the R program</li>
-<li>Not as deeply integrated with Rstudio as Github Copilot is with VS Code (doesn’t have as many features as copilot)</li>
+<li>Not as deeply integrated with RStudio as GitHub Copilot is with VS Code (doesn’t have as many features as Copilot)</li>
 </ul>
 </section>
 <section id="aider" class="level3" data-number="3.3.4">
@@ -692,7 +718,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Fully automated agents</li>
 <li>Multiple modes for different behaviours, e.g.&nbsp;plan versus act</li>
 <li>BYO API key</li>
-<li>System messages customizable for advanced scientific applications of agents</li>
+<li>System messages customisable for advanced scientific applications of agents</li>
 <li>Large user base</li>
 </ul>
 <p>Cons:</p>
@@ -733,17 +759,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Not deeply integrated with RStudio</li>
 <li>Newer to the R community, fewer worked examples out there yet</li>
 </ul>
-<p>There are many other (10s, 100s?) of coding assistants now available. I haven’t tried most of them. Last time I checked none of them worked with Rstudio. We’ll come back to Claude Code specifically in <a href="./section-2-agents/01-agent-options.html">Section 2</a>, since it’s really an agent rather than an inline-completion tool.</p>
+<p>There are many other (10s, 100s?) of coding assistants now available. I haven’t tried most of them. Last time I checked none of them worked with RStudio. We’ll come back to Claude Code specifically in <a href="./section-2-agents/01-agent-options.html">Section 2</a>, since it’s really an agent rather than an inline-completion tool.</p>
 </section>
 </section>
 <section id="sec-apikeys" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="sec-apikeys"><span class="header-section-number">3.4</span> Getting an API key</h2>
 <p>An API key is like a password that allows the AI assistant (e.g.&nbsp;Cline) to send your prompt to a large language model. Your key should be kept private. Usually you’ll have to buy some credits. These allow you to send prompts to the LLM. You’ll be paying per prompt.</p>
 <p>Now you need to choose your large language model provider. I’m currently using OpenRouter and Anthropic, which have a diversity of models for generating text, code and reading images. Do some web searching to find out the latest info on providers and models.</p>
-<p>You choose depends on what you want to do and your budget. Some providers offer a free tier. You’ll need to web search for the latest info on this.</p>
-<p>For this workshop I <strong>recommend you get an OpenRouter API key</strong>. This will give you the most flexibility to try different models and to find models that have free options. Its a bit more expensive than buying tokens directly from the model’s home provider, but gives you more flexibility.</p>
+<p>What you choose depends on what you want to do and your budget. Some providers offer a free tier. You’ll need to web search for the latest info on this.</p>
+<p>For this workshop I <strong>recommend you get an OpenRouter API key</strong>. This will give you the most flexibility to try different models and to find models that have free options. It’s a bit more expensive than buying tokens directly from the model’s home provider, but gives you more flexibility.</p>
 <p>Once you’ve chosen a provider, create an account and follow their instructions for creating an API key. You will probably also need to buy some credit to use the model.</p>
-<p>The one caveat is that OpenRouter may not have access the the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key.</p>
+<p>The one caveat is that OpenRouter may not have access to the full capabilities of all LLMs. For example, when Sonnet 3.7 came out you could get vision capabilities via an Anthropic API key but not with an OpenRouter API key.</p>
 <p><strong>Important</strong> the sign-up for getting an API key is often through a different webpage to the sign-up you may be using for subscription based AI tools (e.g.&nbsp;Claude Code or ChatGPT). Here are a couple of key links:</p>
 <ul>
 <li><a href="https://accounts.openrouter.ai/sign-up">Sign-up here to get an API key for OpenRouter to access LLMs from 100s of providers</a></li>
@@ -752,8 +778,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 <section id="sec-githubcopilot" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="sec-githubcopilot"><span class="header-section-number">3.5</span> Github Copilot set-up</h2>
-<p>Once you have VSCode just <a href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code">follow the simple steps here</a>. Note if you already have a Github account make sure you have your login information handy.</p>
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-githubcopilot"><span class="header-section-number">3.5</span> GitHub Copilot set-up</h2>
+<p>Once you have VS Code just <a href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan#visual-studio-and-vs-code">follow the simple steps here</a>. Note if you already have a GitHub account make sure you have your login information handy.</p>
 </section>
 <section id="sec-ellmer" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="sec-ellmer"><span class="header-section-number">3.6</span> Ellmer set-up</h2>
@@ -768,32 +794,32 @@ ul.task-list li input[type="checkbox"] {
 <p>Then restart R. ellmer will automatically find your key so long as you use the recommended environment variable names. See ?ellmer::chat_openrouter (or chat_xxx where xxx is whatever provider you are using).</p>
 </section>
 <section id="sec-gander" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="sec-gander"><span class="header-section-number">3.7</span> Gander: Rstudio friendly alternative to copilot</h2>
-<p><a href="https://simonpcouch.github.io/gander/articles/gander.html">Gander lets you select code in Rstudio and edit it directly through calls to an LLM</a>. Posit’s own announcement post is a good short read too: <a href="https://posit.co/blog/introducing-gander/">Introducing Gander</a>.</p>
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-gander"><span class="header-section-number">3.7</span> Gander: RStudio friendly alternative to Copilot</h2>
+<p><a href="https://simonpcouch.github.io/gander/articles/gander.html">Gander lets you select code in RStudio and edit it directly through calls to an LLM</a>. Posit’s own announcement post is a good short read too: <a href="https://posit.co/blog/introducing-gander/">Introducing Gander</a>.</p>
 <p>Follow the steps to set-up Ellmer first.</p>
-<p>Then you can <code>install.packages(gander)</code></p>
+<p>Then you can <code>install.packages("gander")</code></p>
 <p>Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: <code>usethis::edit_r_profile()</code></p>
 <p>Now set the option for your LLM, e.g.</p>
 <p><code>options(.gander_chat = ellmer::chat_anthropic())</code> or <code>options(.gander_chat = ellmer::chat_openai())</code></p>
 <p>Now add a keyboard short-cut to use Gander. Go to the ‘Tools’ menu at the top, click ‘Add-ins’, ‘Browse Add-ins’, then click the ‘Keyboard shortcuts’ button. Find the row for Gander (probably at the bottom), click in the second column for ‘Shortcut’ and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click ‘Cancel’ once you’ve set the shortcut key (‘Cancel’ as we don’t want to run Gander right now).</p>
-<p>If for some reason the shortcut key won’t you can also <code>gander::gander_addin()</code> at anytime from R.</p>
+<p>If for some reason the shortcut key won’t work you can also <code>gander::gander_addin()</code> at anytime from R.</p>
 <p>Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like ‘make this code more fun’) and hit enter to test it does something.</p>
-<p>I recommend reading the gander reference as there are ways you can <a href="https://simonpcouch.github.io/gander/articles/gander.html">customize it to know your data but also save on tokens</a>. We’ll use Gander for code completion in <a href="section-1-line-by-line/04-gander.qmd">Section 1</a>.</p>
+<p>I recommend reading the gander reference as there are ways you can <a href="https://simonpcouch.github.io/gander/articles/gander.html">customise it to know your data but also save on tokens</a>. We’ll use gander for code completion in <a href="./section-1-line-by-line/05-gander.html">Section 1</a>.</p>
 </section>
 <section id="sec-vscodesetup" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="sec-vscodesetup"><span class="header-section-number">3.8</span> VSCode set-up for R users</h2>
-<p>VScode has many extensions that let you create and run entire workflows via using prompts to a large language model. Its not widely used in the R community yet, but I expect it or one of its clones (like Positron) will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.</p>
-<p>Most of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I’ll explain how to set-up VSCode (a popular IDE) so you can use Cline.</p>
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-vscodesetup"><span class="header-section-number">3.8</span> VS Code set-up for R users</h2>
+<p>VS Code has many extensions that let you create and run entire workflows via using prompts to a large language model. It’s not widely used in the R community yet, but I expect it or one of its clones (like Positron) will be soon. You can create your entire R project, interpret the results and write a draft of your findings without writing any R code.</p>
+<p>Most of these tools are not available (as of writing) in RStudio, or have only limited functionality. So you need to use a different IDE (Integrated Development Environment) to run your R code. Here I’ll explain how to set-up VS Code (a popular IDE) so you can use Cline.</p>
 <section id="software-requirements" class="level3" data-number="3.8.1">
 <h3 data-number="3.8.1" class="anchored" data-anchor-id="software-requirements"><span class="header-section-number">3.8.1</span> Software requirements</h3>
-<p>To set up VScode for R and Cline, you’ll need:</p>
+<p>To set up VS Code for R and Cline, you’ll need:</p>
 <ul>
 <li>R programming language</li>
-<li>VScode text editor</li>
-<li>R extension for VScode</li>
-<li>Cline AI assistant extension for VScode</li>
+<li>VS Code text editor</li>
+<li>R extension for VS Code</li>
+<li>Cline AI assistant extension for VS Code</li>
 </ul>
-<p>Note that if you computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you.</p>
+<p>Note that if your computer is controlled centrally by an IT department, you may need to request admin access to install software, or email IT and ask for them to come and help you.</p>
 </section>
 <section id="install-r" class="level3" data-number="3.8.2">
 <h3 data-number="3.8.2" class="anchored" data-anchor-id="install-r"><span class="header-section-number">3.8.2</span> Install R</h3>
@@ -810,74 +836,74 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Open R or RStudio</li>
 <li>Install language server <code>install.packages("languageserver")</code></li>
-<li>Install httpgd <code>install.packages("httpgd")</code> (this helps improve plots in VScode). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd</li>
+<li>Install httpgd <code>install.packages("httpgd")</code> (this helps improve plots in VS Code). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd</li>
 </ol>
 </section>
-<section id="install-vscode" class="level3" data-number="3.8.4">
-<h3 data-number="3.8.4" class="anchored" data-anchor-id="install-vscode"><span class="header-section-number">3.8.4</span> Install VScode</h3>
+<section id="install-vs-code" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="install-vs-code"><span class="header-section-number">3.8.4</span> Install VS Code</h3>
 <ol type="1">
-<li>Go to the official VScode website: https://code.visualstudio.com/</li>
+<li>Go to the official VS Code website: https://code.visualstudio.com/</li>
 <li>Click the big blue “Download” button</li>
-<li>Download the appropriate VScode installer for your operating system</li>
+<li>Download the appropriate VS Code installer for your operating system</li>
 <li>Run the installer and follow the prompts</li>
-<li>Launch VScode once installation is complete</li>
+<li>Launch VS Code once installation is complete</li>
 </ol>
 </section>
 <section id="install-r-extension" class="level3" data-number="3.8.5">
 <h3 data-number="3.8.5" class="anchored" data-anchor-id="install-r-extension"><span class="header-section-number">3.8.5</span> Install R extension</h3>
 <ol type="1">
-<li>Open VScode</li>
-<li>Open the Extensions view in VScode (click the boxes on left hand side)</li>
+<li>Open VS Code</li>
+<li>Open the Extensions view in VS Code (click the boxes on left hand side)</li>
 <li>Search for “R” in the extensions marketplace</li>
 <li>Select the “R” extension published by REditorSupport</li>
 <li>Click the “Install” button</li>
-<li>Restart VScode after installation if prompted</li>
+<li>Restart VS Code after installation if prompted</li>
 </ol>
-<p><a href="https://code.visualstudio.com/docs/languages/r">More info on vscode and R here</a></p>
+<p><a href="https://code.visualstudio.com/docs/languages/r">More info on VS Code and R here</a></p>
 </section>
-<section id="connect-r-and-vscode" class="level3" data-number="3.8.6">
-<h3 data-number="3.8.6" class="anchored" data-anchor-id="connect-r-and-vscode"><span class="header-section-number">3.8.6</span> Connect R and VScode</h3>
+<section id="connect-r-and-vs-code" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="connect-r-and-vs-code"><span class="header-section-number">3.8.6</span> Connect R and VS Code</h3>
 <ol type="1">
-<li>Open a new terminal in VScode (Terminal &gt; New Terminal)</li>
+<li>Open a new terminal in VS Code (Terminal &gt; New Terminal)</li>
 <li>Check that R is installed by running: <code>R --version</code></li>
 <li>Type <code>R</code> to open the R console in the terminal</li>
-<li>Now open any R script in VS code (File &gt; Open)</li>
-<li>Run some R code to check that VS code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.</li>
+<li>Now open any R script in VS Code (File &gt; Open)</li>
+<li>Run some R code to check that VS Code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.</li>
 </ol>
 <p>If R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. Also update ‘rterm’ with the same path. You can find the path by opening a terminal and typing <code>which R</code> (on mac) or in a windows terminal <code>where R</code>.</p>
-<p>One way to fine out where R is installed on your computer is to open Rstudio, go to ‘Tools’ -&gt; ‘General’ then under the field ‘R version’ it will have the path to your R version that may look like this: ‘C:.0’</p>
-<p>Copy that path from Rstudio. Then go back to the VScode settings and paste it into the ‘rpath’ and ‘rterm’ settings. You will also need to add the <code>R.exe</code> on the end like this: ‘C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe’</p>
-<p>Now open an R script and run it (e.g.&nbsp;press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If its not working you’ll get an error pop-up. Go back and check the steps above.</p>
+<p>One way to find out where R is installed on your computer is to open RStudio, go to ‘Tools’ -&gt; ‘General’ then under the field ‘R version’ it will have the path to your R version that may look like this: ‘C:.0’</p>
+<p>Copy that path from RStudio. Then go back to the VS Code settings and paste it into the ‘rpath’ and ‘rterm’ settings. You will also need to add the <code>R.exe</code> on the end like this: ‘C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe’</p>
+<p>Now open an R script and run it (e.g.&nbsp;press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If it’s not working you’ll get an error pop-up. Go back and check the steps above.</p>
 <p>If you copied it on windows you may also need to reverse the slashes, like I have above.</p>
-<p>While you have the extension settings open search for ‘httgp’ and make sure <code>Plot: Use Httpgd</code> is enabled.</p>
+<p>While you have the extension settings open search for ‘httpgd’ and make sure <code>Plot: Use Httpgd</code> is enabled.</p>
 </section>
-<section id="issues-and-tips-for-vscode-with-r" class="level3" data-number="3.8.7">
-<h3 data-number="3.8.7" class="anchored" data-anchor-id="issues-and-tips-for-vscode-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VScode with R</h3>
+<section id="issues-and-tips-for-vs-code-with-r" class="level3" data-number="3.8.7">
+<h3 data-number="3.8.7" class="anchored" data-anchor-id="issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VS Code with R</h3>
 <p>This is just a list of issues I’ve had and how I’ve solved them.</p>
-<p><em>Plotting</em> If your R plots look weird (like tiny font), make sure httpgp is enabled. Go back to steps above and see how to do that.</p>
+<p><em>Plotting</em> If your R plots look weird (like tiny font), make sure httpgd is enabled. Go back to steps above and see how to do that.</p>
 <p><em>Viewing data</em> There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do <code>View(dat)</code> in R you get a nice table. Some also allow editing.</p>
 <p><em>Getting help to install software</em> My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software.</p>
-<p><em>R markdown</em> There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VScode. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. <a href="https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d">There is some helpful instructions here</a></p>
-<p><em>R terminal crashes</em> If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to on avail.</p>
-<p><em>Shortcut keys</em> (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in vs code.</p>
+<p><em>R markdown</em> There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VS Code. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. <a href="https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d">There are some helpful instructions here</a></p>
+<p><em>R terminal crashes</em> If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to no avail.</p>
+<p><em>Shortcut keys</em> (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in VS Code.</p>
 </section>
 <section id="installing-radian-optional-but-recommended" class="level3" data-number="3.8.8">
 <h3 data-number="3.8.8" class="anchored" data-anchor-id="installing-radian-optional-but-recommended"><span class="header-section-number">3.8.8</span> Installing radian (optional but recommended)</h3>
-<p>Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like Rstudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.</p>
+<p>Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like RStudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.</p>
 <p>To set this up, install radian (you need python to do this). More <a href="https://github.com/randy3k/radian?tab=readme-ov-file">instructions here</a>.</p>
 <p>Then go to the terminal and find the path where radian is installed (e.g.&nbsp;<code>which radian</code> on mac or <code>where radian</code> on windows).</p>
-<p>Now open your settings in VScode (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.</p>
+<p>Now open your settings in VS Code (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.</p>
 </section>
 </section>
 <section id="sec-otheroptions" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VSCode extensions</h2>
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VS Code extensions</h2>
 <p>e.g.&nbsp;if you want to try Cline, Claude Code or Codex</p>
 <ol type="1">
-<li>Open the Extensions view in Positron or VScode (Ctrl+Shift+X)</li>
+<li>Open the Extensions view in Positron or VS Code (Ctrl+Shift+X)</li>
 <li>Search for the genAI assistant of your choice. I’m using Cline and Claude Code currently.</li>
 <li>Select the extension</li>
 <li>Click the “Install” button</li>
-<li>The extension icon (e.g.&nbsp;a robot if using Cline) should appear in the VScode sidebar (left side).</li>
+<li>The extension icon (e.g.&nbsp;a robot if using Cline) should appear in the VS Code sidebar (left side).</li>
 </ol>
 <p>You’ll have to navigate the extensions menus to input your API key. It won’t work without an API key that gives you access to an LLM. e.g.&nbsp;for Cline:</p>
 <ol type="1">
@@ -887,6 +913,11 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-connolly_improved_2021" class="csl-entry" role="listitem">
+Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lopez-Marcano, A. D. Olds, and K. I. Jinks. 2021. <span>“Improved Accuracy for Automated Counting of a Fish in Baited Underwater Videos for Stock Assessment.”</span> <em>Frontiers in Marine Science</em> 8: 658135. <a href="https://doi.org/10.3389/fmars.2021.658135">https://doi.org/10.3389/fmars.2021.658135</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -13,7 +13,7 @@ The book is now a set of short, self-paced modules (~10 min each) grouped into e
 - Section 2: Agents
 - Section 3: AI in workflows
 - Section 4: Security, data privacy and cloud agents
-- Section 5: Customizing agents
+- Section 5: Customising agents
 - Section 6: Agentic engineering for data analysis
 - Section 7: LLM access via API
 - Section 8: Running local models
@@ -33,7 +33,7 @@ Chapter 11 from v1 ("Authoring documents" — writing papers with Quarto + AI) w
 Map a seminar session onto sections rather than individual chapters:
 
 1. Setup + Section 1 (line-by-line completion) — intro to the tools, cheapest to demo live.
-2. Section 7 (API access) + DIY stats bot — prompting fundamentals, using ellmer, vscode or just a web browser.
+2. Section 7 (API access) + DIY stats bot — prompting fundamentals, using ellmer, VS Code or just a web browser.
    - Get participants to try a specific vs. vague prompt and score the answers.
    - Do the "break your problem into smaller parts" example live, comparing two models and two prompt strategies.
 3. Section 3 (workflows) + Section 6 (agentic engineering) — stats problem solving, implementation advice, verification habits.
@@ -41,6 +41,6 @@ Map a seminar session onto sections rather than individual chapters:
 
 ## Notes for next time
 
-Works well having VSCode and coding first.
+Works well having VS Code and coding first.
 Add some more case-studies, e.g. make three creative figure ideas and prototype these; create three analyses and explore residual diagnostics.
 Deep search.

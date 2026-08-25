@@ -9,9 +9,11 @@ knitr::opts_chunk$set(eval = FALSE)
 ```{r}
 library(ellmer)
 
+strong_model <- "anthropic/claude-sonnet-4"
+
 chat <- chat_openrouter(
   system_prompt = "You are a helpful assistant who specialises in ecological statistics.",
-  model = "anthropic/claude-sonnet-4",
+  model = strong_model,
   api_args = list(max_tokens = 2000)
 )
 
@@ -21,8 +23,8 @@ live_console(chat)
 
 `live_console()` lets you chat right in the terminal. `live_browser()` opens a local browser window that feels a lot like ChatGPT's interface.
 
-::: {.tip}
-**Tip:** LLMs perform better when you put everything in one well-prepared initial prompt, rather than a multi-turn conversation. [Responses to a problem split across multiple questions are less accurate than the same information given up front](https://arxiv.org/abs/2505.06120) — this holds across logic, coding and everything in between. I like to think of it as mansplaining: LLMs seem to have been (sub-consciously?) trained to prefer being told everything at once over having a back-and-forth.
+::: {.callout-tip appearance="simple"}
+LLMs perform better when you put everything in one well-prepared initial prompt, rather than drip-feeding it over a multi-turn conversation. [Responses to a problem split across multiple questions are less accurate than the same information given up front](https://arxiv.org/abs/2505.06120) [@laban_llms_2025] — this holds across logic, coding and everything in between.
 :::
 
 This is the same "context poisoning" problem we ran into with agents in [Section 2](../section-2-agents/09-when-agents-get-stuck.qmd): once a wrong answer is sitting in the chat history, it's hard to get the model to un-learn it within that thread. If a multi-turn conversation goes off the rails, the fix usually isn't to keep correcting it — it's to start a new chat with a clearer, more complete initial prompt.

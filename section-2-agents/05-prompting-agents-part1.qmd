@@ -1,12 +1,12 @@
 # Prompting agents I: giving context
 
-We covered the general principle of attaching data and domain knowledge back in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd), when the question was "which statistical method?" The same principle applies just as strongly once you're running a multi-step agent — arguably more so, because an agent that's missing context won't just give you a mediocre answer, it'll go and *implement* a mediocre answer across several files.
+The same principle of attaching data and domain knowledge applies when the question is "which statistical method?" — we'll come to that in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd). It applies just as strongly once you're running a multi-step agent — arguably more so, because an agent that's missing context won't just give you a mediocre answer, it'll go and *implement* a mediocre answer across several files. The broader literature on prompt engineering makes the same case for supplying context deliberately rather than hoping the model infers it [@chen_unleashing_2025].
 
 ## Attaching data summaries
 
 Large datasets can be awkward to attach directly — they eat up the context window. Some agents (Copilot's agent mode included) will automatically truncate a large data frame if you attach it, but it's more reliable to ask the agent to generate its own summary first:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Write a script that creates a smaller version of the benthic data that has only the first six rows of data
 :::
 
@@ -16,15 +16,15 @@ Then attach that small summary (or the metadata readme) to your actual analysis 
 
 If you're emulating a specific paper or method, convert it to markdown and attach it — a webpage tool like [Jina Reader](https://tools.simonwillison.net/jina-reader) works well for this. Package vignettes and stats tutorial blogs are also good sources; keep a running list handy for when you need them.
 
-::: {.tip}
-**Tip:** Be careful with anything you didn't write yourself before attaching it to an agent session — check it doesn't contain hidden instructions. More on why in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd).
+::: {.callout-tip appearance="simple"}
+Be careful with anything you didn't write yourself before attaching it to an agent session — check it doesn't contain hidden instructions. More on why in [Section 4](../section-4-security-privacy/01-security-risk-examples.qmd).
 :::
 
 ## Writing a metadata summary with the agent itself
 
 You can get the agent to help write this context, rather than writing it all yourself:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Write a summary of the meta-data for this database in a new markdown file [attach the csv]
 :::
 

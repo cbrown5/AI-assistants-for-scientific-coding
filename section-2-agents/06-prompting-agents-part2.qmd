@@ -4,7 +4,7 @@
 
 Some agents (and most chat platforms — ChatGPT, Copilot in Teams) can search the web to help build a tutorial or find a method for your specific problem, which you can then attach as context to your actual analysis session:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Research the peer-reviewed academic literature to find the most robust methods for analysing ecological count data.
 :::
 

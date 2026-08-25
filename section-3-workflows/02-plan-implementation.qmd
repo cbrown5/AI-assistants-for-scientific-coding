@@ -1,6 +1,6 @@
 # Step 2: Plan implementation
 
-Repeat after me: *I will keep my data analysis code neat and organized.* Say it three times if you have to.
+Repeat after me: *I will keep my data analysis code neat and organised.* Say it three times if you have to.
 
 If you're like most of us, you code as you go, and end up with one script that runs 1000+ lines from data import through wrangling, visuals, modelling, verification and plotting. The worst version of this I've seen is a script that doesn't even execute top-to-bottom — students telling me "run lines 60-70, then go back to line 20 and it should work..."
 
@@ -43,19 +43,19 @@ Write it thinking about what a new collaborator (human or AI) would need to know
 - Code organisation conventions
 - Code style preferences (e.g. "use `MASS::glm.nb()`, don't `library(MASS)` globally")
 
-::: {.tip}
-**Tip:** The README is doing double duty as the agent's memory across sessions. Keep it updated as the project evolves, and it'll also help you (or a collaborator) pick the project back up months or years later.
+::: {.callout-tip appearance="simple"}
+The README is doing double duty as the agent's memory across sessions. Keep it updated as the project evolves, and it'll also help you (or a collaborator) pick the project back up months or years later.
 :::
 
 Once you have a README with your aims, data methodology, and tech context filled in, planning is often as simple as:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Help me plan R code to implement this analysis.
 :::
 
 or
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Help me plan the workflow and scripts to implement this analysis.
 :::
 

@@ -8,7 +8,7 @@ Here's the part that doesn't change no matter how good the tooling gets: **you o
 
 Before accepting an agent's output, it's worth having a habit, not just good intentions:
 
-- Does the statistical approach match what you decided in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd) — or did it quietly substitute something more familiar to it?
+- Does the statistical approach match what you set out to do (the workflow in [Section 3](../section-3-workflows/01-select-statistical-approach.qmd)) — or did it quietly substitute something more familiar to it?
 - Did it check assumptions it should have (overdispersion, residual patterns) or just fit the model and move on?
 - Are there extra analyses or files you didn't ask for? Agents sometimes pad out a task with things that look thorough but weren't requested.
 - Does the code match the style and packages your README specified, or did it default back to its own preferences?

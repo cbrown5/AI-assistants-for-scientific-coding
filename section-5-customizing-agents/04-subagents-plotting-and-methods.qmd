@@ -9,11 +9,11 @@ Instead of one agent doing modelling, plotting, and write-up in a single long se
 - **Plotting sub-agent** — given only the fitted model object (not the raw data, not the modelling decisions behind it), produce a `ggplot` of predicted `pres.topa` against `CB_cover` with confidence intervals, using `visreg::visreg(m, "CB_cover", gg = TRUE)` as a starting point.
 - **Methods-writing sub-agent** — given only the model summary output (family, formula, dispersion, coefficients — not the raw dataset), write a two-sentence methods paragraph describing what was fitted and why.
 
-::: {.callout-note title="Prompt (plotting sub-agent)"}
+::: {.callout-note title="Prompt (plotting sub-agent)" appearance="simple"}
 Here is a fitted model object `m` (`MASS::glm.nb(pres.topa ~ CB_cover, data = fish_coral_cover_sites)`). Produce a ggplot of the predicted relationship with confidence intervals using `visreg`. Do not refit or modify the model.
 :::
 
-::: {.callout-note title="Prompt (methods sub-agent)"}
+::: {.callout-note title="Prompt (methods sub-agent)" appearance="simple"}
 Here is the `summary()` output of a fitted negative binomial GLM (formula, coefficients, dispersion parameter). Write a two-sentence methods paragraph suitable for a results section, stating the model family, the response and predictor, and why that family was chosen.
 :::
 
@@ -21,8 +21,8 @@ Here is the `summary()` output of a fitted negative binomial GLM (formula, coeff
 
 Handing the writing sub-agent only the model summary — not the full dataset or script history — isn't just tidiness. An agent with the whole project in context will sometimes "helpfully" second-guess a modelling decision it wasn't asked to review, or fold in details from an earlier draft that no longer apply. Narrowing what a sub-agent can see narrows what it can go wrong about.
 
-::: {.tip}
-**Tip:** This is the same context-poisoning concern from [Section 2](../section-2-agents/09-when-agents-get-stuck.qmd), applied deliberately — a fresh, narrowly-scoped sub-agent can't inherit a mistake from an earlier stage of the pipeline it never saw.
+::: {.callout-tip appearance="simple"}
+This is the same context-poisoning concern from [Section 2](../section-2-agents/09-when-agents-get-stuck.qmd), applied deliberately — a fresh, narrowly-scoped sub-agent can't inherit a mistake from an earlier stage of the pipeline it never saw.
 :::
 
 ::: {.callout-important title="Challenge" appearance="simple"}

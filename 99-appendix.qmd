@@ -1,5 +1,27 @@
-# Appendix — Code and data
+# Appendix — Code and data {.unnumbered}
 
-<!-- source: 14-appendix.qmd (reuse as-is) -->
+## Data used in this book
 
-Code snippets, data access links and supporting scripts used throughout the book.
+All examples use benthic cover and fish survey data from the reefs of Kia, Solomon Islands, first published by [Hamilton et al. 2017](http://dx.doi.org/10.1016/j.biocon.2017.04.024) [@hamilton_logging_2017]. The data loads directly from a URL, so there's nothing to download:
+
+```r
+library(readr)
+
+dat <- read_csv(url(
+    "https://raw.githubusercontent.com/cbrown5/example-ecological-data/refs/heads/main/data/benthic-reefs-and-fish/fish-coral-cover-sites.csv"
+))
+```
+
+Key columns: `pres.topa` (counts of juvenile bumphead parrotfish), `cb_cover` (branching coral cover), `soft_cover` (soft coral cover), `logged` (whether the adjacent catchment was logged) and `dist_to_logging_km`.
+
+Note the file uses lowercase `cb_cover`. Several examples in this book refer to it as `CB_cover`, so either rename the column after loading or adjust the prompt to match your data — a good reminder to check that an agent is using the column names your data actually has.
+
+## Supporting files in this repository
+
+- `resources/DIY-stats-bot-system.md` — the system prompt used for the DIY stats bot in [Section 7](section-7-api-access/04-diy-chatbot.qmd).
+- `.github/chatmodes/DIY-stats-bot.chatmode.md` — the same prompt packaged as a VS Code custom chat mode.
+
+## Further reading
+
+- [Large Language Model tools for R](https://luisdva.github.io/llmsr-book/) by Luis D. Verde Arregoitia — a living list of R packages and tools for working with LLMs.
+- The full reference list for this book is on the [References](references.qmd) page.

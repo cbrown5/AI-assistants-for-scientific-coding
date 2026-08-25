@@ -1,3 +1,5 @@
 # Section 8: Running local models {.unnumbered}
 
 This section walks through the setup for local models: installing Ollama, understanding the hardware you need, choosing a model, and then three applications — autocomplete, agentic coding, and processing text and literature in R.
+
+Running a model locally is Option 1 from [Keeping data secure from the cloud](../section-4-security-privacy/04-keeping-data-secure.qmd): because nothing leaves your computer, it sidesteps the data privacy questions that come with sending your data to a provider.

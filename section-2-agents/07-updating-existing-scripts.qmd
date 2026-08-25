@@ -4,17 +4,17 @@ So far we've mostly looked at agents creating new code. Just as often, you'll wa
 
 Open a script with some plots in it and try:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Create a pairs plot for all continuous variables
 :::
 
-::: {.tip}
-**Tip:** Sometimes you can't undo an edit once it's made. Get into the habit of committing to git before *and* after a round of agent edits — that way you always have a clean point to roll back to.
+::: {.callout-tip appearance="simple"}
+Sometimes you can't undo an edit once it's made. Get into the habit of committing to git before *and* after a round of agent edits — that way you always have a clean point to roll back to.
 :::
 
 Edit mode writes prose as well as code. Try it on documentation: open your README, type:
 
-::: {.callout-note title="Prompt"}
+::: {.callout-note title="Prompt" appearance="simple"}
 Document what this script does in the readme.
 :::
 
