@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "AI Assistants for Scientific Coding",
     "section": "",
-    "text": "0.1 Summary\nIf you are doing data analysis you are probably using language models (e.g. ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. This book will cover how to use language models to learn scientific computing and conduct reliable environmental analyses. The book is reference material for a 1-day workshop I teach.\nI will cover:\nThe content I’ll teach is suitable for anyone using scientific computing (e.g. R, Python) to do data analysis.\nExamples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python).",
+    "text": "0.1 Summary\nIf you are doing data analysis you are probably using language models (e.g. ChatGPT) to help you write code, but are you using them in the most effective way? Language models have different biases to humans and so make different types of errors. The hard part is no longer getting an agent to write the code, it is knowing whether the analysis it wrote is right. This book covers how to use language models to conduct reliable environmental analyses, and how to check their work. The book is reference material for a 1-day workshop I teach.\nI will cover:\nThe content I’ll teach is suitable for anyone using scientific computing (e.g. R, Python) to do data analysis.\nExamples will be in marine conservation science using the R language, but the methods are general to any field. The AI software is also general to any programming language and we won’t be doing much actual coding (the AI does that!) so readers can follow along in other languages if they prefer. To follow the practical applications you will need to have some experience in scientific computing (e.g. R or Python).",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#summary",
     "title": "AI Assistants for Scientific Coding",
     "section": "",
-    "text": "How to use different software tools, from simple interfaces like ChatGPT to advanced tools that can run and test code by themselves and keep going until the analysis is complete (and even written up).\nBest practice prompting techniques that can dramatically improve model performance for complex data analysis\nApplying language models to common environmental applications such as generalised linear models\nSecurity, data privacy and the limitations of these tools for scientific work",
+    "text": "The software tools, from line-by-line code completion to agents that run and test code by themselves and keep going until the analysis is complete (and even written up).\nPrompting and workflows that dramatically improve model performance on complex data analysis, including specification sheets for a whole project.\nCustomising agents with skills and sub-agents, so you are not re-explaining your methods every session.\nVerifying an agent’s analysis: the classes of errors that occur, tests, simulated data with a known answer, and how to review work you didn’t write.\nSecurity, data privacy and the limitations of these tools for scientific work.\nGoing under the hood: calling models directly from R via APIs, and running models locally on your own machine for sensitive data.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#citation-for-book",
     "title": "AI Assistants for Scientific Coding",
     "section": "0.2 Citation for book",
-    "text": "0.2 Citation for book\nPlease consider citing my accompanying article if you are using the advice in this book:\nBrown, C.J. & Spillias, S. (2026). Prompting large language models for quality ecological statistics. Methods in Ecology and Evolution. [https://doi.org/10.1111/2041-210x.702670 (Brown and Spillias 2026)\nIf you are using the material on agents and specification sheets, the companion study is:\nBrown, C.J., Aitken, J., Takyi, R. & Tisseaux-Navarro, A. (2026). Automating Ecological and Fisheries Modelling With Agentic AI. Fish and Fisheries. [https://doi.org/10.1111/faf.700791 (Brown et al. 2026)",
+    "text": "0.2 Citation for book\nPlease consider citing my accompanying article if you are using the advice in this book:\nBrown, C.J. & Spillias, S. (2026). Prompting large language models for quality ecological statistics. Methods in Ecology and Evolution. https://doi.org/10.1111/2041-210x.70267 (Brown and Spillias 2026)\nIf you are using the material on agents and specification sheets, the companion study is:\nBrown, C.J., Aitken, J., Takyi, R. & Tisseaux-Navarro, A. (2026). Automating Ecological and Fisheries Modelling With Agentic AI. Fish and Fisheries. https://doi.org/10.1111/faf.70079 (Brown et al. 2026)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#is-the-book-up-to-date",
     "title": "AI Assistants for Scientific Coding",
     "section": "0.4 Is the book up to date?",
-    "text": "0.4 Is the book up to date?\nThe large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out Large Language Model tools for R by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.\nThis version of the book was last updated on the date shown at the top of this page.",
+    "text": "0.4 Is the book up to date?\nThe large language model industry is changing rapidly. I’ll periodically update this book to keep up with developments. I also recommend checking out Large Language Model tools for R by Luis D. Verde Arregoitia. This is a living list of tools and R packages for using LLMs.\nI write for a collaborative blog ‘Vita ex machina’ where you can find up-to-date advice on AI for environmental scientists. I frequently use the blog posts as early versions of what later become chapters here.\nThis version of the book was last updated on the date shown at the top of this page.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "index.html#book-overview",
     "title": "AI Assistants for Scientific Coding",
     "section": "0.7 Book overview",
-    "text": "0.7 Book overview\nThe book is organised as short, self-paced modules, grouped into bigger sections.\n\nIntroduction: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.\nSetup: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.\nSection 1: Line-by-line code completion: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.\nSection 2: Agents: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.\nSection 3: AI in workflows: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.\nSection 4: Security, data privacy and cloud agents: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.\nSection 5: Customising agents: Skills and sub-agents — packaging reusable instructions and delegating specialised roles, worked through a GLM analysis, plotting, and methods write-up.\nSection 6: Agentic engineering for data analysis: Tests and verification, red-green TDD, and using simulated data as a verification step.\nSection 7: LLM access via API: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.\nSection 8: Running local models: installing Ollama, the hardware you’ll need, choosing a model, and three applications — autocomplete, agentic coding, and processing text and literature in R.\nAppendix — Code and data: Code snippets, data access links and supporting scripts used in the book.",
+    "text": "0.7 Book overview\nThe book is organised as short, self-paced modules, grouped into bigger sections.\n\nIntroduction: Strengths, weaknesses and common failure modes of language models when used for programming and data analysis.\nSetup: Step‑by‑step software installation, recommended environments (R, Python, editors), and brief troubleshooting tips.\nSection 1: Line-by-line code completion: Inline completions, comment-driven code, Copilot settings, Gander, and a discussion of the strengths and weaknesses of this approach.\nSection 2: Agents: Agent options, how agents work, security risks, a first agent example, and a series of modules on prompting and working with agents.\nSection 3: AI in workflows: My suggested three-step workflow — select a statistical approach, plan implementation, write the code — plus specification sheets.\nSection 4: Security, data privacy and cloud agents: Concrete security risk examples, Claude Code for web, bash sandboxing, keeping data secure from the cloud, and limitations.\nSection 5: Customising agents: Skills and sub-agents — packaging reusable instructions and delegating specialised roles, worked through a GLM analysis, plotting, and methods write-up.\nSection 6: Agentic engineering for data analysis: Classes of errors in an analysis, writing a clear specification, tests and data processing checks, testing with known answers and simulated data, and strategies for reviewing an agent’s work.\nSection 7: LLM access via API: API keys, how ellmer talks to a provider, chat, a DIY chatbot, building your own minimal agent, and a literature review example.\nSection 8: Running local models: installing Ollama, the hardware you’ll need, choosing a model, and three applications — autocomplete, agentic coding, and processing text and literature in R.\nAppendix — Code and data: Code snippets, data access links and supporting scripts used in the book.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
@@ -1722,6 +1722,16 @@
     "crumbs": [
       "Section 6: Agentic engineering for data analysis",
       "<span class='chapter-number'>36</span>  <span class='chapter-title'>Strategies for reviewing an agent's work</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#software-youll-need-for-trying-the-tasks-in-this-book",
+    "href": "index.html#software-youll-need-for-trying-the-tasks-in-this-book",
+    "title": "AI Assistants for Scientific Coding",
+    "section": "0.6 Software you’ll need for trying the tasks in this book",
+    "text": "0.6 Software you’ll need for trying the tasks in this book\nYou will need some time to set up the software. You may also need IT help if your computer is locked down. See Setup for more detailed instructions.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Summary</span>"
     ]
   }
 ]
