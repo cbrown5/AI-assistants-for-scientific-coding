@@ -1,7 +1,7 @@
 ---
 title: "AI Assistants for Scientific Coding"
-subtitle: "Workshop Session 1 — Setup · Line-by-Line Completion · Agents"
-author: "Chris Brown"
+subtitle: "AMSA 2026 workshop"
+author: "Chris Brown Scott Spillias"
 date: last-modified
 format:
   revealjs:
@@ -14,14 +14,170 @@ format:
 
 ## This session's roadmap
 
-1. **Setup** — Positron / VS Code + Copilot
-2. **Section 1** — Line-by-line completion
-3. **Section 2** — Agents
-4. **Afternoon** — your choice (see the end of this deck)
+1. **AI tools for data analysis** - Background
+2. **Setup** — Positron / VS Code + Copilot
+3. **Section 1** — Line-by-line completion
+4. **Section 2** — Agents
+5. **Afternoon** — your choice (see the end of this deck)
 
 ::: {.callout-tip}
 Each activity is short — the book has full walkthroughs and a Challenge for every one.
 :::
+
+# Intro to LLMs for coding {.section-divider}
+
+## 
+
+## A story
+
+![](images/snow.JPG)
+
+## AI is replacing coding by hand
+
+Almost everyone is using it now
+
+> 22% of marine conservation professionals are using AI to help with data tasks. 34% want to use it
+
+Source: octogroup.org
+
+Serious analysts are using it even more
+
+But is it any good? 
+
+## Who's in the room?
+
+Quick introductions
+
+- Name
+- Institution
+- What your research is on
+
+## How do LLMs work?
+
+Predict one token at a time
+
+https://www.youtube.com/watch?v=wjZofJX0v4M
+
+(skip to 1:25)
+
+## Simultaneously amazing...
+
+![](images/FANGS.png)
+
+FANGS - Chris' own Bayesian modelling software that runs in your browser
+
+## And underwhelming...
+
+![](images/claudes-fish.png)
+
+Claude 3.7 morphological diagram of a fish
+
+## Risks to scientific integrity?
+
+## Evaluating LLMs for coding
+
+- Repeat the same prompt 10 times
+- Score answers against a solution or rubric
+- This is what software engineers do
+- We can do it for data analysis too
+
+## Code that works, but is often scientifically flawed
+
+![](images/Jansen2025.png)
+
+Jansen et al. 2025 "Leveraging large language models for data analysis automation”"
+
+## Can AI agents complete an ecological analysis report?
+
+:::: {.columns}
+
+::: {.column width="65%"}
+- Paper: "Automating Ecological and Fisheries Modelling With Agentic AI"
+- Ran AI agents with different LLMs
+- Repeated each prompt 10 times
+- Goal was to create a full data analysis with report
+- Marked to a rubric
+:::
+
+::: {.column width="35%" .qr}
+![](images/brown_etal2026-QR.png)
+:::
+
+::::
+
+
+## Results
+
+::: {.big-figure}
+![](images/figure-4-glm-results-v3-part2.png)
+:::
+
+::: {.paper-caption}
+Brown et al. 2026 "Automating Ecological and Fisheries Modelling With Agentic AI"
+:::
+
+## Results
+
+::: {.big-figure}
+![](images/figure-4-glm-results-v3.png)
+:::
+
+::: {.paper-caption}
+Brown et al. 2026 "Automating Ecological and Fisheries Modelling With Agentic AI"
+:::
+
+## How best to use AI coding tools?
+
+:::: {.columns}
+
+::: {.column width="65%"}
+Brown and Spillias 2026 "Prompting large language models for quality ecological statistics"
+:::
+
+::: {.column width="35%" .qr}
+![](images/MEE_QR.png)
+:::
+
+::::
+
+## Break the problem into parts
+
+::: {.big-figure}
+![](images/figure1-v2-highres.jpg)
+:::
+
+::: {.paper-caption}
+Brown and Spillias 2026 "Prompting large language models for quality ecological statistics"
+:::
+
+## 1. Select analysis
+
+- Be specific 
+- Give detailed context
+- Attach data
+- Attach verified context (e.g refs)
+
+## 1. Select analysis
+
+![](images/zero_poisson_nbinom_by_prompt.png)
+
+## 2. Plan implemenetation
+
+More detailed plans give more consistent code
+
+![](images/mds_plots.png)
+
+## 3. Write code 
+
+Detailed plans = more accurate results with cheaper models. 
+
+![](images/llm_eval_barchart.png)
+
+## Today's workshop 
+
+We'll practice these skills
+
+Also time for being flexible with learning goals
 
 # Setup {.section-divider}
 
@@ -39,21 +195,15 @@ Getting your tools ready
 3. Using `ellmer` or Gander too? Get an API key — OpenRouter is the recommended default
 :::
 
-::: {.column width="42%"}
-::: {.callout-tip title="Tip"}
-R users: try Positron first. It's built on VS Code's own source, so almost everything here still applies — it's just the easiest of the family to get running.
-:::
-:::
-
 ::::
 
 Full step-by-step instructions: the book's [Setup](../02-setup.qmd) chapter.
 
 ## Activity — Find your way around
 
-**Goal:** spend a few minutes comparing your new IDE to RStudio, before we touch any AI tools.
+**Goal:** spend a few minutes comparing your new IDE to RStudio
 
-- Terminal / console — where R actually runs
+- Terminal / console — where R runs
 - Script editor — where you write and edit code
 - Environment / variables pane — the objects in your session
 - Plots or viewer pane — where figures appear
@@ -63,9 +213,9 @@ Full step-by-step instructions: the book's [Setup](../02-setup.qmd) chapter.
 Open a script, run a line of R, and find where your plot appears.
 :::
 
-::: {.notes}
-~5 minutes. No book chapter for this one — it's just orientation before we touch any AI tools.
-:::
+## Get the data and prompts
+
+![](images/data-repo-qr.png)
 
 # Section 1 {.section-divider}
 
@@ -75,7 +225,7 @@ Line-by-line completion with GitHub Copilot
 
 - You type, and the assistant guesses what comes next
 - Press `Tab` to accept — or keep typing to ignore it
-- Best for small, targeted edits — mistakes are obvious immediately
+- Best for small, targeted edits — mistakes are obvious
 
 ::: {.callout-tip}
 This is the "judicious" way to use AI: targeted, low-risk, and easy to verify as you go.
@@ -141,8 +291,6 @@ Produce a grouped summary of `secchi` and `pres.topa` by `flow` — comments onl
 
 ::::
 
-Best for moderately experienced R users who don't want to leave RStudio.
-
 ::: {.notes}
 Live demo, ~5 minutes. [Details →](../section-1-line-by-line/05-gander.qmd) — set-up instructions are in [Setup](../02-setup.qmd#sec-gander).
 :::
@@ -165,7 +313,7 @@ This is the same discipline an agent needs from you: a clear spec, worked out on
 
 # Section 2 {.section-divider}
 
-Agents — from one line to a whole workflow
+Agents — automate programming a whole workflow
 
 ## How agents work
 
@@ -176,13 +324,24 @@ Agents run tools in a loop:
 3. **Tool runs**
 4. **Result feeds back**
 
-… and repeats until the model responds with plain text instead of another tool call.
+… and repeats until the model runs its 'task complete tool' or 'user question tool'
 
 ::: {.callout-note}
-By default, agents ask permission before each tool use — a safety net, not a guarantee. We'll unpack the security trade-offs properly in Section 4.
+By default, agents ask permission before each tool use. We'll unpack the security trade-offs properly in Section 4.
 :::
 
 [Section 2 overview →](../section-2-agents/index.qmd)
+
+## How agents work
+
+::: {.figure-row}
+![](images/Figure1-top.png)
+![](images/Figure1-bottom.png)
+:::
+
+::: {.paper-caption}
+Brown et al. 2026 "Automating Ecological and Fisheries Modelling With Agentic AI"
+:::
 
 ## Activity — Create an analysis with an agent
 
@@ -206,19 +365,25 @@ Run the same prompt twice, in two separate sessions — did the agent pick the s
 
 ## Prompting practice
 
-**Goal:** build the habits that keep an agent on track.
+**Goal:** keep an agent on track.
 
-- Content matters more than tone or wording
+- Rich and relevant context is key
 - Attach context: data summaries, metadata, domain knowledge
 - Compare runs — same prompt, different agents or models
 
 ::: {.callout-tip title="From the book"}
-"Arrr matey, I be wantin' a regression of pres.topa on cb_cover…" — a pirate-voiced prompt that got the job done exactly as well as a plain one. Don't overthink your style; the content is what carries.
+Try: "Arrr matey, I be wantin' a regression of pres.topa on cb_cover…" 
 :::
 
 ::: {.notes}
 ~10 minutes. [More on prompting agents →](../section-2-agents/05-prompting-agents-part1.qmd) and [part 2](../section-2-agents/06-prompting-agents-part2.qmd).
 :::
+
+## Specification practice
+
+**Goal:** Agents do best with a detailed spec
+
+Chris to show full spec for the benthic fish GLM. 
 
 ## Where that leaves us
 
@@ -247,7 +412,7 @@ Context, and content over style
 Every activity has more detail, screenshots, and a Challenge in the book — go back any time:
 [seascapemodels.org/AI-assistants-for-scientific-coding](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
 
-## Where could we go next?
+## What next?
 
 :::: {.columns}
 
@@ -258,7 +423,7 @@ Choose a statistical approach, plan it, then write the code
 
 **[Section 4 — Security & Privacy](../section-4-security-privacy/index.qmd)**
 
-The risks behind "approve everything," and safer defaults
+The risks behind "approve everything," and safer defaults like Claude for Web. 
 :::
 
 ::: {.column width="33%"}
@@ -283,28 +448,20 @@ Models on your own machine, no API key required
 
 ::::
 
-## A suggested afternoon path
-
-**A. Keep building the analysis** — Sections 3 + 6
-
-The natural next step from this morning's agent work — plan an approach, then apply verification habits.
-
-**B. Go deeper on safety** — Sections 4 + 5
-
-Lock in good habits before scaling up — security trade-offs, then packaging what you've learned.
-
-**C. Go under the hood** — Section 7
-
-Build a tiny agent yourself with `ellmer`, and see exactly what Copilot has been doing for you.
-
-::: {.callout-note}
-Section 8 (local models) is a good add-on for anyone without an API budget or working with sensitive data.
-:::
-
 # Thank you {.section-divider}
 
-Questions, or want to compare notes as you go? Let's talk.
+:::: {.columns}
 
+::: {.column width="65%"}
 Book: [seascapemodels.org/AI-assistants-for-scientific-coding](https://www.seascapemodels.org/AI-assistants-for-scientific-coding/)
 
+Blog: [Vita ex Machina](https://vitaexmachina.substack.com/)
+
 Example data: [github.com/cbrown5/example-ecological-data](https://github.com/cbrown5/example-ecological-data)
+:::
+
+::: {.column width="35%" .qr}
+![](images/vita-QR.png)
+:::
+
+::::

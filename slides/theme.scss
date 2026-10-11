@@ -38,3 +38,48 @@ $presentation-h2-font-size: 1.5em;
 .reveal .callout-tip {
   border-left-color: #1C7293;
 }
+
+// Small caption line under figures / paper-title attributions
+.reveal .paper-caption {
+  font-size: 0.5em;
+  color: #5A6E7F;
+  font-style: italic;
+  margin-top: 0.3em;
+}
+
+// Figure slides: let the image use the available vertical space
+.reveal .big-figure p {
+  margin: 0;
+}
+
+.reveal .big-figure img {
+  max-height: 68vh;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+// Two figures shown side by side, sharing the row.
+// Pandoc wraps the images in a <p>, so the flex container is that paragraph.
+.reveal .figure-row p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.reveal .figure-row img {
+  max-height: 62vh;
+  width: auto;
+  max-width: 48%;
+  margin: 0;
+}
+
+// QR codes sitting beside text
+.reveal .qr img {
+  max-width: 85%;
+  display: block;
+  margin: 0 auto;
+}

@@ -1,3 +1,120 @@
 # Section 6: Agentic engineering for data analysis {.unnumbered}
 
-Software engineers have spent decades building practices to catch mistakes before they ship. This section adapts three of those practices — verification principles, red-green test-driven development, and simulated data as a sanity check — for scientific data analysis done with AI assistance.
+LLM agent are getting so good at data analysis that we are increasingly tempted not to directly review the code they write. In fact, I'm seeing Claude Code find more mistakes in my code than I find in its code.
+
+This tendency towards not reviewing code directly means we need ways to check the validity of the code an agent writes. 
+
+Part of the problem is that once you start using an agent it will write very complex code. Claude Code has this obsession with making absolutely generalizable scripts. For instance, it commonly writes functions just to identify the root file path for a key data file.
+
+The other part of the complexity agents code in is adding numerous print statements to the data analysis scripts, so it can see intermediate results in the terminal output. I normally do these interactively so they stay out of my scripts.
+
+All this extra code means it becomes even more tedious to review its work. Its like a double edged sword, the agent is powerful, but it makes more review work.
+
+Here are some strategies for verifying the validatity of a data analysis. I can't guarantee they will find all the mistakes, however these principles are habits that experienced data analyses have developed to prevent mistakes in their own code. They translate well to agents as well. 
+
+But first, we should consider the different classes of errors that can occur in an analysis workflow. 
+
+# Classes of errors
+
+Its worth differentiating several classes of errors that can occur in an analysis workflow
+
+1. Errors that cause code to fail
+2. Errors in the data processing
+3. Errors in the model logic 
+4. Errors where the code and the data are both right, but the result is misinterpreted
+
+## 1. Errors that cause code to fail
+
+The first type are the easiest for your agent to find and fix, it will see the error directly in the terminal. A good agent will find a way to fix it. 
+
+Many errors in this category are more insidious - they only cause failure in some cases. If you want your code to generalize to new contexts, you need to get the agent to test it on a broad variety of cases (different datasets, different model parameters). 
+
+## 2. Errors in the data processing
+
+The second kind are common in complex data processing pipelines. 
+
+First, there is structural corruption. Examples include joins that duplicate or drop rows, numbers converted to strings and NA propagation. 
+
+These are errors are detectable with the right tests in place, we'll come back to that later. 
+
+Data processing can also cause semantic misalignment. For example, its easy to mismatch units. An agent may also misinterpret your intent and pick the wrong column when two have similar names. A final pet-hate of mine are time-date data. Its too easy to misinterprert date formats, or get timezones wrong, especially if appropriate meta-data are not provided to the data analysis (and the agent). 
+
+## 3. Errors in the model logic 
+
+These errors occur when an agent misinterprets the model equations you intend it to write. They can occur when you are not clear enough about your equations. I also find they can occur when the agent defaults to what it knows best, rather than following exactly your instructions. 
+
+For example, when I was testing agents on writing population models I specifically asked for mortality to occur before reproduction, but the agent tended to write the order of events with mortality after reproduction. 
+
+## 4. Errors where the code and the data are both right, but the result is misinterpreted
+
+The agent can misinterpret the results it gets as numbers when it summarizes those results in conversation. It can also provide you with output that misinterprets the results. 
+
+Agents are particularly prone to this because they narrate results confidently in prose. It's the hardest class to catch (nothing in the code is wrong). 
+
+he model fits, the join is clean, the equations match the spec — and then the agent writes "X had a significant positive effect on Y" when the coefficient is on a log link, or reports marginal effects as if conditional. 
+
+# The solutions
+
+## Write a clear specification
+
+Start with a clear written specification for the data analysis or modelling [See Section 3](../section-3-workflows/04-specification-sheets.qmd). This should include equations for the modelling. This ensures you understand what I want the analysis to do (even if its not what you get initially).
+
+The model definition is where agents most commonly go wrong. These errors are not errors that cause your script to fail either. The script will run, but its not asking the scientific question you want it to. 
+
+So be clear on what you want first. Ideally write the model defintion into the initial instructions or specification for the agent. 
+
+For instance, if you are fitting generalized linear models, this specification will be the equations for the GLMM. It can be written as equations or code. Ideally both. 
+
+Then review those parts of the code closely that relate to the model definition. This can be easy for fitting statistical models, because usually its just a few lines of code in the heart of all the data pre-processing and plotting code. 
+
+More sophisticated analyses may spread this logic across multiple places. For instance, an ecological foodweb model might require multiple functions to deal with the dynamics of different trophic levels. 
+
+But once again, write the equations for each trophic level. Then instruct the agent how you want the code written, such as one function per trophic level. This will help keep the code tidy and easier to review. 
+
+## Red Green TDD
+
+You can add 'use red green TDD' ('test driven development') to your prompt. This will encourage the agent to use a particular programming pattern. It will write tests that fail first, then fix them. This ensures the test works before correcting it. 
+
+As an example a test in R to ensure there are no negative values in a column of a data frame would look like this:
+
+```{r eval=FALSE}
+testthat::expect_true(all(df$column >= 0))
+```
+
+The agent can program these itself. 
+
+## Review the thread
+
+Agents work iteratively in a loop to debug. Reviewing their conversations and tool calls can help you check their work and understand it works. 
+
+Leading edge agents will open a scratch pad to write and run code tests (I use Claude Code mainly). This used to primarily be for solving lethal bugs that returned errors. Increasingly, they will also verify their own results and assumptions for more subtle problems. 
+
+Reading these notes will help you understand what has been checked, and what still needs verifying. 
+
+## Plots, summary statistics and more plots
+
+Most data analysts are probably used to verifying code as they go interactively. What this looks like moment-to-moment is quickly writing code for plots and summary statistics so you can see what is happening. 
+
+Once you verify a section of code is working you move on, often deleting the verification code. 
+
+We fall out of this habit with agents. They can just produce a whole body of work and give us the final answer. Leading edge LLM agents (I'm most experienced with Claude Code) will open a scratch pad and run tests as they go. But then they never share the results directly back to your current working directory. They are buried in the conversation thread. 
+
+So plan your plots and summaries in advance and request them in the specification sheet. 
+
+Plots
+GIS plots examples
+
+
+## Testing with known answers
+
+Including sim tests. 
+
+Known answers
+
+Add data with a known answer into a batch run
+
+## Adversarial review
+
+Multi-agent workflows
+
+Adversarial review

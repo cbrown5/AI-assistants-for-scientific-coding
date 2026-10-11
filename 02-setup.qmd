@@ -253,9 +253,13 @@ Now, you need to do two steps before Gander will work. First you need to add you
 
 Now set the option for your LLM, e.g.
 
-`options(.gander_chat = ellmer::chat_anthropic())`
+`options(gander.chat = ellmer::chat_anthropic())`
 or
-`options(.gander_chat = ellmer::chat_openai())`
+`options(gander.chat = ellmer::chat_openai())`
+
+To use openrouter with a specific model:
+
+`options(gander.chat = ellmer::chat_openrouter(model = "qwen/qwen3.8-flash"`
 
 Now add a keyboard short-cut to use Gander. Go to the 'Tools' menu at the top, click 'Add-ins', 'Browse Add-ins', then click the 'Keyboard shortcuts' button. Find the row for Gander (probably at the bottom), click in the second column for 'Shortcut' and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click 'Cancel' once you've set the shortcut key ('Cancel' as we don't want to run Gander right now).
 

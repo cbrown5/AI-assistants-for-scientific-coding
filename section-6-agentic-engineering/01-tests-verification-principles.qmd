@@ -1,5 +1,45 @@
 # Tests, verification and output-checking principles
 
+
+
+
+Specification
+
+Start with a clear written specification for the data analysis or modelling. This should include equations for the modelling. This ensures I understand what I want the analysis to do (even if its not what I get initially).
+
+Claude is very helpful at this stage to review it for logical errors.
+Adversarial code review
+
+This is a no brainer. Use the agent, or ideally another provider’s agent, to review the code for errors.
+Data processing checks
+
+Instruct Claude to check all data processing steps and fail loudly if inconsistencies are found. That’s probably sufficient these days, but if you want to be thorough you can think about what you need at each stage and tell it to check for that.
+
+For example, make sure the final dataframe used in the model has N rows, or that the number of unique survey IDs == the number of rows in the dataframe.
+
+There are various R packages to support this like pointblank and validate.
+Testing against simulated data with known truth
+
+Often in ecology we are fitting generative models, that is, you can simulate data right out of the model you are fitting. So invert your specification of the model to be a specification that simulates data with a known model. Then run the simulated data through your workflow to see if it recovers the known parameters.
+
+If you are doing probabilistic inference you can also check other common verification statistics like coverage (the 95% CIs should cover the point estimate in 95% of randomized datasets).
+
+Create the data simulation in a separate Claude and R environment, to ensure independence. Make sure the AI memory storage options are turned off, or set to incognito mode, to ensure no leakage of information through memory files too.
+
+There are also many data simulation functions as R packages or within R packages. For instance, many advanced modelling packages also provide a simulation function. You can use these to further reduce the chances of errors in your simulation step
+Other simulation tests
+
+You can also do checks where you muddle the real data directly and run it through your workflow. For instance, you should get the same result if you reshuffle rows of your data-frame randomly.
+
+If you reshuffle values in the covariate columns independently of the response, then the effects of covariate should be 0 on average. If your workflow is about model selection, then enforcing shared rank ordering of a covariate and the response you should (almost certainly) find that covariate pops up in every model selected by the AIC.
+Test multiple methods
+
+In the simplest case, the same model fitted with different implementations should return the same results. For example compare results from lmer lme and glmmTMB. You can get claude to fire up sub-agents to write a script for each one independently.
+
+In more complex cases it can still be useful to do fit different models and compare results, even in the models have slightly different meanings. This may reveal errors, but it may also reveal places where your model assumptions are not robust. For instance, do different model selection methods result in the same model?
+
+
+
 Software engineers have spent decades building habits to catch mistakes before they ship — tests, code review, continuous integration. Most of that toolkit assumes you have a clear, checkable definition of "correct": the app either logs the user in or it doesn't. Data analysis rarely gives you that luxury. A GLM with the wrong family, a join that silently drops rows, or a plot with the axes mislabeled can all look completely fine to the eye and still be wrong. That's exactly the gap this section tries to close: borrowing engineering verification habits, adapted for the fact that "correct" in a scientific analysis is a fuzzier target than "correct" in software.
 
 ## Why this matters more with agents

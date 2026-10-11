@@ -800,7 +800,9 @@ div.csl-indent {
 <p>Then you can <code>install.packages("gander")</code></p>
 <p>Now, you need to do two steps before Gander will work. First you need to add your default LLM to the .Rprofile so Gander knows what LLM to use type: <code>usethis::edit_r_profile()</code></p>
 <p>Now set the option for your LLM, e.g.</p>
-<p><code>options(.gander_chat = ellmer::chat_anthropic())</code> or <code>options(.gander_chat = ellmer::chat_openai())</code></p>
+<p><code>options(gander.chat = ellmer::chat_anthropic())</code> or <code>options(gander.chat = ellmer::chat_openai())</code></p>
+<p>To use openrouter with a specific model:</p>
+<p><code>options(gander.chat = ellmer::chat_openrouter(model = "qwen/qwen3.8-flash"</code></p>
 <p>Now add a keyboard short-cut to use Gander. Go to the ‘Tools’ menu at the top, click ‘Add-ins’, ‘Browse Add-ins’, then click the ‘Keyboard shortcuts’ button. Find the row for Gander (probably at the bottom), click in the second column for ‘Shortcut’ and type your keyboard shortcut. I used cmd-i (or cntrl-i). Then click ‘Cancel’ once you’ve set the shortcut key (‘Cancel’ as we don’t want to run Gander right now).</p>
 <p>If for some reason the shortcut key won’t work you can also <code>gander::gander_addin()</code> at anytime from R.</p>
 <p>Now to check it works, open an R project and select a line of R code. Press your shortcut keys. A box should pop up. Type a prompt (like ‘make this code more fun’) and hit enter to test it does something.</p>

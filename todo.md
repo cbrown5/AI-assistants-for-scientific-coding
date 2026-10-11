@@ -2,6 +2,13 @@ Currently working on the 'version2' branch
 
 Try kilo code. THen merge and publish version 2 as latest version
 
+## Updates to vscode install options
+Need to update this advice. see:
+https://github.com/REditorSupport/vscode-R
+https://github.com/REditorSupport/jgd
+https://github.com/eitsupi/arf
+Use arf instead of radian. 
+
 ## Add appendix section
 
 Add an appendix section with: intro to markdown. Intro to quarto. Make it brief, link to external resources. 
