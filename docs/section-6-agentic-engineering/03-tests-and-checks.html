@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>33&nbsp; Red-green TDD for data analysis – AI Assistants for Scientific Coding</title>
+<title>34&nbsp; Tests and data processing checks – AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,8 +85,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../section-6-agentic-engineering/03-simulated-data-verification.html" rel="next">
-<link href="../section-6-agentic-engineering/01-tests-verification-principles.html" rel="prev">
+<link href="../section-6-agentic-engineering/04-known-answers.html" rel="next">
+<link href="../section-6-agentic-engineering/02-specification.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -139,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/02-red-green-tdd.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/03-tests-and-checks.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -418,20 +418,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+  <a href="../section-6-agentic-engineering/01-classes-of-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Classes of errors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+  <a href="../section-6-agentic-engineering/02-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Write a clear specification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  <a href="../section-6-agentic-engineering/03-tests-and-checks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-6-agentic-engineering/04-known-answers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Testing with known answers or comparisons</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-6-agentic-engineering/05-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Strategies for reviewing an agent’s work</span></span></a>
   </div>
 </li>
       </ul>
@@ -448,37 +460,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
       </ul>
@@ -495,37 +507,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/02-performance-and-hardware.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/03-choosing-a-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/05-agentic-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/06-processing-files-in-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -552,18 +564,18 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-red-looks-like-for-an-analysis" id="toc-what-red-looks-like-for-an-analysis" class="nav-link active" data-scroll-target="#what-red-looks-like-for-an-analysis"><span class="header-section-number">33.1</span> What “red” looks like for an analysis</a></li>
-  <li><a href="#getting-to-green" id="toc-getting-to-green" class="nav-link" data-scroll-target="#getting-to-green"><span class="header-section-number">33.2</span> Getting to green</a></li>
-  <li><a href="#why-the-direction-of-a-coefficient-is-a-good-first-test" id="toc-why-the-direction-of-a-coefficient-is-a-good-first-test" class="nav-link" data-scroll-target="#why-the-direction-of-a-coefficient-is-a-good-first-test"><span class="header-section-number">33.3</span> Why the direction of a coefficient is a good first test</a></li>
+  <li><a href="#red-green-tdd" id="toc-red-green-tdd" class="nav-link active" data-scroll-target="#red-green-tdd"><span class="header-section-number">34.1</span> Red Green TDD</a></li>
+  <li><a href="#using-a-source-of-truth-table" id="toc-using-a-source-of-truth-table" class="nav-link" data-scroll-target="#using-a-source-of-truth-table"><span class="header-section-number">34.2</span> Using a source of truth table</a></li>
+  <li><a href="#multi-agent-workflows" id="toc-multi-agent-workflows" class="nav-link" data-scroll-target="#multi-agent-workflows"><span class="header-section-number">34.3</span> Multi-agent workflows</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/02-red-green-tdd.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/index.html">Section 6: Agentic engineering for data analysis</a></li><li class="breadcrumb-item"><a href="../section-6-agentic-engineering/03-tests-and-checks.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></h1>
+<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></h1>
 </div>
 
 
@@ -580,45 +592,28 @@ div.csl-indent {
 </header>
 
 
-<p>Test-driven development, in its classic software form, goes: write a failing test first (red), write the minimum code to make it pass (green), then clean up. The point isn’t the tests themselves, it’s the discipline it forces — you have to decide what “correct” means <em>before</em> you write the code that’s supposed to produce it, rather than writing the code first and hoping it’s right.</p>
-<p>That discipline transfers to data analysis surprisingly well, even though “correct” is fuzzier here than in software. You won’t be testing that a function returns the right integer — you’ll be testing that a pipeline behaves the way you already know it should, on data where you already know the answer.</p>
-<section id="what-red-looks-like-for-an-analysis" class="level2" data-number="33.1">
-<h2 data-number="33.1" class="anchored" data-anchor-id="what-red-looks-like-for-an-analysis"><span class="header-section-number">33.1</span> What “red” looks like for an analysis</h2>
-<p>Before asking an agent to build the full GLM pipeline for <code>pres.topa ~ CB_cover</code>, write the check that a correct pipeline needs to pass. For example:</p>
+<section id="red-green-tdd" class="level2" data-number="34.1">
+<h2 data-number="34.1" class="anchored" data-anchor-id="red-green-tdd"><span class="header-section-number">34.1</span> Red Green TDD</h2>
+<p>You can add ‘use red green TDD’ (‘test driven development’) to your prompt. This will encourage the agent to use a particular programming pattern. It will write tests that fail first, then fix them. This ensures the test works before correcting it.</p>
+<p>As an example a test in R to ensure there are no negative values in a column of a data frame would look like this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># red: this will fail, because model_fit.R doesn't exist yet</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"scripts/model_fit.R"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">test_that</span>(<span class="st">"model output has the columns we expect"</span>, {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  testthat<span class="sc">::</span><span class="fu">expect_true</span>(<span class="fu">all</span>(<span class="fu">c</span>(<span class="st">"term"</span>, <span class="st">"estimate"</span>, <span class="st">"std.error"</span>) <span class="sc">%in%</span> <span class="fu">names</span>(model_summary)))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">test_that</span>(<span class="st">"CB_cover has a positive estimated effect"</span>, {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  testthat<span class="sc">::</span><span class="fu">expect_gt</span>(model_summary<span class="sc">$</span>estimate[model_summary<span class="sc">$</span>term <span class="sc">==</span> <span class="st">"CB_cover"</span>], <span class="dv">0</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>testthat<span class="sc">::</span><span class="fu">expect_true</span>(<span class="fu">all</span>(df<span class="sc">$</span>column <span class="sc">&gt;=</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Run it. It fails — there’s no <code>model_fit.R</code> yet, and no <code>model_summary</code> object. That’s red, and that’s the point: you’ve written down what “done” means before any code exists to satisfy it.</p>
+<p>The agent can program these itself.</p>
+<p>You should pay particular attention to make sure it tests weak points in the analysis. These can include in particular data joins and conversions among units.</p>
+<p>Instruct your agent to check all data processing steps and fail loudly if inconsistencies are found. That’s probably sufficient these days, but if you want to be thorough you can get it to create a ‘source of truth’ document that is then verified against at critical checkpoints.</p>
 </section>
-<section id="getting-to-green" class="level2" data-number="33.2">
-<h2 data-number="33.2" class="anchored" data-anchor-id="getting-to-green"><span class="header-section-number">33.2</span> Getting to green</h2>
-<p>Now hand the agent the spec sheet from <a href="../section-3-workflows/04-specification-sheets.html">Section 3</a> <em>plus</em> this test file, and ask it to write <code>scripts/model_fit.R</code> so the test passes. This changes what the agent is optimising for — instead of “write code that runs,” it’s “write code that makes this specific, falsifiable claim true.” That’s a much narrower and more checkable target, and it’s much harder for a plausible-looking-but-wrong analysis to sneak through it.</p>
+<section id="using-a-source-of-truth-table" class="level2" data-number="34.2">
+<h2 data-number="34.2" class="anchored" data-anchor-id="using-a-source-of-truth-table"><span class="header-section-number">34.2</span> Using a source of truth table</h2>
+<p>In a complex data pre-processing workflow that ends in model fitting your source of truth document might include: the expected number of samples, the expected number of unique sites (or other category), the expected range of different variables as suggested by the units they should have.</p>
+<p>Then the data frame is verified at a checkpoint right before model fitting.</p>
+<p>The model output can also be verified against this source of truth, such as checking that the number of residuals also matches the number of samples.</p>
 </section>
-<section id="why-the-direction-of-a-coefficient-is-a-good-first-test" class="level2" data-number="33.3">
-<h2 data-number="33.3" class="anchored" data-anchor-id="why-the-direction-of-a-coefficient-is-a-good-first-test"><span class="header-section-number">33.3</span> Why the direction of a coefficient is a good first test</h2>
-<p>Notice the second test above isn’t checking a p-value or an exact number — it’s checking the <em>sign</em> of an effect you already have strong prior reason to expect (branching coral cover should have a positive relationship with juvenile topa abundance, per Hamilton et al.&nbsp;2017). That’s a deliberately weak, easy-to-state claim, which is exactly the right level for a first test — you’re not trying to encode the whole analysis in assertions, just the parts you’re confident enough about to write down as a checkable fact.</p>
-<div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Challenge
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Write a red test that asserts the negative binomial dispersion parameter (<code>theta</code>) from <code>MASS::glm.nb(pres.topa ~ CB_cover, data = dat)</code> is greater than 0 and less than, say, 50 (a sanity range, not a precise prediction). Confirm it’s red before the model exists, then have an agent implement the model and confirm it goes green.</p>
-</div>
-</div>
+<section id="multi-agent-workflows" class="level2" data-number="34.3">
+<h2 data-number="34.3" class="anchored" data-anchor-id="multi-agent-workflows"><span class="header-section-number">34.3</span> Multi-agent workflows</h2>
+<p>If an idea needs testing you can ask your agent to fire up multiple sub-agents to test the idea in different ways. Instruct the lead agent to initialize multiple independent sub-agents, each with a slightly different idea to test.</p>
+<p>The key then is having a way to evaluate the results of each sub-agent. Ideally this is a quantitative evaluation. For example, it could be the number of species that the workflow runs for without failure.</p>
+<p>Just remember that you should not use the scientific result as the evaluation for choosing which sub-agents workflow you use (e.g.&nbsp;using a p-value, effect size). If you do this you are gaming the system to find a stronger result (also called ‘over-hyping’ or ‘p-hacking’). A more ethical way to approach it would be report each individual workflow as a robustness test on the main result.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1031,13 +1026,13 @@ Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lop
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="pagination-link" aria-label="Tests, verification and output-checking principles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span>
+      <a href="../section-6-agentic-engineering/02-specification.html" class="pagination-link" aria-label="Write a clear specification">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Write a clear specification</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="pagination-link" aria-label="Using simulated data as a verification step">
-        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../section-6-agentic-engineering/04-known-answers.html" class="pagination-link" aria-label="Testing with known answers or comparisons">
+        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Testing with known answers or comparisons</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

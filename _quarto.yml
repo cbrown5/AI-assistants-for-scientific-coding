@@ -53,9 +53,11 @@ book:
         - section-5-customizing-agents/04-subagents-plotting-and-methods.qmd
     - part: section-6-agentic-engineering/index.qmd
       chapters:
-        - section-6-agentic-engineering/01-tests-verification-principles.qmd
-        - section-6-agentic-engineering/02-red-green-tdd.qmd
-        - section-6-agentic-engineering/03-simulated-data-verification.qmd
+        - section-6-agentic-engineering/01-classes-of-errors.qmd
+        - section-6-agentic-engineering/02-specification.qmd
+        - section-6-agentic-engineering/03-tests-and-checks.qmd
+        - section-6-agentic-engineering/04-known-answers.qmd
+        - section-6-agentic-engineering/05-review.qmd
     - part: section-7-api-access/index.qmd
       chapters:
         - section-7-api-access/01-api-keys.qmd

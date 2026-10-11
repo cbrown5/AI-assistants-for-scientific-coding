@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>39&nbsp; Make an agent: simple read-and-write agent – AI Assistants for Scientific Coding</title>
+<title>41&nbsp; Make an agent: simple read-and-write agent – AI Assistants for Scientific Coding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -418,20 +418,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+  <a href="../section-6-agentic-engineering/01-classes-of-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Classes of errors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+  <a href="../section-6-agentic-engineering/02-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Write a clear specification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  <a href="../section-6-agentic-engineering/03-tests-and-checks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-6-agentic-engineering/04-known-answers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Testing with known answers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../section-6-agentic-engineering/05-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Review the thread</span></span></a>
   </div>
 </li>
       </ul>
@@ -448,37 +460,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
       </ul>
@@ -495,37 +507,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/02-performance-and-hardware.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/03-choosing-a-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/05-agentic-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../section-8-local-models/06-processing-files-in-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -552,18 +564,18 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#three-tools" id="toc-three-tools" class="nav-link active" data-scroll-target="#three-tools"><span class="header-section-number">39.1</span> Three tools</a></li>
-  <li><a href="#wiring-them-to-a-chat" id="toc-wiring-them-to-a-chat" class="nav-link" data-scroll-target="#wiring-them-to-a-chat"><span class="header-section-number">39.2</span> Wiring them to a chat</a></li>
-  <li><a href="#making-it-safer" id="toc-making-it-safer" class="nav-link" data-scroll-target="#making-it-safer"><span class="header-section-number">39.3</span> Making it safer</a></li>
+  <li><a href="#three-tools" id="toc-three-tools" class="nav-link active" data-scroll-target="#three-tools"><span class="header-section-number">41.1</span> Three tools</a></li>
+  <li><a href="#wiring-them-to-a-chat" id="toc-wiring-them-to-a-chat" class="nav-link" data-scroll-target="#wiring-them-to-a-chat"><span class="header-section-number">41.2</span> Wiring them to a chat</a></li>
+  <li><a href="#making-it-safer" id="toc-making-it-safer" class="nav-link" data-scroll-target="#making-it-safer"><span class="header-section-number">41.3</span> Making it safer</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../section-7-api-access/index.html">Section 7: LLM access via API</a></li><li class="breadcrumb-item"><a href="../section-7-api-access/05-make-an-agent.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></h1>
+<h1 class="title"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></h1>
 </div>
 
 
@@ -582,8 +594,8 @@ div.csl-indent {
 
 <p>By now the word “agent” has come up a lot — Copilot’s agent mode, Cline, Claude Code. It’s tempting to imagine something mysterious going on inside them. It isn’t. As Hadley Wickham put it in a recent post, <a href="https://tidydesign.substack.com/p/a-coding-agent-is-six-functions-in">“A coding agent is six functions in a trenchcoat”</a>: strip away the marketing and a coding agent is a handful of plain functions — read a file, write a file, run a shell command — wired up to an LLM that gets to call them in a loop. Everything else (the fancy chat UI, the permission prompts, the diff viewer) is scaffolding around that simple core.</p>
 <p>We already saw the general shape of this loop back in <a href="../section-2-agents/02-how-agents-work.html">Section 2</a>: the model responds, your software inspects the response, runs whatever tool was requested, and feeds the result back — round and round until the model decides it’s done. Let’s build the smallest possible version of that ourselves, in R, using <code>ellmer</code>’s tool-calling support.</p>
-<section id="three-tools" class="level2" data-number="39.1">
-<h2 data-number="39.1" class="anchored" data-anchor-id="three-tools"><span class="header-section-number">39.1</span> Three tools</h2>
+<section id="three-tools" class="level2" data-number="41.1">
+<h2 data-number="41.1" class="anchored" data-anchor-id="three-tools"><span class="header-section-number">41.1</span> Three tools</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -613,8 +625,8 @@ div.csl-indent {
 </div>
 <p>That’s the whole toolbox. Nothing here is agent-specific — they’re just ordinary R functions wrapped with <code>ellmer::tool()</code>, which describes each one and its arguments so the LLM knows when and how to call them.</p>
 </section>
-<section id="wiring-them-to-a-chat" class="level2" data-number="39.2">
-<h2 data-number="39.2" class="anchored" data-anchor-id="wiring-them-to-a-chat"><span class="header-section-number">39.2</span> Wiring them to a chat</h2>
+<section id="wiring-them-to-a-chat" class="level2" data-number="41.2">
+<h2 data-number="41.2" class="anchored" data-anchor-id="wiring-them-to-a-chat"><span class="header-section-number">41.2</span> Wiring them to a chat</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>strong_model <span class="ot">&lt;-</span> <span class="st">"anthropic/claude-sonnet-4"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -635,8 +647,8 @@ div.csl-indent {
 </div>
 <p>This is the trick worth noticing: <code>chat$chat()</code> already runs the loop for you. Internally, ellmer sends your prompt, checks whether the model’s response is a tool call, executes it if so, sends the result back as part of the conversation, and repeats — automatically — until the model responds with plain text instead of a tool call. You don’t write the <code>while</code> loop yourself; ellmer’s tool support <em>is</em> the loop. That’s really all Cline, Copilot’s agent mode, or Claude Code are doing under the hood, just with many more tools, a permission-prompt UI wrapped around each call, and a much more elaborate system prompt (see <code>resources/DIY-stats-bot-system.md</code> in this repo for a full example of a system prompt).</p>
 </section>
-<section id="making-it-safer" class="level2" data-number="39.3">
-<h2 data-number="39.3" class="anchored" data-anchor-id="making-it-safer"><span class="header-section-number">39.3</span> Making it safer</h2>
+<section id="making-it-safer" class="level2" data-number="41.3">
+<h2 data-number="41.3" class="anchored" data-anchor-id="making-it-safer"><span class="header-section-number">41.3</span> Making it safer</h2>
 <p>Our toy agent above will happily run <em>any</em> shell command it’s asked to, including ones that touch the network or delete files. Real agents guard this with permission prompts before every tool call (which is why Copilot and Claude Code ask you to confirm each step) or with an allow/deny list of specific commands. If you wanted to harden this toy version, the cheapest fix is to check <code>command</code> inside <code>run_command_tool</code> before executing it — for instance, refusing to run anything containing <code>rm</code>, <code>curl</code>, or <code>git push</code>.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Challenge">
 <div class="callout-header d-flex align-content-center">
@@ -1064,12 +1076,12 @@ Connolly, R. M., D. V. Fairclough, E. L. Jinks, E. M. Ditria, G. Jackson, S. Lop
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../section-7-api-access/04-diy-chatbot.html" class="pagination-link" aria-label="DIY chatbot">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../section-7-api-access/06-lit-review-example.html" class="pagination-link" aria-label="Literature review example">
-        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Literature review example</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Literature review example</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

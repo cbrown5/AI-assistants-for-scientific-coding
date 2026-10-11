@@ -1,0 +1,19 @@
+# Write a clear specification
+
+Start with a clear written specification for the data analysis or modelling [See Section 3](../section-3-workflows/04-specification-sheets.qmd). This should include equations for the modelling and meta-data. This ensures you understand what you want the analysis to do (even if its not what you get initially).
+
+Agents can be very helpful at this stage to review the specification for logical errors or unclear instructions, or do web searches of methods and standard practices against the literature
+
+Be clear on what you want first. Ideally write the model defintion into the initial instructions or specification for the agent. 
+
+For instance, if you are fitting generalized linear models, this specification will be the equations for the GLMM. It can be written as equations or code. Ideally both.  
+
+Remembering to provide clear meta-data is also key. This will help avoid errors around misalignment of units or misinterpretation of columns. 
+
+Also be specific about where you want the model definition to be found in the implementation. This is the one part you should absolutely review manually. So you need to be able to find it. 
+
+Then review those parts of the code closely that relate to the model definition. This can be easy for fitting statistical models, because usually its just a few lines of code in the heart of all the data pre-processing and plotting code. 
+
+More sophisticated analyses may spread this logic across multiple places. For instance, an ecological foodweb model might require multiple functions to deal with the dynamics of different trophic levels. 
+
+But once again, write the equations for each trophic level. Then instruct the agent how you want the code written, such as one function per trophic level. This will help keep the code tidy and easier for you to review these critical sections. 

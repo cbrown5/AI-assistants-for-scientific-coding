@@ -1,0 +1,29 @@
+# Strategies for reviewing an agent's work
+
+## Review the conversation thread
+
+Agents work iteratively in a loop to debug. Reviewing their conversations and tool calls can help you check their work and understand it works. 
+
+Leading edge agents will open a scratch pad to write and run code tests. This used to be primarily be for solving lethal bugs that returned errors. Increasingly, they will also verify their own results and assumptions for more subtle problems. 
+
+Reading these notes will help you understand what has been checked, and what still needs verifying. 
+
+## Plots, summary statistics and more plots
+
+Most data analysts are probably used to verifying code as they go interactively. What this looks like moment-to-moment is quickly writing code for plots and summary statistics so you can see what is happening. 
+
+Once you verify a section of code is working you move on, often deleting the verification code. 
+
+We fall out of this habit with agents. They can just produce a whole body of work and give us the final answer. Leading edge LLM agents will use the cratch pad but they don't share the test outputs directly back to your current working directory. The scratch tests are buried in the conversation thread. 
+
+So plan your plots and summaries in advance and request them in the specification sheet. 
+
+I'd usually use numerous plots throughout any complex workflow. At each stage I'm plotting to check the results. The first place to start are the plots all good statistical modellers use for model verification, such as plots of residuals, the qqnorm plot and posterior distributions (for Bayesian analysis).
+
+There are also less obvious checks where you can get creative. For example, checking a categorization of samples into day or night (y-axis) against the original time-of day for each sample (x-axis). 
+
+The same goes for GIS workflows. For instance, if you are intersecting points with a polygon over a large area, get the agent to make a zoomed in map to show coloured points as they map to different polygons. 
+
+## Adversarial review
+
+This is a no brainer. Use the agent, or ideally another provider’s agent, to review the code for errors. You can up your game by using a particularly impassioned prompt like 'review this code for errors, be pedantic and meticulous...'

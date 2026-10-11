@@ -1,0 +1,70 @@
+# Testing with known answers or comparisons
+
+The best way to know if your data analysis workflow works is to test it on a case where you already know the answer. There are a number of ways you can do this. Here are some suggestions. But be creative, there are many options. 
+
+## Testing against simulated data with known truth
+
+Often in statistical modelling we are fitting generative models, that is, you can simulate data right out of the model you are fitting. So invert your specification of the model to be a specification that simulates data with a known model. Then run the simulated data through your workflow to see if it recovers the known parameters.
+
+If you are doing probabilistic inference you can also check other common verification statistics like coverage (the 95% CIs should cover the point estimate in 95% of randomized datasets).
+
+Create the data simulation in a separate workspace and coding environment, to ensure independence of the data simulation and data fitting agents. Make sure the AI memory storage options are turned off, or set to incognito mode, to ensure no leakage of information through memory files too.
+
+There are also many data simulation functions as R packages or within R packages. For instance, many advanced stats modelling packages also provide a simulation function. You can use these to further reduce the chances of errors in your simulation step
+
+### Simulating fake topa counts
+
+Let's simulate count data with the same structure as `pres.topa ~ CB_cover`, but with a coral-cover effect we chose ourselves:
+
+```{r eval=FALSE}
+library(tidyverse)
+
+set.seed(42)
+n_sites <- 49
+
+true_intercept <- log(2) # ~2 topa at zero coral cover, on the log scale
+true_cb_effect <- 0.03 # positive effect of CB_cover on log(topa)
+true_theta <- 5 # dispersion parameter for the negative binomial
+
+sim_dat <- tibble(
+    site = 1:n_sites,
+    CB_cover = runif(n_sites, min = 0, max = 40)
+) %>%
+    mutate(
+        mu = exp(true_intercept + true_cb_effect * CB_cover),
+        pres.topa = MASS::rnegbin(n_sites, mu = mu, theta = true_theta)
+    )
+```
+
+Now fit the same model you'd fit to the real data:
+
+```{r eval=FALSE}
+m_sim <- MASS::glm.nb(pres.topa ~ CB_cover, data = sim_dat)
+summary(m_sim)
+```
+
+### What "recovers the truth" means here
+
+You're not expecting the fitted coefficient to exactly equal `0.03` — with 49 sites and real sampling noise, it won't. What you're checking is:
+
+- The estimated `CB_cover` coefficient is positive and in a plausible range around the true value.
+- The true value falls inside the 95% confidence interval most of the time — run the simulation a few times (or wrap it in a loop over, say, 200 replicates) and check the true effect falls inside the interval roughly 95% of the time, not 50% or 20%.
+- The estimated `theta` is in the right ballpark of the true dispersion you simulated.
+
+If any of those fail consistently, the problem is in the pipeline itself (wrong family, a coding bug, a mis-specified formula), and you've found that out *before* it had a chance to corrupt your interpretation of the real analysis.
+
+## Other simulation tests
+
+You can also do checks where you muddle the real data directly and run it through your workflow. For instance, you should get the same result if you reshuffle rows of your data-frame randomly.
+
+If you reshuffle values in the covariate columns independently of the response, then the effects of covariate should be 0 on average. If your workflow is about model selection, then enforcing shared rank ordering of a covariate and the response you should (almost certainly) find that covariate pops up in every model selected by the AIC. 
+
+## Compare multiple methods
+
+In the simplest case, the same model fitted with different implementations should return the same results. For example compare results from lmer lme and glmmTMB. You can get claude to fire up sub-agents to write a script for each one independently.
+
+In more complex cases it can still be useful to do fit different models and compare results, even in the models have slightly different meanings. This may reveal errors, but it may also reveal places where your model assumptions are not robust. For instance, do different model selection methods result in the same model?
+
+## Testing batch runs
+
+Frequently in modelling we are batch running some model across many cases. For examples, I'm often fitting the same model to data from many different species. Sneaking a fake species into the batch with a known answer to check the workflow for batching works. Just don't forget to remove it from your final results. Or, do the analysis for one species manually. Then check your batch code gets to the same answer. 

@@ -21,7 +21,7 @@ If you are using R then we will make use of: `install.packages(c("vegan", "ellme
 
 ### Preferred option for R users
 
-What I use in the workshops I teach:
+When I teach from this book I prefer students have: 
 
 - The R program from either Positron or the VS Code Integrated Development Environment (IDE)
 - GitHub Copilot
@@ -280,8 +280,8 @@ Most of these tools are not available (as of writing) in RStudio, or have only l
 
 To set up VS Code for R and Cline, you'll need:
 
-- R programming language
-- VS Code text editor
+- R programming language (version 3.4.0 or newer)
+- VS Code text editor (version 1.110 or newer, needed by the current R extension)
 - R extension for VS Code
 - Cline AI assistant extension for VS Code
 
@@ -295,11 +295,17 @@ Note that if your computer is controlled centrally by an IT department, you may 
 4. Download the appropriate R installer for your operating system
 5. Run the installer and follow the prompts to complete installation
 
+On Windows, let the installer write the R path to the registry when it offers to. That saves you hunting for the path later.
+
 ### R packages
 
 1. Open R or RStudio
-2. Install language server `install.packages("languageserver")`
-3. Install httpgd `install.packages("httpgd")` (this helps improve plots in VS Code). NOTE that httpgd seems to often be removed from CRAN, then come back again, I'm not sure why... If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd
+2. Install the language server `install.packages("languageserver")`. This is the one package the R extension really needs.
+3. Optionally install a plotting backend so your plots look good in VS Code. There are two choices, and either is fine:
+    - **jgd** is lightweight and the R extension prefers it. It's not on CRAN yet, so install it with `install.packages("jgd", repos = "https://grantmcdermott.r-universe.dev")`
+    - **httpgd** is the older alternative: `install.packages("httpgd")`. It tends to disappear from CRAN and come back again, so if that fails you can get it from another repo, see https://community.r-multiverse.org/httpgd
+
+You don't need to install anything else by hand. The R extension bundles a package called `sess`, which it uses to talk to your R session, and it will prompt you to install or update it the first time you open an R file. Click 'Yes'.
 
 ### Install VS Code
 
@@ -318,7 +324,20 @@ Note that if your computer is controlled centrally by an IT department, you may 
 5. Click the "Install" button
 6. Restart VS Code after installation if prompted
 
+The R extension reached version 3.0.0 in late 2025, which was a major update. The main change you'll notice is that talking to your R session is faster and more reliable: it now goes through the `sess` package mentioned above, using a direct connection rather than watching files on disk. Missing packages are also installed from whatever R repository you have configured, rather than a fixed one.
+
+A couple of settings were renamed in that release too, so if you're following an older tutorial and a setting name doesn't match what you see, that's probably why. I've flagged the two you're most likely to hit below. The [changelog](https://github.com/REditorSupport/vscode-R/blob/master/CHANGELOG.md) has the full list of changes and upgrade notes.
+
 [More info on VS Code and R here](https://code.visualstudio.com/docs/languages/r)
+
+### Other extensions worth adding
+
+Not essential, but handy while you're in the Extensions view:
+
+- **Quarto** — the official extension for writing Quarto documents. Worth it if you write reports or papers in `.qmd` files.
+- **R Debugger** (search for `RDebugger.r-debugger`) — lets you use VS Code's debugger with R scripts, so you can set breakpoints and step through code. It needs the `vscDebugger` R package, which the extension will prompt you to install.
+
+The R extension also has a pre-release channel if you want daily updates. On the extension's page in VS Code, click 'Switch to Pre-Release Version' — and 'Switch to Release Version' to go back. I'd stick with the stable release unless you enjoy the occasional broken morning.
 
 ### Connect R and VS Code
 
@@ -330,25 +349,34 @@ Note that if your computer is controlled centrally by an IT department, you may 
 
 If R is not found then open extensions (left hand side, boxes icon), filter by 'enabled' then click the R extension.
 Now click the cog icon in the R extension and select 'settings' from the dropdown.
-Search for 'rpath'. Check that it has the correct path to R on your computer. Also update 'rterm' with the same path.
+Search for 'rpath'. Check that it has the correct path to R on your computer.
 You can find the path by opening a terminal and typing `which R` (on mac) or in a  windows terminal `where R`.
+
+There's also a separate `R: Console Path` setting, which controls the program used for the interactive R console. Leave that blank for now — R's own console is the default. We'll come back to it below if you install a nicer console.
+
+On Windows, if you let the installer write the R path to the registry, the extension should find R on its own and you can skip this.
 
 One way to find out where R is installed on your computer is to open RStudio, go to 'Tools' -> 'General' then under the field 'R version' it will have the path to your R version that may look like this: 'C:\Users\myname\AppData\Progams\R\R-4.5.0'
 
-Copy that path from RStudio. Then go back to the VS Code settings and paste it into the 'rpath' and 'rterm' settings. You will also need to add the `R.exe` on the end like this:
+Copy that path from RStudio. Then go back to the VS Code settings and paste it into the 'rpath' setting. You will also need to add the `R.exe` on the end like this:
 'C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe'
 
 Now open an R script and run it (e.g. press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If it's not working you'll get an error pop-up. Go back and check the steps above.
 
 If you copied it on windows you may also need to reverse the slashes, like I have above.
 
-While you have the extension settings open search for 'httpgd' and make sure  `Plot: Use Httpgd` is enabled.
+While you have the extension settings open, search for 'plot backend'. The `R: Plot: Backend` setting controls where your plots appear:
+
+- `auto` (the default) picks the best option you have installed, trying jgd first, then httpgd, then the static viewer. If you installed one of those above, leave it on `auto` and you're done.
+- `jgd` or `httpgd` force one specific backend, if you have both installed and have a preference.
+- `standard` shows static plots in VS Code's plot viewer.
+- `native` uses R's own graphics device and doesn't open the VS Code plot viewer automatically. Useful if you'd rather plots popped up in a separate window.
 
 ### Issues and tips for VS Code with R
 
 This is just a list of issues I've had and how I've solved them.
 
-*Plotting* If your R plots look weird (like tiny font), make sure httpgd is enabled. Go back to steps above and see how to do that.
+*Plotting* If your R plots look weird (like tiny font), you're probably getting static plots rather than an interactive backend. Install jgd (or httpgd) and check the `R: Plot: Backend` setting as described above.
 
 *Viewing data* There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do `View(dat)` in R you get a nice table. Some also allow editing.
 
@@ -356,19 +384,36 @@ This is just a list of issues I've had and how I've solved them.
 
 *R markdown* There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VS Code. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. [There are some helpful instructions here](https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d)
 
-*R terminal crashes* If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying 'PTY HOST'. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to no avail.
+*R terminal crashes* If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying 'PTY HOST'. Then I need to close all the terminals (with the bin icon) and start again. Try a better console like arf (below) if this is a problem. You can also run code line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to no avail.
 
 *Shortcut keys* (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in VS Code.
 
-### Installing radian (optional but recommended)
+### Installing a nicer R console (optional but recommended)
 
-Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like RStudio does in the console), colours code/brackets etc... and allows multi-line editing in the terminal.
+The base R console in the terminal is pretty bare. A replacement console gives you autocomplete as you type (like the RStudio console), coloured code and brackets, and multi-line editing.
 
-To set this up, install radian (you need python to do this). More [instructions here](https://github.com/randy3k/radian?tab=readme-ov-file).
+There are two options:
 
-Then go to the terminal and find the path where radian is installed (e.g. `which radian` on mac or `where radian` on windows).
+- **arf** ('Alternative R Frontend') is the one the R extension now recommends. It's written in Rust and ships as a single binary, so there's no Python needed, and it adds things like vi/emacs keybindings, history search and switching between R versions. It's the successor to radian. [Instructions here](https://github.com/eitsupi/arf).
+- **radian** is the older Python-based option and still works fine. [Instructions here](https://github.com/randy3k/radian?tab=readme-ov-file).
 
-Now open your settings in VS Code (cmd-,) and search for 'rterm' (stands for 'R Terminal', don't change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting 'R: Bracketed Paste' and make sure it is enabled.
+Once you've installed one, go to the terminal and find where it was installed (e.g. `which arf` on mac or `where arf` on windows).
+
+Now open your settings in VS Code (cmd-,) and search for 'console path'. Put the path to arf (or radian) in the `R: Console Path` setting. Also search for the setting 'R: Bracketed Paste' and make sure it is enabled — this is recommended for both arf and radian.
+
+If you've used the R extension before version 3.0.0, this setting used to be called `r.rterm.windows` / `r.rterm.mac` / `r.rterm.linux`, with a separate entry per operating system. Those still work but are deprecated, and `r.consolePath` wins if you have both set. Worth tidying up if you're copying settings from an old machine.
+
+If you'd rather edit your settings file directly (cmd-shift-p then 'Preferences: Open User Settings (JSON)'), the equivalent is:
+
+```json
+{
+    "r.consolePath": "arf",
+    "r.bracketedPaste": true,
+    "r.plot.backend": "jgd"
+}
+```
+
+You can use just the program name like this if it's already on your system path; otherwise paste in the full path you found above.
 
 
 ## Installing other gen AI VS Code extensions  {#sec-otheroptions}

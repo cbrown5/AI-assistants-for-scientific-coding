@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -383,20 +418,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-agentic-engineering/01-tests-verification-principles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tests, verification and output-checking principles</span></span></a>
+  <a href="./section-6-agentic-engineering/01-classes-of-errors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Classes of errors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-agentic-engineering/02-red-green-tdd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Red-green TDD for data analysis</span></span></a>
+  <a href="./section-6-agentic-engineering/02-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Write a clear specification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./section-6-agentic-engineering/03-simulated-data-verification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Using simulated data as a verification step</span></span></a>
+  <a href="./section-6-agentic-engineering/03-tests-and-checks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Tests and data processing checks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-6-agentic-engineering/04-known-answers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Testing with known answers or comparisons</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./section-6-agentic-engineering/05-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Strategies for reviewing an agent’s work</span></span></a>
   </div>
 </li>
       </ul>
@@ -413,37 +460,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/01-api-keys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">API keys</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/02-how-api-access-works.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">How API access works with ellmer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/03-chat-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Chat: multi-turn conversations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/04-diy-chatbot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">DIY chatbot</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/05-make-an-agent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Make an agent: simple read-and-write agent</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-7-api-access/06-lit-review-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Literature review example</span></span></a>
   </div>
 </li>
       </ul>
@@ -460,37 +507,37 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/01-what-youll-need.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">What you’ll need</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/02-performance-and-hardware.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Performance and hardware</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/03-choosing-a-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Choosing a model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/04-autocomplete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Autocomplete with a local model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/05-agentic-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Agentic programming</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./section-8-local-models/06-processing-files-in-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Processing files and literature in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -547,9 +594,10 @@ div.csl-indent {
   <li><a href="#r-packages-1" id="toc-r-packages-1" class="nav-link" data-scroll-target="#r-packages-1"><span class="header-section-number">3.8.3</span> R packages</a></li>
   <li><a href="#install-vs-code" id="toc-install-vs-code" class="nav-link" data-scroll-target="#install-vs-code"><span class="header-section-number">3.8.4</span> Install VS Code</a></li>
   <li><a href="#install-r-extension" id="toc-install-r-extension" class="nav-link" data-scroll-target="#install-r-extension"><span class="header-section-number">3.8.5</span> Install R extension</a></li>
-  <li><a href="#connect-r-and-vs-code" id="toc-connect-r-and-vs-code" class="nav-link" data-scroll-target="#connect-r-and-vs-code"><span class="header-section-number">3.8.6</span> Connect R and VS Code</a></li>
-  <li><a href="#issues-and-tips-for-vs-code-with-r" id="toc-issues-and-tips-for-vs-code-with-r" class="nav-link" data-scroll-target="#issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VS Code with R</a></li>
-  <li><a href="#installing-radian-optional-but-recommended" id="toc-installing-radian-optional-but-recommended" class="nav-link" data-scroll-target="#installing-radian-optional-but-recommended"><span class="header-section-number">3.8.8</span> Installing radian (optional but recommended)</a></li>
+  <li><a href="#other-extensions-worth-adding" id="toc-other-extensions-worth-adding" class="nav-link" data-scroll-target="#other-extensions-worth-adding"><span class="header-section-number">3.8.6</span> Other extensions worth adding</a></li>
+  <li><a href="#connect-r-and-vs-code" id="toc-connect-r-and-vs-code" class="nav-link" data-scroll-target="#connect-r-and-vs-code"><span class="header-section-number">3.8.7</span> Connect R and VS Code</a></li>
+  <li><a href="#issues-and-tips-for-vs-code-with-r" id="toc-issues-and-tips-for-vs-code-with-r" class="nav-link" data-scroll-target="#issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.8</span> Issues and tips for VS Code with R</a></li>
+  <li><a href="#installing-a-nicer-r-console-optional-but-recommended" id="toc-installing-a-nicer-r-console-optional-but-recommended" class="nav-link" data-scroll-target="#installing-a-nicer-r-console-optional-but-recommended"><span class="header-section-number">3.8.9</span> Installing a nicer R console (optional but recommended)</a></li>
   </ul></li>
   <li><a href="#sec-otheroptions" id="toc-sec-otheroptions" class="nav-link" data-scroll-target="#sec-otheroptions"><span class="header-section-number">3.9</span> Installing other gen AI VS Code extensions</a></li>
   </ul>
@@ -595,7 +643,7 @@ div.csl-indent {
 <h2 data-number="3.2" class="anchored" data-anchor-id="options-for-ai-software"><span class="header-section-number">3.2</span> Options for AI software</h2>
 <section id="preferred-option-for-r-users" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="preferred-option-for-r-users"><span class="header-section-number">3.2.1</span> Preferred option for R users</h3>
-<p>What I use in the workshops I teach:</p>
+<p>When I teach from this book I prefer students have:</p>
 <ul>
 <li>The R program from either Positron or the VS Code Integrated Development Environment (IDE)</li>
 <li>GitHub Copilot</li>
@@ -816,8 +864,8 @@ div.csl-indent {
 <h3 data-number="3.8.1" class="anchored" data-anchor-id="software-requirements"><span class="header-section-number">3.8.1</span> Software requirements</h3>
 <p>To set up VS Code for R and Cline, you’ll need:</p>
 <ul>
-<li>R programming language</li>
-<li>VS Code text editor</li>
+<li>R programming language (version 3.4.0 or newer)</li>
+<li>VS Code text editor (version 1.110 or newer, needed by the current R extension)</li>
 <li>R extension for VS Code</li>
 <li>Cline AI assistant extension for VS Code</li>
 </ul>
@@ -832,14 +880,20 @@ div.csl-indent {
 <li>Download the appropriate R installer for your operating system</li>
 <li>Run the installer and follow the prompts to complete installation</li>
 </ol>
+<p>On Windows, let the installer write the R path to the registry when it offers to. That saves you hunting for the path later.</p>
 </section>
 <section id="r-packages-1" class="level3" data-number="3.8.3">
 <h3 data-number="3.8.3" class="anchored" data-anchor-id="r-packages-1"><span class="header-section-number">3.8.3</span> R packages</h3>
 <ol type="1">
 <li>Open R or RStudio</li>
-<li>Install language server <code>install.packages("languageserver")</code></li>
-<li>Install httpgd <code>install.packages("httpgd")</code> (this helps improve plots in VS Code). NOTE that httpgd seems to often be removed from CRAN, then come back again, I’m not sure why… If you are having trouble you can try install from a different repo, see instructions here: https://community.r-multiverse.org/httpgd</li>
+<li>Install the language server <code>install.packages("languageserver")</code>. This is the one package the R extension really needs.</li>
+<li>Optionally install a plotting backend so your plots look good in VS Code. There are two choices, and either is fine:
+<ul>
+<li><strong>jgd</strong> is lightweight and the R extension prefers it. It’s not on CRAN yet, so install it with <code>install.packages("jgd", repos = "https://grantmcdermott.r-universe.dev")</code></li>
+<li><strong>httpgd</strong> is the older alternative: <code>install.packages("httpgd")</code>. It tends to disappear from CRAN and come back again, so if that fails you can get it from another repo, see https://community.r-multiverse.org/httpgd</li>
+</ul></li>
 </ol>
+<p>You don’t need to install anything else by hand. The R extension bundles a package called <code>sess</code>, which it uses to talk to your R session, and it will prompt you to install or update it the first time you open an R file. Click ‘Yes’.</p>
 </section>
 <section id="install-vs-code" class="level3" data-number="3.8.4">
 <h3 data-number="3.8.4" class="anchored" data-anchor-id="install-vs-code"><span class="header-section-number">3.8.4</span> Install VS Code</h3>
@@ -861,10 +915,21 @@ div.csl-indent {
 <li>Click the “Install” button</li>
 <li>Restart VS Code after installation if prompted</li>
 </ol>
+<p>The R extension reached version 3.0.0 in late 2025, which was a major update. The main change you’ll notice is that talking to your R session is faster and more reliable: it now goes through the <code>sess</code> package mentioned above, using a direct connection rather than watching files on disk. Missing packages are also installed from whatever R repository you have configured, rather than a fixed one.</p>
+<p>A couple of settings were renamed in that release too, so if you’re following an older tutorial and a setting name doesn’t match what you see, that’s probably why. I’ve flagged the two you’re most likely to hit below. The <a href="https://github.com/REditorSupport/vscode-R/blob/master/CHANGELOG.md">changelog</a> has the full list of changes and upgrade notes.</p>
 <p><a href="https://code.visualstudio.com/docs/languages/r">More info on VS Code and R here</a></p>
 </section>
-<section id="connect-r-and-vs-code" class="level3" data-number="3.8.6">
-<h3 data-number="3.8.6" class="anchored" data-anchor-id="connect-r-and-vs-code"><span class="header-section-number">3.8.6</span> Connect R and VS Code</h3>
+<section id="other-extensions-worth-adding" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="other-extensions-worth-adding"><span class="header-section-number">3.8.6</span> Other extensions worth adding</h3>
+<p>Not essential, but handy while you’re in the Extensions view:</p>
+<ul>
+<li><strong>Quarto</strong> — the official extension for writing Quarto documents. Worth it if you write reports or papers in <code>.qmd</code> files.</li>
+<li><strong>R Debugger</strong> (search for <code>RDebugger.r-debugger</code>) — lets you use VS Code’s debugger with R scripts, so you can set breakpoints and step through code. It needs the <code>vscDebugger</code> R package, which the extension will prompt you to install.</li>
+</ul>
+<p>The R extension also has a pre-release channel if you want daily updates. On the extension’s page in VS Code, click ‘Switch to Pre-Release Version’ — and ‘Switch to Release Version’ to go back. I’d stick with the stable release unless you enjoy the occasional broken morning.</p>
+</section>
+<section id="connect-r-and-vs-code" class="level3" data-number="3.8.7">
+<h3 data-number="3.8.7" class="anchored" data-anchor-id="connect-r-and-vs-code"><span class="header-section-number">3.8.7</span> Connect R and VS Code</h3>
 <ol type="1">
 <li>Open a new terminal in VS Code (Terminal &gt; New Terminal)</li>
 <li>Check that R is installed by running: <code>R --version</code></li>
@@ -872,29 +937,49 @@ div.csl-indent {
 <li>Now open any R script in VS Code (File &gt; Open)</li>
 <li>Run some R code to check that VS Code can connect to R in the terminal. Use the shortcut Ctrl+Enter/Cmd+Enter or press the play button in the top right of the script editor.</li>
 </ol>
-<p>If R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. Also update ‘rterm’ with the same path. You can find the path by opening a terminal and typing <code>which R</code> (on mac) or in a windows terminal <code>where R</code>.</p>
+<p>If R is not found then open extensions (left hand side, boxes icon), filter by ‘enabled’ then click the R extension. Now click the cog icon in the R extension and select ‘settings’ from the dropdown. Search for ‘rpath’. Check that it has the correct path to R on your computer. You can find the path by opening a terminal and typing <code>which R</code> (on mac) or in a windows terminal <code>where R</code>.</p>
+<p>There’s also a separate <code>R: Console Path</code> setting, which controls the program used for the interactive R console. Leave that blank for now — R’s own console is the default. We’ll come back to it below if you install a nicer console.</p>
+<p>On Windows, if you let the installer write the R path to the registry, the extension should find R on its own and you can skip this.</p>
 <p>One way to find out where R is installed on your computer is to open RStudio, go to ‘Tools’ -&gt; ‘General’ then under the field ‘R version’ it will have the path to your R version that may look like this: ‘C:.0’</p>
-<p>Copy that path from RStudio. Then go back to the VS Code settings and paste it into the ‘rpath’ and ‘rterm’ settings. You will also need to add the <code>R.exe</code> on the end like this: ‘C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe’</p>
+<p>Copy that path from RStudio. Then go back to the VS Code settings and paste it into the ‘rpath’ setting. You will also need to add the <code>R.exe</code> on the end like this: ‘C:/Users/myname/AppData/Progams/R/R-4.5.0/R.exe’</p>
 <p>Now open an R script and run it (e.g.&nbsp;press cmd/cntrl-enter). If everything is connected R will open and it will run the script. If it’s not working you’ll get an error pop-up. Go back and check the steps above.</p>
 <p>If you copied it on windows you may also need to reverse the slashes, like I have above.</p>
-<p>While you have the extension settings open search for ‘httpgd’ and make sure <code>Plot: Use Httpgd</code> is enabled.</p>
+<p>While you have the extension settings open, search for ‘plot backend’. The <code>R: Plot: Backend</code> setting controls where your plots appear:</p>
+<ul>
+<li><code>auto</code> (the default) picks the best option you have installed, trying jgd first, then httpgd, then the static viewer. If you installed one of those above, leave it on <code>auto</code> and you’re done.</li>
+<li><code>jgd</code> or <code>httpgd</code> force one specific backend, if you have both installed and have a preference.</li>
+<li><code>standard</code> shows static plots in VS Code’s plot viewer.</li>
+<li><code>native</code> uses R’s own graphics device and doesn’t open the VS Code plot viewer automatically. Useful if you’d rather plots popped up in a separate window.</li>
+</ul>
 </section>
-<section id="issues-and-tips-for-vs-code-with-r" class="level3" data-number="3.8.7">
-<h3 data-number="3.8.7" class="anchored" data-anchor-id="issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.7</span> Issues and tips for VS Code with R</h3>
+<section id="issues-and-tips-for-vs-code-with-r" class="level3" data-number="3.8.8">
+<h3 data-number="3.8.8" class="anchored" data-anchor-id="issues-and-tips-for-vs-code-with-r"><span class="header-section-number">3.8.8</span> Issues and tips for VS Code with R</h3>
 <p>This is just a list of issues I’ve had and how I’ve solved them.</p>
-<p><em>Plotting</em> If your R plots look weird (like tiny font), make sure httpgd is enabled. Go back to steps above and see how to do that.</p>
+<p><em>Plotting</em> If your R plots look weird (like tiny font), you’re probably getting static plots rather than an interactive backend. Install jgd (or httpgd) and check the <code>R: Plot: Backend</code> setting as described above.</p>
 <p><em>Viewing data</em> There are various extensions for viewing csv and excel files. It is worth looking into these so that when you do <code>View(dat)</code> in R you get a nice table. Some also allow editing.</p>
 <p><em>Getting help to install software</em> My computer is somewhat locked down by IT, so getting this set-up was a bit fiddly and required a few requests to IT to install software.</p>
 <p><em>R markdown</em> There are options in the R extension settings for how to knit markdown. You may need to configure these if you want to knit markdown docs from VS Code. If you are having trouble knitting markdown it may mean that the path to pandoc is not set correctly. <a href="https://stackoverflow.com/questions/60766646/need-help-assigning-global-settings-for-rstudios-pandoc-in-vscode-to-knit-pdf-d">There are some helpful instructions here</a></p>
-<p><em>R terminal crashes</em> If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try radian if this is a problem. You can also code run line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to no avail.</p>
+<p><em>R terminal crashes</em> If I run too much R code at once (like selecting a big block then running) the terminal tends to crash. Initially I see a little highlighted box saying ‘PTY HOST’. Then I need to close all the terminals (with the bin icon) and start again. Try a better console like arf (below) if this is a problem. You can also run code line-by-line or source whole scripts from the terminal (which works fine). I tried debugging this by increasing the buffer but to no avail.</p>
 <p><em>Shortcut keys</em> (on osx) cmd-/ to comment uncomment lines. cmd-shift-p to open the command palette, cmd-b to open the file explorer, cmd-enter to run lines or selection of R code, cmd-shift-c to open terminal in new window, cntrl-shift-` to open a new terminal in VS Code.</p>
 </section>
-<section id="installing-radian-optional-but-recommended" class="level3" data-number="3.8.8">
-<h3 data-number="3.8.8" class="anchored" data-anchor-id="installing-radian-optional-but-recommended"><span class="header-section-number">3.8.8</span> Installing radian (optional but recommended)</h3>
-<p>Radian is a terminal editor that is a bit nicer than the base R one. It does autocomplete in the terminal (like RStudio does in the console), colours code/brackets etc… and allows multi-line editing in the terminal.</p>
-<p>To set this up, install radian (you need python to do this). More <a href="https://github.com/randy3k/radian?tab=readme-ov-file">instructions here</a>.</p>
-<p>Then go to the terminal and find the path where radian is installed (e.g.&nbsp;<code>which radian</code> on mac or <code>where radian</code> on windows).</p>
-<p>Now open your settings in VS Code (cmd-,) and search for ‘rterm’ (stands for ‘R Terminal’, don’t change the rpath which we set just before). Add the path to radian to the rterm setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled.</p>
+<section id="installing-a-nicer-r-console-optional-but-recommended" class="level3" data-number="3.8.9">
+<h3 data-number="3.8.9" class="anchored" data-anchor-id="installing-a-nicer-r-console-optional-but-recommended"><span class="header-section-number">3.8.9</span> Installing a nicer R console (optional but recommended)</h3>
+<p>The base R console in the terminal is pretty bare. A replacement console gives you autocomplete as you type (like the RStudio console), coloured code and brackets, and multi-line editing.</p>
+<p>There are two options:</p>
+<ul>
+<li><strong>arf</strong> (‘Alternative R Frontend’) is the one the R extension now recommends. It’s written in Rust and ships as a single binary, so there’s no Python needed, and it adds things like vi/emacs keybindings, history search and switching between R versions. It’s the successor to radian. <a href="https://github.com/eitsupi/arf">Instructions here</a>.</li>
+<li><strong>radian</strong> is the older Python-based option and still works fine. <a href="https://github.com/randy3k/radian?tab=readme-ov-file">Instructions here</a>.</li>
+</ul>
+<p>Once you’ve installed one, go to the terminal and find where it was installed (e.g.&nbsp;<code>which arf</code> on mac or <code>where arf</code> on windows).</p>
+<p>Now open your settings in VS Code (cmd-,) and search for ‘console path’. Put the path to arf (or radian) in the <code>R: Console Path</code> setting. Also search for the setting ‘R: Bracketed Paste’ and make sure it is enabled — this is recommended for both arf and radian.</p>
+<p>If you’ve used the R extension before version 3.0.0, this setting used to be called <code>r.rterm.windows</code> / <code>r.rterm.mac</code> / <code>r.rterm.linux</code>, with a separate entry per operating system. Those still work but are deprecated, and <code>r.consolePath</code> wins if you have both set. Worth tidying up if you’re copying settings from an old machine.</p>
+<p>If you’d rather edit your settings file directly (cmd-shift-p then ‘Preferences: Open User Settings (JSON)’), the equivalent is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"r.consolePath"</span><span class="fu">:</span> <span class="st">"arf"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"r.bracketedPaste"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"r.plot.backend"</span><span class="fu">:</span> <span class="st">"jgd"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can use just the program name like this if it’s already on your system path; otherwise paste in the full path you found above.</p>
 </section>
 </section>
 <section id="sec-otheroptions" class="level2" data-number="3.9">
